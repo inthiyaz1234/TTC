@@ -4,9 +4,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sneha Iyer | Income Tax Specialist | ITR Filing Expert India</title>
 <meta name="description" content="Sneha Iyer is an income tax specialist with 4+ years of experience in ITR filing, NRI taxation, capital gains, and tax refund optimization for individuals across India.">
-<meta name="keywords" content="ITR Filing Tax Expert India, NRI Tax Consultant India, Income Tax Specialist">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+<!-- jQuery (required by Owl Carousel) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:auto;overflow-x:hidden}
@@ -102,6 +112,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 @keyframes pulseRing{0%{transform:scale(1);opacity:0.6}100%{transform:scale(2.2);opacity:0}}
 
+/* ─── BUTTONS - BLACK & WHITE ONLY ─── */
 .btn{
   display:inline-flex;align-items:center;gap:8px;
   padding:11px 24px;border-radius:var(--r-sm);
@@ -114,20 +125,59 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 }
 .btn::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.15),transparent 60%);
+  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.18),transparent 60%);
   transform:translateX(-100%);
   transition:transform .5s var(--ease);
   pointer-events:none;
 }
 .btn:hover::after{transform:translateX(100%)}
-.btn-primary{background:#fff;color:#000}
-.btn-primary:hover{background:#e8e8e8;transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,255,255,0.18)}
+
+/* Primary: white bg → hover: black bg with white border */
+.btn-primary{
+  background:#fff;
+  color:#000;
+  border:1.5px solid #fff;
+}
+.btn-primary:hover{
+  background:#000 !important;
+  color:#fff !important;
+  border-color:rgba(255,255,255,0.5) !important;
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(255,255,255,0.12),0 0 0 1px rgba(255,255,255,0.15) !important;
+}
 .btn-primary:active{transform:scale(0.96) translateY(0)}
-.btn-secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2)}
-.btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,0.06);transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,255,255,0.06)}
+
+/* Secondary: dark glass → hover: white bg with black text */
+.btn-secondary{
+  background:rgba(255,255,255,0.05);
+  color:#fff;
+  border:1.5px solid rgba(255,255,255,0.28);
+}
+.btn-secondary:hover{
+  background:#fff !important;
+  color:#000 !important;
+  border-color:#fff !important;
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(255,255,255,0.15) !important;
+}
 .btn-secondary:active{transform:scale(0.96)}
 .btn-arrow{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .3s var(--ease)}
 .btn:hover .btn-arrow{transform:translateX(3px)}
+
+/* Request Callback Button - White background with black text on hover */
+.btn-callback{
+  background:transparent;
+  color:#fff;
+  border:1.5px solid rgba(255,255,255,0.5);
+}
+.btn-callback:hover{
+  background:#fff !important;
+  color:#000 !important;
+  border-color:#fff !important;
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(255,255,255,0.15) !important;
+}
+.btn-callback:active{transform:scale(0.96)}
 
 .card{
   background:var(--card);border:1px solid var(--border);
@@ -152,30 +202,159 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .sec-sub{font-size:14px;color:var(--muted);margin-top:18px;line-height:1.7}
 @media(max-width:768px){.sec-title{font-size:22px}.sec-title::after{width:28px}}
 
-.hero{height:38vh;min-height:380px;max-height:460px;display:flex;align-items:center;padding:40px 0 0; ;position:relative;background:transparent}
+/* ─── HERO ─── */
+.hero{height:38vh;min-height:380px;max-height:460px;display:flex;align-items:center;padding:40px 0 0;position:relative;background:transparent}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:center;width:100%}
 .hero-content{display:flex;flex-direction:column;justify-content:center;max-width:580px}
-.hero-content .badge{margin-bottom:14px}
 
+/* ─── HERO GLASS CARD ─── */
+.hero-glass-card{
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(28px);
+  -webkit-backdrop-filter:blur(28px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:26px;
+  padding:22px 24px 20px;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .4s var(--ease),box-shadow .4s var(--ease);
+  /* top highlight line */
+}
+.hero-glass-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);
+  pointer-events:none;
+  z-index:1;
+}
+/* inner corner gloss */
+.hero-glass-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.055) 0%,transparent 50%);
+  pointer-events:none;
+  border-radius:inherit;
+  z-index:0;
+}
+.hero-glass-card > *{position:relative;z-index:1}
+.hero-glass-card:hover{
+  border-color:rgba(255,255,255,0.22);
+  box-shadow:0 24px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* ─── HERO NAME ─── */
 .hero-name{
   font-size:clamp(42px,5vw,52px);line-height:1.02;font-weight:900;letter-spacing:-.03em;
   background:linear-gradient(135deg,#fff 30%,#999 55%,#fff 70%,#666 90%);
   background-size:300% auto;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
-  margin-bottom:6px;
-  animation:shimmerName 7s linear infinite;
+  margin-bottom:12px;
+  opacity:0;
+  animation:heroReveal .6s var(--ease) .18s forwards,shimmerName 7s linear 1s infinite;
   will-change:background-position;
 }
 @keyframes shimmerName{0%{background-position:0% center}100%{background-position:300% center}}
 
-.hero-role{font-size:17px;font-weight:600;color:var(--muted);margin-bottom:4px}
-.hero-exp{font-size:13px;color:var(--sub);margin-bottom:14px}
-.hero-bio{font-size:13px;color:#777;line-height:1.65;margin-bottom:20px;max-width:520px}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:0}
+/* ─── HERO PILLS GRID ─── */
+.hero-pills-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-bottom:11px;
+  opacity:0;
+  transform:translateY(12px);
+  animation:heroReveal .6s var(--ease) .30s forwards;
+}
+
+/* Individual pill */
+.hero-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:100px;
+  padding:7px 14px;
+  font-size:11px;
+  font-weight:600;
+  color:rgba(255,255,255,0.88);
+  letter-spacing:0.01em;
+  font-family:'Montserrat',sans-serif;
+  position:relative;
+  overflow:hidden;
+  transition:background .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+  cursor:default;
+}
+/* Gloss highlight inside pill */
+.hero-pill::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:50%;
+  background:linear-gradient(180deg,rgba(255,255,255,0.1),transparent);
+  border-radius:100px 100px 0 0;
+  pointer-events:none;
+}
+.hero-pill:hover{
+  background:rgba(255,255,255,0.13);
+  border-color:rgba(255,255,255,0.3);
+  transform:translateY(-1px);
+  box-shadow:0 4px 14px rgba(0,0,0,0.4);
+}
+.hero-pill svg{
+  width:11px;height:11px;
+  stroke:rgba(255,255,255,0.6);
+  fill:none;
+  stroke-width:2;
+  flex-shrink:0;
+}
+/* Pill dot accent */
+.hero-pill-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(255,255,255,0.4);
+  flex-shrink:0;
+  animation:pulse 2s ease-in-out infinite;
+}
+
+/* Bio pill - wider card style */
+.hero-bio-pill{
+  background:rgba(255,255,255,0.035);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:16px;
+  padding:10px 14px;
+  font-size:11px;
+  font-weight:500;
+  color:#6e6e6e;
+  line-height:1.65;
+  margin-bottom:14px;
+  font-family:'Montserrat',sans-serif;
+  opacity:0;
+  transform:translateY(10px);
+  animation:heroReveal .6s var(--ease) .38s forwards;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bio-pill::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+}
+
+/* Badge + buttons animation */
+.hero-badge-wrap{opacity:0;transform:translateY(16px);animation:heroReveal .6s var(--ease) .1s forwards;margin-bottom:10px}
+.hero-btns{opacity:0;transform:translateY(10px);animation:heroReveal .6s var(--ease) .46s forwards}
+.hero-photo-wrap{opacity:0;transform:translateY(18px);animation:heroReveal .8s var(--ease) .22s forwards}
+@keyframes heroReveal{to{opacity:1;transform:translateY(0)}}
+
 .hero-photo-wrap{display:flex;justify-content:center;align-items:center;position:relative}
 
-/* ---------- UPGRADED .hero-photo-card (magnetic + depth) ---------- */
+/* ─── HERO PHOTO CARD ─── */
 .hero-photo-card{
   width:280px;height:360px;border-radius:22px;overflow:hidden;
   background:rgba(255,255,255,0.03);
@@ -253,46 +432,75 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 @keyframes metricFloat1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes metricFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 
-.hero-badge-wrap{opacity:0;transform:translateY(16px);animation:heroReveal .6s var(--ease) .1s forwards}
-.hero-name{opacity:0;transform:translateY(16px);animation:heroReveal .6s var(--ease) .18s forwards,shimmerName 7s linear 1s infinite}
-.hero-role{opacity:0;transform:translateY(14px);animation:heroReveal .6s var(--ease) .26s forwards}
-.hero-exp{opacity:0;transform:translateY(12px);animation:heroReveal .6s var(--ease) .32s forwards}
-.hero-bio{opacity:0;transform:translateY(12px);animation:heroReveal .6s var(--ease) .38s forwards}
-.hero-btns{opacity:0;transform:translateY(10px);animation:heroReveal .6s var(--ease) .46s forwards}
-.hero-photo-wrap{opacity:0;transform:translateY(18px);animation:heroReveal .8s var(--ease) .22s forwards}
-@keyframes heroReveal{to{opacity:1;transform:translateY(0)}}
+/* Info strip */
+.info-strip{display:none;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--r-md);padding:12px}
+.info-strip-row{display:flex;gap:0}
+.info-cell{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 4px;border-right:1px solid var(--border)}
+.info-cell:last-child{border-right:none}
+.info-cell-icon{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.info-cell-icon svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:1.5}
+.info-cell-label{font-size:8px;color:var(--sub);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:2px}
+.info-cell-value{font-size:10px;color:#fff;font-weight:600;line-height:1.2}
 
-.hero-name{
-  opacity:0;
-  animation:heroReveal .6s var(--ease) .18s forwards, shimmerName 7s linear 1s infinite;
-}
-
+/* ─── TABLET HERO ─── */
 @media(min-width:769px) and (max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:24px}
   .hero-photo-wrap{order:-1}
   .hero-photo-card{width:220px;height:280px;margin:0 auto}
   .hero-content{max-width:100%;text-align:center;align-items:center}
-  .hero-bio{max-width:100%}
+  .hero-glass-card{text-align:left}
+  .hero-pills-grid{justify-content:flex-start}
   .hero-btns{justify-content:center}
   .hero .badge{margin-left:auto;margin-right:auto}
-  .hero-metric{display:none}
+  .hero-metric{display:flex}
 }
 
 /* ─── MOBILE HERO ─── */
 @media(max-width:768px){
-  .hero{height:40vh;min-height:260px;max-height:320px;padding:0}
+  .hero{height:auto;min-height:auto;max-height:none;padding:20px 0}
   .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}
 
-  .hero .badge,.hero-bio,.info-strip,.hero-trust,.hero-metric{display:none !important}
+  .hero .badge,.info-strip,.hero-trust{display:none !important}
+  
+  /* Show metrics on mobile */
+  .hero-metric{display:flex !important}
+  .metric-1{top:-10px;right:-5px;padding:6px 10px;transform:scale(0.85);transform-origin:top right}
+  /* Updated: Move metric-2 to bottom-left of image */
+  .metric-2{bottom:-10px;left:-5px;padding:6px 10px;transform:scale(0.85);transform-origin:bottom left}
+  .hero-metric-val{font-size:13px}
+  .hero-metric-lbl{font-size:8px}
 
   .hero-content{max-width:100%;justify-content:center;padding-right:4px}
+
+  /* Glass card mobile */
+  .hero-glass-card{
+    padding:12px 12px 10px;
+    border-radius:18px;
+  }
+
   .hero-name{
-    font-size:24px;line-height:1.05;margin-bottom:4px;
+    font-size:22px;line-height:1.05;margin-bottom:8px;
     background:linear-gradient(135deg,#fff 60%,#aaa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
     animation:heroReveal .6s var(--ease) .18s forwards;
   }
-  .hero-role{font-size:13px;margin-bottom:2px;letter-spacing:0.3px}
-  .hero-exp{font-size:11px;margin-bottom:0}
+
+  /* Pills - mobile compact */
+  .hero-pills-grid{
+    gap:5px;
+    margin-bottom:8px;
+  }
+  .hero-pill{
+    font-size:9px;
+    padding:5px 9px;
+    gap:4px;
+  }
+  .hero-pill svg{width:9px;height:9px}
+  .hero-pill.pill-desktop-only{display:none}
+  .hero-pill-dot{width:4px;height:4px}
+
+  /* Bio pill hidden on mobile */
+  .hero-bio-pill{display:none}
+
   .hero-photo-wrap{display:flex;justify-content:center;align-items:center;position:relative}
   .hero-photo-card{
     width:100%;max-width:140px;height:180px;border-radius:18px;
@@ -326,10 +534,11 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   }
   .mobile-cta .btn{
     flex:1;
-    padding:7px 8px;
-    font-size:10px;
+    padding:7px 6px;
+    font-size:9.5px;
     border-radius:10px;
     justify-content:center;
+    letter-spacing:0;
   }
 }
 
@@ -339,14 +548,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .about-text{font-size:13px;color:#bbb;line-height:1.7}
 .about-toggle{margin-top:12px;font-size:12px;font-weight:700;color:#6ea8ff;cursor:pointer;transition:opacity .2s ease}
 .about-toggle:hover{opacity:0.7}
-.info-strip{display:none;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--r-md);padding:12px}
-.info-strip-row{display:flex;gap:0}
-.info-cell{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 4px;border-right:1px solid var(--border)}
-.info-cell:last-child{border-right:none}
-.info-cell-icon{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:6px}
-.info-cell-icon svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:1.5}
-.info-cell-label{font-size:8px;color:var(--sub);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:2px}
-.info-cell-value{font-size:10px;color:#fff;font-weight:600;line-height:1.2}
 
 .sec{padding:56px 0}
 .sec-sm{padding:40px 0}
@@ -401,31 +602,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .exp-card .exp-title{font-size:12px}
 }
 
-/* ─── SERVICES GRID ─── */
-.services-clean{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-.service-main-card{
-  background:rgba(255,255,255,0.03);border:1px solid var(--border);
-  border-radius:14px;padding:28px;text-align:center;
-  transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);
-  cursor:pointer;position:relative;overflow:hidden;will-change:transform;
-}
-.service-main-card::before{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.04),transparent);
-  transition:left .6s var(--ease);pointer-events:none;
-}
-.service-main-card:hover{border-color:#fff;transform:translateY(-4px) scale(1.01);box-shadow:0 16px 40px rgba(0,0,0,.5)}
-.service-main-card:hover::before{left:100%}
-.service-icon{width:48px;height:48px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;transition:transform .3s var(--ease)}
-.service-main-card:hover .service-icon{transform:scale(1.1) rotate(-3deg)}
-.service-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.5}
-.service-title{font-size:14px;font-weight:700}
-@media(max-width:768px){
-  .services-clean{grid-template-columns:repeat(3,1fr);gap:10px}
-  .service-main-card{padding:14px}
-  .service-title{font-size:12px}
-}
-
 /* ─── TAP-CARD SYSTEM ─── */
 .tap-card{transition:transform 0.22s var(--ease),border-color 0.22s var(--ease),background 0.22s var(--ease)}
 .tap-card:active{transform:scale(0.97)}
@@ -452,27 +628,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     pointer-events:none;
   }
-  .service-main-card.tap-card{
-    position:relative;overflow:hidden;min-height:96px;
-    display:flex;align-items:stretch;padding:0;
-  }
-  .service-main-card.tap-card .card-front{
-    width:100%;padding:14px 10px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    transform:translateY(0);opacity:1;
-  }
-  .service-main-card.tap-card .card-back{
-    position:absolute;inset:0;padding:12px 10px;
-    opacity:0;transform:translateY(10px);
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    pointer-events:none;
-  }
-
   .ind-card.tap-card{
     position:relative;overflow:hidden;min-height:100px;padding:0;
   }
@@ -710,6 +865,135 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 .kpi-num{display:inline}
 #heroSection{will-change:transform,opacity}
+
+/* Expert Service Plans Carousel Styles */
+#tax-services-section {
+  width: 100%;
+  padding: 56px 0;
+}
+#tax-services-section .section-header {
+  margin-bottom: 28px;
+}
+#tax-services-section .section-title {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.1;
+}
+#tax-services-section .section-subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+  font-family: 'Montserrat', sans-serif;
+}
+.web-only {
+  display: block;
+}
+@media (max-width: 768px) {
+  .web-only {
+    display: none;
+  }
+}
+
+@keyframes ttc-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+
+#tax-services-section .owl-stage {
+  display: flex !important;
+  align-items: stretch !important;
+}
+#tax-services-section .owl-item {
+  display: flex !important;
+  height: auto;
+}
+#tax-services-section .owl-item > div {
+  display: flex;
+  width: 100%;
+}
+#tax-services-section .ttc-card-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+#tax-services-section .owl-nav {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px !important;
+}
+#tax-services-section .owl-prev,
+#tax-services-section .owl-next {
+  width: 23px !important;
+  height: 23px !important;
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  font-size: 10px !important;
+  transition: all 0.25s ease !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+#tax-services-section .owl-prev:hover,
+#tax-services-section .owl-next:hover {
+  background: rgba(79,255,176,0.1) !important;
+  border-color: rgba(79,255,176,0.25) !important;
+  box-shadow: 0 0 8px rgba(79,255,176,0.1) !important;
+}
+#tax-services-section .owl-prev.disabled,
+#tax-services-section .owl-next.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+#tax-services-section .owl-dots {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  margin-top: 10px !important;
+}
+#tax-services-section .owl-dot span {
+  width: 3px !important;
+  height: 3px !important;
+  background: rgba(255,255,255,0.15) !important;
+  border-radius: 999px !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+}
+#tax-services-section .owl-dot.active span {
+  background: #4fffb0 !important;
+  width: 11px !important;
+  box-shadow: 0 0 4px rgba(79,255,176,0.4) !important;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar {
+  width: 2px;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+}
+#tax-services-section .discount-badge {
+  background: rgba(79,255,176,0.12) !important;
+  color: #4fffb0 !important;
+  border: 1px solid rgba(79,255,176,0.25) !important;
+  box-shadow: 0 0 8px rgba(79,255,176,0.15) !important;
+  font-weight: 600 !important;
+}
 </style>
 
 
@@ -732,22 +1016,65 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <section class="hero" id="heroSection">
   <div class="wrap">
     <div class="hero-grid">
-      <div class="hero-content">
-        <div class="hero-badge-wrap">
-          <div class="badge">
-            <span class="badge-dot"></span>
-            <span>Income Tax Expert | High Client Satisfaction</span>
-          </div>
-        </div>
-        <div class="hero-name">Sneha<br>Iyer</div>
-        <div class="hero-role">Income Tax Specialist</div>
-        <div class="hero-exp">4+ Years Experience &nbsp;&middot;&nbsp; English &amp; Tamil</div>
-        <p class="hero-bio">Expert in personal taxation, NRI taxation, and maximizing tax refunds for individuals.</p>
 
-        <div class="hero-btns mobile-cta">
-          <a href="{{ route('boc.step1', ['source' => 'taxexpert-snehaiyer']) }}" class="btn btn-primary">Book Consultation</a>
-          <a href="#contact" class="btn btn-secondary">Request Callback</a>
-        </div>
+      <!-- LEFT: Content inside glass card -->
+      <div class="hero-content">
+        <div class="hero-glass-card">
+
+          <!-- Badge (hidden on mobile via CSS) -->
+          <div class="hero-badge-wrap">
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>Income Tax Expert | 300+ Clients Served</span>
+            </div>
+          </div>
+
+          <!-- Name -->
+          <div class="hero-name">Sneha<br>Iyer</div>
+
+          <!-- Pills row: role, experience, language, coverage, clients -->
+          <div class="hero-pills-grid">
+            <!-- Role pill -->
+            <div class="hero-pill">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Income Tax Specialist
+            </div>
+            <!-- Experience pill -->
+            <div class="hero-pill">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              4+ Years Exp.
+            </div>
+            <!-- Language pill - hidden on mobile -->
+            <div class="hero-pill pill-desktop-only">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              English &amp; Tamil
+            </div>
+            <!-- Pan India pill - hidden on mobile -->
+            <div class="hero-pill pill-desktop-only">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20"/></svg>
+              Pan India
+            </div>
+            <!-- Clients pill - hidden on mobile -->
+            <div class="hero-pill pill-desktop-only">
+              <span class="hero-pill-dot"></span>
+              300+ Clients Served
+            </div>
+          </div>
+
+          <!-- Bio pill (hidden on mobile) -->
+          <div class="hero-bio-pill">
+            Expert in personal taxation, NRI taxation, and maximizing tax refunds for individuals.
+          </div>
+
+          <!-- Buttons -->
+          <div class="hero-btns mobile-cta">
+            <a href="{{ route('boc.step1', ['source' => 'taxexpert-snehaiyer']) }}" class="btn btn-primary">
+              Book Consultation
+            </a>
+            <a href="#contact" class="btn btn-callback">Request Callback</a>
+          </div>
+
+        </div><!-- /hero-glass-card -->
 
         <div class="info-strip">
           <div class="info-strip-row">
@@ -756,7 +1083,9 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
             <div class="info-cell"><div class="info-cell-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div class="info-cell-label">Coverage</div><div class="info-cell-value">Pan India</div></div>
           </div>
         </div>
-      </div>
+      </div><!-- /hero-content -->
+
+      <!-- RIGHT: Photo -->
       <div class="hero-photo-wrap">
         <div class="hero-metric metric-1">
           <div class="hero-metric-val"><span class="kpi-hero" data-target="300">0</span>+</div>
@@ -774,6 +1103,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
           Trusted Tax Specialist • Verified Professional
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -788,7 +1118,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       <div class="about-text collapsed" id="aboutText">
         Sneha Iyer is an income tax specialist with over 4 years of experience helping individuals manage their taxes efficiently. She focuses on accurate ITR filing, NRI taxation, and maximizing refunds.
       </div>
-      <div class="about-text expanded" id="aboutFull" style="display:none;">
+      <div class="about-text expanded" id="aboutFull" style="display:none; color:white">
         Sneha Iyer is an income tax specialist with over 4 years of experience helping individuals manage their taxes efficiently. She focuses on accurate ITR filing, NRI taxation, and maximizing refunds.<br><br>She has assisted salaried individuals, NRIs, and investors across India in filing compliant and optimized tax returns. Her approach simplifies complex tax scenarios while ensuring maximum eligible refunds and zero compliance issues.
       </div>
       <div class="about-toggle" onclick="toggleAbout()">Read More ▼</div>
@@ -803,11 +1133,20 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   <div class="wrap">
     <div class="sec-title">Areas of Expertise</div>
     <p class="sec-sub">Comprehensive tax and compliance solutions tailored for your financial goals.</p>
+
     <div class="expertise-grid reveal-stagger" style="margin-top:32px">
 
+      <!-- ITR Filing -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
           <div class="exp-title">ITR Filing</div>
           <div class="exp-desc">Accurate income tax return filing for salaried individuals and investors.</div>
         </div>
@@ -818,9 +1157,15 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
         <span class="tap-hint"></span>
       </div>
 
+      <!-- NRI Taxation -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>
+            </svg>
+          </div>
           <div class="exp-title">NRI Taxation</div>
           <div class="exp-desc">Specialized tax solutions for NRIs including DTAA and foreign income handling.</div>
         </div>
@@ -831,9 +1176,14 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
         <span class="tap-hint"></span>
       </div>
 
+      <!-- Capital Gains -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/></svg></div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 17l6-6 4 4 7-7"/>
+            </svg>
+          </div>
           <div class="exp-title">Capital Gains</div>
           <div class="exp-desc">Tax planning and filing for property, stocks, and mutual fund gains.</div>
         </div>
@@ -844,9 +1194,15 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
         <span class="tap-hint"></span>
       </div>
 
+      <!-- Tax Refund Optimization -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 12l2 2 4-4"/>
+            </svg>
+          </div>
           <div class="exp-title">Tax Refund Optimization</div>
           <div class="exp-desc">Maximizing eligible refunds through proper deductions and filings.</div>
         </div>
@@ -857,9 +1213,14 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
         <span class="tap-hint"></span>
       </div>
 
+      <!-- Tax Planning -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M6 3h12M6 7h10M6 11h8M10 11c-2 0-4 1-4 3s2 3 4 3 4 1 4 3-2 3-4 3"/></svg></div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M6 3h12M6 7h10M6 11h8M10 11c-2 0-4 1-4 3s2 3 4 3 4 1 4 3-2 3-4 3"/>
+            </svg>
+          </div>
           <div class="exp-title">Tax Planning</div>
           <div class="exp-desc">Strategic planning to reduce tax liability legally.</div>
         </div>
@@ -870,9 +1231,16 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
         <span class="tap-hint"></span>
       </div>
 
+      <!-- Compliance & Notices -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
           <div class="exp-title">Compliance &amp; Notices</div>
           <div class="exp-desc">Handling income tax notices and compliance issues effectively.</div>
         </div>
@@ -889,91 +1257,339 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div class="wrap"><hr></div>
 
-<!-- ─── SERVICES ─── -->
-<section class="sec reveal-section" id="services">
+{{-- ==================== TAX SERVICES CAROUSEL (EXPERT SERVICE PLANS) ==================== --}}
+<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;padding:56px 0;width:100%;box-sizing:border-box;">
+
   <div class="wrap">
-    <div class="sec-title">Services Offered</div>
-    <p class="sec-sub">A complete suite of tax and financial compliance services for every need.</p>
-    <div class="services-clean reveal-stagger">
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-          <div class="service-title">ITR Filing</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">ITR Filing</div>
-          <div class="card-back-desc">Complete ITR filing for salaried, freelancers &amp; investors.</div>
-        </div>
-        <span class="tap-hint"></span>
+    <div class="section-header">
+      <h2 class="section-title">Expert Service Plans</h2>
+      <div class="section-subtitle web-only">
+        Professional tax &amp; compliance services.<br>
+        Transparent pricing, zero surprises.
       </div>
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 3h12M6 7h10M6 11h8M10 11c-2 0-4 1-4 3s2 3 4 3 4 1 4 3-2 3-4 3"/></svg></div>
-          <div class="service-title">Tax Planning</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Tax Planning</div>
-          <div class="card-back-desc">Strategic advice to minimize tax liability legally.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
-          <div class="service-title">NRI Taxation</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">NRI Taxation</div>
-          <div class="card-back-desc">Specialized NRI tax filing &amp; DTAA advisory.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
     </div>
   </div>
+
+  <div class="wrap">
+    <div id="ttc-slider" class="owl-carousel owl-theme"></div>
+  </div>
+
 </section>
+
+<script>
+(function(){
+
+/* ── SERVICE DATA FOR SNEHA IYER (INDIVIDUAL TAX SERVICES) ── */
+var S = [
+{n:"ITR-1 Return Filing", sf:"Salaried individuals", el:"Income up to ₹50L, no capital gains", p:1499, m:3000, t:"1–2 Working Days", cta:"File ITR-1",
+ link:"https://thetaxcompany.in/servicedetail/itr-1-return-filing",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"ITR-2 Return Filing", sf:"Investors & high income", el:"Capital gains or income > ₹50L", p:1999, m:4000, t:"1–2 Working Days", cta:"File ITR-2",
+ link:"https://thetaxcompany.in/servicedetail/itr-2-return-filing",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"ITR-3 Return Filing", sf:"Business owners & pros", el:"Business or professional income", p:2499, m:6000, t:"2–3 Working Days", cta:"File ITR-3",
+ link:"https://thetaxcompany.in/servicedetail/itr-3-return-filing",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"ITR-4 Presumptive Filing", sf:"Freelancers & small biz", el:"Presumptive income ≤ ₹50L", p:1499, m:4000, t:"1–2 Working Days", cta:"File ITR-4",
+ link:"https://thetaxcompany.in/servicedetail/itr-4-presumptive-filing",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Revised Income Tax Return", sf:"Error correction filers", el:"Original ITR filed with mistakes", p:1499, m:3500, t:"1–2 Working Days", cta:"Revise ITR",
+ link:"https://thetaxcompany.in/servicedetail/revised-income-tax-return",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Belated Income Tax Return", sf:"Late taxpayers", el:"Missed ITR deadline filing", p:1499, m:3500, t:"1–2 Working Days", cta:"File Belated ITR",
+ link:"https://thetaxcompany.in/servicedetail/belated-income-tax-return",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Income Tax Notice Reply", sf:"Notice recipients", el:"Received IT dept notice", p:2999, m:8000, t:"3–5 Working Days", cta:"Resolve Notice",
+ link:"https://thetaxcompany.in/servicedetail/income-tax-notice-reply",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"NRI Income Tax Return Filing", sf:"NRIs earning in India", el:"Income taxable in India", p:3499, m:8000, t:"2–3 Working Days", cta:"File NRI ITR",
+ link:"https://thetaxcompany.in/servicedetail/nri-income-tax-return-filing",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Capital Gains Tax Calculation", sf:"Investors", el:"Asset sale with profit", p:1499, m:3000, t:"1–2 Working Days", cta:"Calculate Tax",
+ link:"https://thetaxcompany.in/servicedetail/capital-gains-tax-calculation",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Tax Planning Consultation", sf:"Individuals & HNIs", el:"Tax saving planning needed", p:1999, m:5000, t:"1–2 Working Days", cta:"Book Consultation",
+ link:"https://thetaxcompany.in/servicedetail/tax-planning-consultation",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]}
+];
+/* ── HELPERS ── */
+function fmt(n){ return '₹'+n.toLocaleString('en-IN'); }
+function pct(s){ return Math.round((s.m-s.p)/s.m*100); }
+
+function listRows(arr, type){
+  var icon  = type==='inc'?'✔':type==='exc'?'✖':'📄';
+  var ibg   = type==='inc'?'rgba(0,255,120,0.10)':type==='exc'?'rgba(255,0,0,0.10)':'rgba(120,120,255,0.10)';
+  var icol  = type==='inc'?'#00ff88':type==='exc'?'#ff4d4d':'#7a7aff';
+  var tcol  = type==='inc'?'#d6ffe6':type==='exc'?'#ffd6d6':'#d6d6ff';
+  return arr.map(function(item){
+    return '<li style="display:flex;align-items:flex-start;gap:5px;margin-bottom:5px;font-size:10px;line-height:1.5;color:'+tcol+';font-family:\'Montserrat\',sans-serif;">'+
+      '<span style="width:12px;height:12px;min-width:12px;border-radius:50%;background:'+ibg+';color:'+icol+';display:flex;align-items:center;justify-content:center;font-size:7px;margin-top:1px;">'+icon+'</span>'+
+      '<span>'+item+'</span></li>';
+  }).join('');
+}
+
+function buildCard(s, idx){
+  var uid = 'ttc'+idx;
+  var disc = pct(s);
+  return '<div style="width:100%;display:flex;">'+
+    '<div class="ttc-card-wrap" style="background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;overflow:hidden;"'+
+      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(255,255,255,0.14)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.6),0 0 20px rgba(79,255,176,0.04)\';"'+
+      ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(255,255,255,0.08)\';this.style.boxShadow=\'none\';">'+
+
+    /* top shimmer line */
+    '<div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);border-radius:999px;"></div>'+
+
+    /* price block */
+    '<div style="margin-bottom:7px;">'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">Starting from</span>'+
+      '<div style="display:flex;align-items:flex-end;gap:5px;flex-wrap:wrap;margin-bottom:2px;">'+
+        '<span style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1;font-family:\'Montserrat\',sans-serif;">'+fmt(s.p)+'</span>'+
+        '<span style="font-size:10px;color:rgba(255,255,255,0.6);text-decoration:line-through;font-weight:400;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+fmt(s.m)+'</span>'+
+        '<span class="discount-badge" style="display:inline-flex;align-items:center;background:rgba(79,255,176,0.12);border:1px solid rgba(79,255,176,0.25);color:#4fffb0;font-size:9px;font-weight:600;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;box-shadow:0 0 8px rgba(79,255,176,0.15);">'+disc+'% OFF</span>'+
+      '</div>'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
+    '</div>'+
+
+    /* suitability */
+    '<div style="margin-bottom:3px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Suitable for:</strong> '+s.sf+'</div>'+
+'<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;">'+
+  '<strong style="color:#fff;">Eligible for:</strong> '+
+  '<span style="color:rgba(255,255,255,0.6);font-style:italic;">'+s.el+'</span>'+
+'</div>'+
+
+    /* turnaround */
+    '<div style="margin-bottom:5px;font-size:9px;color:#4fffb0;font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
+
+    /* divider */
+    '<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent);margin:2px 0 7px;"></div>'+
+
+    /* title */
+    '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
+
+    /* tab switcher - FIXED: added width:auto and text wrapping for better fit */
+    '<div style="display:flex;gap:3px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:3px;margin-bottom:7px;">'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Not Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Documents</button>'+
+    '</div>'+
+
+    /* tab body */
+    '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent;">'+
+      '<ul id="'+uid+'-inc" style="list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.inc,'inc')+'</ul>'+
+      '<ul id="'+uid+'-exc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.exc,'exc')+'</ul>'+
+      '<ul id="'+uid+'-doc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.doc,'doc')+'</ul>'+
+    '</div>'+
+
+    /* cta */
+'<div style="margin-top:8px;">'+
+  '<a href="'+s.link+'" style="display:block;width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;"'+
+    ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
+    ' onmouseleave="this.style.background=\'#fff\';this.style.transform=\'translateY(0)\';">'+
+    s.cta+' &rarr;'+
+  '</a>'+
+'</div>'+
+
+  '</div></div>';
+}
+
+/* ── INJECT CARDS ── */
+var slider = document.getElementById('ttc-slider');
+if(slider){
+  slider.innerHTML = S.map(function(s,i){ return buildCard(s,i); }).join('');
+}
+
+/* ── INIT OWL + AUTOPLAY + EDGE DISABLE ── */
+$(function(){
+
+  var owl = $('#ttc-slider').owlCarousel({
+    loop       : false,
+    margin     : 20,
+    nav        : true,
+    dots       : true,
+    autoHeight : false,
+    navText    : ['&#8592;','&#8594;'],
+    autoplay   : true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive : {
+      0    : { items: 1 },
+      600  : { items: 2 },
+      1000 : { items: 5 }
+    }
+  });
+
+  // Disable prev/next at edges
+  owl.on('changed.owl.carousel', function(event) {
+    var carousel = event.relatedTarget;
+    var current = carousel.current();
+    var total = carousel.items().length;
+    var visible = carousel.settings.items;
+    
+    if (current === 0) {
+      $('.owl-prev').addClass('disabled');
+    } else {
+      $('.owl-prev').removeClass('disabled');
+    }
+    
+    if (current + visible >= total) {
+      $('.owl-next').addClass('disabled');
+    } else {
+      $('.owl-next').removeClass('disabled');
+    }
+  });
+
+  /* tab switching */
+  $(document).on('click', '.ttc-btn', function(){
+    var uid = $(this).data('uid');
+    var tab = $(this).data('tab');
+
+    $('.ttc-btn[data-uid="'+uid+'"]').each(function(){
+      var isActive = $(this).data('tab') === tab;
+      $(this).css({
+        background   : isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
+        color        : isActive ? '#fff' : '#888',
+        borderColor  : isActive ? 'rgba(255,255,255,0.18)' : 'transparent'
+      });
+    });
+
+    $('#'+uid+'-inc, #'+uid+'-exc, #'+uid+'-doc').hide();
+    $('#'+uid+'-'+tab).show();
+  });
+
+});
+
+})();
+</script>
 
 <div class="wrap"><hr></div>
 
-<!-- ─── HOW IT WORKS ─── -->
-<section class="sec reveal-section">
-  <div class="wrap">
-    <div class="sec-title">How It Works</div>
-    <p class="sec-sub">A simple, transparent process designed to make professional tax services effortless.</p>
-    <div class="process-grid reveal-stagger">
-      <div class="process-step"><div class="step-num">01</div><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M8 16l4-8 4 8"/></svg></div><div class="step-title">Submit Enquiry</div><div class="step-desc">Tell us your service requirement and our team reviews your needs immediately.</div></div>
-      <div class="process-step"><div class="step-num">02</div><div class="step-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div><div class="step-title">Book Consultation</div><div class="step-desc">Speak with a dedicated tax expert who recommends the right registration structure.</div></div>
-      <div class="process-step"><div class="step-num">03</div><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></div><div class="step-title">Choose Service</div><div class="step-desc">Select and purchase the required service from our transparent pricing list.</div></div>
-      <div class="process-step"><div class="step-num">04</div><div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg></div><div class="step-title">Assigned</div><div class="step-desc">A Tax Expert is assigned and manages the entire process end-to-end.</div></div>
-      <div class="process-step"><div class="step-num">05</div><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg></div><div class="step-title">Documentation</div><div class="step-desc">We prepare, verify, and submit all required documents to the government portal.</div></div>
-      <div class="process-step"><div class="step-num">06</div><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="step-title">Compliance Done</div><div class="step-desc">Registration finalised and all certificates delivered directly to you.</div></div>
-    </div>
-  </div>
-</section>
-
-<div class="wrap"><hr></div>
-
-<!-- ─── WHO I SERVE (REPLACED) ─── -->
+<!-- ─── WHO I SERVE ─── -->
 <section class="sec reveal-section">
   <div class="wrap">
     <div class="sec-title">Who I Serve</div>
     <p class="sec-sub">Tailored solutions for every type of taxpayer and business across India.</p>
+    
     <div class="industry-grid reveal-stagger">
 
-      <div class="ind-card tap-card"><div class="card-front"><div class="ind-icon-wrap"><svg viewBox="0 0 24 24" stroke="#fff" fill="none"><circle cx="12" cy="7" r="4"/><path d="M4 21c2-4 6-6 8-6s6 2 8 6"/></svg></div><div class="ind-title">Salaried Individuals</div><div class="ind-desc">Professionals looking for accurate filing and maximum refunds.</div></div><div class="card-back"><div class="card-back-title">Salaried Individuals</div><div class="card-back-desc">Accurate filing &amp; maximum refunds for professionals.</div></div><span class="tap-hint"></span></div>
+      <!-- 1. Salaried Individuals -->
+      <div class="ind-card tap-card">
+        <div class="card-front">
+          <div class="ind-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+              <circle cx="12" cy="7" r="4"/>
+              <path d="M4 21c2-4 6-6 8-6s6 2 8 6"/>
+            </svg>
+          </div>
+          <div class="ind-title">Salaried Individuals</div>
+          <div class="ind-desc">
+            Professionals looking for accurate filing and maximum refunds.
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Salaried Individuals</div>
+          <div class="card-back-desc">
+            Accurate filing & maximum refunds for professionals.
+          </div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
 
-      <div class="ind-card tap-card"><div class="card-front"><div class="ind-icon-wrap"><svg viewBox="0 0 24 24" stroke="#fff" fill="none"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg></div><div class="ind-title">Salaried Individuals</div><div class="ind-desc">Employees seeking stress-free tax filing and planning.</div></div><div class="card-back"><div class="card-back-title">Salaried Individuals</div><div class="card-back-desc">Stress-free tax filing &amp; planning for employees.</div></div><span class="tap-hint"></span></div>
+      <!-- 2. NRIs -->
+      <div class="ind-card tap-card">
+        <div class="card-front">
+          <div class="ind-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>
+            </svg>
+          </div>
+          <div class="ind-title">NRIs</div>
+          <div class="ind-desc">
+            Non-residents needing compliant tax filing and advisory in India.
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">NRIs</div>
+          <div class="card-back-desc">
+            Compliant tax filing & advisory for NRIs.
+          </div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
 
-      <div class="ind-card tap-card"><div class="card-front"><div class="ind-icon-wrap"><svg viewBox="0 0 24 24" stroke="#fff" fill="none"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div class="ind-title">NRIs</div><div class="ind-desc">Non-residents needing compliant tax filing and advisory in India.</div></div><div class="card-back"><div class="card-back-title">NRIs</div><div class="card-back-desc">Compliant tax filing &amp; advisory for NRIs.</div></div><span class="tap-hint"></span></div>
+      <!-- 3. Investors -->
+      <div class="ind-card tap-card">
+        <div class="card-front">
+          <div class="ind-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+              <path d="M3 17l6-6 4 4 7-7"/>
+            </svg>
+          </div>
+          <div class="ind-title">Investors</div>
+          <div class="ind-desc">
+            Individuals with capital gains from stocks, mutual funds, or property.
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Investors</div>
+          <div class="card-back-desc">
+            Capital gains tax planning for stocks, funds & property.
+          </div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
 
-      <div class="ind-card tap-card"><div class="card-front"><div class="ind-icon-wrap"><svg viewBox="0 0 24 24" stroke="#fff" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="ind-title">NRIs</div><div class="ind-desc">Cross-border tax compliance and DTAA benefits.</div></div><div class="card-back"><div class="card-back-title">NRIs</div><div class="card-back-desc">Cross-border tax compliance &amp; DTAA benefits.</div></div><span class="tap-hint"></span></div>
-
-      <div class="ind-card tap-card"><div class="card-front"><div class="ind-icon-wrap"><svg viewBox="0 0 24 24" stroke="#fff" fill="none"><path d="M3 17l6-6 4 4 7-7"/></svg></div><div class="ind-title">Investors</div><div class="ind-desc">Individuals with capital gains from stocks, mutual funds, or property.</div></div><div class="card-back"><div class="card-back-title">Investors</div><div class="card-back-desc">Capital gains tax planning for stocks, funds &amp; property.</div></div><span class="tap-hint"></span></div>
-
-      <div class="ind-card tap-card"><div class="card-front"><div class="ind-icon-wrap"><svg viewBox="0 0 24 24" stroke="#fff" fill="none"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg></div><div class="ind-title">Investors</div><div class="ind-desc">Portfolio optimization with tax-efficient strategies.</div></div><div class="card-back"><div class="card-back-title">Investors</div><div class="card-back-desc">Tax-efficient portfolio &amp; investment strategies.</div></div><span class="tap-hint"></span></div>
+      <!-- 4. Freelancers & Professionals -->
+      <div class="ind-card tap-card">
+        <div class="card-front">
+          <div class="ind-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div class="ind-title">Freelancers & Professionals</div>
+          <div class="ind-desc">
+            Self-employed individuals needing ITR-4 filing and tax planning.
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Freelancers & Professionals</div>
+          <div class="card-back-desc">
+            ITR-4 filing & tax planning for self-employed.
+          </div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
 
     </div>
   </div>
@@ -981,7 +1597,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div class="wrap"><hr></div>
 
-<!-- ─── CITIES (unchanged but kept for consistency) ─── -->
+<!-- ─── CITIES ─── -->
 <section class="sec reveal-section">
   <div class="wrap">
     <div class="sec-title">Cities Served</div>
@@ -990,7 +1606,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       
       <div class="city-card" style="background:rgba(79,125,243,0.06);border-color:rgba(79,125,243,0.15)">
         <div class="city-illustration">
-
           <svg viewBox="0 0 120 72" fill="none">
             <path d="M10 50 Q 30 30 50 50 T 90 50" stroke="rgba(79,125,243,0.3)" stroke-width="2" fill="none"/>
             <rect x="20" y="45" width="80" height="20" fill="rgba(79,125,243,0.2)" stroke="rgba(79,125,243,0.8)" stroke-width="1"/>
@@ -1005,8 +1620,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
             <line x1="60" y1="15" x2="60" y2="5" stroke="rgba(79,125,243,1)" stroke-width="1"/>
             <polygon points="60,5 68,9 60,13" fill="rgba(79,125,243,0.8)"/>
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(79,125,243,0.5)" stroke-width="1"/>
-            </svg>
-
+          </svg>
         </div>
         <div>
           <div class="city-name">Bengaluru</div>
@@ -1064,7 +1678,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
             <path d="M 71 20 Q 80 8 89 20 Z" fill="rgba(59,130,246,0.5)" stroke="rgba(59,130,246,1)" stroke-width="1"/>
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
           </svg>
-
         </div>
         <div>
           <div class="city-name">Mumbai</div>
@@ -1074,7 +1687,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
       <div class="city-card" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.15)">
         <div class="city-illustration">
-
           <svg viewBox="0 0 120 72" fill="none">
             <rect x="35" y="60" width="50" height="5" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.7)" stroke-width="1"/>
             <rect x="40" y="20" width="40" height="40" fill="rgba(139,92,246,0.25)" stroke="rgba(139,92,246,0.8)" stroke-width="1"/>
@@ -1130,18 +1742,20 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <!-- ─── WHY CHOOSE ─── -->
 <section class="sec reveal-section">
   <div class="wrap">
-    <div class="sec-title">Why Choose US</div>
-    <p class="sec-sub">Experience the difference of working with a dedicated, verified professional.</p>
+    <div class="sec-title">Why Choose Me</div>
+    <p class="sec-sub">Experience reliable and accurate tax filing with a dedicated income tax specialist.</p>
     <div class="values-grid reveal-stagger">
       <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div class="val-title">Maximum Refund</div><div class="val-desc">Every filing is optimized to maximize your eligible tax refund. We leave no deduction unclaimed — 80C, 80D, HRA, and beyond.</div></div>
       <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z"/></svg></div><div class="val-title">Fast Turnaround</div><div class="val-desc">Efficient processes mean faster filings. Most ITR filings completed within 24–48 hours of receiving complete documents.</div></div>
       <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="val-title">100% Secure</div><div class="val-desc">Your financial data is treated with strict confidentiality. We use secure channels for all document exchange and communication.</div></div>
     </div>
     <div class="features-grid reveal-stagger" style="margin-top:0">
-      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/><path d="M9 12l2 2 4-4"/></svg></div><div class="feat-text">Verified Professional</div><div class="feat-sub">Qualified &amp; certified tax expert</div></div>
-      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M7 8h10M7 12h6"/></svg></div><div class="feat-text">Bilingual Support</div><div class="feat-sub">English &amp; Tamil communication</div></div>
+      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/><path d="M9 12l2 2 4-4"/></svg></div><div class="feat-text">Income Tax Specialist</div><div class="feat-sub">Qualified &amp; certified professional</div></div>
+      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M7 8h10M7 12h6"/></svg></div><div class="feat-text">Bilingual Support</div><div class="feat-sub">English &amp; Tamil</div></div>
       <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20"/></svg></div><div class="feat-text">Pan India Service</div><div class="feat-sub">All 28 states &amp; 8 UTs covered</div></div>
-      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M6 3h12M6 7h10M6 11h8M10 11c-2 0-4 1-4 3s2 3 4 3 4 1 4 3-2 3-4 3"/></svg></div><div class="feat-text">Transparent Fees</div><div class="feat-sub">Clear pricing, no hidden charges</div></div>
+      <div class="feat-item"><div class="feat-icon">
+        <svg viewBox="0 0 24 24"><path d="M6 3h12M6 7h10M6 11h8M10 11c-2 0-4 1-4 3s2 3 4 3 4 1 4 3-2 3-4 3"/></svg>
+      </div><div class="feat-text">Transparent Fees</div><div class="feat-sub">Clear pricing, no hidden charges</div></div>
       <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/></svg></div><div class="feat-text">Digital Process</div><div class="feat-sub">100% online — no office visit needed</div></div>
       <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg></div><div class="feat-text">Zero Penalties</div><div class="feat-sub">Accurate &amp; timely compliance guaranteed</div></div>
     </div>
@@ -1154,10 +1768,10 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <section class="cta reveal">
   <div class="wrap">
     <h2>Maximize Your Tax<br>Refunds Today</h2>
-    <p>Simplifies tax filing and maximizes refunds.</p>
+    <p>Whether you're a salaried individual, NRI, or investor — Sneha Iyer simplifies tax filing and maximizes refunds.</p>
     <div class="cta-btns">
-      <a href="{{ route('boc.step1', ['source' => 'taxexpert-snehaiyer-cta']) }}" class="btn btn-primary magnetic-btn">Book Consultation<svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="#services" class="btn btn-secondary magnetic-btn">View All Services</a>
+      <a href="{{ route('boc.step1', ['source' => 'taxexpert-snehaiyer-cta']) }}" class="btn btn-primary">Book Consultation<svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#contact" class="btn btn-callback">Request Callback</a>
     </div>
   </div>
 </section>
@@ -1211,37 +1825,315 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 </section>
 
 <script>
-/* All JavaScript remains unchanged from original */
+/* ─── PROGRESS BAR ─── */
 let targetProgress = 0, currentProgress = 0;
 const progressBar = document.getElementById('progressBar');
-function updateProgress() { const s = document.documentElement; targetProgress = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100; }
-function lerpProgress() { currentProgress += (targetProgress - currentProgress) * 0.12; progressBar.style.width = currentProgress + '%'; const isScrolling = Math.abs(targetProgress - currentProgress) > 0.05; progressBar.style.height = isScrolling ? '3px' : '2px'; requestAnimationFrame(lerpProgress); }
-window.addEventListener('scroll', updateProgress, { passive: true }); lerpProgress();
 
-const cg = document.getElementById('cursorGlow'); let mouseX = 0, mouseY = 0, cgX = 0, cgY = 0; const isMobile = window.innerWidth <= 768;
-if (!isMobile) { document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; const el = document.elementFromPoint(e.clientX, e.clientY); const interactive = el && ( el.closest('.btn') || el.closest('.card') || el.closest('.exp-card') || el.closest('.service-main-card') || el.closest('.ind-card') || el.closest('.city-card') || el.closest('.val-card') || el.closest('.feat-item') || el.closest('.contact-item') || el.closest('.hero-photo-card') ); cg.classList.toggle('over-interactive', !!interactive); }, { passive: true }); function animateCursor() { cgX += (mouseX - cgX) * 0.1; cgY += (mouseY - cgY) * 0.1; cg.style.left = cgX + 'px'; cg.style.top  = cgY + 'px'; requestAnimationFrame(animateCursor); } animateCursor(); }
+function updateProgress() {
+  const s = document.documentElement;
+  targetProgress = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+}
 
+function lerpProgress() {
+  currentProgress += (targetProgress - currentProgress) * 0.12;
+  progressBar.style.width = currentProgress + '%';
+  const isScrolling = Math.abs(targetProgress - currentProgress) > 0.05;
+  progressBar.style.height = isScrolling ? '3px' : '2px';
+  requestAnimationFrame(lerpProgress);
+}
+
+window.addEventListener('scroll', updateProgress, { passive: true });
+lerpProgress();
+
+/* ─── CURSOR GLOW ─── */
+const cg = document.getElementById('cursorGlow');
+let mouseX = 0, mouseY = 0, cgX = 0, cgY = 0;
+const isMobile = window.innerWidth <= 768;
+
+if (!isMobile) {
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    const interactive = el && (
+      el.closest('.btn') || el.closest('.card') ||
+      el.closest('.exp-card') || el.closest('.service-main-card') ||
+      el.closest('.ind-card') || el.closest('.city-card') ||
+      el.closest('.val-card') || el.closest('.feat-item') ||
+      el.closest('.contact-item') || el.closest('.hero-photo-card') ||
+      el.closest('.hero-glass-card') || el.closest('.hero-pill')
+    );
+    cg.classList.toggle('over-interactive', !!interactive);
+  }, { passive: true });
+
+  function animateCursor() {
+    cgX += (mouseX - cgX) * 0.1;
+    cgY += (mouseY - cgY) * 0.1;
+    cg.style.left = cgX + 'px';
+    cg.style.top  = cgY + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+}
+
+/* ─── HERO PARALLAX ─── */
 const heroSection = document.getElementById('heroSection');
-function updateHeroParallax() { const scrollY = window.scrollY; const heroH   = heroSection.offsetHeight; if (scrollY < heroH * 1.5) { const progress = Math.min(scrollY / heroH, 1); heroSection.style.opacity  = 1 - progress * 0.6; heroSection.style.transform = `translateY(${scrollY * 0.12}px)`; } }
+function updateHeroParallax() {
+  const scrollY = window.scrollY;
+  const heroH   = heroSection.offsetHeight;
+  if (scrollY < heroH * 1.5) {
+    const progress = Math.min(scrollY / heroH, 1);
+    heroSection.style.opacity  = 1 - progress * 0.6;
+    heroSection.style.transform = `translateY(${scrollY * 0.12}px)`;
+  }
+}
 window.addEventListener('scroll', updateHeroParallax, { passive: true });
 
-(function() { if (window.innerWidth <= 768) return; const card = document.getElementById('heroPhotoCard'); if (!card) return; let targetRotX = 0, targetRotY = 0; let targetTransX = 0, targetTransY = 0; let targetShadowX = 0, targetShadowY = 0; let currentRotX = 0, currentRotY = 0; let currentTransX = 0, currentTransY = 0; let currentShadowX = 0, currentShadowY = 0; const magneticRadius = 200; const magneticStrength = 0.08; const maxRotate = 8; const shadowFactor = 0.15; let mouseX = 0, mouseY = 0; let isOverCard = false; let rafId = null; function resetCard() { targetRotX = targetRotY = 0; targetTransX = targetTransY = 0; targetShadowX = targetShadowY = 0; } let scrollDebounce; function onScrollReset() { if (scrollDebounce) clearTimeout(scrollDebounce); scrollDebounce = setTimeout(() => { resetCard(); }, 100); } window.addEventListener('scroll', onScrollReset, { passive: true }); window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; }, { passive: true }); card.addEventListener('mouseenter', () => { isOverCard = true; }); card.addEventListener('mouseleave', () => { isOverCard = false; resetCard(); }); function updateCard() { const rect = card.getBoundingClientRect(); const centerX = rect.left + rect.width / 2; const centerY = rect.top + rect.height / 2; const dx = mouseX - centerX; const dy = mouseY - centerY; const distance = Math.sqrt(dx*dx + dy*dy); if (distance < magneticRadius) { targetTransX = dx * magneticStrength; targetTransY = dy * magneticStrength; targetShadowX = -dx * shadowFactor; targetShadowY = -dy * shadowFactor; } else { targetTransX = 0; targetTransY = 0; targetShadowX = 0; targetShadowY = 0; } if (isOverCard) { const relX = (mouseX - rect.left) / rect.width; const relY = (mouseY - rect.top) / rect.height; targetRotY = (relX - 0.5) * 2 * maxRotate; targetRotX = (relY - 0.5) * -2 * maxRotate; } else { targetRotX = 0; targetRotY = 0; } const ease = 0.12; currentRotX += (targetRotX - currentRotX) * ease; currentRotY += (targetRotY - currentRotY) * ease; currentTransX += (targetTransX - currentTransX) * ease; currentTransY += (targetTransY - currentTransY) * ease; currentShadowX += (targetShadowX - currentShadowX) * ease; currentShadowY += (targetShadowY - currentShadowY) * ease; const clamp = (val, max) => Math.min(max, Math.max(-max, val)); const rotX = clamp(currentRotX, maxRotate); const rotY = clamp(currentRotY, maxRotate); card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateX(${currentTransX}px) translateY(${currentTransY}px)`; const shadowOpacity = 0.4; const shadowStr = `${currentShadowX}px ${currentShadowY}px 40px rgba(0,0,0,${shadowOpacity})`; card.style.boxShadow = `${shadowStr}, 0 0 0 1px rgba(255,255,255,0.05)`; rafId = requestAnimationFrame(updateCard); } rafId = requestAnimationFrame(updateCard); window.addEventListener('beforeunload', () => { if (rafId) cancelAnimationFrame(rafId); }); window.addEventListener('resize', () => resetCard()); })();
+/* ─── MAGNETIC + DEPTH SYSTEM FOR HERO PHOTO CARD ─── */
+(function() {
+  if (window.innerWidth <= 768) return;
 
-if (!isMobile) { const metrics = document.querySelectorAll('.hero-metric'); document.addEventListener('mousemove', e => { const px = (e.clientX / window.innerWidth - 0.5); const py = (e.clientY / window.innerHeight - 0.5); metrics.forEach((m, i) => { const factor = i === 0 ? 8 : -6; m.style.transform = `translate(${px * factor}px, ${py * factor}px)`; }); }, { passive: true }); }
+  const card = document.getElementById('heroPhotoCard');
+  if (!card) return;
 
-if (!isMobile) { document.querySelectorAll('.magnetic-btn').forEach(btn => { btn.addEventListener('mousemove', e => { const rect = btn.getBoundingClientRect(); const cx = rect.left + rect.width / 2; const cy = rect.top + rect.height / 2; const dx = (e.clientX - cx) * 0.25; const dy = (e.clientY - cy) * 0.25; btn.style.transform = `translate(${dx}px, ${dy}px)`; }); btn.addEventListener('mouseleave', () => { btn.style.transform = ''; btn.style.transition = 'transform .4s cubic-bezier(0.22,1,0.36,1)'; setTimeout(() => btn.style.transition = '', 400); }); }); }
+  let targetRotX = 0, targetRotY = 0;
+  let targetTransX = 0, targetTransY = 0;
+  let targetShadowX = 0, targetShadowY = 0;
+  let currentRotX = 0, currentRotY = 0;
+  let currentTransX = 0, currentTransY = 0;
+  let currentShadowX = 0, currentShadowY = 0;
 
-const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }); document.querySelectorAll('.reveal, .reveal-section, .reveal-stagger').forEach(el => revealObs.observe(el));
+  const magneticRadius = 200;
+  const magneticStrength = 0.08;
+  const maxRotate = 8;
+  const shadowFactor = 0.15;
 
-function animateCount(el, target, duration) { const start = performance.now(); function step(now) { const elapsed = now - start; const progress = Math.min(elapsed / duration, 1); const eased = 1 - (1 - progress) * (1 - progress); el.textContent = Math.floor(eased * target); if (progress < 1) requestAnimationFrame(step); else el.textContent = target; } requestAnimationFrame(step); }
-window.addEventListener('load', () => { setTimeout(() => { document.querySelectorAll('.kpi-hero').forEach(el => { const target = parseInt(el.dataset.target); animateCount(el, target, 1400); }); }, 600); });
+  let mouseX = 0, mouseY = 0;
+  let isOverCard = false;
+  let rafId = null;
 
-function toggleFAQ(el) { const ans = el.nextElementSibling; const tog = el.querySelector('.faq-toggle'); const open = ans.classList.contains('open'); document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open')); document.querySelectorAll('.faq-toggle').forEach(t => { t.textContent = '+'; t.style.transform = ''; }); if (!open) { ans.classList.add('open'); tog.textContent = '−'; tog.style.transform = 'rotate(180deg)'; } }
-function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
-function copyText(txt, msg) { navigator.clipboard.writeText(txt).then(() => showToast(msg || 'Copied!')).catch(() => showToast('Copied: ' + txt)); }
-function toggleAbout() { const short = document.getElementById('aboutText'); const full  = document.getElementById('aboutFull'); const btn   = document.querySelector('.about-toggle'); if (full.style.display === 'none') { full.style.display = 'block'; short.style.display = 'none'; btn.innerHTML = 'Read Less ▲'; } else { full.style.display = 'none'; short.style.display = 'block'; btn.innerHTML = 'Read More ▼'; } }
+  function resetCard() {
+    targetRotX = targetRotY = 0;
+    targetTransX = targetTransY = 0;
+    targetShadowX = targetShadowY = 0;
+  }
 
-(function () { let activeCard = null; let tapListenersAttached = false; let scrollObservers = []; function attachTapListeners() { if (tapListenersAttached) return; tapListenersAttached = true; document.querySelectorAll('.tap-card').forEach(card => { card.addEventListener('click', handleTap); }); } function closeAll() { document.querySelectorAll('.tap-card.active').forEach(c => c.classList.remove('active')); activeCard = null; } function handleTap() { if (window.innerWidth > 768) return; const card = this; if (activeCard === card) { card.classList.remove('active'); activeCard = null; return; } if (activeCard) activeCard.classList.remove('active'); card.classList.add('active'); activeCard = card; } function attachScrollObservers() { if (scrollObservers.length) return; document.querySelectorAll('.expertise-grid, .services-clean, .industry-grid').forEach(section => { const obs = new IntersectionObserver(entries => { entries.forEach(entry => { if (!entry.isIntersecting) closeAll(); }); }, { threshold: 0.15 }); obs.observe(section); scrollObservers.push(obs); }); } function init() { if (window.innerWidth <= 768) { attachTapListeners(); attachScrollObservers(); } } init(); window.addEventListener('resize', () => { if (window.innerWidth > 768) closeAll(); else init(); }); })();
+  let scrollDebounce;
+  function onScrollReset() {
+    if (scrollDebounce) clearTimeout(scrollDebounce);
+    scrollDebounce = setTimeout(() => { resetCard(); }, 100);
+  }
+  window.addEventListener('scroll', onScrollReset, { passive: true });
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX; mouseY = e.clientY;
+  }, { passive: true });
+
+  card.addEventListener('mouseenter', () => { isOverCard = true; });
+  card.addEventListener('mouseleave', () => { isOverCard = false; resetCard(); });
+
+  function updateCard() {
+    const rect = card.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const dx = mouseX - centerX;
+    const dy = mouseY - centerY;
+    const distance = Math.sqrt(dx*dx + dy*dy);
+
+    if (distance < magneticRadius) {
+      targetTransX = dx * magneticStrength;
+      targetTransY = dy * magneticStrength;
+      targetShadowX = -dx * shadowFactor;
+      targetShadowY = -dy * shadowFactor;
+    } else {
+      targetTransX = 0; targetTransY = 0;
+      targetShadowX = 0; targetShadowY = 0;
+    }
+
+    if (isOverCard) {
+      const relX = (mouseX - rect.left) / rect.width;
+      const relY = (mouseY - rect.top) / rect.height;
+      targetRotY = (relX - 0.5) * 2 * maxRotate;
+      targetRotX = (relY - 0.5) * -2 * maxRotate;
+    } else {
+      targetRotX = 0; targetRotY = 0;
+    }
+
+    const ease = 0.12;
+    currentRotX += (targetRotX - currentRotX) * ease;
+    currentRotY += (targetRotY - currentRotY) * ease;
+    currentTransX += (targetTransX - currentTransX) * ease;
+    currentTransY += (targetTransY - currentTransY) * ease;
+    currentShadowX += (targetShadowX - currentShadowX) * ease;
+    currentShadowY += (targetShadowY - currentShadowY) * ease;
+
+    const clamp = (val, max) => Math.min(max, Math.max(-max, val));
+    const rotX = clamp(currentRotX, maxRotate);
+    const rotY = clamp(currentRotY, maxRotate);
+
+    card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateX(${currentTransX}px) translateY(${currentTransY}px)`;
+    const shadowStr = `${currentShadowX}px ${currentShadowY}px 40px rgba(0,0,0,0.4)`;
+    card.style.boxShadow = `${shadowStr}, 0 0 0 1px rgba(255,255,255,0.05)`;
+
+    rafId = requestAnimationFrame(updateCard);
+  }
+
+  rafId = requestAnimationFrame(updateCard);
+  window.addEventListener('beforeunload', () => { if (rafId) cancelAnimationFrame(rafId); });
+  window.addEventListener('resize', () => resetCard());
+})();
+
+/* ─── METRIC FLOAT ─── */
+if (!isMobile) {
+  const metrics = document.querySelectorAll('.hero-metric');
+  document.addEventListener('mousemove', e => {
+    const px = (e.clientX / window.innerWidth - 0.5);
+    const py = (e.clientY / window.innerHeight - 0.5);
+    metrics.forEach((m, i) => {
+      const factor = i === 0 ? 8 : -6;
+      m.style.transform = `translate(${px * factor}px, ${py * factor}px)`;
+    });
+  }, { passive: true });
+}
+
+/* ─── MAGNETIC BUTTONS (DISABLED FOR CTA BUTTONS TO FIX MOVING ISSUE) ─── */
+if (!isMobile) {
+  document.querySelectorAll('.magnetic-btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) * 0.25;
+      const dy = (e.clientY - cy) * 0.25;
+      btn.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+      btn.style.transition = 'transform .4s cubic-bezier(0.22,1,0.36,1)';
+      setTimeout(() => btn.style.transition = '', 400);
+    });
+  });
+}
+
+/* ─── SCROLL REVEAL ─── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-section, .reveal-stagger').forEach(el => revealObs.observe(el));
+
+/* ─── KPI COUNTERS ─── */
+function animateCount(el, target, duration) {
+  const start = performance.now();
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - (1 - progress) * (1 - progress);
+    el.textContent = Math.floor(eased * target);
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(step);
+}
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.kpi-hero').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      animateCount(el, target, 1400);
+    });
+  }, 600);
+});
+
+/* ─── FAQ ─── */
+function toggleFAQ(el) {
+  const ans = el.nextElementSibling;
+  const tog = el.querySelector('.faq-toggle');
+  const open = ans.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-toggle').forEach(t => { t.textContent = '+'; t.style.transform = ''; });
+  if (!open) {
+    ans.classList.add('open');
+    tog.textContent = '−';
+    tog.style.transform = 'rotate(180deg)';
+  }
+}
+
+/* ─── TOAST + COPY ─── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+function copyText(txt, msg) {
+  navigator.clipboard.writeText(txt)
+    .then(() => showToast(msg || 'Copied!'))
+    .catch(() => showToast('Copied: ' + txt));
+}
+
+/* ─── ABOUT TOGGLE ─── */
+function toggleAbout() {
+  const short = document.getElementById('aboutText');
+  const full  = document.getElementById('aboutFull');
+  const btn   = document.querySelector('.about-toggle');
+  if (full.style.display === 'none') {
+    full.style.display = 'block'; short.style.display = 'none'; btn.innerHTML = 'Read Less ▲';
+  } else {
+    full.style.display = 'none'; short.style.display = 'block'; btn.innerHTML = 'Read More ▼';
+  }
+}
+
+/* ─── TAP-TO-REVEAL (MOBILE ONLY) ─── */
+(function () {
+  let activeCard = null;
+  let tapListenersAttached = false;
+  let scrollObservers = [];
+
+  function attachTapListeners() {
+    if (tapListenersAttached) return;
+    tapListenersAttached = true;
+    document.querySelectorAll('.tap-card').forEach(card => {
+      card.addEventListener('click', handleTap);
+    });
+  }
+
+  function closeAll() {
+    document.querySelectorAll('.tap-card.active').forEach(c => c.classList.remove('active'));
+    activeCard = null;
+  }
+
+  function handleTap() {
+    if (window.innerWidth > 768) return;
+    const card = this;
+    if (activeCard === card) { card.classList.remove('active'); activeCard = null; return; }
+    if (activeCard) activeCard.classList.remove('active');
+    card.classList.add('active');
+    activeCard = card;
+  }
+
+  function attachScrollObservers() {
+    if (scrollObservers.length) return;
+    document.querySelectorAll('.expertise-grid, .services-clean, .industry-grid').forEach(section => {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (!entry.isIntersecting) closeAll(); });
+      }, { threshold: 0.15 });
+      obs.observe(section);
+      scrollObservers.push(obs);
+    });
+  }
+
+  function init() {
+    if (window.innerWidth <= 768) { attachTapListeners(); attachScrollObservers(); }
+  }
+
+  init();
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeAll(); else init();
+  });
+}());
 </script>
-
 @endsection
