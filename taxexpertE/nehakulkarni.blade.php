@@ -403,43 +403,148 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   <div class="wrap">
     <div class="sec-title">Areas of Expertise</div>
     <p class="sec-sub">Comprehensive tax and compliance solutions tailored for your financial goals.</p>
+
     <div class="expertise-grid reveal-stagger" style="margin-top:32px">
+
+      <!-- Income Tax Filing -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="exp-title">ITR Filing</div>
-          <div class="exp-desc">End-to-end income tax return filing for salaried individuals, freelancers, and business owners across all ITR forms.</div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="8" y1="13" x2="16" y2="13"/>
+              <line x1="8" y1="17" x2="16" y2="17"/>
+            </svg>
+          </div>
+          <div class="exp-title">Income Tax Filing</div>
+          <div class="exp-desc">Complete ITR filing services including ITR-1, ITR-2, ITR-3, and ITR-4 for individuals, professionals, and businesses.</div>
         </div>
-        <div class="card-back"><div class="card-back-title">ITR Filing</div><div class="card-back-desc">End-to-end ITR filing for salaried, freelancers &amp; business owners — fast &amp; accurate.</div></div>
+        <div class="card-back">
+          <div class="card-back-title">Income Tax Filing</div>
+          <div class="card-back-desc">Accurate and fast ITR filing across all return types with full compliance support.</div>
+        </div>
         <span class="tap-hint"></span>
       </div>
+
+      <!-- Tax Notices -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-          <div class="exp-title">GST Compliance</div>
-          <div class="exp-desc">GST registration, monthly/quarterly return filing, reconciliation, and notice handling for businesses of all sizes.</div>
-        </div>
-        <div class="card-back"><div class="card-back-title">GST Compliance</div><div class="card-back-desc">Registration, monthly returns, reconciliation &amp; notice handling for businesses.</div></div>
-        <span class="tap-hint"></span>
-      </div>
-      <div class="exp-card tap-card">
-        <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <circle cx="12" cy="16" r="1"/>
+            </svg>
+          </div>
           <div class="exp-title">Tax Notices</div>
-          <div class="exp-desc">Expert handling of income tax and GST notices — scrutiny assessments, demand notices, defective return notices, and more.</div>
+          <div class="exp-desc">Professional assistance in handling income tax notices, scrutiny cases, defective returns, and refund issues.</div>
         </div>
-        <div class="card-back"><div class="card-back-title">Tax Notices</div><div class="card-back-desc">Expert handling of income tax &amp; GST notices — scrutiny, demand, defective returns.</div></div>
+        <div class="card-back">
+          <div class="card-back-title">Tax Notices</div>
+          <div class="card-back-desc">Expert support for notices, scrutiny, and compliance responses.</div>
+        </div>
         <span class="tap-hint"></span>
       </div>
+
+      <!-- Investment Taxation -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <div class="exp-title">Advisory</div>
-          <div class="exp-desc">Strategic tax advisory for individuals and businesses — tax planning, capital gains, salary structuring, and deductions.</div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <polyline points="4 14 10 8 14 12 20 6"/>
+              <line x1="4" y1="20" x2="20" y2="20"/>
+            </svg>
+          </div>
+          <div class="exp-title">Investment Taxation</div>
+          <div class="exp-desc">Tax solutions for capital gains, stock market income, crypto transactions, and rental income reporting.</div>
         </div>
-        <div class="card-back"><div class="card-back-title">Advisory</div><div class="card-back-desc">Tax planning, capital gains, salary structuring &amp; all deduction advisory.</div></div>
+        <div class="card-back">
+          <div class="card-back-title">Investment Taxation</div>
+          <div class="card-back-desc">Optimize taxes on investments with expert calculation and filing support.</div>
+        </div>
         <span class="tap-hint"></span>
       </div>
+
+      <!-- Tax Analysis -->
+      <div class="exp-card tap-card">
+        <div class="card-front">
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="10" width="4" height="10"/>
+              <rect x="10" y="6" width="4" height="14"/>
+              <rect x="17" y="3" width="4" height="17"/>
+            </svg>
+          </div>
+          <div class="exp-title">Tax Analysis</div>
+          <div class="exp-desc">Detailed AIS/TIS analysis to identify discrepancies and ensure accurate tax reporting.</div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Tax Analysis</div>
+          <div class="card-back-desc">In-depth analysis for better compliance and error-free filings.</div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
+
+      <!-- NRI Tax Services -->
+      <div class="exp-card tap-card">
+        <div class="card-front">
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20"/>
+              <path d="M12 2a15 15 0 0 1 0 20"/>
+              <path d="M12 2a15 15 0 0 0 0 20"/>
+            </svg>
+          </div>
+          <div class="exp-title">NRI Tax Services</div>
+          <div class="exp-desc">Specialized tax services for NRIs including return filing, capital gains, and TDS advisory.</div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">NRI Tax Services</div>
+          <div class="card-back-desc">Expert solutions for NRI taxation and compliance in India.</div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
+
+      <!-- GST Services -->
+      <div class="exp-card tap-card">
+        <div class="card-front">
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="5" width="20" height="14" rx="2"/>
+              <line x1="2" y1="10" x2="22" y2="10"/>
+            </svg>
+          </div>
+          <div class="exp-title">GST Services</div>
+          <div class="exp-desc">GST registration, return filing, annual returns, and end-to-end compliance management.</div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">GST Services</div>
+          <div class="card-back-desc">Complete GST lifecycle support from registration to filing.</div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
+
+      <!-- Compliance Services -->
+      <div class="exp-card tap-card">
+        <div class="card-front">
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 1l9 4v6c0 5-3.8 9.7-9 11-5.2-1.3-9-6-9-11V5l9-4z"/>
+              <polyline points="9 12 11 14 15 10"/>
+            </svg>
+          </div>
+          <div class="exp-title">Compliance Services</div>
+          <div class="exp-desc">Ongoing compliance including bookkeeping, payroll, TDS filing, and financial reporting support.</div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Compliance Services</div>
+          <div class="card-back-desc">Reliable support to keep your business fully compliant year-round.</div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
+
     </div>
   </div>
 </section>
@@ -447,30 +552,703 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <div class="wrap"><hr></div>
 
 <!-- ─── SERVICES ─── -->
-<section class="sec reveal-section" id="services">
+
+<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;padding:56px 0;width:100%;box-sizing:border-box;">
+
+  <style>
+    /* ... (existing styles unchanged) ... */
+    #tax-services-section {
+      width: 100%;
+      padding: 56px 0;
+    }
+    #tax-services-section .section-header {
+      margin-bottom: 28px;
+    }
+    #tax-services-section .section-title {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin: 0 0 16px 0;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.1;
+    }
+    #tax-services-section .section-subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 400;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 600px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .web-only {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .web-only {
+        display: none;
+      }
+    }
+
+    @keyframes ttc-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+    
+    #tax-services-section .owl-stage {
+      display: flex !important;
+      align-items: stretch !important;
+    }
+    #tax-services-section .owl-item {
+      display: flex !important;
+      height: auto;
+    }
+    #tax-services-section .owl-item > div {
+      display: flex;
+      width: 100%;
+    }
+    #tax-services-section .ttc-card-wrap {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    
+    #tax-services-section .owl-nav {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 20px !important;
+    }
+    #tax-services-section .owl-prev,
+    #tax-services-section .owl-next {
+      width: 23px !important;
+      height: 23px !important;
+      background: rgba(255,255,255,0.05) !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #fff !important;
+      font-size: 10px !important;
+      transition: all 0.25s ease !important;
+      line-height: 1 !important;
+      margin: 0 !important;
+    }
+    #tax-services-section .owl-prev:hover,
+    #tax-services-section .owl-next:hover {
+      background: rgba(79,255,176,0.1) !important;
+      border-color: rgba(79,255,176,0.25) !important;
+      box-shadow: 0 0 8px rgba(79,255,176,0.1) !important;
+    }
+    #tax-services-section .owl-prev.disabled,
+    #tax-services-section .owl-next.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    
+    #tax-services-section .owl-dots {
+      display: flex !important;
+      justify-content: center !important;
+      gap: 4px !important;
+      margin-top: 10px !important;
+    }
+    #tax-services-section .owl-dot span {
+      width: 3px !important;
+      height: 3px !important;
+      background: rgba(255,255,255,0.15) !important;
+      border-radius: 999px !important;
+      transition: all 0.3s ease !important;
+      margin: 0 !important;
+    }
+    #tax-services-section .owl-dot.active span {
+      background: #4fffb0 !important;
+      width: 11px !important;
+      box-shadow: 0 0 4px rgba(79,255,176,0.4) !important;
+    }
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar {
+      width: 2px;
+    }
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.08);
+      border-radius: 99px;
+    }
+    #tax-services-section .discount-badge {
+      background: rgba(79,255,176,0.12) !important;
+      color: #4fffb0 !important;
+      border: 1px solid rgba(79,255,176,0.25) !important;
+      box-shadow: 0 0 8px rgba(79,255,176,0.15) !important;
+      font-weight: 600 !important;
+    }
+  </style>
+
   <div class="wrap">
-    <div class="sec-title">Services Offered</div>
-    <p class="sec-sub">A complete suite of tax and financial compliance services for every need.</p>
-    <div class="services-clean reveal-stagger">
-      <div class="service-main-card tap-card">
-        <div class="card-front"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg></div><div class="service-title">ITR Filing</div></div>
-        <div class="card-back"><div class="card-back-title">ITR Filing</div><div class="card-back-desc">Complete ITR filing for all types — salaried, freelancers &amp; business. Transparent fees.</div></div>
+    <div class="section-header">
+      <h2 class="section-title">Expert Service Plans</h2>
+      <div class="section-subtitle web-only">
+        Professional tax &amp; compliance services.<br>
+        Transparent pricing, zero surprises.
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div id="ttc-slider" class="owl-carousel owl-theme"></div>
+  </div>
+
+</section>
+
+<script>
+(function(){
+
+/* ── SERVICE DATA (UPDATED: INDIVIDUAL TAX & COMPLIANCE) ── */
+var S = [
+  // Income Tax Filing
+  {n:"ITR-1 Return Filing", sf:"Salaried individuals", el:"Income up to ₹50L, no capital gains", p:1499, m:3000, t:"1–2 Working Days", cta:"File ITR-1", link:"https://thetaxcompany.in/servicedetail/itr-1-return-filing",
+   inc:["Return preparation","Portal filing","Document verification","Status tracking","ITR acknowledgment"],
+   exc:["Govt fees","Litigation support","Notice handling","Future compliance","Third-party verification"],
+   doc:["PAN card copy","Aadhaar card copy","Mobile & Email ID","Form 16 / Bank statement","Income proofs"]},
+  {n:"ITR-2 Return Filing", sf:"Investors & high income", el:"Capital gains or income > ₹50L", p:1999, m:4000, t:"1–2 Days", cta:"File ITR-2", link:"https://thetaxcompany.in/servicedetail/itr-2-return-filing",
+   inc:["Preparation","Filing","Verification","Tracking","Acknowledgment"],
+   exc:["Govt fees","Litigation","Hearing","Future compliance","Third-party"],
+   doc:["PAN","Aadhaar","Income proofs","Bank statement","Email/Mobile"]},
+  {n:"ITR-3 Return Filing", sf:"Business owners & professionals", el:"Business/professional income", p:2499, m:6000, t:"2–3 Days", cta:"File ITR-3", link:"http://thetaxcompany.in/servicedetail/itr-3-return-filing",
+   inc:["Preparation","Filing","Verification","Tracking","Delivery"],
+   exc:["Govt fees","Litigation","Hearing","Future services","3rd party"],
+   doc:["PAN","Aadhaar","Books","Bank stmt","Income proofs"]},
+  {n:"ITR-4 Presumptive Filing", sf:"Freelancers & small businesses", el:"Presumptive income ≤ ₹50L", p:1499, m:4000, t:"1–2 Days", cta:"File ITR-4", link:"https://thetaxcompany.in/servicedetail/itr-4-presumptive-filing",
+   inc:["Return preparation","Presumptive calculation","Portal filing","Verification","Acknowledgment"],
+   exc:["Govt fees","Litigation","Notice reply","Future compliance","Audit"],
+   doc:["PAN","Aadhaar","Business details","Bank statement","Income proofs"]},
+  {n:"Revised Income Tax Return", sf:"Correction cases", el:"Original return already filed", p:1499, m:3500, t:"1–2 Days", cta:"Revise Return", link:"http://thetaxcompany.in/servicedetail/revised-income-tax-return",
+   inc:["Error correction","Re-filing","Verification","Status tracking","Acknowledgment"],
+   exc:["Govt fees","Litigation","Penalty","Future compliance","Audit"],
+   doc:["Original ITR","Revised figures","PAN","Aadhaar","Supporting docs"]},
+  {n:"Belated Income Tax Return", sf:"Late filers", el:"Return not filed by due date", p:1499, m:3500, t:"1–2 Days", cta:"File Belated", link:"https://thetaxcompany.in/servicedetail/belated-income-tax-return",
+   inc:["Late return preparation","Penalty calculation","Filing","Verification","Acknowledgment"],
+   exc:["Govt fees","Interest","Prosecution","Future compliance","Audit"],
+   doc:["PAN","Aadhaar","Income proofs","Bank details","Form 16/16A"]},
+  {n:"Updated Income Tax Return (ITR-U)", sf:"Omissions/mistakes", el:"Within 24 months from end of AY", p:1999, m:5000, t:"2–3 Days", cta:"Update Return", link:"https://thetaxcompany.in/servicedetail/updated-income-tax-return-itr-u",
+   inc:["ITR-U filing","Additional tax calculation","Verification","Tracking","Acknowledgment"],
+   exc:["Govt fees","Interest","Penalty","Future compliance","Scrutiny"],
+   doc:["Original ITR","Updated figures","PAN","Aadhaar","Income proofs"]},
+
+  // Tax Notices
+  {n:"Income Tax Notice Reply", sf:"Notice recipients", el:"Notice u/s 139(9)/143(1)/142(1) etc.", p:2999, m:8000, t:"3–5 Days", cta:"Reply Notice", link:"https://thetaxcompany.in/servicedetail/income-tax-notice-reply",
+   inc:["Drafting reply","Portal submission","Documentation","Follow-up","Status tracking"],
+   exc:["Litigation","Court representation","Future compliance","Audit","Third party verification"],
+   doc:["PAN","Notice copy","Financial records","Bank statements","Supporting proofs"]},
+  {n:"Income Tax Scrutiny Assistance", sf:"Scrutiny cases", el:"Notice for detailed scrutiny", p:4999, m:12000, t:"Case-specific", cta:"Get Assistance", link:"https://thetaxcompany.in/servicedetail/income-tax-scrutiny-assistance",
+   inc:["Document compilation","Reply drafting","Submission","Representation support","Follow-up"],
+   exc:["Litigation","Appeals","Penalty","Future compliance","Court appearance"],
+   doc:["Scrutiny notice","Financials","ITR","Supporting evidences","Bank statements"]},
+  {n:"Defective Return Notice Reply", sf:"Defective return cases", el:"Notice u/s 139(9)", p:1999, m:5000, t:"2–3 Days", cta:"Rectify Defect", link:"https://thetaxcompany.in/servicedetail/defective-return-notice-reply",
+   inc:["Defect analysis","Reply drafting","Portal submission","Tracking","Acknowledgment"],
+   exc:["Govt fees","Litigation","Future compliance","Audit","Penalty"],
+   doc:["Defect notice","Original ITR","PAN","Aadhaar","Supporting documents"]},
+  {n:"Income Tax Refund Assistance", sf:"Refund pending", el:"Refund not credited", p:999, m:3000, t:"1–2 Days", cta:"Claim Refund", link:"https://thetaxcompany.in/servicedetail/income-tax-refund-assistance",
+   inc:["Refund status check","Grievance filing","Follow-up","Re-credit support"],
+   exc:["Refund amount","Interest calculation","Litigation","Third party services"],
+   doc:["PAN","ITR acknowledgment","Bank details","Refund failure proof"]},
+
+  // Investment Taxation
+  {n:"Capital Gains Tax Calculation", sf:"Investors & sellers", el:"Sale of capital assets", p:1499, m:3000, t:"1–2 Days", cta:"Calculate Tax", link:"https://thetaxcompany.in/servicedetail/capital-gains-tax-calculation",
+   inc:["Capital gain computation","Indexation benefit","Tax liability report","Advisory"],
+   exc:["Filing","Payment","Litigation","Notice handling","Audit"],
+   doc:["Purchase deed","Sale deed","Improvement cost","Holding period","PAN"]},
+  {n:"Stock Market Tax Filing", sf:"Traders & investors", el:"F&O, equity, intraday", p:2499, m:6000, t:"2–3 Days", cta:"File Stock Tax", link:"https://thetaxcompany.in/servicedetail/stock-market-tax-filing",
+   inc:["Trade summary analysis","Capital gains/loss","ITR filing","Verification"],
+   exc:["Audit","Litigation","Penalty","Future compliance","Third party reports"],
+   doc:["Broker statement","Profit/loss report","PAN","Bank details","Aadhaar"]},
+  {n:"Crypto Tax Filing", sf:"Crypto investors", el:"Virtual digital assets", p:2999, m:8000, t:"2–3 Days", cta:"File Crypto Tax", link:"https://thetaxcompany.in/servicedetail/crypto-tax-filing",
+   inc:["VDAs computation","ITR filing","Schedule VDA","Tax payment support"],
+   exc:["Audit","Litigation","Penalty","Future compliance","Third party valuation"],
+   doc:["Transaction history","Wallet statements","PAN","Aadhaar","Bank details"]},
+  {n:"Rental Income Tax Filing", sf:"Property owners", el:"Income from house property", p:1499, m:4000, t:"1–2 Days", cta:"File Rental Tax", link:"https://thetaxcompany.in/servicedetail/rental-income-tax-filing",
+   inc:["Rental income calculation","Deductions (30% & interest)","ITR filing"],
+   exc:["Govt fees","Litigation","Notice handling","Future compliance","Audit"],
+   doc:["Rent agreement","Interest certificate","PAN","Aadhaar","Bank statements"]},
+  {n:"Tax Planning Consultation", sf:"All taxpayers", el:"Want to optimise tax", p:1999, m:5000, t:"1–2 Days", cta:"Plan Taxes", link:"https://thetaxcompany.in/servicedetail/tax-planning-consultation",
+   inc:["Tax regime analysis","Deduction planning","Investment advisory","Report"],
+   exc:["Filing","Litigation","Notice handling","Third party products"],
+   doc:["Income details","Investment proofs","Existing ITR","Financial goals"]},
+
+  // NRI Tax Services
+  {n:"NRI Income Tax Return Filing", sf:"NRIs with India income", el:"Resident status NRI", p:3499, m:8000, t:"2–3 Days", cta:"File NRI ITR", link:"https://thetaxcompany.in/servicedetail/nri-income-tax-return-filing",
+   inc:["Residential status determination","ITR filing","Foreign income reporting","Verification"],
+   exc:["Govt fees","Litigation","Notice handling","Future compliance","Foreign tax credit claim"],
+   doc:["Passport","Visa","PAN","Indian income proofs","Foreign income details"]},
+  {n:"NRI Capital Gain Tax Filing", sf:"NRIs selling Indian property", el:"TDS u/s 195", p:4499, m:10000, t:"3–5 Days", cta:"File NRI Capital Gain", link:"https://thetaxcompany.in/servicedetail/nri-capital-gain-tax-filing",
+   inc:["Capital gain computation","TDS reconciliation","ITR filing","Lower TDS support"],
+   exc:["Govt fees","Litigation","Penalty","Future compliance","Valuation"],
+   doc:["Sale deed","Purchase deed","TDS certificate","PAN","Bank details"]},
+  {n:"Lower TDS Certificate", sf:"NRIs & businesses", el:"TDS higher than tax liability", p:3999, m:9000, t:"5–7 Days", cta:"Apply Certificate", link:"https://thetaxcompany.in/servicedetail/lower-tds-certificate",
+   inc:["Application preparation","Projected income statement","Submission","Follow-up"],
+   exc:["Govt fees","Litigation","Hearing","Future compliance","Third party verification"],
+   doc:["PAN","Estimated income","Previous ITR","TDS details","Form 13"]},
+  {n:"NRI Property Tax Advisory", sf:"NRI property owners", el:"Rental/sale of property", p:4999, m:12000, t:"2–3 Days", cta:"Get Advisory", link:"https://thetaxcompany.in/servicedetail/nri-property-tax-advisory",
+   inc:["Tax implications","TDS compliance","Repatriation guidance","ITR strategy"],
+   exc:["Filing","Litigation","Notice handling","Future compliance","Legal drafting"],
+   doc:["Property documents","Rent agreement","Sale consideration","PAN","Visa"]},
+
+  // GST Services
+  {n:"GST Registration", sf:"Businesses & startups", el:"Turnover above threshold", p:1499, m:3000, t:"3–7 Days", cta:"Get GST", link:"https://thetaxcompany.in/servicedetail/gst-registration",
+   inc:["Application filing","Portal support","Document verification","Tracking","Certificate delivery"],
+   exc:["Govt fees","Litigation","Notice handling","Future compliance","Third party verification"],
+   doc:["PAN","Aadhaar","Business address proof","Email & mobile","Photograph"]},
+  {n:"GST Return Filing", sf:"GST registered firms", el:"Active GST registration", p:2499, m:5000, t:"Monthly", cta:"File GST Return", link:"https://thetaxcompany.in/servicedetail/gst-return-filing",
+   inc:["Return preparation","Portal filing","Reconciliation support","Tracking","Compliance check"],
+   exc:["Govt penalties","Litigation","Notice handling","Future advisory","Third party audit"],
+   doc:["GST login","Sales data","Purchase data","Bank statements","Invoices"]},
+  {n:"GST Annual Return Filing", sf:"GST businesses", el:"Annual filing required", p:4999, m:8000, t:"5–7 Days", cta:"File Annual GST", link:"https://thetaxcompany.in/servicedetail/gst-annual-return-filing",
+   inc:["Annual reconciliation","Return filing","Portal support","Verification","Submission tracking"],
+   exc:["Govt penalties","Litigation","Notice handling","Future compliance","Third party audit"],
+   doc:["GST data","Annual reports","Invoices","Purchase records","Bank statements"]},
+  {n:"GST Compliance Management", sf:"GST businesses", el:"Ongoing compliance", p:7999, m:15000, t:"Monthly", cta:"Manage GST", link:"https://thetaxcompany.in/servicedetail/gst-compliance-management",
+   inc:["Return filing","Compliance tracking","Reconciliation","Advisory support","Regular updates"],
+   exc:["Govt penalties","Litigation","Notice handling","Audit","Third party verification"],
+   doc:["GST data","Invoices","Purchase data","Bank statements","Login credentials"]},
+
+  // Compliance Services
+  {n:"Accounting & Bookkeeping", sf:"Businesses & startups", el:"Ongoing transactions", p:6999, m:20000, t:"Monthly", cta:"Manage Books", link:"https://thetaxcompany.in/servicedetail/accounting-bookkeeping",
+   inc:["Transaction recording","Ledger maintenance","Financial reports","Reconciliation","Compliance readiness"],
+   exc:["Audit","Litigation","Notice handling","Tax filing","Third party verification"],
+   doc:["Invoices","Bank statements","Expense records","Sales data","GST data"]},
+  {n:"Payroll Compliance Services", sf:"Employers", el:"Employees on payroll", p:4999, m:12000, t:"Monthly", cta:"Manage Payroll", link:"https://thetaxcompany.in/servicedetail/payroll-compliance-services",
+   inc:["Salary processing","TDS calculation","PF/ESI compliance","Payslips","Returns support"],
+   exc:["Govt penalties","Litigation","Notice handling","Audit","Third party software"],
+   doc:["Employee details","Salary structure","PAN","Bank details","Previous challans"]},
+  {n:"TDS Return Filing", sf:"Employers & businesses", el:"TDS deducted", p:2999, m:6000, t:"Quarterly", cta:"File TDS", link:"https://thetaxcompany.in/servicedetail/tds-return-filing",
+   inc:["Return preparation","Portal filing","Verification","Tracking","Compliance support"],
+   exc:["Govt penalties","Litigation","Notice handling","Future compliance","Third party audit"],
+   doc:["TAN","Challan details","Deduction data","Employee/vendor details","Bank records"]}
+];
+
+/* ── HELPERS (unchanged) ── */
+function fmt(n){ return '₹'+n.toLocaleString('en-IN'); }
+function pct(s){ return Math.round((s.m-s.p)/s.m*100); }
+
+function listRows(arr, type){
+  var icon  = type==='inc'?'✔':type==='exc'?'✖':'📄';
+  var ibg   = type==='inc'?'rgba(0,255,120,0.10)':type==='exc'?'rgba(255,0,0,0.10)':'rgba(120,120,255,0.10)';
+  var icol  = type==='inc'?'#00ff88':type==='exc'?'#ff4d4d':'#7a7aff';
+  var tcol  = type==='inc'?'#d6ffe6':type==='exc'?'#ffd6d6':'#d6d6ff';
+  return arr.map(function(item){
+    return '<li style="display:flex;align-items:flex-start;gap:5px;margin-bottom:5px;font-size:10px;line-height:1.5;color:'+tcol+';font-family:\'Montserrat\',sans-serif;">'+
+      '<span style="width:12px;height:12px;min-width:12px;border-radius:50%;background:'+ibg+';color:'+icol+';display:flex;align-items:center;justify-content:center;font-size:7px;margin-top:1px;">'+icon+'</span>'+
+      '<span>'+item+'</span></li>';
+  }).join('');
+}
+
+function buildCard(s, idx){
+  var uid = 'ttc'+idx;
+  var disc = pct(s);
+  return '<div style="width:100%;display:flex;">'+
+    '<div class="ttc-card-wrap" style="background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;overflow:hidden;"'+
+      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(255,255,255,0.14)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.6),0 0 20px rgba(79,255,176,0.04)\';"'+
+      ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(255,255,255,0.08)\';this.style.boxShadow=\'none\';">'+
+
+    /* top shimmer line */
+    '<div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);border-radius:999px;"></div>'+
+
+    /* price block */
+    '<div style="margin-bottom:7px;">'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">Starting from</span>'+
+      '<div style="display:flex;align-items:flex-end;gap:5px;flex-wrap:wrap;margin-bottom:2px;">'+
+        '<span style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1;font-family:\'Montserrat\',sans-serif;">'+fmt(s.p)+'</span>'+
+        '<span style="font-size:10px;color:rgba(255,255,255,0.6);text-decoration:line-through;font-weight:400;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+fmt(s.m)+'</span>'+
+        '<span class="discount-badge" style="display:inline-flex;align-items:center;background:rgba(79,255,176,0.12);border:1px solid rgba(79,255,176,0.25);color:#4fffb0;font-size:9px;font-weight:600;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;box-shadow:0 0 8px rgba(79,255,176,0.15);">'+disc+'% OFF</span>'+
+      '</div>'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
+    '</div>'+
+
+    /* suitability */
+    '<div style="margin-bottom:3px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Suitable for:</strong> '+s.sf+'</div>'+
+'<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;">'+
+  '<strong style="color:#fff;">Eligible for:</strong> '+
+  '<span style="color:rgba(255,255,255,0.6);font-style:italic;">'+s.el+'</span>'+
+'</div>'+
+
+    /* turnaround */
+    '<div style="margin-bottom:5px;font-size:9px;color:#4fffb0;font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
+
+    /* divider */
+    '<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent);margin:2px 0 7px;"></div>'+
+
+    /* title */
+    '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
+
+    /* tab switcher */
+    '<div style="display:flex;gap:3px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:3px;margin-bottom:7px;">'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Not Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Documents</button>'+
+    '</div>'+
+
+    /* tab body */
+    '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent;">'+
+      '<ul id="'+uid+'-inc" style="list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.inc,'inc')+'</ul>'+
+      '<ul id="'+uid+'-exc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.exc,'exc')+'</ul>'+
+      '<ul id="'+uid+'-doc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.doc,'doc')+'</ul>'+
+    '</div>'+
+
+    /* cta */
+    '<div style="margin-top:8px;">'+
+      '<a href="'+s.link+'" style="display:block;width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;"'+
+        ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
+        ' onmouseleave="this.style.background=\'#fff\';this.style.transform=\'translateY(0)\';">'+
+        s.cta+' &rarr;'+
+      '</a>'+
+    '</div>'+
+
+  '</div></div>';
+}
+
+/* ── INJECT CARDS ── */
+var slider = document.getElementById('ttc-slider');
+if(slider){
+  slider.innerHTML = S.map(function(s,i){ return buildCard(s,i); }).join('');
+}
+
+/* ── INIT OWL + AUTOPLAY + EDGE DISABLE (unchanged) ── */
+$(function(){
+
+  var owl = $('#ttc-slider').owlCarousel({
+    loop       : false,
+    margin     : 20,
+    nav        : true,
+    dots       : true,
+    autoHeight : false,
+    navText    : ['&#8592;','&#8594;'],
+    autoplay   : true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive : {
+      0    : { items: 1 },
+      600  : { items: 2 },
+      1000 : { items: 5 }
+    }
+  });
+
+  // Disable prev/next at edges
+  owl.on('changed.owl.carousel', function(event) {
+    var carousel = event.relatedTarget;
+    var current = carousel.current();
+    var total = carousel.items().length;
+    var visible = carousel.settings.items;
+    
+    if (current === 0) {
+      $('.owl-prev').addClass('disabled');
+    } else {
+      $('.owl-prev').removeClass('disabled');
+    }
+    
+    if (current + visible >= total) {
+      $('.owl-next').addClass('disabled');
+    } else {
+      $('.owl-next').removeClass('disabled');
+    }
+  });
+
+  /* tab switching */
+  $(document).on('click', '.ttc-btn', function(){
+    var uid = $(this).data('uid');
+    var tab = $(this).data('tab');
+
+    $('.ttc-btn[data-uid="'+uid+'"]').each(function(){
+      var isActive = $(this).data('tab') === tab;
+      $(this).css({
+        background   : isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
+        color        : isActive ? '#fff' : '#888',
+        borderColor  : isActive ? 'rgba(255,255,255,0.18)' : 'transparent'
+      });
+    });
+
+    $('#'+uid+'-inc, #'+uid+'-exc, #'+uid+'-doc').hide();
+    $('#'+uid+'-'+tab).show();
+  });
+
+});
+
+})();
+</script>
+
+<div class="wrap"><hr></div>
+<!-- ─── WHO I SERVE ─── -->
+<section class="sec reveal-section">
+  <div class="wrap">
+    <div class="sec-title">Who I Serve</div>
+    <p class="sec-sub">Specialized corporate tax and compliance support for businesses at every stage of growth.</p>
+    
+    <div class="industry-grid reveal-stagger">
+
+      <!-- 1. Startups -->
+      <div class="ind-card tap-card">
+        <div class="card-front">
+          <div class="ind-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+              <path d="M4 4h16v16H4z"/>
+              <path d="M8 8h8M8 12h6M8 16h4"/>
+            </svg>
+          </div>
+          <div class="ind-title">Startups & Founders</div>
+          <div class="ind-desc">
+            Early-stage businesses needing company registration, corporate structuring, and compliance setup.
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Startups & Founders</div>
+          <div class="card-back-desc">
+            Incorporation, tax structuring & compliance foundation for scalable growth.
+          </div>
+        </div>
         <span class="tap-hint"></span>
       </div>
-      <div class="service-main-card tap-card">
-        <div class="card-front"><div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><div class="service-title">GST Filing</div></div>
-        <div class="card-back"><div class="card-back-title">GST Filing</div><div class="card-back-desc">Monthly &amp; quarterly GST returns, reconciliation &amp; compliance end-to-end.</div></div>
+
+      <!-- 2. Growing Companies -->
+      <div class="ind-card tap-card">
+        <div class="card-front">
+          <div class="ind-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M9 21V9h6v12"/>
+            </svg>
+          </div>
+          <div class="ind-title">Growing Companies</div>
+          <div class="ind-desc">
+            Expanding businesses requiring corporate tax filing, ROC compliance, and financial discipline.
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Growing Companies</div>
+          <div class="card-back-desc">
+            Corporate tax, ROC filings & advisory to support structured expansion.
+          </div>
+        </div>
         <span class="tap-hint"></span>
       </div>
-      <div class="service-main-card tap-card">
-        <div class="card-front"><div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="service-title">Compliance Support</div></div>
-        <div class="card-back"><div class="card-back-title">Compliance Support</div><div class="card-back-desc">End-to-end support for tax notices, regulatory filings, and compliance requirements.</div></div>
+
+      <!-- 3. Established Businesses -->
+      <div class="ind-card tap-card">
+        <div class="card-front">
+          <div class="ind-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+              <path d="M12 2v4M4 4l3 3M20 4l-3 3"/>
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M2 20h20"/>
+            </svg>
+          </div>
+          <div class="ind-title">Established Businesses</div>
+          <div class="ind-desc">
+            Businesses needing ongoing compliance, tax optimization, and strategic financial advisory.
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Established Businesses</div>
+          <div class="card-back-desc">
+            End-to-end compliance, tax efficiency & long-term financial strategy.
+          </div>
+        </div>
         <span class="tap-hint"></span>
       </div>
+
+      <!-- 4. Corporates & Enterprises -->
+      <div class="ind-card tap-card">
+        <div class="card-front">
+          <div class="ind-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+              <path d="M3 21h18"/>
+              <path d="M5 21V7l8-4v18"/>
+              <path d="M19 21V11l-6-4"/>
+            </svg>
+          </div>
+          <div class="ind-title">Corporates & Enterprises</div>
+          <div class="ind-desc">
+            Large organizations requiring structured compliance, audit readiness, and strategic tax advisory.
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Corporates & Enterprises</div>
+          <div class="card-back-desc">
+            Advanced compliance, audit support & corporate tax planning at scale.
+          </div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="wrap"><hr></div>
+
+<!-- ─── CITIES ─── -->
+<section class="sec reveal-section">
+  <div class="wrap">
+    <div class="sec-title">Cities Served</div>
+    <p class="sec-sub">Serving clients across major Indian cities and remote locations nationwide.</p>
+    <div class="cities-grid reveal-stagger">
+      
+      <div class="city-card" style="background:rgba(79,125,243,0.06);border-color:rgba(79,125,243,0.15)">
+        <div class="city-illustration">
+          <svg viewBox="0 0 120 72" fill="none">
+            <path d="M10 50 Q 30 30 50 50 T 90 50" stroke="rgba(79,125,243,0.3)" stroke-width="2" fill="none"/>
+            <rect x="20" y="45" width="80" height="20" fill="rgba(79,125,243,0.2)" stroke="rgba(79,125,243,0.8)" stroke-width="1"/>
+            <rect x="25" y="45" width="4" height="20" fill="rgba(79,125,243,0.4)"/>
+            <rect x="35" y="45" width="4" height="20" fill="rgba(79,125,243,0.4)"/>
+            <rect x="45" y="45" width="4" height="20" fill="rgba(79,125,243,0.4)"/>
+            <rect x="71" y="45" width="4" height="20" fill="rgba(79,125,243,0.4)"/>
+            <rect x="81" y="45" width="4" height="20" fill="rgba(79,125,243,0.4)"/>
+            <rect x="91" y="45" width="4" height="20" fill="rgba(79,125,243,0.4)"/>
+            <rect x="52" y="35" width="16" height="30" fill="rgba(79,125,243,0.3)" stroke="rgba(79,125,243,0.9)" stroke-width="1"/>
+            <path d="M50 35 Q 60 15 70 35 Z" fill="rgba(79,125,243,0.5)" stroke="rgba(79,125,243,1)" stroke-width="1"/>
+            <line x1="60" y1="15" x2="60" y2="5" stroke="rgba(79,125,243,1)" stroke-width="1"/>
+            <polygon points="60,5 68,9 60,13" fill="rgba(79,125,243,0.8)"/>
+            <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(79,125,243,0.5)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div>
+          <div class="city-name">Bengaluru</div>
+          <div class="city-tag">Tech Capital</div>
+        </div>
+      </div>
+
+      <div class="city-card" style="background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.15)">
+        <div class="city-illustration">
+          <svg viewBox="0 0 120 72" fill="none">
+            <rect x="40" y="35" width="40" height="30" fill="rgba(245,158,11,0.2)" stroke="rgba(245,158,11,0.8)" stroke-width="1"/>
+            <path d="M 48 65 L 48 50 A 12 12 0 0 1 72 50 L 72 65 Z" fill="rgba(245,158,11,0.1)" stroke="rgba(245,158,11,0.9)" stroke-width="1"/>
+            <rect x="36" y="15" width="8" height="50" fill="rgba(245,158,11,0.3)" stroke="rgba(245,158,11,0.8)" stroke-width="1"/>
+            <rect x="76" y="15" width="8" height="50" fill="rgba(245,158,11,0.3)" stroke="rgba(245,158,11,0.8)" stroke-width="1"/>
+            <path d="M 34 15 Q 40 5 46 15 Z" fill="rgba(245,158,11,0.5)" stroke="rgba(245,158,11,0.9)" stroke-width="1"/>
+            <path d="M 74 15 Q 80 5 86 15 Z" fill="rgba(245,158,11,0.5)" stroke="rgba(245,158,11,0.9)" stroke-width="1"/>
+            <rect x="40" y="30" width="40" height="5" fill="rgba(245,158,11,0.4)" stroke="rgba(245,158,11,0.9)" stroke-width="1"/>
+            <path d="M 52 30 Q 56 22 60 30 Q 64 22 68 30" fill="none" stroke="rgba(245,158,11,0.7)" stroke-width="1.5"/>
+            <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div>
+          <div class="city-name">Hyderabad</div>
+          <div class="city-tag">City of Pearls</div>
+        </div>
+      </div>
+
+      <div class="city-card" style="background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.15)">
+        <div class="city-illustration">
+          <svg viewBox="0 0 120 72" fill="none">
+            <path d="M 0 65 Q 15 60 30 65 T 60 65 T 90 65 T 120 65" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="2"/>
+            <path d="M 0 70 Q 15 65 30 70 T 60 70 T 90 70 T 120 70" fill="none" stroke="rgba(16,185,129,0.3)" stroke-width="2"/>
+            <line x1="30" y1="65" x2="50" y2="20" stroke="rgba(16,185,129,0.8)" stroke-width="2"/>
+            <line x1="50" y1="20" x2="80" y2="65" stroke="rgba(16,185,129,0.8)" stroke-width="2"/>
+            <line x1="50" y1="20" x2="90" y2="40" stroke="rgba(16,185,129,0.8)" stroke-width="2"/>
+            <path d="M 50 20 L 80 65 Q 65 50 50 20" fill="rgba(16,185,129,0.2)" stroke="rgba(16,185,129,0.6)" stroke-width="1"/>
+            <path d="M 50 20 L 90 40 Q 70 30 50 20" fill="rgba(16,185,129,0.3)" stroke="rgba(16,185,129,0.6)" stroke-width="1"/>
+            <circle cx="95" cy="25" r="8" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div>
+          <div class="city-name">Kochi</div>
+          <div class="city-tag">Financial Hub</div>
+        </div>
+      </div>
+
+      <div class="city-card" style="background:rgba(59,130,246,0.06);border-color:rgba(59,130,246,0.15)">
+        <div class="city-illustration">
+          <svg viewBox="0 0 120 72" fill="none">
+            <rect x="35" y="25" width="50" height="40" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.8)" stroke-width="1"/>
+            <rect x="33" y="20" width="14" height="45" fill="rgba(59,130,246,0.3)" stroke="rgba(59,130,246,0.9)" stroke-width="1"/>
+            <rect x="73" y="20" width="14" height="45" fill="rgba(59,130,246,0.3)" stroke="rgba(59,130,246,0.9)" stroke-width="1"/>
+            <path d="M 47 65 L 47 45 A 13 13 0 0 1 73 45 L 73 65 Z" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.9)" stroke-width="1"/>
+            <path d="M 31 20 Q 40 8 49 20 Z" fill="rgba(59,130,246,0.5)" stroke="rgba(59,130,246,1)" stroke-width="1"/>
+            <path d="M 71 20 Q 80 8 89 20 Z" fill="rgba(59,130,246,0.5)" stroke="rgba(59,130,246,1)" stroke-width="1"/>
+            <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div>
+          <div class="city-name">Mumbai</div>
+          <div class="city-tag">Financial Capital</div>
+        </div>
+      </div>
+
+      <div class="city-card" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.15)">
+        <div class="city-illustration">
+          <svg viewBox="0 0 120 72" fill="none">
+            <rect x="35" y="60" width="50" height="5" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.7)" stroke-width="1"/>
+            <rect x="40" y="20" width="40" height="40" fill="rgba(139,92,246,0.25)" stroke="rgba(139,92,246,0.8)" stroke-width="1"/>
+            <rect x="43" y="15" width="34" height="5" fill="rgba(139,92,246,0.3)" stroke="rgba(139,92,246,0.9)" stroke-width="1"/>
+            <rect x="47" y="10" width="26" height="5" fill="rgba(139,92,246,0.4)" stroke="rgba(139,92,246,0.9)" stroke-width="1"/>
+            <path d="M 52 10 Q 60 5 68 10 Z" fill="rgba(139,92,246,0.5)"/>
+            <path d="M 48 60 L 48 38 A 12 12 0 0 1 72 38 L 72 60 Z" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.9)" stroke-width="1"/>
+            <rect x="58" y="55" width="4" height="5" fill="rgba(139,92,246,0.6)"/>
+            <path d="M 58 55 Q 60 50 62 55 Z" fill="rgba(139,92,246,0.9)"/>
+            <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div>
+          <div class="city-name">Delhi NCR</div>
+          <div class="city-tag">National Capital</div>
+        </div>
+      </div>
+
+      <div class="city-card" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.12)">
+        <div class="city-illustration">
+          <svg viewBox="0 0 120 72" fill="none">
+            <path d="M 10 36 C 30 10, 60 60, 110 36" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2"/>
+            <path d="M 10 50 C 40 70, 80 10, 110 50" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <circle cx="60" cy="36" r="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+            <circle cx="60" cy="36" r="3" fill="rgba(255,255,255,0.8)"/>
+            <line x1="60" y1="36" x2="25" y2="22" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <circle cx="25" cy="22" r="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+            <circle cx="25" cy="22" r="1.5" fill="rgba(255,255,255,0.6)"/>
+            <line x1="60" y1="36" x2="95" y2="20" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <circle cx="95" cy="20" r="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+            <circle cx="95" cy="20" r="1.5" fill="rgba(255,255,255,0.6)"/>
+            <line x1="60" y1="36" x2="35" y2="55" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <circle cx="35" cy="55" r="5" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+            <circle cx="35" cy="55" r="2" fill="rgba(255,255,255,0.7)"/>
+            <line x1="60" y1="36" x2="85" y2="52" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <circle cx="85" cy="52" r="3" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            <circle cx="85" cy="52" r="1" fill="rgba(255,255,255,0.5)"/>
+            <circle cx="60" cy="36" r="24" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div>
+          <div class="city-name">Pan India</div>
+          <div class="city-tag">Remote • All States</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
+<div class="wrap"><hr></div>
+
+<!-- ─── WHY CHOOSE ─── -->
+<section class="sec reveal-section">
+  <div class="wrap">
+    <div class="sec-title">Why Choose Me</div>
+    <p class="sec-sub">Experience structured and compliant business growth with a dedicated corporate tax advisor.</p>
+    <div class="values-grid reveal-stagger">
+      <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div class="val-title">Structured Growth</div><div class="val-desc">Structured and compliant business growth solutions. No regulatory surprises, just reliable support.</div></div>
+      <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z"/></svg></div><div class="val-title">Fast Turnaround</div><div class="val-desc">Efficient processes mean faster compliance. Most filings completed within 24–48 hours.</div></div>
+      <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="val-title">100% Secure</div><div class="val-desc">Your financial data is treated with strict confidentiality. Secure channels for all communication.</div></div>
+    </div>
+    <div class="features-grid reveal-stagger" style="margin-top:0">
+      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/><path d="M9 12l2 2 4-4"/></svg></div><div class="feat-text">Corporate Tax Specialist</div><div class="feat-sub">Qualified &amp; certified professional</div></div>
+      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M7 8h10M7 12h6"/></svg></div><div class="feat-text">Bilingual Support</div><div class="feat-sub">English &amp; Hindi</div></div>
+      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20"/></svg></div><div class="feat-text">Pan India Service</div><div class="feat-sub">All 28 states &amp; 8 UTs covered</div></div>
+      <div class="feat-item"><div class="feat-icon">
+        <svg viewBox="0 0 24 24"><path d="M6 3h12M6 7h10M6 11h8M10 11c-2 0-4 1-4 3s2 3 4 3 4 1 4 3-2 3-4 3"/></svg>
+      </div><div class="feat-text">Transparent Fees</div><div class="feat-sub">Clear pricing, no hidden charges</div></div>
+      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/></svg></div><div class="feat-text">Digital Process</div><div class="feat-sub">100% online — no office visit needed</div></div>
+      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg></div><div class="feat-text">Zero Penalties</div><div class="feat-sub">Accurate &amp; timely compliance guaranteed</div></div>
+    </div>
+  </div>
+</section>
 <div class="wrap"><hr></div>
 
 <!-- ─── WHO I SERVE ─── -->
