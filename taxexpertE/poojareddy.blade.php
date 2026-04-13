@@ -1,3 +1,4 @@
+
 @extends('front')
 @section('content')
 <meta charset="UTF-8">
@@ -1016,104 +1017,102 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <div class="wrap"><hr></div>
 
 <!-- ─── ABOUT ─── -->
-<section class="sec reveal">
-  <div class="wrap">
-    <div class="card about-card">
-      <div class="about-title">About Me</div>
-      <div class="about-text collapsed" id="aboutText">
-        Pooja Reddy is an SME tax specialist with 2+ years of experience helping small businesses manage GST, bookkeeping, and tax compliance efficiently. She focuses on simplifying financial processes and ensuring accurate filings.
-      </div>
-      <div class="about-text expanded" id="aboutFull" style="display:none;">
-        Pooja Reddy specializes in GST filing, bookkeeping, and compliance for small businesses and retail traders. She has worked with multiple small business owners to streamline financial operations, maintain proper records, and ensure timely tax filings.<br><br>Her approach focuses on making finance simple and accessible for entrepreneurs while ensuring full compliance with tax regulations. She helps businesses stay organized, avoid penalties, and maintain clean financial records.<br><br>Known for her reliability, clarity, and practical approach, Pooja ensures that small business owners can focus on growth while she handles their tax and accounting needs efficiently.
-      </div>
-      <div class="about-toggle" onclick="toggleAbout()">Read More ▼</div>
-    </div>
-  </div>
-</section>
-
-<div class="wrap"><hr></div>
-
-<!-- ─── EXPERTISE ─── -->
 <section class="sec reveal-section" id="expertise">
   <div class="wrap">
     <div class="sec-title">Areas of Expertise</div>
     <p class="sec-sub">Specialized tax, GST, and accounting solutions designed for small businesses and retail owners.</p>
     <div class="expertise-grid reveal-stagger" style="margin-top:32px">
 
+      <!-- GST Services -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg></div>
-          <div class="exp-title">GST Filing</div>
-          <div class="exp-desc">Accurate GST return filing for small businesses ensuring timely compliance.</div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 6h18M3 10h18M5 14h14M7 18h10"/>
+            </svg>
+          </div>
+          <div class="exp-title">GST Services</div>
+          <div class="exp-desc">Goods and Services Tax registration, return filing, and annual compliance for small businesses.</div>
         </div>
         <div class="card-back">
-          <div class="card-back-title">GST Filing</div>
-          <div class="card-back-desc">Timely and accurate GST filing with zero compliance stress.</div>
+          <div class="card-back-title">GST Services</div>
+          <div class="card-back-desc">End-to-end GST registration, returns & compliance support.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
 
+      <!-- Accounting & Bookkeeping -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
-          <div class="exp-title">Bookkeeping</div>
-          <div class="exp-desc">Maintaining accurate financial records and tracking daily transactions.</div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="16"/>
+              <path d="M7 8h10M7 12h10M7 16h6"/>
+            </svg>
+          </div>
+          <div class="exp-title">Accounting & Bookkeeping</div>
+          <div class="exp-desc">Monthly bookkeeping, financial statement preparation, and bank reconciliation.</div>
         </div>
         <div class="card-back">
-          <div class="card-back-title">Bookkeeping</div>
-          <div class="card-back-desc">Clean and organized books for better financial clarity.</div>
+          <div class="card-back-title">Accounting & Bookkeeping</div>
+          <div class="card-back-desc">Accurate books, reports & reconciliation for financial clarity.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
 
+      <!-- Income Tax Filing -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/></svg></div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M6 2h9l5 5v15H6z"/>
+              <path d="M14 2v6h6"/>
+            </svg>
+          </div>
+          <div class="exp-title">Income Tax Filing</div>
+          <div class="exp-desc">ITR filing for proprietors, freelancers, and small business owners (ITR-3, ITR-4).</div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Income Tax Filing</div>
+          <div class="card-back-desc">Accurate ITR filing with compliance and tax optimization.</div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
+
+      <!-- Compliance -->
+      <div class="exp-card tap-card">
+        <div class="card-front">
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
           <div class="exp-title">Compliance</div>
-          <div class="exp-desc">Ensuring GST and tax compliance with zero penalties.</div>
+          <div class="exp-desc">TDS returns, payroll compliance, and other statutory filings.</div>
         </div>
         <div class="card-back">
           <div class="card-back-title">Compliance</div>
-          <div class="card-back-desc">Stay fully compliant with all GST and tax regulations.</div>
+          <div class="card-back-desc">Complete statutory compliance with zero penalties.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
 
+      <!-- Notice Handling -->
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/></svg></div>
-          <div class="exp-title">ITR Filing</div>
-          <div class="exp-desc">Income tax return filing for small business owners and individuals.</div>
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h16v16H4z"/>
+              <path d="M4 4l8 7 8-7"/>
+            </svg>
+          </div>
+          <div class="exp-title">Notice Handling</div>
+          <div class="exp-desc">Professional reply drafting and submission for Income Tax notices.</div>
         </div>
         <div class="card-back">
-          <div class="card-back-title">ITR Filing</div>
-          <div class="card-back-desc">Accurate income tax filing with maximum compliance.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="exp-card tap-card">
-        <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16"/></svg></div>
-          <div class="exp-title">Accounting Support</div>
-          <div class="exp-desc">End-to-end accounting assistance for small businesses.</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Accounting Support</div>
-          <div class="card-back-desc">Complete accounting support to keep your business finances organized.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="exp-card tap-card">
-        <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
-          <div class="exp-title">Tax Advisory</div>
-          <div class="exp-desc">Simple and practical tax advice for business owners.</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Tax Advisory</div>
-          <div class="card-back-desc">Smart tax guidance to reduce liability and improve efficiency.</div>
+          <div class="card-back-title">Notice Handling</div>
+          <div class="card-back-desc">Expert handling of tax notices with accurate responses.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
@@ -1125,51 +1124,237 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <div class="wrap"><hr></div>
 
 <!-- ─── SERVICES ─── -->
-<section class="sec reveal-section" id="services">
+<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;padding:56px 0;width:100%;box-sizing:border-box;">
+
+  <style>
+    /* ... (all existing styles unchanged) ... */
+    #tax-services-section { width: 100%; padding: 56px 0; }
+    #tax-services-section .section-header { margin-bottom: 28px; }
+    #tax-services-section .section-title { font-size: 30px; font-weight: 900; letter-spacing: -0.02em; color: #ffffff; margin: 0 0 16px 0; font-family: 'Montserrat', sans-serif; line-height: 1.1; }
+    #tax-services-section .section-subtitle { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 400; line-height: 1.6; margin: 0; max-width: 600px; font-family: 'Montserrat', sans-serif; }
+    .web-only { display: block; }
+    @media (max-width: 768px) { .web-only { display: none; } }
+    @keyframes ttc-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+    #tax-services-section .owl-stage { display: flex !important; align-items: stretch !important; }
+    #tax-services-section .owl-item { display: flex !important; height: auto; }
+    #tax-services-section .owl-item > div { display: flex; width: 100%; }
+    #tax-services-section .ttc-card-wrap { height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 6px; }
+    #tax-services-section .owl-nav { display: flex !important; align-items: center; justify-content: center; gap: 6px; margin-top: 20px !important; }
+    #tax-services-section .owl-prev, #tax-services-section .owl-next { width: 23px !important; height: 23px !important; background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #fff !important; font-size: 10px !important; transition: all 0.25s ease !important; line-height: 1 !important; margin: 0 !important; }
+    #tax-services-section .owl-prev:hover, #tax-services-section .owl-next:hover { background: rgba(79,255,176,0.1) !important; border-color: rgba(79,255,176,0.25) !important; box-shadow: 0 0 8px rgba(79,255,176,0.1) !important; }
+    #tax-services-section .owl-prev.disabled, #tax-services-section .owl-next.disabled { opacity: 0.3; pointer-events: none; }
+    #tax-services-section .owl-dots { display: flex !important; justify-content: center !important; gap: 4px !important; margin-top: 10px !important; }
+    #tax-services-section .owl-dot span { width: 3px !important; height: 3px !important; background: rgba(255,255,255,0.15) !important; border-radius: 999px !important; transition: all 0.3s ease !important; margin: 0 !important; }
+    #tax-services-section .owl-dot.active span { background: #4fffb0 !important; width: 11px !important; box-shadow: 0 0 4px rgba(79,255,176,0.4) !important; }
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar { width: 2px; }
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar-track { background: transparent; }
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 99px; }
+    #tax-services-section .discount-badge { background: rgba(79,255,176,0.12) !important; color: #4fffb0 !important; border: 1px solid rgba(79,255,176,0.25) !important; box-shadow: 0 0 8px rgba(79,255,176,0.15) !important; font-weight: 600 !important; }
+  </style>
+
   <div class="wrap">
-    <div class="sec-title">Services Offered</div>
-    <p class="sec-sub">Practical tax, GST, and accounting services designed specifically for small businesses and retail owners.</p>
-    <div class="services-clean reveal-stagger">
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg></div>
-          <div class="service-title">GST Filing</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">GST Filing</div>
-          <div class="card-back-desc">Monthly and quarterly GST return filing with complete accuracy.</div>
-        </div>
-        <span class="tap-hint"></span>
+    <div class="section-header">
+      <h2 class="section-title">Expert Service Plans</h2>
+      <div class="section-subtitle web-only">
+        Professional tax &amp; compliance services.<br>
+        Transparent pricing, zero surprises.
       </div>
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
-          <div class="service-title">Accounting</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Accounting</div>
-          <div class="card-back-desc">Complete bookkeeping and accounting support to keep finances organized.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/></svg></div>
-          <div class="service-title">ITR Filing</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">ITR Filing</div>
-          <div class="card-back-desc">Income tax return filing for small business owners and individuals with compliance.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
     </div>
   </div>
+
+  <div class="wrap">
+    <div id="ttc-slider" class="owl-carousel owl-theme"></div>
+  </div>
+
 </section>
+
+<script>
+(function(){
+
+/* ── SERVICE DATA (CA POOJA REDDY – SME TAX SPECIALIST) ── */
+var S = [
+  {n:"GST Registration", sf:"Small businesses, freelancers, shop owners", el:"Turnover up to ₹5 crore, not required to audit", p:1499, m:3000, t:"3–7 Working Days", cta:"Register Now", link:"https://thetaxcompany.in/servicedetail/gst-registration",
+   inc:["Application filing on GST portal","Document verification","ARN tracking","Certificate download support","Basic compliance advisory"],
+   exc:["Government fees","Notice handling","Litigation support","Future return filings","Third‑party verification"],
+   doc:["PAN card of business/proprietor","Aadhaar card","Business address proof","Bank statement/cancelled cheque","Photograph"]},
+  {n:"GST Return Filing (Monthly/Quarterly)", sf:"GST registered small businesses", el:"Active GSTIN, monthly/quarterly filing required", p:2499, m:5000, t:"Monthly", cta:"File Returns", link:"https://thetaxcompany.in/servicedetail/gst-return-filing",
+   inc:["Data reconciliation","Return preparation & filing","Portal submission","Acknowledgment","Email support"],
+   exc:["Penalties/interest","Notice reply","Audit","Annual return filing","Third‑party software"],
+   doc:["GST login credentials","Sales & purchase invoices","Bank statements","Previous return data","E‑way bill details"]},
+  {n:"GST Annual Return Filing (GSTR-9)", sf:"GST businesses with annual turnover > ₹2 crore or voluntary", el:"Active GST registration", p:4999, m:8000, t:"5–7 Working Days", cta:"File Annual Return", link:"https://thetaxcompany.in/servicedetail/gst-annual-return-filing",
+   inc:["Reconciliation with books","GSTR-9 preparation","Portal filing","Acknowledgment","Support for queries"],
+   exc:["Penalties","Audit by department","Notice reply","Future compliance","Third‑party tools"],
+   doc:["Monthly/quarterly returns data","Financial statements","GST login","Audited accounts","Invoice summary"]},
+  {n:"Accounting & Bookkeeping (Monthly)", sf:"Small businesses, retailers, freelancers", el:"Ongoing transactions, need accurate books", p:6999, m:20000, t:"Monthly", cta:"Start Bookkeeping", link:"https://thetaxcompany.in/servicedetail/accounting-bookkeeping",
+   inc:["Transaction recording","Bank reconciliation","Profit & Loss statement","Balance sheet","Monthly report"],
+   exc:["Audit","Tax filing","Notice handling","Software cost","Third‑party verification"],
+   doc:["Bank statements","Sales & purchase invoices","Expense bills","Previous month's closing balances","GST data"]},
+  {n:"ITR‑4 (Presumptive Business Income)", sf:"Small business owners, self‑employed individuals", el:"Business income below audit threshold", p:1499, m:4000, t:"1–2 Working Days", cta:"File ITR‑4", link:"https://thetaxcompany.in/servicedetail/itr-4-presumptive-filing",
+   inc:["Computation of presumptive income","ITR‑4 preparation","E‑filing","E‑verification assistance","Acknowledgment"],
+   exc:["Audit report","Notice reply","Refund follow‑up","Future year filing","Government fees"],
+   doc:["PAN card","Aadhaar card","Bank statement","Business turnover details","Investment proofs"]},
+  {n:"ITR‑3 (Business/Professional Income)", sf:"Small businesses, proprietors, freelancers", el:"Business income, profession, or freelance income", p:2499, m:6000, t:"2–3 Working Days", cta:"File ITR‑3", link:"http://thetaxcompany.in/servicedetail/itr-3-return-filing",
+   inc:["Tax computation","ITR‑3 preparation","E‑filing","Verification support","Acknowledgment"],
+   exc:["Audit report","Bookkeeping","Notice reply","Refund claim","Government fees"],
+   doc:["PAN & Aadhaar","Profit & Loss account","Balance sheet","Bank statements","TDS certificates"]},
+  {n:"TDS Return Filing (Quarterly)", sf:"Employers and small businesses with employees", el:"TDS deduction on salaries/contractors", p:2999, m:6000, t:"Quarterly", cta:"File TDS Return", link:"https://thetaxcompany.in/servicedetail/tds-return-filing",
+   inc:["Return preparation (24Q/26Q)","E‑filing","Correction support","Acknowledgment","Basic advisory"],
+   exc:["Late fees/penalties","Notice reply","TDS payment","Third‑party software","Audit"],
+   doc:["TAN details","Deduction data","Challan details","PAN of deductees","Previous return data"]},
+  {n:"Income Tax Notice Reply", sf:"Small business owners, retailers", el:"Receipt of Income Tax notice u/s 139(9), 143(1), 142(1) etc.", p:2999, m:8000, t:"3–5 Working Days", cta:"Reply to Notice", link:"https://thetaxcompany.in/servicedetail/income-tax-notice-reply",
+   inc:["Analysis of notice","Drafting reply","E‑filing submission","Follow‑up","Status tracking"],
+   exc:["Litigation","Court appearance","Penalty payment","Future compliance","Third‑party verification"],
+   doc:["Copy of notice","PAN card","Relevant financial records","Previous ITR","Supporting documents"]}
+];
+
+/* ── HELPERS (unchanged) ── */
+function fmt(n){ return '₹'+n.toLocaleString('en-IN'); }
+function pct(s){ return Math.round((s.m-s.p)/s.m*100); }
+
+function listRows(arr, type){
+  var icon  = type==='inc'?'✔':type==='exc'?'✖':'📄';
+  var ibg   = type==='inc'?'rgba(0,255,120,0.10)':type==='exc'?'rgba(255,0,0,0.10)':'rgba(120,120,255,0.10)';
+  var icol  = type==='inc'?'#00ff88':type==='exc'?'#ff4d4d':'#7a7aff';
+  var tcol  = type==='inc'?'#d6ffe6':type==='exc'?'#ffd6d6':'#d6d6ff';
+  return arr.map(function(item){
+    return '<li style="display:flex;align-items:flex-start;gap:5px;margin-bottom:5px;font-size:10px;line-height:1.5;color:'+tcol+';font-family:\'Montserrat\',sans-serif;">'+
+      '<span style="width:12px;height:12px;min-width:12px;border-radius:50%;background:'+ibg+';color:'+icol+';display:flex;align-items:center;justify-content:center;font-size:7px;margin-top:1px;">'+icon+'</span>'+
+      '<span>'+item+'</span></li>';
+  }).join('');
+}
+
+function buildCard(s, idx){
+  var uid = 'ttc'+idx;
+  var disc = pct(s);
+  return '<div style="width:100%;display:flex;">'+
+    '<div class="ttc-card-wrap" style="background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;overflow:hidden;"'+
+      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(255,255,255,0.14)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.6),0 0 20px rgba(79,255,176,0.04)\';"'+
+      ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(255,255,255,0.08)\';this.style.boxShadow=\'none\';">'+
+
+    /* top shimmer line */
+    '<div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);border-radius:999px;"></div>'+
+
+    /* price block */
+    '<div style="margin-bottom:7px;">'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">Starting from</span>'+
+      '<div style="display:flex;align-items:flex-end;gap:5px;flex-wrap:wrap;margin-bottom:2px;">'+
+        '<span style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1;font-family:\'Montserrat\',sans-serif;">'+fmt(s.p)+'</span>'+
+        '<span style="font-size:10px;color:rgba(255,255,255,0.6);text-decoration:line-through;font-weight:400;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+fmt(s.m)+'</span>'+
+        '<span class="discount-badge" style="display:inline-flex;align-items:center;background:rgba(79,255,176,0.12);border:1px solid rgba(79,255,176,0.25);color:#4fffb0;font-size:9px;font-weight:600;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;box-shadow:0 0 8px rgba(79,255,176,0.15);">'+disc+'% OFF</span>'+
+      '</div>'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
+    '</div>'+
+
+    /* suitability */
+    '<div style="margin-bottom:3px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Suitable for:</strong> '+s.sf+'</div>'+
+'<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;">'+
+  '<strong style="color:#fff;">Eligible for:</strong> '+
+  '<span style="color:rgba(255,255,255,0.6);font-style:italic;">'+s.el+'</span>'+
+'</div>'+
+
+    /* turnaround */
+    '<div style="margin-bottom:5px;font-size:9px;color:#4fffb0;font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
+
+    /* divider */
+    '<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent);margin:2px 0 7px;"></div>'+
+
+    /* title */
+    '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
+
+    /* tab switcher */
+    '<div style="display:flex;gap:3px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:3px;margin-bottom:7px;">'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Not Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Documents</button>'+
+    '</div>'+
+
+    /* tab body */
+    '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent;">'+
+      '<ul id="'+uid+'-inc" style="list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.inc,'inc')+'</ul>'+
+      '<ul id="'+uid+'-exc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.exc,'exc')+'</ul>'+
+      '<ul id="'+uid+'-doc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.doc,'doc')+'</ul>'+
+    '</div>'+
+
+    /* cta */
+    '<div style="margin-top:8px;">'+
+      '<a href="'+s.link+'" style="display:block;width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;"'+
+        ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
+        ' onmouseleave="this.style.background=\'#fff\';this.style.transform=\'translateY(0)\';">'+
+        s.cta+' &rarr;'+
+      '</a>'+
+    '</div>'+
+
+  '</div></div>';
+}
+
+/* ── INJECT CARDS ── */
+var slider = document.getElementById('ttc-slider');
+if(slider){
+  slider.innerHTML = S.map(function(s,i){ return buildCard(s,i); }).join('');
+}
+
+/* ── INIT OWL + AUTOPLAY + EDGE DISABLE (unchanged) ── */
+$(function(){
+
+  var owl = $('#ttc-slider').owlCarousel({
+    loop       : false,
+    margin     : 20,
+    nav        : true,
+    dots       : true,
+    autoHeight : false,
+    navText    : ['&#8592;','&#8594;'],
+    autoplay   : true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive : {
+      0    : { items: 1 },
+      600  : { items: 2 },
+      1000 : { items: 5 }
+    }
+  });
+
+  // Disable prev/next at edges
+  owl.on('changed.owl.carousel', function(event) {
+    var carousel = event.relatedTarget;
+    var current = carousel.current();
+    var total = carousel.items().length;
+    var visible = carousel.settings.items;
+    
+    if (current === 0) {
+      $('.owl-prev').addClass('disabled');
+    } else {
+      $('.owl-prev').removeClass('disabled');
+    }
+    
+    if (current + visible >= total) {
+      $('.owl-next').addClass('disabled');
+    } else {
+      $('.owl-next').removeClass('disabled');
+    }
+  });
+
+  /* tab switching */
+  $(document).on('click', '.ttc-btn', function(){
+    var uid = $(this).data('uid');
+    var tab = $(this).data('tab');
+
+    $('.ttc-btn[data-uid="'+uid+'"]').each(function(){
+      var isActive = $(this).data('tab') === tab;
+      $(this).css({
+        background   : isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
+        color        : isActive ? '#fff' : '#888',
+        borderColor  : isActive ? 'rgba(255,255,255,0.18)' : 'transparent'
+      });
+    });
+
+    $('#'+uid+'-inc, #'+uid+'-exc, #'+uid+'-doc').hide();
+    $('#'+uid+'-'+tab).show();
+  });
+
+});
+
+})();
+</script>
 
 <div class="wrap"><hr></div>
 
