@@ -6,6 +6,17 @@
 <meta name="description" content="Kavita Gupta is a tax planning advisor with 3+ years experience in tax planning, investment advisory, and wealth optimization for individuals and business owners.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+<!-- jQuery (required by Owl Carousel) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:auto;overflow-x:hidden}
@@ -591,31 +602,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .exp-card .exp-title{font-size:12px}
 }
 
-/* ─── SERVICES GRID ─── */
-.services-clean{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-.service-main-card{
-  background:rgba(255,255,255,0.03);border:1px solid var(--border);
-  border-radius:14px;padding:28px;text-align:center;
-  transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);
-  cursor:pointer;position:relative;overflow:hidden;will-change:transform;
-}
-.service-main-card::before{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.04),transparent);
-  transition:left .6s var(--ease);pointer-events:none;
-}
-.service-main-card:hover{border-color:#fff;transform:translateY(-4px) scale(1.01);box-shadow:0 16px 40px rgba(0,0,0,.5)}
-.service-main-card:hover::before{left:100%}
-.service-icon{width:48px;height:48px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;transition:transform .3s var(--ease)}
-.service-main-card:hover .service-icon{transform:scale(1.1) rotate(-3deg)}
-.service-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.5}
-.service-title{font-size:14px;font-weight:700}
-@media(max-width:768px){
-  .services-clean{grid-template-columns:repeat(3,1fr);gap:10px}
-  .service-main-card{padding:14px}
-  .service-title{font-size:12px}
-}
-
 /* ─── TAP-CARD SYSTEM ─── */
 .tap-card{transition:transform 0.22s var(--ease),border-color 0.22s var(--ease),background 0.22s var(--ease)}
 .tap-card:active{transform:scale(0.97)}
@@ -634,26 +620,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   }
   .exp-card.tap-card .card-back{
     position:absolute;inset:0;padding:14px 12px;
-    opacity:0;transform:translateY(10px);
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    pointer-events:none;
-  }
-  .service-main-card.tap-card{
-    position:relative;overflow:hidden;min-height:96px;
-    display:flex;align-items:stretch;padding:0;
-  }
-  .service-main-card.tap-card .card-front{
-    width:100%;padding:14px 10px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    transform:translateY(0);opacity:1;
-  }
-  .service-main-card.tap-card .card-back{
-    position:absolute;inset:0;padding:12px 10px;
     opacity:0;transform:translateY(10px);
     transition:opacity .3s var(--ease),transform .3s var(--ease);
     display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -899,6 +865,135 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 .kpi-num{display:inline}
 #heroSection{will-change:transform,opacity}
+
+/* Expert Service Plans Carousel Styles */
+#tax-services-section {
+  width: 100%;
+  padding: 56px 0;
+}
+#tax-services-section .section-header {
+  margin-bottom: 28px;
+}
+#tax-services-section .section-title {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.1;
+}
+#tax-services-section .section-subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+  font-family: 'Montserrat', sans-serif;
+}
+.web-only {
+  display: block;
+}
+@media (max-width: 768px) {
+  .web-only {
+    display: none;
+  }
+}
+
+@keyframes ttc-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+
+#tax-services-section .owl-stage {
+  display: flex !important;
+  align-items: stretch !important;
+}
+#tax-services-section .owl-item {
+  display: flex !important;
+  height: auto;
+}
+#tax-services-section .owl-item > div {
+  display: flex;
+  width: 100%;
+}
+#tax-services-section .ttc-card-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+#tax-services-section .owl-nav {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px !important;
+}
+#tax-services-section .owl-prev,
+#tax-services-section .owl-next {
+  width: 23px !important;
+  height: 23px !important;
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  font-size: 10px !important;
+  transition: all 0.25s ease !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+#tax-services-section .owl-prev:hover,
+#tax-services-section .owl-next:hover {
+  background: rgba(79,255,176,0.1) !important;
+  border-color: rgba(79,255,176,0.25) !important;
+  box-shadow: 0 0 8px rgba(79,255,176,0.1) !important;
+}
+#tax-services-section .owl-prev.disabled,
+#tax-services-section .owl-next.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+#tax-services-section .owl-dots {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  margin-top: 10px !important;
+}
+#tax-services-section .owl-dot span {
+  width: 3px !important;
+  height: 3px !important;
+  background: rgba(255,255,255,0.15) !important;
+  border-radius: 999px !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+}
+#tax-services-section .owl-dot.active span {
+  background: #4fffb0 !important;
+  width: 11px !important;
+  box-shadow: 0 0 4px rgba(79,255,176,0.4) !important;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar {
+  width: 2px;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+}
+#tax-services-section .discount-badge {
+  background: rgba(79,255,176,0.12) !important;
+  color: #4fffb0 !important;
+  border: 1px solid rgba(79,255,176,0.25) !important;
+  box-shadow: 0 0 8px rgba(79,255,176,0.15) !important;
+  font-weight: 600 !important;
+}
 </style>
 
 
@@ -1023,7 +1118,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       <div class="about-text collapsed" id="aboutText">
         Kavita Gupta is a tax planning advisor with over 3 years of experience helping individuals and business owners optimize their taxes and wealth. She specializes in strategic tax planning, investment advisory, and ITR filing.
       </div>
-      <div class="about-text expanded" id="aboutFull" style="display:none;">
+      <div class="about-text expanded" id="aboutFull" style="display:none; color:white">
         Kavita Gupta is a tax planning advisor with over 3 years of experience helping individuals and business owners optimize their taxes and wealth. She specializes in strategic tax planning, investment advisory, and ITR filing.<br><br>She has successfully served 500+ clients, including salaried professionals, HNIs, and business owners. Her approach focuses on maximizing savings, ensuring compliance, and building long-term financial efficiency.
       </div>
       <div class="about-toggle" onclick="toggleAbout()">Read More ▼</div>
@@ -1037,7 +1132,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <section class="sec reveal-section" id="expertise">
   <div class="wrap">
     <div class="sec-title">Areas of Expertise</div>
-    <p class="sec-sub">Comprehensive tax and compliance solutions tailored for your financial goals.</p>
+    <p class="sec-sub">Comprehensive tax planning and advisory solutions tailored for your financial goals.</p>
     <div class="expertise-grid reveal-stagger" style="margin-top:32px">
 
       <div class="exp-card tap-card">
@@ -1124,52 +1219,238 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div class="wrap"><hr></div>
 
-<!-- ─── SERVICES ─── -->
-<section class="sec reveal-section" id="services">
+{{-- ==================== TAX SERVICES CAROUSEL (EXPERT SERVICE PLANS) ==================== --}}
+<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;padding:56px 0;width:100%;box-sizing:border-box;">
+
   <div class="wrap">
-    <div class="sec-title">Services Offered</div>
-    <p class="sec-sub">A complete suite of tax and financial compliance services for every need.</p>
-    <div class="services-clean reveal-stagger">
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9"/></svg></div>
-          <div class="service-title">Tax Planning</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Tax Planning</div>
-          <div class="card-back-desc">Strategic tax planning to minimize liability.</div>
-        </div>
-        <span class="tap-hint"></span>
+    <div class="section-header">
+      <h2 class="section-title">Expert Service Plans</h2>
+      <div class="section-subtitle web-only">
+        Professional tax planning &amp; filing services.<br>
+        Transparent pricing, zero surprises.
       </div>
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 2h12v20H6z"/></svg></div>
-          <div class="service-title">ITR Filing</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">ITR Filing</div>
-          <div class="card-back-desc">Accurate ITR filing for individuals &amp; businesses.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/></svg></div>
-          <div class="service-title">Investment Advisory</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Investment Advisory</div>
-          <div class="card-back-desc">Guidance on tax-efficient investment strategies.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
     </div>
   </div>
+
+  <div class="wrap">
+    <div id="ttc-slider" class="owl-carousel owl-theme"></div>
+  </div>
+
 </section>
+
+<script>
+(function(){
+
+/* ── SERVICE DATA FOR KAVITA GUPTA (TAX PLANNING & ITR SERVICES) ── */
+var S = [
+{n:"ITR-1 Return Filing", sf:"Salaried individuals", el:"Income up to ₹50L, no capital gains", p:1499, m:3000, t:"1–2 Working Days", cta:"File ITR-1",
+ link:"https://thetaxcompany.in/servicedetail/itr-1-return-filing",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"ITR-2 Return Filing", sf:"Investors & high income", el:"Capital gains or income > ₹50L", p:1999, m:4000, t:"1–2 Working Days", cta:"File ITR-2",
+ link:"https://thetaxcompany.in/servicedetail/itr-2-return-filing",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"ITR-3 Return Filing", sf:"Business owners & pros", el:"Business or professional income", p:2499, m:6000, t:"2–3 Working Days", cta:"File ITR-3",
+ link:"https://thetaxcompany.in/servicedetail/itr-3-return-filing",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"ITR-4 Presumptive Filing", sf:"Freelancers & small biz", el:"Presumptive income ≤ ₹50L", p:1499, m:4000, t:"1–2 Working Days", cta:"File ITR-4",
+ link:"https://thetaxcompany.in/servicedetail/itr-4-presumptive-filing",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Tax Planning Consultation", sf:"Individuals & HNIs", el:"Tax saving planning needed", p:1999, m:5000, t:"1–2 Working Days", cta:"Plan Your Tax",
+ link:"https://thetaxcompany.in/servicedetail/tax-planning-consultation",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Capital Gains Tax Calculation", sf:"Investors", el:"Asset sale with profit", p:1499, m:3000, t:"1–2 Working Days", cta:"Calculate Tax",
+ link:"https://thetaxcompany.in/servicedetail/capital-gains-tax-calculation",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Income Tax Notice Reply", sf:"Notice recipients", el:"Received IT dept notice", p:2999, m:8000, t:"3–5 Working Days", cta:"Resolve Notice",
+ link:"https://thetaxcompany.in/servicedetail/income-tax-notice-reply",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Revised Income Tax Return", sf:"Error correction filers", el:"Original ITR filed with mistakes", p:1499, m:3500, t:"1–2 Working Days", cta:"Revise ITR",
+ link:"https://thetaxcompany.in/servicedetail/revised-income-tax-return",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Belated Income Tax Return", sf:"Late taxpayers", el:"Missed ITR deadline filing", p:1499, m:3500, t:"1–2 Working Days", cta:"File Belated ITR",
+ link:"https://thetaxcompany.in/servicedetail/belated-income-tax-return",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]},
+
+{n:"Income Tax Refund Assistance", sf:"Refund pending users", el:"Refund stuck or delayed", p:999, m:3000, t:"2–3 Working Days", cta:"Track Refund",
+ link:"https://thetaxcompany.in/servicedetail/income-tax-refund-assistance",
+ inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
+ exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
+ doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form16","Supporting income proofs"]}
+];
+/* ── HELPERS ── */
+function fmt(n){ return '₹'+n.toLocaleString('en-IN'); }
+function pct(s){ return Math.round((s.m-s.p)/s.m*100); }
+
+function listRows(arr, type){
+  var icon  = type==='inc'?'✔':type==='exc'?'✖':'📄';
+  var ibg   = type==='inc'?'rgba(0,255,120,0.10)':type==='exc'?'rgba(255,0,0,0.10)':'rgba(120,120,255,0.10)';
+  var icol  = type==='inc'?'#00ff88':type==='exc'?'#ff4d4d':'#7a7aff';
+  var tcol  = type==='inc'?'#d6ffe6':type==='exc'?'#ffd6d6':'#d6d6ff';
+  return arr.map(function(item){
+    return '<li style="display:flex;align-items:flex-start;gap:5px;margin-bottom:5px;font-size:10px;line-height:1.5;color:'+tcol+';font-family:\'Montserrat\',sans-serif;">'+
+      '<span style="width:12px;height:12px;min-width:12px;border-radius:50%;background:'+ibg+';color:'+icol+';display:flex;align-items:center;justify-content:center;font-size:7px;margin-top:1px;">'+icon+'</span>'+
+      '<span>'+item+'</span></li>';
+  }).join('');
+}
+
+function buildCard(s, idx){
+  var uid = 'ttc'+idx;
+  var disc = pct(s);
+  return '<div style="width:100%;display:flex;">'+
+    '<div class="ttc-card-wrap" style="background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;overflow:hidden;"'+
+      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(255,255,255,0.14)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.6),0 0 20px rgba(79,255,176,0.04)\';"'+
+      ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(255,255,255,0.08)\';this.style.boxShadow=\'none\';">'+
+
+    /* top shimmer line */
+    '<div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);border-radius:999px;"></div>'+
+
+    /* price block */
+    '<div style="margin-bottom:7px;">'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">Starting from</span>'+
+      '<div style="display:flex;align-items:flex-end;gap:5px;flex-wrap:wrap;margin-bottom:2px;">'+
+        '<span style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1;font-family:\'Montserrat\',sans-serif;">'+fmt(s.p)+'</span>'+
+        '<span style="font-size:10px;color:rgba(255,255,255,0.6);text-decoration:line-through;font-weight:400;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+fmt(s.m)+'</span>'+
+        '<span class="discount-badge" style="display:inline-flex;align-items:center;background:rgba(79,255,176,0.12);border:1px solid rgba(79,255,176,0.25);color:#4fffb0;font-size:9px;font-weight:600;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;box-shadow:0 0 8px rgba(79,255,176,0.15);">'+disc+'% OFF</span>'+
+      '</div>'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
+    '</div>'+
+
+    /* suitability */
+    '<div style="margin-bottom:3px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Suitable for:</strong> '+s.sf+'</div>'+
+'<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;">'+
+  '<strong style="color:#fff;">Eligible for:</strong> '+
+  '<span style="color:rgba(255,255,255,0.6);font-style:italic;">'+s.el+'</span>'+
+'</div>'+
+
+    /* turnaround */
+    '<div style="margin-bottom:5px;font-size:9px;color:#4fffb0;font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
+
+    /* divider */
+    '<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent);margin:2px 0 7px;"></div>'+
+
+    /* title */
+    '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
+
+    /* tab switcher - FIXED: added min-width and proper spacing to prevent overlapping */
+    '<div style="display:flex;gap:4px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:3px;margin-bottom:7px;">'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 6px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 6px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Not Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 6px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Documents</button>'+
+    '</div>'+
+
+    /* tab body */
+    '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent;">'+
+      '<ul id="'+uid+'-inc" style="list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.inc,'inc')+'</ul>'+
+      '<ul id="'+uid+'-exc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.exc,'exc')+'</ul>'+
+      '<ul id="'+uid+'-doc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.doc,'doc')+'</ul>'+
+    '</div>'+
+
+    /* cta */
+'<div style="margin-top:8px;">'+
+  '<a href="'+s.link+'" style="display:block;width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;"'+
+    ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
+    ' onmouseleave="this.style.background=\'#fff\';this.style.transform=\'translateY(0)\';">'+
+    s.cta+' &rarr;'+
+  '</a>'+
+'</div>'+
+
+  '</div></div>';
+}
+
+/* ── INJECT CARDS ── */
+var slider = document.getElementById('ttc-slider');
+if(slider){
+  slider.innerHTML = S.map(function(s,i){ return buildCard(s,i); }).join('');
+}
+
+/* ── INIT OWL + AUTOPLAY + EDGE DISABLE ── */
+$(function(){
+
+  var owl = $('#ttc-slider').owlCarousel({
+    loop       : false,
+    margin     : 20,
+    nav        : true,
+    dots       : true,
+    autoHeight : false,
+    navText    : ['&#8592;','&#8594;'],
+    autoplay   : true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive : {
+      0    : { items: 1 },
+      600  : { items: 2 },
+      1000 : { items: 5 }
+    }
+  });
+
+  // Disable prev/next at edges
+  owl.on('changed.owl.carousel', function(event) {
+    var carousel = event.relatedTarget;
+    var current = carousel.current();
+    var total = carousel.items().length;
+    var visible = carousel.settings.items;
+    
+    if (current === 0) {
+      $('.owl-prev').addClass('disabled');
+    } else {
+      $('.owl-prev').removeClass('disabled');
+    }
+    
+    if (current + visible >= total) {
+      $('.owl-next').addClass('disabled');
+    } else {
+      $('.owl-next').removeClass('disabled');
+    }
+  });
+
+  /* tab switching */
+  $(document).on('click', '.ttc-btn', function(){
+    var uid = $(this).data('uid');
+    var tab = $(this).data('tab');
+
+    $('.ttc-btn[data-uid="'+uid+'"]').each(function(){
+      var isActive = $(this).data('tab') === tab;
+      $(this).css({
+        background   : isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
+        color        : isActive ? '#fff' : '#888',
+        borderColor  : isActive ? 'rgba(255,255,255,0.18)' : 'transparent'
+      });
+    });
+
+    $('#'+uid+'-inc, #'+uid+'-exc, #'+uid+'-doc').hide();
+    $('#'+uid+'-'+tab).show();
+  });
+
+});
+
+})();
+</script>
 
 <div class="wrap"><hr></div>
 
@@ -1182,7 +1463,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
       <div class="ind-card tap-card">
         <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><circle cx="12" cy="7" r="4"/><path d="M4 21c2-4 6-6 8-6s6 2 8 6"/></svg></div>
           <div class="ind-title">Salaried Individuals</div>
           <div class="ind-desc">Professionals looking to reduce taxes and increase savings through smart planning.</div>
         </div>
@@ -1208,7 +1489,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
       <div class="ind-card tap-card">
         <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><rect x="3" y="4" width="18" height="16"/></svg></div>
+          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"/></svg></div>
           <div class="ind-title">Business Owners</div>
           <div class="ind-desc">Entrepreneurs optimizing taxes and financial structures for business growth.</div>
         </div>
