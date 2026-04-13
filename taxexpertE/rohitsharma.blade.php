@@ -1,20 +1,22 @@
 @extends('front')
 @section('content')
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rohit Sharma | Senior Tax Consultant | Income Tax Filing Expert India</title>
-<meta name="description" content=" Rohit Sharma - Verified Senior Tax Consultant with 8+ years experience in ITR Filing, GST Compliance, Tax Planning for individuals and businesses across India.">
+<title>Rohit Sharma | Business Tax & GST Expert | Business Tax Advisor India</title>
+<meta name="description" content="Rohit Sharma is a business tax and GST expert with 4+ years of experience in GST filing, business taxation, and compliance for SMEs and growing businesses across India.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-
-
+<!-- Owl Carousel CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
 
+<!-- jQuery (required by Owl Carousel) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Owl Carousel JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:auto;overflow-x:hidden}
@@ -110,6 +112,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 @keyframes pulseRing{0%{transform:scale(1);opacity:0.6}100%{transform:scale(2.2);opacity:0}}
 
+/* ─── BUTTONS - BLACK & WHITE ONLY ─── */
 .btn{
   display:inline-flex;align-items:center;gap:8px;
   padding:11px 24px;border-radius:var(--r-sm);
@@ -122,20 +125,59 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 }
 .btn::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.15),transparent 60%);
+  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.18),transparent 60%);
   transform:translateX(-100%);
   transition:transform .5s var(--ease);
   pointer-events:none;
 }
 .btn:hover::after{transform:translateX(100%)}
-.btn-primary{background:#fff;color:#000}
-.btn-primary:hover{background:#e8e8e8;transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,255,255,0.18)}
+
+/* Primary: white bg → hover: black bg with white border */
+.btn-primary{
+  background:#fff;
+  color:#000;
+  border:1.5px solid #fff;
+}
+.btn-primary:hover{
+  background:#000 !important;
+  color:#fff !important;
+  border-color:rgba(255,255,255,0.5) !important;
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(255,255,255,0.12),0 0 0 1px rgba(255,255,255,0.15) !important;
+}
 .btn-primary:active{transform:scale(0.96) translateY(0)}
-.btn-secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2)}
-.btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,0.06);transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,255,255,0.06)}
+
+/* Secondary: dark glass → hover: white bg with black text */
+.btn-secondary{
+  background:rgba(255,255,255,0.05);
+  color:#fff;
+  border:1.5px solid rgba(255,255,255,0.28);
+}
+.btn-secondary:hover{
+  background:#fff !important;
+  color:#000 !important;
+  border-color:#fff !important;
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(255,255,255,0.15) !important;
+}
 .btn-secondary:active{transform:scale(0.96)}
 .btn-arrow{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .3s var(--ease)}
 .btn:hover .btn-arrow{transform:translateX(3px)}
+
+/* Request Callback Button - White background with black text on hover */
+.btn-callback{
+  background:transparent;
+  color:#fff;
+  border:1.5px solid rgba(255,255,255,0.5);
+}
+.btn-callback:hover{
+  background:#fff !important;
+  color:#000 !important;
+  border-color:#fff !important;
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(255,255,255,0.15) !important;
+}
+.btn-callback:active{transform:scale(0.96)}
 
 .card{
   background:var(--card);border:1px solid var(--border);
@@ -160,30 +202,159 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .sec-sub{font-size:14px;color:var(--muted);margin-top:18px;line-height:1.7}
 @media(max-width:768px){.sec-title{font-size:22px}.sec-title::after{width:28px}}
 
-.hero{height:38vh;min-height:380px;max-height:460px;display:flex;align-items:center;padding:40px 0 0; ;position:relative;background:transparent}
+/* ─── HERO ─── */
+.hero{height:38vh;min-height:380px;max-height:460px;display:flex;align-items:center;padding:40px 0 0;position:relative;background:transparent}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:center;width:100%}
 .hero-content{display:flex;flex-direction:column;justify-content:center;max-width:580px}
-.hero-content .badge{margin-bottom:14px}
 
+/* ─── HERO GLASS CARD ─── */
+.hero-glass-card{
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(28px);
+  -webkit-backdrop-filter:blur(28px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:26px;
+  padding:22px 24px 20px;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .4s var(--ease),box-shadow .4s var(--ease);
+  /* top highlight line */
+}
+.hero-glass-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);
+  pointer-events:none;
+  z-index:1;
+}
+/* inner corner gloss */
+.hero-glass-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.055) 0%,transparent 50%);
+  pointer-events:none;
+  border-radius:inherit;
+  z-index:0;
+}
+.hero-glass-card > *{position:relative;z-index:1}
+.hero-glass-card:hover{
+  border-color:rgba(255,255,255,0.22);
+  box-shadow:0 24px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* ─── HERO NAME ─── */
 .hero-name{
   font-size:clamp(42px,5vw,52px);line-height:1.02;font-weight:900;letter-spacing:-.03em;
   background:linear-gradient(135deg,#fff 30%,#999 55%,#fff 70%,#666 90%);
   background-size:300% auto;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
-  margin-bottom:6px;
-  animation:shimmerName 7s linear infinite;
+  margin-bottom:12px;
+  opacity:0;
+  animation:heroReveal .6s var(--ease) .18s forwards,shimmerName 7s linear 1s infinite;
   will-change:background-position;
 }
 @keyframes shimmerName{0%{background-position:0% center}100%{background-position:300% center}}
 
-.hero-role{font-size:17px;font-weight:600;color:var(--muted);margin-bottom:4px}
-.hero-exp{font-size:13px;color:var(--sub);margin-bottom:14px}
-.hero-bio{font-size:13px;color:#777;line-height:1.65;margin-bottom:20px;max-width:520px}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:0}
+/* ─── HERO PILLS GRID ─── */
+.hero-pills-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-bottom:11px;
+  opacity:0;
+  transform:translateY(12px);
+  animation:heroReveal .6s var(--ease) .30s forwards;
+}
+
+/* Individual pill */
+.hero-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:100px;
+  padding:7px 14px;
+  font-size:11px;
+  font-weight:600;
+  color:rgba(255,255,255,0.88);
+  letter-spacing:0.01em;
+  font-family:'Montserrat',sans-serif;
+  position:relative;
+  overflow:hidden;
+  transition:background .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+  cursor:default;
+}
+/* Gloss highlight inside pill */
+.hero-pill::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:50%;
+  background:linear-gradient(180deg,rgba(255,255,255,0.1),transparent);
+  border-radius:100px 100px 0 0;
+  pointer-events:none;
+}
+.hero-pill:hover{
+  background:rgba(255,255,255,0.13);
+  border-color:rgba(255,255,255,0.3);
+  transform:translateY(-1px);
+  box-shadow:0 4px 14px rgba(0,0,0,0.4);
+}
+.hero-pill svg{
+  width:11px;height:11px;
+  stroke:rgba(255,255,255,0.6);
+  fill:none;
+  stroke-width:2;
+  flex-shrink:0;
+}
+/* Pill dot accent */
+.hero-pill-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(255,255,255,0.4);
+  flex-shrink:0;
+  animation:pulse 2s ease-in-out infinite;
+}
+
+/* Bio pill - wider card style */
+.hero-bio-pill{
+  background:rgba(255,255,255,0.035);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:16px;
+  padding:10px 14px;
+  font-size:11px;
+  font-weight:500;
+  color:#6e6e6e;
+  line-height:1.65;
+  margin-bottom:14px;
+  font-family:'Montserrat',sans-serif;
+  opacity:0;
+  transform:translateY(10px);
+  animation:heroReveal .6s var(--ease) .38s forwards;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bio-pill::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+}
+
+/* Badge + buttons animation */
+.hero-badge-wrap{opacity:0;transform:translateY(16px);animation:heroReveal .6s var(--ease) .1s forwards;margin-bottom:10px}
+.hero-btns{opacity:0;transform:translateY(10px);animation:heroReveal .6s var(--ease) .46s forwards}
+.hero-photo-wrap{opacity:0;transform:translateY(18px);animation:heroReveal .8s var(--ease) .22s forwards}
+@keyframes heroReveal{to{opacity:1;transform:translateY(0)}}
+
 .hero-photo-wrap{display:flex;justify-content:center;align-items:center;position:relative}
 
-/* ---------- UPGRADED .hero-photo-card (magnetic + depth) ---------- */
+/* ─── HERO PHOTO CARD ─── */
 .hero-photo-card{
   width:280px;height:360px;border-radius:22px;overflow:hidden;
   background:rgba(255,255,255,0.03);
@@ -261,46 +432,75 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 @keyframes metricFloat1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes metricFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 
-.hero-badge-wrap{opacity:0;transform:translateY(16px);animation:heroReveal .6s var(--ease) .1s forwards}
-.hero-name{opacity:0;transform:translateY(16px);animation:heroReveal .6s var(--ease) .18s forwards,shimmerName 7s linear 1s infinite}
-.hero-role{opacity:0;transform:translateY(14px);animation:heroReveal .6s var(--ease) .26s forwards}
-.hero-exp{opacity:0;transform:translateY(12px);animation:heroReveal .6s var(--ease) .32s forwards}
-.hero-bio{opacity:0;transform:translateY(12px);animation:heroReveal .6s var(--ease) .38s forwards}
-.hero-btns{opacity:0;transform:translateY(10px);animation:heroReveal .6s var(--ease) .46s forwards}
-.hero-photo-wrap{opacity:0;transform:translateY(18px);animation:heroReveal .8s var(--ease) .22s forwards}
-@keyframes heroReveal{to{opacity:1;transform:translateY(0)}}
+/* Info strip */
+.info-strip{display:none;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--r-md);padding:12px}
+.info-strip-row{display:flex;gap:0}
+.info-cell{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 4px;border-right:1px solid var(--border)}
+.info-cell:last-child{border-right:none}
+.info-cell-icon{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.info-cell-icon svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:1.5}
+.info-cell-label{font-size:8px;color:var(--sub);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:2px}
+.info-cell-value{font-size:10px;color:#fff;font-weight:600;line-height:1.2}
 
-.hero-name{
-  opacity:0;
-  animation:heroReveal .6s var(--ease) .18s forwards, shimmerName 7s linear 1s infinite;
-}
-
+/* ─── TABLET HERO ─── */
 @media(min-width:769px) and (max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:24px}
   .hero-photo-wrap{order:-1}
   .hero-photo-card{width:220px;height:280px;margin:0 auto}
   .hero-content{max-width:100%;text-align:center;align-items:center}
-  .hero-bio{max-width:100%}
+  .hero-glass-card{text-align:left}
+  .hero-pills-grid{justify-content:flex-start}
   .hero-btns{justify-content:center}
   .hero .badge{margin-left:auto;margin-right:auto}
-  .hero-metric{display:none}
+  .hero-metric{display:flex}
 }
 
 /* ─── MOBILE HERO ─── */
 @media(max-width:768px){
-  .hero{height:40vh;min-height:260px;max-height:320px;padding:0}
+  .hero{height:auto;min-height:auto;max-height:none;padding:20px 0}
   .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}
 
-  .hero .badge,.hero-bio,.info-strip,.hero-trust,.hero-metric{display:none !important}
+  .hero .badge,.info-strip,.hero-trust{display:none !important}
+  
+  /* Show metrics on mobile */
+  .hero-metric{display:flex !important}
+  .metric-1{top:-10px;right:-5px;padding:6px 10px;transform:scale(0.85);transform-origin:top right}
+  /* Updated: Move metric-2 to bottom-left of image */
+  .metric-2{bottom:-10px;left:-5px;padding:6px 10px;transform:scale(0.85);transform-origin:bottom left}
+  .hero-metric-val{font-size:13px}
+  .hero-metric-lbl{font-size:8px}
 
   .hero-content{max-width:100%;justify-content:center;padding-right:4px}
+
+  /* Glass card mobile */
+  .hero-glass-card{
+    padding:12px 12px 10px;
+    border-radius:18px;
+  }
+
   .hero-name{
-    font-size:24px;line-height:1.05;margin-bottom:4px;
+    font-size:22px;line-height:1.05;margin-bottom:8px;
     background:linear-gradient(135deg,#fff 60%,#aaa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
     animation:heroReveal .6s var(--ease) .18s forwards;
   }
-  .hero-role{font-size:13px;margin-bottom:2px;letter-spacing:0.3px}
-  .hero-exp{font-size:11px;margin-bottom:0}
+
+  /* Pills - mobile compact */
+  .hero-pills-grid{
+    gap:5px;
+    margin-bottom:8px;
+  }
+  .hero-pill{
+    font-size:9px;
+    padding:5px 9px;
+    gap:4px;
+  }
+  .hero-pill svg{width:9px;height:9px}
+  .hero-pill.pill-desktop-only{display:none}
+  .hero-pill-dot{width:4px;height:4px}
+
+  /* Bio pill hidden on mobile */
+  .hero-bio-pill{display:none}
+
   .hero-photo-wrap{display:flex;justify-content:center;align-items:center;position:relative}
   .hero-photo-card{
     width:100%;max-width:140px;height:180px;border-radius:18px;
@@ -308,7 +508,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
     box-shadow:0 10px 30px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.08);
     overflow:hidden;
-    /* floatSoft removed — stable idle */
     transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateX(0) translateY(0);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     will-change: transform;
@@ -335,10 +534,11 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   }
   .mobile-cta .btn{
     flex:1;
-    padding:7px 8px;
-    font-size:10px;
+    padding:7px 6px;
+    font-size:9.5px;
     border-radius:10px;
     justify-content:center;
+    letter-spacing:0;
   }
 }
 
@@ -348,14 +548,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .about-text{font-size:13px;color:#bbb;line-height:1.7}
 .about-toggle{margin-top:12px;font-size:12px;font-weight:700;color:#6ea8ff;cursor:pointer;transition:opacity .2s ease}
 .about-toggle:hover{opacity:0.7}
-.info-strip{display:none;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--r-md);padding:12px}
-.info-strip-row{display:flex;gap:0}
-.info-cell{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 4px;border-right:1px solid var(--border)}
-.info-cell:last-child{border-right:none}
-.info-cell-icon{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:6px}
-.info-cell-icon svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:1.5}
-.info-cell-label{font-size:8px;color:var(--sub);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:2px}
-.info-cell-value{font-size:10px;color:#fff;font-weight:600;line-height:1.2}
 
 .sec{padding:56px 0}
 .sec-sm{padding:40px 0}
@@ -404,36 +596,10 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .exp-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
 .exp-desc{font-size:12px;color:var(--muted);line-height:1.6}
 
-/* CHANGE 2: Hide description in expertise on mobile */
 @media(max-width:768px){
   .exp-card .exp-desc{display:none}
   .exp-card .exp-icon{margin-bottom:8px}
   .exp-card .exp-title{font-size:12px}
-}
-
-/* ─── SERVICES GRID ─── */
-.services-clean{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-.service-main-card{
-  background:rgba(255,255,255,0.03);border:1px solid var(--border);
-  border-radius:14px;padding:28px;text-align:center;
-  transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);
-  cursor:pointer;position:relative;overflow:hidden;will-change:transform;
-}
-.service-main-card::before{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.04),transparent);
-  transition:left .6s var(--ease);pointer-events:none;
-}
-.service-main-card:hover{border-color:#fff;transform:translateY(-4px) scale(1.01);box-shadow:0 16px 40px rgba(0,0,0,.5)}
-.service-main-card:hover::before{left:100%}
-.service-icon{width:48px;height:48px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;transition:transform .3s var(--ease)}
-.service-main-card:hover .service-icon{transform:scale(1.1) rotate(-3deg)}
-.service-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.5}
-.service-title{font-size:14px;font-weight:700}
-@media(max-width:768px){
-  .services-clean{grid-template-columns:repeat(3,1fr);gap:10px}
-  .service-main-card{padding:14px}
-  .service-title{font-size:12px}
 }
 
 /* ─── TAP-CARD SYSTEM ─── */
@@ -462,28 +628,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     pointer-events:none;
   }
-  .service-main-card.tap-card{
-    position:relative;overflow:hidden;min-height:96px;
-    display:flex;align-items:stretch;padding:0;
-  }
-  .service-main-card.tap-card .card-front{
-    width:100%;padding:14px 10px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    transform:translateY(0);opacity:1;
-  }
-  .service-main-card.tap-card .card-back{
-    position:absolute;inset:0;padding:12px 10px;
-    opacity:0;transform:translateY(10px);
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    pointer-events:none;
-  }
-
-  /* CHANGE 3: ind-card tap system */
   .ind-card.tap-card{
     position:relative;overflow:hidden;min-height:100px;padding:0;
   }
@@ -572,7 +716,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .ind-desc{font-size:12px;color:var(--muted);line-height:1.6}
 @media(max-width:768px){
   .industry-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  /* Center icon when in tap mode */
   .ind-card.tap-card .ind-icon-wrap{justify-content:center}
 }
 
@@ -694,7 +837,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .contact-lbl{font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:2px}
 .contact-val{font-size:13px;color:#fff;font-weight:600}
 
-/* CHANGE 5: Contact icon-only on mobile */
 @media(max-width:768px){
   .contact-lbl,.contact-val{display:none}
   .contact-item{
@@ -708,7 +850,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .footer-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .footer-copy{font-size:11px;color:#333;margin-top:24px;border-top:1px solid var(--border);padding-top:20px}
 
-/* CHANGE 6: Hide footer on mobile */
 @media(max-width:768px){
   .footer{display:none}
 }
@@ -724,6 +865,135 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 .kpi-num{display:inline}
 #heroSection{will-change:transform,opacity}
+
+/* Expert Service Plans Carousel Styles */
+#tax-services-section {
+  width: 100%;
+  padding: 56px 0;
+}
+#tax-services-section .section-header {
+  margin-bottom: 28px;
+}
+#tax-services-section .section-title {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.1;
+}
+#tax-services-section .section-subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+  font-family: 'Montserrat', sans-serif;
+}
+.web-only {
+  display: block;
+}
+@media (max-width: 768px) {
+  .web-only {
+    display: none;
+  }
+}
+
+@keyframes ttc-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+
+#tax-services-section .owl-stage {
+  display: flex !important;
+  align-items: stretch !important;
+}
+#tax-services-section .owl-item {
+  display: flex !important;
+  height: auto;
+}
+#tax-services-section .owl-item > div {
+  display: flex;
+  width: 100%;
+}
+#tax-services-section .ttc-card-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+#tax-services-section .owl-nav {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px !important;
+}
+#tax-services-section .owl-prev,
+#tax-services-section .owl-next {
+  width: 23px !important;
+  height: 23px !important;
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  font-size: 10px !important;
+  transition: all 0.25s ease !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+#tax-services-section .owl-prev:hover,
+#tax-services-section .owl-next:hover {
+  background: rgba(79,255,176,0.1) !important;
+  border-color: rgba(79,255,176,0.25) !important;
+  box-shadow: 0 0 8px rgba(79,255,176,0.1) !important;
+}
+#tax-services-section .owl-prev.disabled,
+#tax-services-section .owl-next.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+#tax-services-section .owl-dots {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  margin-top: 10px !important;
+}
+#tax-services-section .owl-dot span {
+  width: 3px !important;
+  height: 3px !important;
+  background: rgba(255,255,255,0.15) !important;
+  border-radius: 999px !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+}
+#tax-services-section .owl-dot.active span {
+  background: #4fffb0 !important;
+  width: 11px !important;
+  box-shadow: 0 0 4px rgba(79,255,176,0.4) !important;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar {
+  width: 2px;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+}
+#tax-services-section .discount-badge {
+  background: rgba(79,255,176,0.12) !important;
+  color: #4fffb0 !important;
+  border: 1px solid rgba(79,255,176,0.25) !important;
+  box-shadow: 0 0 8px rgba(79,255,176,0.15) !important;
+  font-weight: 600 !important;
+}
 </style>
 
 
@@ -746,52 +1016,94 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <section class="hero" id="heroSection">
   <div class="wrap">
     <div class="hero-grid">
-      <div class="hero-content">
-        <div class="hero-badge-wrap">
-          <div class="badge">
-            <span class="badge-dot"></span>
-            <span>Verified Tax Expert &bull; 500+ Clients Served</span>
-          </div>
-        </div>
-        <div class="hero-name">Rohit<br>Sharma</div>
-        <div class="hero-role">Senior Tax Consultant</div>
-        <div class="hero-exp">8+ Years Experience &nbsp;&middot;&nbsp; English &amp; Hindi</div>
-        <p class="hero-bio">Expert in income tax filing, GST compliance, and tax planning for individuals and businesses across India. Focused on accurate, fast, and maximum tax-saving solutions.</p>
 
-        <!-- CHANGE 1: Mobile CTA buttons (desktop keeps original labels via CSS show/hide) -->
-        <div class="hero-btns mobile-cta">
-<a href="{{ route('boc.step1', ['source' => 'taxexpert-rohitsharma']) }}" 
-   class="btn btn-primary">
-   Book Consultation
-</a>
-          <a href="#contact" class="btn btn-secondary">Request Callback</a>
-        </div>
+      <!-- LEFT: Content inside glass card -->
+      <div class="hero-content">
+        <div class="hero-glass-card">
+
+          <!-- Badge (hidden on mobile via CSS) -->
+          <div class="hero-badge-wrap">
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>Business Tax Expert &bull; 300+ Clients Served</span>
+            </div>
+          </div>
+
+          <!-- Name -->
+          <div class="hero-name">Rohit<br>Sharma</div>
+
+          <!-- Pills row: role, experience, language, coverage, clients -->
+          <div class="hero-pills-grid">
+            <!-- Role pill -->
+            <div class="hero-pill">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Business Tax & GST Expert
+            </div>
+            <!-- Experience pill -->
+            <div class="hero-pill">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              4+ Years Exp.
+            </div>
+            <!-- Language pill - hidden on mobile -->
+            <div class="hero-pill pill-desktop-only">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              English &amp; Hindi
+            </div>
+            <!-- Pan India pill - hidden on mobile -->
+            <div class="hero-pill pill-desktop-only">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20"/></svg>
+              Pan India
+            </div>
+            <!-- Clients pill - hidden on mobile -->
+            <div class="hero-pill pill-desktop-only">
+              <span class="hero-pill-dot"></span>
+              300+ Clients Served
+            </div>
+          </div>
+
+          <!-- Bio pill (hidden on mobile) -->
+          <div class="hero-bio-pill">
+            Specializes in GST filing, business taxation, and compliance for SMEs and growing businesses across India.
+          </div>
+
+          <!-- Buttons -->
+          <div class="hero-btns mobile-cta">
+            <a href="{{ route('boc.step1', ['source' => 'taxexpert-rohitsharma']) }}" class="btn btn-primary">
+              Book Consultation
+            </a>
+            <a href="#contact" class="btn btn-callback">Request Callback</a>
+          </div>
+
+        </div><!-- /hero-glass-card -->
 
         <div class="info-strip">
           <div class="info-strip-row">
-            <div class="info-cell"><div class="info-cell-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="info-cell-label">Clients</div><div class="info-cell-value">500+</div></div>
-            <div class="info-cell"><div class="info-cell-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><div class="info-cell-label">Experience</div><div class="info-cell-value">8+ Years</div></div>
+            <div class="info-cell"><div class="info-cell-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="info-cell-label">Clients</div><div class="info-cell-value">300+</div></div>
+            <div class="info-cell"><div class="info-cell-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><div class="info-cell-label">Experience</div><div class="info-cell-value">4+ Years</div></div>
             <div class="info-cell"><div class="info-cell-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div class="info-cell-label">Coverage</div><div class="info-cell-value">Pan India</div></div>
           </div>
         </div>
-      </div>
+      </div><!-- /hero-content -->
+
+      <!-- RIGHT: Photo -->
       <div class="hero-photo-wrap">
         <div class="hero-metric metric-1">
-          <div class="hero-metric-val"><span class="kpi-hero" data-target="500">0</span>+</div>
+          <div class="hero-metric-val"><span class="kpi-hero" data-target="300">0</span>+</div>
           <div class="hero-metric-lbl">Clients</div>
         </div>
         <div class="hero-metric metric-2">
-          <div class="hero-metric-val"><span class="kpi-hero" data-target="8">0</span>+ Yrs</div>
+          <div class="hero-metric-val"><span class="kpi-hero" data-target="4">0</span>+ Yrs</div>
           <div class="hero-metric-lbl">Experience</div>
         </div>
         <div class="hero-photo-card" id="heroPhotoCard">
-          <img class="hero-avatar" src="{{ asset('images/taxexperts/rohit-sharma.jpg') }}"  alt="Rohit Sharma - Senior Tax Consultant" loading="eager">
+          <img class="hero-avatar" src="{{ asset('images/taxexperts/rohit-sharma.jpg') }}" alt="Rohit Sharma - Business Tax & GST Expert" loading="eager">
         </div>
         <div class="hero-trust">
           <div class="trust-check"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#000" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          Verified Tax Experts&bull; ICAI Member
+          Business Tax Specialist &bull; Trusted Advisor
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -804,10 +1116,10 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     <div class="card about-card">
       <div class="about-title">About Me</div>
       <div class="about-text collapsed" id="aboutText">
-        Rohit Sharma is a dedicated and results-driven Tax Expert with 8+ years of experience in income tax filing, GST compliance, and tax planning. He specializes in helping individuals, startups, and businesses stay compliant while maximizing tax savings.
+        Rohit Sharma is a business tax and GST expert with 4+ years of experience helping SMEs and growing businesses manage their taxes efficiently. He focuses on accurate GST filing, business taxation, and compliance.
       </div>
-      <div class="about-text expanded" id="aboutFull" style="display:none;">
-        Rohit Sharma is a dedicated and results-driven Tax Expert with over 8 years of experience in income tax filing, GST compliance, and strategic tax planning. He has successfully served 500+ clients across India, including salaried individuals, freelancers, SMEs, and startups. With deep expertise in Indian tax laws and regulatory frameworks, he provides accurate, fast, and fully compliant solutions tailored to each client's needs. His approach focuses on maximizing tax savings while ensuring zero penalties and complete peace of mind.
+      <div class="about-text expanded" id="aboutFull" style="display:none; color:white">
+        Rohit Sharma is a business tax and GST expert with over 4 years of experience helping SMEs and growing businesses manage their taxes efficiently. He specializes in GST registration, return filing, business tax planning, and compliance management.<br><br>He has assisted 300+ businesses across India in staying compliant, optimizing tax positions, and avoiding penalties. His approach simplifies complex tax scenarios while ensuring maximum compliance and savings.
       </div>
       <div class="about-toggle" onclick="toggleAbout()">Read More ▼</div>
     </div>
@@ -815,198 +1127,36 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 </section>
 
 <div class="wrap"><hr></div>
-<section class="sec reveal-section" id="services">
-  <div class="wrap">
-    <div class="sec-title">Areas of Expertise</div>
-    <p class="sec-sub">Expertise areas handled by Rohit Sharma.</p>
 
-    <div class="services-clean reveal-stagger">
-
-      <!-- 1 -->
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon">
-            <!-- Income Tax Filing -->
-            <svg viewBox="0 0 24 24">
-              <path d="M6 2h9l5 5v15H6z"/>
-              <path d="M14 2v6h6"/>
-            </svg>
-          </div>
-          <div class="service-title">Income Tax Filing</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Income Tax Filing</div>
-          <div class="card-back-desc">Complete ITR filing for salaried individuals and professionals.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <!-- 2 -->
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon">
-            <!-- Investment Taxation -->
-            <svg viewBox="0 0 24 24">
-              <path d="M3 17l6-6 4 4 7-7"/>
-            </svg>
-          </div>
-          <div class="service-title">Investment Taxation</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Investment Taxation</div>
-          <div class="card-back-desc">Tax planning for capital gains, investments & wealth optimisation.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <!-- 3 -->
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon">
-            <!-- Tax Analysis -->
-            <svg viewBox="0 0 24 24">
-              <circle cx="11" cy="11" r="7"/>
-              <path d="M20 20l-3-3"/>
-            </svg>
-          </div>
-          <div class="service-title">Tax Analysis</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Tax Analysis</div>
-          <div class="card-back-desc">Deep analysis of AIS/TIS and tax optimisation strategies.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <!-- 4 -->
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon">
-            <!-- Business Registration -->
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="7" width="18" height="13" rx="2"/>
-              <path d="M16 7V5a4 4 0 0 0-8 0v2"/>
-            </svg>
-          </div>
-          <div class="service-title">Business Registration</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Business Registration</div>
-          <div class="card-back-desc">Company, LLP & startup registration support end-to-end.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <!-- 5 -->
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon">
-            <!-- Tax Filing -->
-            <svg viewBox="0 0 24 24">
-              <rect x="2" y="5" width="20" height="14" rx="2"/>
-              <path d="M2 10h20"/>
-            </svg>
-          </div>
-          <div class="service-title">Tax Filing</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Tax Filing</div>
-          <div class="card-back-desc">GST, business tax & TDS filing with full compliance.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <!-- 6 -->
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon">
-            <!-- Compliance Services -->
-            <svg viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4"/>
-              <circle cx="12" cy="12" r="9"/>
-            </svg>
-          </div>
-          <div class="service-title">Compliance Services</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Compliance Services</div>
-          <div class="card-back-desc">ROC, GST & annual compliance for businesses.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-    </div>
-  </div>
-</section>
-<div class="wrap"><hr></div>
 <!-- ─── EXPERTISE ─── -->
 <section class="sec reveal-section" id="expertise">
   <div class="wrap">
-    <div class="sec-title">Services offered</div>
-    <p class="sec-sub">Comprehensive tax and compliance solutions tailored for your financial goals.</p>
+    <div class="sec-title">Areas of Expertise</div>
+    <p class="sec-sub">Comprehensive business tax and GST solutions tailored for SMEs and growing enterprises.</p>
     <div class="expertise-grid reveal-stagger" style="margin-top:32px">
 
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="exp-title">ITR Filing</div>
-          <div class="exp-desc">End-to-end income tax return filing for salaried individuals, freelancers, and business owners across all ITR forms.</div>
+          <div class="exp-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+          <div class="exp-title">GST Filing</div>
+          <div class="exp-desc">Monthly and quarterly GST return filing including GSTR-1, GSTR-3B, and annual returns.</div>
         </div>
         <div class="card-back">
-          <div class="card-back-title">ITR Filing</div>
-          <div class="card-back-desc">End-to-end ITR filing for salaried, freelancers &amp; business owners across all ITR forms — fast &amp; accurate.</div>
+          <div class="card-back-title">GST Filing</div>
+          <div class="card-back-desc">Complete GST return filing for businesses — timely and accurate.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
 
       <div class="exp-card tap-card">
         <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-          <div class="exp-title">GST Compliance</div>
-          <div class="exp-desc">GST registration, monthly/quarterly return filing, reconciliation, and notice handling for businesses of all sizes.</div>
+          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
+          <div class="exp-title">GST Registration</div>
+          <div class="exp-desc">New GST registrations, amendments, and cancellations with complete documentation support.</div>
         </div>
         <div class="card-back">
-          <div class="card-back-title">GST Compliance</div>
-          <div class="card-back-desc">Registration, monthly returns, reconciliation &amp; notice handling for businesses of all sizes.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="exp-card tap-card">
-        <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M6 3h12M6 7h10M6 11h8M10 11c-2 0-4 1-4 3s2 3 4 3 4 1 4 3-2 3-4 3"/></svg></div>
-          <div class="exp-title">Tax Planning</div>
-          <div class="exp-desc">Proactive tax planning strategies to legally minimize liability and maximize savings under the Income Tax Act.</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Tax Planning</div>
-          <div class="card-back-desc">Legal strategies to minimize tax liability &amp; maximize savings — 80C, 80D, HRA and beyond.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="exp-card tap-card">
-        <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <div class="exp-title">ROC Filings</div>
-          <div class="exp-desc">Annual ROC compliance, company annual returns, MCA filings, and director-related submissions handled accurately.</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">ROC Filings</div>
-          <div class="card-back-desc">Annual returns, MCA filings &amp; director submissions handled accurately and on time.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="exp-card tap-card">
-        <div class="card-front">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-          <div class="exp-title">Business Registration</div>
-          <div class="exp-desc">Pvt Ltd, LLP, OPC, proprietorship, MSME, GST, and other registrations with complete government compliance.</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Business Registration</div>
-          <div class="card-back-desc">Pvt Ltd, LLP, OPC, MSME &amp; GST registrations with complete government compliance.</div>
+          <div class="card-back-title">GST Registration</div>
+          <div class="card-back-desc">Quick and hassle-free GST registration with end-to-end assistance.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
@@ -1014,12 +1164,51 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       <div class="exp-card tap-card">
         <div class="card-front">
           <div class="exp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-          <div class="exp-title">Tax Advisory</div>
-          <div class="exp-desc">Expert advisory on capital gains, NRI taxation, salary structuring, HRA, 80C deductions, and business tax matters.</div>
+          <div class="exp-title">GST Notices</div>
+          <div class="exp-desc">Professional handling of GST notices, replies, and departmental queries.</div>
         </div>
         <div class="card-back">
-          <div class="card-back-title">Tax Advisory</div>
-          <div class="card-back-desc">Capital gains, NRI taxation, salary structuring &amp; all deduction advisory under one roof.</div>
+          <div class="card-back-title">GST Notices</div>
+          <div class="card-back-desc">End-to-end notice handling and response filing to avoid penalties.</div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
+
+      <div class="exp-card tap-card">
+        <div class="card-front">
+          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div class="exp-title">Business Taxation</div>
+          <div class="exp-desc">Complete business taxation solutions including income tax, GST, and statutory compliance.</div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Business Taxation</div>
+          <div class="card-back-desc">Income tax, GST & statutory requirements for businesses.</div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
+
+      <div class="exp-card tap-card">
+        <div class="card-front">
+          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="exp-title">GST Compliance</div>
+          <div class="exp-desc">Monthly, quarterly, and annual GST compliance management for businesses.</div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">GST Compliance</div>
+          <div class="card-back-desc">Complete compliance management to ensure zero penalties.</div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
+
+      <div class="exp-card tap-card">
+        <div class="card-front">
+          <div class="exp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8"/></svg></div>
+          <div class="exp-title">ITC Optimization</div>
+          <div class="exp-desc">Maximize Input Tax Credit while ensuring compliance through proper reconciliation.</div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">ITC Optimization</div>
+          <div class="card-back-desc">Smart ITC strategies to reduce tax liability while staying compliant.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
@@ -1030,150 +1219,14 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div class="wrap"><hr></div>
 
-<!-- ─── SERVICES ─── -->
-{{-- ==================== TAX SERVICES CAROUSEL ==================== --}}
-{{-- ==================== TAX SERVICES CAROUSEL ==================== --}}
+{{-- ==================== TAX SERVICES CAROUSEL (EXPERT SERVICE PLANS) ==================== --}}
 <section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;padding:56px 0;width:100%;box-sizing:border-box;">
-
-  <style>
-    #tax-services-section {
-      width: 100%;
-      padding: 56px 0;
-    }
-    #tax-services-section .section-header {
-      margin-bottom: 28px;
-    }
-    #tax-services-section .section-title {
-      font-size: 30px;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-      margin: 0 0 16px 0;
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.1;
-    }
-    #tax-services-section .section-subtitle {
-      font-size: 14px;
-      color: rgba(255,255,255,0.75);
-      font-weight: 400;
-      line-height: 1.6;
-      margin: 0;
-      max-width: 600px;
-      font-family: 'Montserrat', sans-serif;
-    }
-    /* Show subtitle only on desktop */
-    .web-only {
-      display: block;
-    }
-    @media (max-width: 768px) {
-      .web-only {
-        display: none;
-      }
-    }
-
-    @keyframes ttc-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
-    
-    /* Equal height card fixes */
-    #tax-services-section .owl-stage {
-      display: flex !important;
-      align-items: stretch !important;
-    }
-    #tax-services-section .owl-item {
-      display: flex !important;
-      height: auto;
-    }
-    #tax-services-section .owl-item > div {
-      display: flex;
-      width: 100%;
-    }
-    #tax-services-section .ttc-card-wrap {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 6px;
-    }
-    
-    #tax-services-section .owl-nav {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 20px !important;
-    }
-    #tax-services-section .owl-prev,
-    #tax-services-section .owl-next {
-      width: 23px !important;
-      height: 23px !important;
-      background: rgba(255,255,255,0.05) !important;
-      border: 1px solid rgba(255,255,255,0.1) !important;
-      border-radius: 50% !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      color: #fff !important;
-      font-size: 10px !important;
-      transition: all 0.25s ease !important;
-      line-height: 1 !important;
-      margin: 0 !important;
-    }
-    #tax-services-section .owl-prev:hover,
-    #tax-services-section .owl-next:hover {
-      background: rgba(79,255,176,0.1) !important;
-      border-color: rgba(79,255,176,0.25) !important;
-      box-shadow: 0 0 8px rgba(79,255,176,0.1) !important;
-    }
-    /* Disabled nav button styles */
-    #tax-services-section .owl-prev.disabled,
-    #tax-services-section .owl-next.disabled {
-      opacity: 0.3;
-      pointer-events: none;
-    }
-    
-    #tax-services-section .owl-dots {
-      display: flex !important;
-      justify-content: center !important;
-      gap: 4px !important;
-      margin-top: 10px !important;
-    }
-    #tax-services-section .owl-dot span {
-      width: 3px !important;
-      height: 3px !important;
-      background: rgba(255,255,255,0.15) !important;
-      border-radius: 999px !important;
-      transition: all 0.3s ease !important;
-      margin: 0 !important;
-    }
-    #tax-services-section .owl-dot.active span {
-      background: #4fffb0 !important;
-      width: 11px !important;
-      box-shadow: 0 0 4px rgba(79,255,176,0.4) !important;
-    }
-    #tax-services-section .ttc-tab-body::-webkit-scrollbar {
-      width: 2px;
-    }
-    #tax-services-section .ttc-tab-body::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.08);
-      border-radius: 99px;
-    }
-    /* Discount badge color (green) */
-    #tax-services-section .discount-badge {
-      background: rgba(79,255,176,0.12) !important;
-      color: #4fffb0 !important;
-      border: 1px solid rgba(79,255,176,0.25) !important;
-      box-shadow: 0 0 8px rgba(79,255,176,0.15) !important;
-      font-weight: 600 !important;
-    }
-  </style>
 
   <div class="wrap">
     <div class="section-header">
       <h2 class="section-title">Expert Service Plans</h2>
       <div class="section-subtitle web-only">
-        Professional tax &amp; compliance services.<br>
+        Professional GST &amp; business tax services.<br>
         Transparent pricing, zero surprises.
       </div>
     </div>
@@ -1188,352 +1241,56 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <script>
 (function(){
 
-/* ── SERVICE DATA ── */
-var S = [ 
-{n:"ITR-1 Return Filing",        sf:"Salaried individuals",          el:"Income up to ₹50L, no capital gains",     p:1499,  m:3000,  t:"1–2 Working Days",    cta:"File ITR Now",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"ITR-2 Return Filing",        sf:"Investors & high income",        el:"Capital gains or income above ₹50L",      p:1999,  m:4000,  t:"1–2 Working Days",    cta:"File ITR Now",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"ITR-3 Return Filing",        sf:"Business owners & professionals",el:"Business or professional income",          p:2499,  m:6000,  t:"2–3 Working Days",    cta:"File ITR Now",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"ITR-4 Presumptive Filing",   sf:"Freelancers & small businesses", el:"Presumptive income up to ₹50L",           p:1499,  m:4000,  t:"1–2 Working Days",    cta:"File ITR Now",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Revised Income Tax Return",  sf:"Error correction filers",        el:"Original ITR filed with mistakes",         p:1499,  m:3500,  t:"1–2 Working Days",    cta:"Revise ITR",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Belated Income Tax Return",  sf:"Late taxpayers",                  el:"Missed ITR deadline filing",              p:1499,  m:3500,  t:"1–2 Working Days",    cta:"File Belated ITR",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Updated ITR (ITR-U)",        sf:"Non-filers / corrections",       el:"Update within 2 years allowed",           p:1999,  m:5000,  t:"2–3 Working Days",    cta:"Update ITR",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  /* Tax Notices */
-  {n:"Income Tax Notice Reply",    sf:"Notice recipients",               el:"Received IT department notice",           p:2999,  m:8000,  t:"3–5 Working Days",    cta:"Resolve Notice",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Scrutiny Assistance",        sf:"Scrutiny cases",                  el:"Case selected for scrutiny",              p:4999,  m:12000, t:"5–7 Working Days",    cta:"Get Assistance",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Defective Return Notice Reply",sf:"ITR error cases",               el:"Notice u/s 139(9) received",              p:1999,  m:5000,  t:"2–3 Working Days",    cta:"Resolve Notice",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Income Tax Refund Assistance",sf:"Refund pending users",           el:"Refund stuck or delayed",                 p:999,   m:3000,  t:"2–3 Working Days",    cta:"Track Refund",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"PAN Aadhaar Linking",        sf:"PAN holders",                     el:"Link before deadline",                    p:499,   m:1000,  t:"1 Day",               cta:"Link PAN Aadhaar",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  /* Government Certificates (Individual) */
-  {n:"PAN Card Application",       sf:"New applicants",                  el:"No PAN issued earlier",                   p:699,   m:2000,  t:"3–5 Working Days",    cta:"Apply PAN",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"PAN Card Correction",        sf:"PAN holders",                     el:"Update name / DOB / details",             p:699,   m:2000,  t:"3–5 Working Days",    cta:"Correct PAN",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Aadhaar Update Assistance",  sf:"Aadhaar holders",                 el:"Update mobile / address",                 p:699,   m:2000,  t:"3–5 Working Days",    cta:"Update Aadhaar",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Income Certificate Application",sf:"Low income individuals",       el:"State income proof needed",               p:1499,  m:2500,  t:"3–7 Working Days",    cta:"Apply Certificate",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Domicile Certificate Application",sf:"Residents",                  el:"State residence proof needed",            p:999,   m:2500,  t:"3–7 Working Days",    cta:"Apply Certificate",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Digital Signature Certificate",sf:"Businesses & professionals",    el:"Required for filings / signing",          p:1499,  m:3000,  t:"1 Working Day",       cta:"Get DSC",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  /* NRI Tax Services */
-  {n:"NRI Income Tax Return Filing",sf:"NRIs earning in India",          el:"Income taxable in India",                 p:3499,  m:8000,  t:"2–3 Working Days",    cta:"File NRI ITR",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"NRI Capital Gain Tax Filing", sf:"NRI property sellers",           el:"Capital gains on sale",                   p:4499,  m:10000, t:"3–5 Working Days",    cta:"File Capital Gains",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Lower TDS Certificate",       sf:"NRIs with high TDS",             el:"Apply for reduced TDS rate",              p:3999,  m:9000,  t:"5–7 Working Days",    cta:"Apply Certificate",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"NRI Property Tax Advisory",   sf:"NRI property owners",            el:"Own / sell property in India",            p:4999,  m:12000, t:"3–5 Working Days",    cta:"Get Advisory",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  /* Investment Taxation */
-  {n:"Capital Gains Tax Calculation",sf:"Investors",                     el:"Asset sale with profit",                  p:1499,  m:3000,  t:"1–2 Working Days",    cta:"Calculate Tax",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Stock Market Tax Filing",     sf:"Traders & investors",            el:"Stock trading income",                    p:2499,  m:6000,  t:"2–3 Working Days",    cta:"File Stock Taxes",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Crypto Tax Filing",           sf:"Crypto investors",               el:"Crypto transactions done",                p:2999,  m:8000,  t:"2–3 Working Days",    cta:"File Crypto Tax",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Rental Income Tax Filing",    sf:"Property owners",                el:"Rental income earned",                    p:1499,  m:4000,  t:"1–2 Working Days",    cta:"File Rental Income",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"Tax Planning Consultation",   sf:"Individuals & HNIs",             el:"Tax saving planning needed",              p:1999,  m:5000,  t:"1–2 Working Days",    cta:"Book Consultation",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  {n:"AIS TIS Tax Analysis",        sf:"All taxpayers",                  el:"AIS / TIS mismatch or review",            p:1499,  m:3000,  t:"1–2 Working Days",    cta:"Analyze Tax Data",
-   inc:["Application preparation support","Government portal filing help","Document verification support","Status tracking till completion","Certificate or filing delivery"],
-   exc:["Government fees if applicable","Legal disputes representation","Department hearing support","Future compliance services","Third party verification"],
-   doc:["PAN card copy","Aadhaar card copy","Mobile and email ID","Bank statement or Form 16","Supporting income proofs"]},
-
-  /* ─── BUSINESS TAXPAYER ─── */
-
-  /* Business Registration */
-  {n:"Private Limited Company Registration",sf:"Startups & founders",   el:"Min 2 directors required",                p:14999, m:25000, t:"7–10 Working Days",   cta:"Register Now",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"LLP Registration",            sf:"Partners & SMEs",                el:"Min 2 partners required",                 p:9999,  m:20000, t:"7–10 Working Days",   cta:"Register LLP",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"One Person Company Registration",sf:"Solo entrepreneurs",          el:"Single director / shareholder",           p:11999, m:22000, t:"7–10 Working Days",   cta:"Register OPC",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Partnership Firm Registration",sf:"Small business partners",       el:"2 or more partners needed",               p:6999,  m:15000, t:"5–7 Working Days",    cta:"Register Firm",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Sole Proprietorship Registration",sf:"Individual business owners", el:"Single owner business setup",             p:3999,  m:8000,  t:"3–5 Working Days",    cta:"Register Now",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Startup India Registration",  sf:"Eligible startups",              el:"DPIIT criteria applicable",               p:8999,  m:10000, t:"3–5 Working Days",    cta:"Register Startup",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  /* Government Certificates (Business) */
-  {n:"GST Registration",            sf:"Businesses & startups",          el:"Turnover above threshold",                p:1499,  m:3000,  t:"3–7 Working Days",    cta:"Register GST",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"MSME Udyam Registration",     sf:"Small businesses",               el:"MSME turnover limits apply",              p:999,   m:2000,  t:"1 Day",               cta:"Register MSME",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Shop & Establishment License",sf:"Shops & offices",                el:"Local state registration needed",         p:3999,  m:7000,  t:"5–10 Working Days",   cta:"Get License",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Import Export Code Registration",sf:"Exporters & traders",         el:"Import / export business required",       p:2499,  m:6000,  t:"2–3 Working Days",    cta:"Get IEC",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"FSSAI Food License Registration",sf:"Food businesses",             el:"Food activity involved",                  p:3999,  m:6000,  t:"7–15 Working Days",   cta:"Get License",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Professional Tax Registration",sf:"Employers & professionals",     el:"State PT applicability",                  p:2499,  m:5000,  t:"3–7 Working Days",    cta:"Register Now",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Labour License Registration", sf:"Contractors & firms",            el:"Contract labour engaged",                 p:7999,  m:12000, t:"7–15 Working Days",   cta:"Get License",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Digital Signature Certificate",sf:"Businesses & directors",        el:"Required for filings",                    p:2999,  m:4000,  t:"1 Day",               cta:"Get DSC",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  /* Trademark & IP */
-  {n:"Trademark Registration",      sf:"Brands & startups",              el:"Unique name / logo required",             p:6999,  m:15000, t:"1–2 Working Days",    cta:"Register Trademark",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Trademark Objection Reply",   sf:"Applicants with objection",      el:"Objection notice received",               p:4999,  m:12000, t:"3–5 Working Days",    cta:"Reply Now",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Trademark Renewal",           sf:"Trademark owners",               el:"Valid trademark expiring",                p:4499,  m:8000,  t:"3–5 Working Days",    cta:"Renew Trademark",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Trademark Assignment",        sf:"Brand owners",                   el:"Ownership transfer needed",               p:6999,  m:15000, t:"5–7 Working Days",    cta:"Transfer Now",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Copyright Registration",      sf:"Content creators",               el:"Original work created",                   p:3999,  m:8000,  t:"5–10 Working Days",   cta:"Register Copyright",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Design Registration",         sf:"Product designers",              el:"New design protection",                   p:7999,  m:15000, t:"7–10 Working Days",   cta:"Register Design",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  /* Tax Filing (Business) */
-  {n:"Income Tax Return Filing",    sf:"Individuals & businesses",       el:"Taxable income earned",                   p:1999,  m:5000,  t:"1–2 Working Days",    cta:"File ITR",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Business Income Tax Filing",  sf:"Business owners",                el:"Business income declared",                p:2999,  m:8000,  t:"2–3 Working Days",    cta:"File Tax",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"GST Return Filing",           sf:"GST registered firms",           el:"Active GST registration",                 p:2499,  m:5000,  t:"Monthly",             cta:"File GST",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"GST Annual Return Filing",    sf:"Businesses under GST",           el:"GST annual filing required",              p:4999,  m:8000,  t:"5–7 Working Days",    cta:"File Annual GST",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"TDS Return Filing",           sf:"Employers & businesses",         el:"TDS deducted on payments",                p:2999,  m:6000,  t:"Quarterly",           cta:"File TDS",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Income Tax Notice Reply",     sf:"Notice recipients",              el:"IT notice received",                      p:4999,  m:10000, t:"3–5 Working Days",    cta:"Resolve Notice",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  /* Compliance Services */
-  {n:"Company Annual Compliance",   sf:"Private companies",              el:"ROC compliance required",                 p:9999,  m:20000, t:"Yearly",              cta:"Get Compliance",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"LLP Annual Compliance",       sf:"LLP entities",                   el:"Annual filing mandatory",                 p:6999,  m:15000, t:"Yearly",              cta:"Get Compliance",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"GST Compliance Management",   sf:"GST businesses",                 el:"Ongoing GST compliance",                  p:7999,  m:15000, t:"Monthly",             cta:"Manage GST",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Accounting & Bookkeeping",    sf:"Businesses & startups",          el:"Regular transactions ongoing",            p:6999,  m:20000, t:"Monthly",             cta:"Get Started",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Payroll Compliance Services", sf:"Employers",                      el:"Employees on payroll",                    p:4999,  m:12000, t:"Monthly",             cta:"Manage Payroll",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"ROC Filing Services",         sf:"Registered companies",           el:"MCA filing required",                     p:3999,  m:10000, t:"5–7 Working Days",    cta:"File ROC",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  /* Business Support */
-  {n:"Business PAN Registration",   sf:"New businesses",                 el:"PAN not yet issued",                      p:1499,  m:3000,  t:"3–5 Working Days",    cta:"Apply PAN",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"TAN Registration",            sf:"Businesses deducting TDS",       el:"TDS deduction applicable",                p:1499,  m:3000,  t:"3–5 Working Days",    cta:"Register TAN",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Current Account Assistance",  sf:"Businesses & startups",          el:"Business bank account needed",            p:2499,  m:5000,  t:"3–7 Working Days",    cta:"Open Account",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Business Plan Preparation",   sf:"Startups & founders",            el:"Funding or planning stage",               p:9999,  m:25000, t:"5–7 Working Days",    cta:"Get Plan",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Virtual CFO Services",        sf:"Growing businesses",             el:"Need financial guidance",                 p:19999, m:60000, t:"Monthly",             cta:"Hire vCFO",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]},
-
-  {n:"Company Name Search",         sf:"Founders & startups",            el:"Name availability check",                 p:1999,  m:5000,  t:"1–2 Working Days",    cta:"Search Name",
-   inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
-   exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
-   doc:["PAN card of applicant or business","Aadhaar card identity verification","Business or residential address proof","Active email and mobile number","Passport size photograph copy"]}
-
+/* ── SERVICE DATA FOR ROHIT SHARMA (GST & BUSINESS TAX SERVICES) ── */
+var S = [
+{n:"GST Registration", sf:"Businesses & startups", el:"Turnover above threshold", p:1499, m:3000, t:"3–7 Working Days", cta:"Get GST",
+ link:"https://thetaxcompany.in/servicedetail/gst-registration",
+ inc:["Application filing","Portal support","Document verification","Tracking support","Certificate delivery"],
+ exc:["Govt fees","Litigation","Notice handling","Future compliance","Third party verification"],
+ doc:["PAN","Aadhaar","Business address proof","Email & mobile","Photograph"]},
+
+{n:"GST Return Filing", sf:"GST registered firms", el:"Active GST registration", p:2499, m:5000, t:"Monthly", cta:"File GST Return",
+ link:"https://thetaxcompany.in/servicedetail/gst-return-filing",
+ inc:["Return preparation","Portal filing","Reconciliation support","Tracking","Compliance check"],
+ exc:["Govt penalties","Litigation","Notice handling","Future advisory","Third party audit"],
+ doc:["GST login","Sales data","Purchase data","Bank statements","Invoices"]},
+
+{n:"GST Annual Return Filing", sf:"GST businesses", el:"Annual filing required", p:4999, m:8000, t:"5–7 Working Days", cta:"File Annual GST",
+ link:"https://thetaxcompany.in/servicedetail/gst-annual-return-filing",
+ inc:["Annual reconciliation","Return filing","Portal support","Verification","Submission tracking"],
+ exc:["Govt penalties","Litigation","Notice handling","Future compliance","Third party audit"],
+ doc:["GST data","Annual reports","Invoices","Purchase records","Bank statements"]},
+
+{n:"Business Income Tax Filing", sf:"Business owners", el:"Business income declared", p:2999, m:8000, t:"2–3 Working Days", cta:"File Business Tax",
+ link:"https://thetaxcompany.in/servicedetail/business-income-tax-filing",
+ inc:["Tax computation","Return preparation","Portal filing","Verification","Acknowledgment delivery"],
+ exc:["Govt fees","Litigation","Hearings","Future planning","Third party services"],
+ doc:["PAN","Aadhaar","Financial statements","Bank statements","Income proofs"]},
+
+{n:"GST Compliance Management", sf:"GST businesses", el:"Ongoing compliance", p:7999, m:15000, t:"Monthly", cta:"Manage GST",
+ link:"https://thetaxcompany.in/servicedetail/gst-compliance-management",
+ inc:["Return filing","Compliance tracking","Reconciliation","Advisory support","Regular updates"],
+ exc:["Govt penalties","Litigation","Notice handling","Audit","Third party verification"],
+ doc:["GST data","Invoices","Purchase data","Bank statements","Login credentials"]},
+
+{n:"TDS Return Filing", sf:"Employers & businesses", el:"TDS deducted", p:2999, m:6000, t:"Quarterly", cta:"File TDS",
+ link:"https://thetaxcompany.in/servicedetail/tds-return-filing",
+ inc:["Return preparation","Portal filing","Verification","Tracking","Compliance support"],
+ exc:["Govt penalties","Litigation","Notice handling","Future compliance","Third party audit"],
+ doc:["TAN","Challan details","Deduction data","Employee/vendor details","Bank records"]},
+
+{n:"Income Tax Notice Reply", sf:"Businesses", el:"Notice received", p:4999, m:10000, t:"3–5 Working Days", cta:"Resolve Notice",
+ link:"https://thetaxcompany.in/servicedetail/income-tax-notice-reply",
+ inc:["Drafting reply","Portal submission","Documentation","Follow-up","Status tracking"],
+ exc:["Litigation","Court representation","Future compliance","Audit","Third party verification"],
+ doc:["PAN","Notice copy","Financial records","Bank statements","Supporting proofs"]},
+
+{n:"Accounting & Bookkeeping", sf:"Businesses & startups", el:"Ongoing transactions", p:6999, m:20000, t:"Monthly", cta:"Manage Books",
+ link:"https://thetaxcompany.in/servicedetail/accounting-bookkeeping",
+ inc:["Transaction recording","Ledger maintenance","Financial reports","Reconciliation","Compliance readiness"],
+ exc:["Audit","Litigation","Notice handling","Tax filing","Third party verification"],
+ doc:["Invoices","Bank statements","Expense records","Sales data","GST data"]}
 ];
-
 /* ── HELPERS ── */
 function fmt(n){ return '₹'+n.toLocaleString('en-IN'); }
 function pct(s){ return Math.round((s.m-s.p)/s.m*100); }
@@ -1574,7 +1331,10 @@ function buildCard(s, idx){
 
     /* suitability */
     '<div style="margin-bottom:3px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Suitable for:</strong> '+s.sf+'</div>'+
-    '<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.6);font-style:italic;line-height:1.4;font-family:\'Montserrat\',sans-serif;">'+s.el+'</div>'+
+'<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;">'+
+  '<strong style="color:#fff;">Eligible for:</strong> '+
+  '<span style="color:rgba(255,255,255,0.6);font-style:italic;">'+s.el+'</span>'+
+'</div>'+
 
     /* turnaround */
     '<div style="margin-bottom:5px;font-size:9px;color:#4fffb0;font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
@@ -1585,11 +1345,11 @@ function buildCard(s, idx){
     /* title */
     '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
 
-    /* tab switcher */
-    '<div style="display:flex;gap:3px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:3px;margin-bottom:7px;">'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Included</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Not Included</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Documents</button>'+
+    /* tab switcher - FIXED: added min-width and proper spacing to prevent overlapping */
+    '<div style="display:flex;gap:4px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:3px;margin-bottom:7px;">'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 6px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 6px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Not Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 6px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Documents</button>'+
     '</div>'+
 
     /* tab body */
@@ -1600,13 +1360,13 @@ function buildCard(s, idx){
     '</div>'+
 
     /* cta */
-    '<div style="margin-top:8px;">'+
-      '<a href="#" style="display:block;width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;"'+
-        ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
-        ' onmouseleave="this.style.background=\'#fff\';this.style.transform=\'translateY(0)\';">'+
-        s.cta+' &rarr;'+
-      '</a>'+
-    '</div>'+
+'<div style="margin-top:8px;">'+
+  '<a href="'+s.link+'" style="display:block;width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;"'+
+    ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
+    ' onmouseleave="this.style.background=\'#fff\';this.style.transform=\'translateY(0)\';">'+
+    s.cta+' &rarr;'+
+  '</a>'+
+'</div>'+
 
   '</div></div>';
 }
@@ -1617,16 +1377,19 @@ if(slider){
   slider.innerHTML = S.map(function(s,i){ return buildCard(s,i); }).join('');
 }
 
-/* ── INIT OWL + TABS + EDGE DISABLE ── */
+/* ── INIT OWL + AUTOPLAY + EDGE DISABLE ── */
 $(function(){
 
   var owl = $('#ttc-slider').owlCarousel({
-    loop       : false,               // ← Disable infinite scroll
+    loop       : false,
     margin     : 20,
     nav        : true,
     dots       : true,
     autoHeight : false,
     navText    : ['&#8592;','&#8594;'],
+    autoplay   : true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
     responsive : {
       0    : { items: 1 },
       600  : { items: 2 },
@@ -1676,25 +1439,6 @@ $(function(){
 
 })();
 </script>
-{{-- ==================== END TAX SERVICES CAROUSEL ==================== --}}
-
-<div class="wrap"><hr></div>
-
-<!-- ─── HOW IT WORKS ─── -->
-<section class="sec reveal-section">
-  <div class="wrap">
-    <div class="sec-title">How It Works</div>
-    <p class="sec-sub">A simple, transparent process designed to make professional tax services effortless.</p>
-    <div class="process-grid reveal-stagger">
-      <div class="process-step"><div class="step-num">01</div><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M8 16l4-8 4 8"/></svg></div><div class="step-title">Submit Enquiry</div><div class="step-desc">Tell us your service requirement and our team reviews your needs immediately.</div></div>
-      <div class="process-step"><div class="step-num">02</div><div class="step-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div><div class="step-title">Book Consultation</div><div class="step-desc">Speak with a dedicated tax expert who recommends the right registration structure.</div></div>
-      <div class="process-step"><div class="step-num">03</div><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></div><div class="step-title">Choose Service</div><div class="step-desc">Select and purchase the required service from our transparent pricing list.</div></div>
-      <div class="process-step"><div class="step-num">04</div><div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg></div><div class="step-title">Assigned</div><div class="step-desc">A Tax Expert is assigned and manages the entire process end-to-end.</div></div>
-      <div class="process-step"><div class="step-num">05</div><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg></div><div class="step-title">Documentation</div><div class="step-desc">We prepare, verify, and submit all required documents to the government portal.</div></div>
-      <div class="process-step"><div class="step-num">06</div><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="step-title">Compliance Done</div><div class="step-desc">Registration finalised and all certificates delivered directly to you.</div></div>
-    </div>
-  </div>
-</section>
 
 <div class="wrap"><hr></div>
 
@@ -1702,31 +1446,18 @@ $(function(){
 <section class="sec reveal-section">
   <div class="wrap">
     <div class="sec-title">Who I Serve</div>
-    <p class="sec-sub">Tailored solutions for every type of taxpayer and business across India.</p>
+    <p class="sec-sub">Tailored GST and business tax solutions for SMEs, traders, and growing businesses.</p>
     <div class="industry-grid reveal-stagger">
 
       <div class="ind-card tap-card">
         <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><circle cx="12" cy="7" r="4"/><path d="M4 21c2-4 6-6 8-6s6 2 8 6"/></svg></div>
-          <div class="ind-title">Salaried Individuals</div>
-          <div class="ind-desc">Employees, professionals, and those with salary + other income. Maximize your refund and plan 80C deductions smartly.</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Salaried Individuals</div>
-          <div class="card-back-desc">Employees &amp; professionals. Maximize refund, plan 80C &amp; HRA deductions smartly.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="ind-card tap-card">
-        <div class="card-front">
           <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/></svg></div>
-          <div class="ind-title">Freelancers &amp; Consultants</div>
-          <div class="ind-desc">Independent professionals with variable income. Proper ITR-3/4 filing, presumptive taxation, and advance tax management.</div>
+          <div class="ind-title">SMEs</div>
+          <div class="ind-desc">Small and medium businesses needing GST filing, compliance, and business tax support.</div>
         </div>
         <div class="card-back">
-          <div class="card-back-title">Freelancers &amp; Consultants</div>
-          <div class="card-back-desc">ITR-3/4 filing, presumptive taxation &amp; advance tax management for variable income.</div>
+          <div class="card-back-title">SMEs</div>
+          <div class="card-back-desc">GST filing, compliance &amp; business tax support for SMEs.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
@@ -1734,38 +1465,38 @@ $(function(){
       <div class="ind-card tap-card">
         <div class="card-front">
           <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 21V9h6v12"/></svg></div>
-          <div class="ind-title">SMEs &amp; Traders</div>
-          <div class="ind-desc">Small and medium businesses needing GST filing, bookkeeping, audit, and complete tax compliance management.</div>
+          <div class="ind-title">Traders</div>
+          <div class="ind-desc">Wholesalers, retailers, and distributors needing GST registration, filing, and compliance.</div>
         </div>
         <div class="card-back">
-          <div class="card-back-title">SMEs &amp; Traders</div>
-          <div class="card-back-desc">GST filing, bookkeeping, audit &amp; complete tax compliance for small &amp; medium businesses.</div>
+          <div class="card-back-title">Traders</div>
+          <div class="card-back-desc">GST registration, filing &amp; compliance for wholesalers &amp; retailers.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
 
       <div class="ind-card tap-card">
         <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><path d="M4 13l6-6 4 4-6 6H4z"/><path d="M14 7l3-3 3 3-3 3z"/></svg></div>
+          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><path d="M12 2v4M4 4l3 3M20 4l-3 3"/><circle cx="12" cy="12" r="4"/><path d="M2 20h20"/></svg></div>
+          <div class="ind-title">Manufacturers</div>
+          <div class="ind-desc">Manufacturing businesses needing GST compliance, ITC optimization, and return filing.</div>
+        </div>
+        <div class="card-back">
+          <div class="card-back-title">Manufacturers</div>
+          <div class="card-back-desc">GST compliance, ITC optimization &amp; return filing for manufacturers.</div>
+        </div>
+        <span class="tap-hint"></span>
+      </div>
+
+      <div class="ind-card tap-card">
+        <div class="card-front">
+          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
           <div class="ind-title">Startups</div>
-          <div class="ind-desc">New founders needing company registration, startup India benefits, GST, ROC compliance, and ongoing advisory.</div>
+          <div class="ind-desc">Early-stage businesses requiring GST registration, compliance setup, and tax planning.</div>
         </div>
         <div class="card-back">
           <div class="card-back-title">Startups</div>
-          <div class="card-back-desc">Company registration, Startup India benefits, GST &amp; ROC compliance for new founders.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="ind-card tap-card">
-        <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg></div>
-          <div class="ind-title">NRIs</div>
-          <div class="ind-desc">Non-resident Indians with India income. NRI ITR filing, DTAA benefits, FEMA compliance, and repatriation advisory.</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">NRIs</div>
-          <div class="card-back-desc">NRI ITR filing, DTAA benefits, FEMA compliance &amp; repatriation advisory.</div>
+          <div class="card-back-desc">GST setup, compliance &amp; tax planning for startups.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
@@ -1773,12 +1504,12 @@ $(function(){
       <div class="ind-card tap-card">
         <div class="card-front">
           <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><path d="M3 17l6-6 4 4 7-7"/></svg></div>
-          <div class="ind-title">Investors</div>
-          <div class="ind-desc">Equity, mutual fund, and real estate investors. Capital gains computation, tax harvesting, and optimized filing.</div>
+          <div class="ind-title">Growing Businesses</div>
+          <div class="ind-desc">Businesses scaling operations and needing structured GST processes and tax optimization.</div>
         </div>
         <div class="card-back">
-          <div class="card-back-title">Investors</div>
-          <div class="card-back-desc">Capital gains computation, tax harvesting &amp; optimized filing for equity, MF &amp; real estate.</div>
+          <div class="card-back-title">Growing Businesses</div>
+          <div class="card-back-desc">Structured GST systems &amp; optimization for scaling businesses.</div>
         </div>
         <span class="tap-hint"></span>
       </div>
@@ -1798,7 +1529,6 @@ $(function(){
       
       <div class="city-card" style="background:rgba(79,125,243,0.06);border-color:rgba(79,125,243,0.15)">
         <div class="city-illustration">
-
           <svg viewBox="0 0 120 72" fill="none">
             <path d="M10 50 Q 30 30 50 50 T 90 50" stroke="rgba(79,125,243,0.3)" stroke-width="2" fill="none"/>
             <rect x="20" y="45" width="80" height="20" fill="rgba(79,125,243,0.2)" stroke="rgba(79,125,243,0.8)" stroke-width="1"/>
@@ -1813,8 +1543,7 @@ $(function(){
             <line x1="60" y1="15" x2="60" y2="5" stroke="rgba(79,125,243,1)" stroke-width="1"/>
             <polygon points="60,5 68,9 60,13" fill="rgba(79,125,243,0.8)"/>
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(79,125,243,0.5)" stroke-width="1"/>
-            </svg>
-
+          </svg>
         </div>
         <div>
           <div class="city-name">Bengaluru</div>
@@ -1872,7 +1601,6 @@ $(function(){
             <path d="M 71 20 Q 80 8 89 20 Z" fill="rgba(59,130,246,0.5)" stroke="rgba(59,130,246,1)" stroke-width="1"/>
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
           </svg>
-
         </div>
         <div>
           <div class="city-name">Mumbai</div>
@@ -1882,7 +1610,6 @@ $(function(){
 
       <div class="city-card" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.15)">
         <div class="city-illustration">
-
           <svg viewBox="0 0 120 72" fill="none">
             <rect x="35" y="60" width="50" height="5" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.7)" stroke-width="1"/>
             <rect x="40" y="20" width="40" height="40" fill="rgba(139,92,246,0.25)" stroke="rgba(139,92,246,0.8)" stroke-width="1"/>
@@ -1938,16 +1665,16 @@ $(function(){
 <!-- ─── WHY CHOOSE ─── -->
 <section class="sec reveal-section">
   <div class="wrap">
-    <div class="sec-title">Why Choose US</div>
-    <p class="sec-sub">Experience the difference of working with a dedicated, verified professional.</p>
+    <div class="sec-title">Why Choose Me</div>
+    <p class="sec-sub">Experience reliable and accurate GST compliance with a dedicated business tax expert.</p>
     <div class="values-grid reveal-stagger">
-      <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div class="val-title">Maximum Tax Saving</div><div class="val-desc">Every filing is optimized to legally minimize your tax liability. We leave no deduction unclaimed — 80C, 80D, HRA, and beyond.</div></div>
-      <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z"/></svg></div><div class="val-title">Fast Turnaround</div><div class="val-desc">Efficient processes mean faster filings. Most ITR filings completed within 24–48 hours of receiving complete documents.</div></div>
+      <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div class="val-title">Maximum ITC Savings</div><div class="val-desc">Every filing is optimized to maximize your eligible Input Tax Credit. We leave no credit unclaimed while ensuring full compliance.</div></div>
+      <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z"/></svg></div><div class="val-title">Fast Turnaround</div><div class="val-desc">Efficient processes mean faster filings. Most GST returns completed within 24–48 hours of receiving complete documents.</div></div>
       <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="val-title">100% Secure</div><div class="val-desc">Your financial data is treated with strict confidentiality. We use secure channels for all document exchange and communication.</div></div>
     </div>
     <div class="features-grid reveal-stagger" style="margin-top:0">
-      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/><path d="M9 12l2 2 4-4"/></svg></div><div class="feat-text">Verified ICAI  Tax Expert</div><div class="feat-sub">Qualified &amp; certified professional</div></div>
-      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M7 8h10M7 12h6"/></svg></div><div class="feat-text">Bilingual Support</div><div class="feat-sub">English &amp; Hindi communication</div></div>
+      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/><path d="M9 12l2 2 4-4"/></svg></div><div class="feat-text">Business Tax Expert</div><div class="feat-sub">Qualified &amp; certified professional</div></div>
+      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M7 8h10M7 12h6"/></svg></div><div class="feat-text">Bilingual Support</div><div class="feat-sub">English &amp; Hindi</div></div>
       <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20"/></svg></div><div class="feat-text">Pan India Service</div><div class="feat-sub">All 28 states &amp; 8 UTs covered</div></div>
       <div class="feat-item"><div class="feat-icon">
         <svg viewBox="0 0 24 24"><path d="M6 3h12M6 7h10M6 11h8M10 11c-2 0-4 1-4 3s2 3 4 3 4 1 4 3-2 3-4 3"/></svg>
@@ -1963,11 +1690,11 @@ $(function(){
 <!-- ─── CTA ─── -->
 <section class="cta reveal">
   <div class="wrap">
-    <h2>Ready to simplify<br>your taxes?</h2>
-    <p>Whether you're a salaried individual, startup, or growing business — Rohit Sharma is here to help.</p>
+    <h2>Simplify Your Business<br>Tax & GST Compliance</h2>
+    <p>Whether you're an SME, trader, or growing business — Rohit Sharma helps you stay compliant, avoid penalties, and optimize your taxes efficiently.</p>
     <div class="cta-btns">
-      <a href="{{ route('boc.step1', ['source' => 'taxexpert-rohitsharma-cta']) }}" class="btn btn-primary magnetic-btn">Book Consultation<svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="#services" class="btn btn-secondary magnetic-btn">View All Services</a>
+      <a href="{{ route('boc.step1', ['source' => 'taxexpert-rohitsharma-cta']) }}" class="btn btn-primary">Book Consultation<svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#contact" class="btn btn-callback">Request Callback</a>
     </div>
   </div>
 </section>
@@ -1981,11 +1708,11 @@ $(function(){
     <p class="sec-sub">Reach out for a free consultation. Typically responds within a few hours.</p>
     <div class="contact-grid">
       <div class="contact-info reveal-stagger">
-        <div class="contact-item" onclick="window.location.href='alerts@thetaxcompany.in'">
+        <div class="contact-item" onclick="window.location.href='mailto:alerts@thetaxcompany.in'">
           <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div><div class="contact-lbl">Email</div><div class="contact-val">alerts@thetaxcompany.in</div></div>
         </div>
-        <div class="contact-item" onclick="window.location.href='tel:+91 7032891111'">
+        <div class="contact-item" onclick="window.location.href='tel:+917032811111'">
           <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.1A16 16 0 0 0 14 15.08l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div><div class="contact-lbl">WhatsApp / Phone</div><div class="contact-val">+91 70328 11111</div></div>
         </div>
@@ -2008,18 +1735,17 @@ $(function(){
 <section class="sec reveal-section">
   <div class="wrap">
     <div class="sec-title">Frequently Asked Questions</div>
-    <p class="sec-sub">Common questions about working with Rohit Sharma.</p>
+    <p class="sec-sub">Common questions about GST and business tax services with Rohit Sharma.</p>
     <div class="card reveal" style="margin-top:28px">
-      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What documents do I need for ITR filing?</span><span class="faq-toggle">+</span></div><div class="faq-a">For salaried individuals: Form 16, bank statements, investment proofs (80C, 80D), and PAN/Aadhaar. For business owners: profit &amp; loss account, balance sheet, GST returns, and bank statements. Rohit will send you a detailed checklist specific to your situation.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>How long does ITR filing typically take?</span><span class="faq-toggle">+</span></div><div class="faq-a">Most ITR filings are completed within 24–48 hours of receiving all required documents. For complex cases like capital gains, business income, or NRI taxation, it may take 3–5 business days.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>Do you serve clients outside my city?</span><span class="faq-toggle">+</span></div><div class="faq-a">Absolutely. Rohit Sharma provides 100% remote services across all 28 states and 8 Union Territories of India. Everything is handled digitally — documents via WhatsApp/email, consultations via call/video.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What if I receive an income tax notice?</span><span class="faq-toggle">+</span></div><div class="faq-a">Rohit handles all types of income tax notices — scrutiny assessments, demand notices, defective return notices, and more. Share the notice details for a prompt review and response strategy.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What are your fees for ITR filing?</span><span class="faq-toggle">+</span></div><div class="faq-a">Fees are transparent and fixed based on the ITR form type and complexity. Salaried ITR-1 starts from ₹499. Contact Rohit for an exact quote based on your specific requirements — no hidden charges ever.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What documents are required for GST registration?</span><span class="faq-toggle">+</span></div><div class="faq-a">You typically need PAN, Aadhaar, business address proof, bank details, and business registration documents (if applicable). Rohit provides a simple checklist and handles the entire process end-to-end.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>How often do I need to file GST returns?</span><span class="faq-toggle">+</span></div><div class="faq-a">Most businesses file monthly or quarterly GST returns (GSTR-1, GSTR-3B). The frequency depends on your turnover and scheme. Rohit ensures timely filing so you never miss deadlines or incur penalties.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>Can you handle GST notices and penalties?</span><span class="faq-toggle">+</span></div><div class="faq-a">Yes. Rohit handles GST notices, replies, and departmental communications. He reviews the notice, prepares accurate responses, and ensures compliance to minimize penalties.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>Do you provide services across India?</span><span class="faq-toggle">+</span></div><div class="faq-a">Absolutely. All services are provided online across India. Documents are shared digitally, and consultations are done via call or video for a seamless experience.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What are your fees for GST services?</span><span class="faq-toggle">+</span></div><div class="faq-a">GST registration starts from ₹999, and return filing depends on business volume and complexity. Pricing is transparent with no hidden charges. You'll receive a clear quote before starting.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>How quickly can GST registration or filing be completed?</span><span class="faq-toggle">+</span></div><div class="faq-a">GST registration typically takes 3–7 working days depending on approval. GST return filings are usually completed within 24–48 hours after receiving all details.</div></div>
     </div>
   </div>
 </section>
-
-
 
 <script>
 /* ─── PROGRESS BAR ─── */
@@ -2056,7 +1782,8 @@ if (!isMobile) {
       el.closest('.exp-card') || el.closest('.service-main-card') ||
       el.closest('.ind-card') || el.closest('.city-card') ||
       el.closest('.val-card') || el.closest('.feat-item') ||
-      el.closest('.contact-item') || el.closest('.hero-photo-card')
+      el.closest('.contact-item') || el.closest('.hero-photo-card') ||
+      el.closest('.hero-glass-card') || el.closest('.hero-pill')
     );
     cg.classList.toggle('over-interactive', !!interactive);
   }, { passive: true });
@@ -2084,105 +1811,76 @@ function updateHeroParallax() {
 }
 window.addEventListener('scroll', updateHeroParallax, { passive: true });
 
-/* ────────── MAGNETIC + DEPTH SYSTEM FOR .hero-photo-card (UPGRADED) ────────── */
+/* ─── MAGNETIC + DEPTH SYSTEM FOR HERO PHOTO CARD ─── */
 (function() {
-  if (window.innerWidth <= 768) return; // mobile safe, only tap scale
+  if (window.innerWidth <= 768) return;
 
   const card = document.getElementById('heroPhotoCard');
   if (!card) return;
 
-  // state
   let targetRotX = 0, targetRotY = 0;
   let targetTransX = 0, targetTransY = 0;
   let targetShadowX = 0, targetShadowY = 0;
-  
   let currentRotX = 0, currentRotY = 0;
   let currentTransX = 0, currentTransY = 0;
   let currentShadowX = 0, currentShadowY = 0;
 
-  const magneticRadius = 200;       // px
-  const magneticStrength = 0.08;    // subtle pull
-  const maxRotate = 8;              // degrees
+  const magneticRadius = 200;
+  const magneticStrength = 0.08;
+  const maxRotate = 8;
   const shadowFactor = 0.15;
 
   let mouseX = 0, mouseY = 0;
   let isOverCard = false;
   let rafId = null;
 
-  // Default shadow base
-  const baseShadow = '0 20px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05)';
-
   function resetCard() {
     targetRotX = targetRotY = 0;
     targetTransX = targetTransY = 0;
     targetShadowX = targetShadowY = 0;
-    // smooth transition will handle it
   }
 
-  // Debounced scroll reset
   let scrollDebounce;
   function onScrollReset() {
     if (scrollDebounce) clearTimeout(scrollDebounce);
-    scrollDebounce = setTimeout(() => {
-      resetCard();
-    }, 100);
+    scrollDebounce = setTimeout(() => { resetCard(); }, 100);
   }
   window.addEventListener('scroll', onScrollReset, { passive: true });
 
-  // Mouse move tracking
   window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+    mouseX = e.clientX; mouseY = e.clientY;
   }, { passive: true });
 
-  card.addEventListener('mouseenter', () => {
-    isOverCard = true;
-  });
+  card.addEventListener('mouseenter', () => { isOverCard = true; });
+  card.addEventListener('mouseleave', () => { isOverCard = false; resetCard(); });
 
-  card.addEventListener('mouseleave', () => {
-    isOverCard = false;
-    resetCard();
-  });
-
-  // Animation loop (rAF)
   function updateCard() {
     const rect = card.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
     const dx = mouseX - centerX;
     const dy = mouseY - centerY;
     const distance = Math.sqrt(dx*dx + dy*dy);
 
-    // Magnetic field (proximity)
     if (distance < magneticRadius) {
-      // pull toward cursor (subtle)
       targetTransX = dx * magneticStrength;
       targetTransY = dy * magneticStrength;
-      
-      // shadow: opposite direction for depth illusion
       targetShadowX = -dx * shadowFactor;
       targetShadowY = -dy * shadowFactor;
     } else {
-      targetTransX = 0;
-      targetTransY = 0;
-      targetShadowX = 0;
-      targetShadowY = 0;
+      targetTransX = 0; targetTransY = 0;
+      targetShadowX = 0; targetShadowY = 0;
     }
 
-    // Tilt only when directly over card (inside rect)
     if (isOverCard) {
-      const relX = (mouseX - rect.left) / rect.width;   // 0..1
+      const relX = (mouseX - rect.left) / rect.width;
       const relY = (mouseY - rect.top) / rect.height;
-      // rotateY: left-right, rotateX: up-down
       targetRotY = (relX - 0.5) * 2 * maxRotate;
-      targetRotX = (relY - 0.5) * -2 * maxRotate;  // invert for natural feel
+      targetRotX = (relY - 0.5) * -2 * maxRotate;
     } else {
-      targetRotX = 0;
-      targetRotY = 0;
+      targetRotX = 0; targetRotY = 0;
     }
 
-    // Smooth interpolation (lerp)
     const ease = 0.12;
     currentRotX += (targetRotX - currentRotX) * ease;
     currentRotY += (targetRotY - currentRotY) * ease;
@@ -2191,36 +1889,23 @@ window.addEventListener('scroll', updateHeroParallax, { passive: true });
     currentShadowX += (targetShadowX - currentShadowX) * ease;
     currentShadowY += (targetShadowY - currentShadowY) * ease;
 
-    // Clamp rotation to avoid flipping (safety)
     const clamp = (val, max) => Math.min(max, Math.max(-max, val));
     const rotX = clamp(currentRotX, maxRotate);
     const rotY = clamp(currentRotY, maxRotate);
-    
-    // Apply transform
+
     card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateX(${currentTransX}px) translateY(${currentTransY}px)`;
-    
-    // Dynamic shadow: combine with base shadow
-    const blur = 40;
-    const shadowOpacity = 0.4;
-    const shadowStr = `${currentShadowX}px ${currentShadowY}px ${blur}px rgba(0,0,0,${shadowOpacity})`;
+    const shadowStr = `${currentShadowX}px ${currentShadowY}px 40px rgba(0,0,0,0.4)`;
     card.style.boxShadow = `${shadowStr}, 0 0 0 1px rgba(255,255,255,0.05)`;
 
     rafId = requestAnimationFrame(updateCard);
   }
 
-  // Start animation
   rafId = requestAnimationFrame(updateCard);
-
-  // Cleanup on page unload (optional)
-  window.addEventListener('beforeunload', () => {
-    if (rafId) cancelAnimationFrame(rafId);
-  });
-
-  // Also reset on window resize (optional)
+  window.addEventListener('beforeunload', () => { if (rafId) cancelAnimationFrame(rafId); });
   window.addEventListener('resize', () => resetCard());
 })();
 
-/* ─── METRIC FLOAT (keep subtle) ─── */
+/* ─── METRIC FLOAT ─── */
 if (!isMobile) {
   const metrics = document.querySelectorAll('.hero-metric');
   document.addEventListener('mousemove', e => {
@@ -2233,7 +1918,7 @@ if (!isMobile) {
   }, { passive: true });
 }
 
-/* ─── MAGNETIC BUTTONS (keep) ─── */
+/* ─── MAGNETIC BUTTONS (DISABLED FOR CTA BUTTONS TO FIX MOVING ISSUE) ─── */
 if (!isMobile) {
   document.querySelectorAll('.magnetic-btn').forEach(btn => {
     btn.addEventListener('mousemove', e => {
@@ -2374,5 +2059,4 @@ function toggleAbout() {
   });
 }());
 </script>
-
 @endsection
