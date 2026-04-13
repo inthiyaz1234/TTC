@@ -6,6 +6,17 @@
 <meta name="description" content="Rahul Jain is a compliance and audit tax expert with 3+ years of experience in ROC filing, compliance management, and audit support for businesses across India.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+<!-- jQuery (required by Owl Carousel) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:auto;overflow-x:hidden}
@@ -591,31 +602,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .exp-card .exp-title{font-size:12px}
 }
 
-/* ─── SERVICES GRID ─── */
-.services-clean{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-.service-main-card{
-  background:rgba(255,255,255,0.03);border:1px solid var(--border);
-  border-radius:14px;padding:28px;text-align:center;
-  transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);
-  cursor:pointer;position:relative;overflow:hidden;will-change:transform;
-}
-.service-main-card::before{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.04),transparent);
-  transition:left .6s var(--ease);pointer-events:none;
-}
-.service-main-card:hover{border-color:#fff;transform:translateY(-4px) scale(1.01);box-shadow:0 16px 40px rgba(0,0,0,.5)}
-.service-main-card:hover::before{left:100%}
-.service-icon{width:48px;height:48px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;transition:transform .3s var(--ease)}
-.service-main-card:hover .service-icon{transform:scale(1.1) rotate(-3deg)}
-.service-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.5}
-.service-title{font-size:14px;font-weight:700}
-@media(max-width:768px){
-  .services-clean{grid-template-columns:repeat(3,1fr);gap:10px}
-  .service-main-card{padding:14px}
-  .service-title{font-size:12px}
-}
-
 /* ─── TAP-CARD SYSTEM ─── */
 .tap-card{transition:transform 0.22s var(--ease),border-color 0.22s var(--ease),background 0.22s var(--ease)}
 .tap-card:active{transform:scale(0.97)}
@@ -634,26 +620,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   }
   .exp-card.tap-card .card-back{
     position:absolute;inset:0;padding:14px 12px;
-    opacity:0;transform:translateY(10px);
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    pointer-events:none;
-  }
-  .service-main-card.tap-card{
-    position:relative;overflow:hidden;min-height:96px;
-    display:flex;align-items:stretch;padding:0;
-  }
-  .service-main-card.tap-card .card-front{
-    width:100%;padding:14px 10px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    transform:translateY(0);opacity:1;
-  }
-  .service-main-card.tap-card .card-back{
-    position:absolute;inset:0;padding:12px 10px;
     opacity:0;transform:translateY(10px);
     transition:opacity .3s var(--ease),transform .3s var(--ease);
     display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -899,6 +865,135 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 .kpi-num{display:inline}
 #heroSection{will-change:transform,opacity}
+
+/* Expert Service Plans Carousel Styles */
+#tax-services-section {
+  width: 100%;
+  padding: 56px 0;
+}
+#tax-services-section .section-header {
+  margin-bottom: 28px;
+}
+#tax-services-section .section-title {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.1;
+}
+#tax-services-section .section-subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+  font-family: 'Montserrat', sans-serif;
+}
+.web-only {
+  display: block;
+}
+@media (max-width: 768px) {
+  .web-only {
+    display: none;
+  }
+}
+
+@keyframes ttc-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+
+#tax-services-section .owl-stage {
+  display: flex !important;
+  align-items: stretch !important;
+}
+#tax-services-section .owl-item {
+  display: flex !important;
+  height: auto;
+}
+#tax-services-section .owl-item > div {
+  display: flex;
+  width: 100%;
+}
+#tax-services-section .ttc-card-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+#tax-services-section .owl-nav {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px !important;
+}
+#tax-services-section .owl-prev,
+#tax-services-section .owl-next {
+  width: 23px !important;
+  height: 23px !important;
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  font-size: 10px !important;
+  transition: all 0.25s ease !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+#tax-services-section .owl-prev:hover,
+#tax-services-section .owl-next:hover {
+  background: rgba(79,255,176,0.1) !important;
+  border-color: rgba(79,255,176,0.25) !important;
+  box-shadow: 0 0 8px rgba(79,255,176,0.1) !important;
+}
+#tax-services-section .owl-prev.disabled,
+#tax-services-section .owl-next.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+#tax-services-section .owl-dots {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  margin-top: 10px !important;
+}
+#tax-services-section .owl-dot span {
+  width: 3px !important;
+  height: 3px !important;
+  background: rgba(255,255,255,0.15) !important;
+  border-radius: 999px !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+}
+#tax-services-section .owl-dot.active span {
+  background: #4fffb0 !important;
+  width: 11px !important;
+  box-shadow: 0 0 4px rgba(79,255,176,0.4) !important;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar {
+  width: 2px;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+#tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+}
+#tax-services-section .discount-badge {
+  background: rgba(79,255,176,0.12) !important;
+  color: #4fffb0 !important;
+  border: 1px solid rgba(79,255,176,0.25) !important;
+  box-shadow: 0 0 8px rgba(79,255,176,0.15) !important;
+  font-weight: 600 !important;
+}
 </style>
 
 
@@ -1023,7 +1118,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       <div class="about-text collapsed" id="aboutText">
         Rahul Jain is a compliance and audit-focused tax expert with over 3 years of experience helping businesses manage ROC filings and regulatory compliance efficiently.
       </div>
-      <div class="about-text expanded" id="aboutFull" style="display:none;">
+      <div class="about-text expanded" id="aboutFull" style="display:none; color:white">
         Rahul Jain is a compliance and audit-focused tax expert with over 3 years of experience helping businesses manage ROC filings, company law compliance, and audit processes efficiently.<br><br>He has assisted corporates and SMEs across India in maintaining accurate records, meeting statutory deadlines, and avoiding penalties. His approach ensures structured compliance and audit readiness for growing businesses.
       </div>
       <div class="about-toggle" onclick="toggleAbout()">Read More ▼</div>
@@ -1124,52 +1219,238 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div class="wrap"><hr></div>
 
-<!-- ─── SERVICES ─── -->
-<section class="sec reveal-section" id="services">
+{{-- ==================== TAX SERVICES CAROUSEL (EXPERT SERVICE PLANS) ==================== --}}
+<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;padding:56px 0;width:100%;box-sizing:border-box;">
+
   <div class="wrap">
-    <div class="sec-title">Services Offered</div>
-    <p class="sec-sub">End-to-end compliance, ROC filing, and audit services designed for companies and growing businesses.</p>
-    <div class="services-clean reveal-stagger">
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg></div>
-          <div class="service-title">ROC Filing</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">ROC Filing</div>
-          <div class="card-back-desc">Complete ROC filing including annual returns, MCA submissions, and compliance. Starts ₹1499.</div>
-        </div>
-        <span class="tap-hint"></span>
+    <div class="section-header">
+      <h2 class="section-title">Expert Service Plans</h2>
+      <div class="section-subtitle web-only">
+        Professional compliance &amp; ROC filing services.<br>
+        Transparent pricing, zero surprises.
       </div>
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-          <div class="service-title">Compliance Management</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Compliance Management</div>
-          <div class="card-back-desc">Ongoing compliance support ensuring timely filings and regulatory adherence.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
-      <div class="service-main-card tap-card">
-        <div class="card-front">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-          <div class="service-title">Audit Support</div>
-        </div>
-        <div class="card-back">
-          <div class="card-back-title">Audit Support</div>
-          <div class="card-back-desc">Professional audit assistance including documentation, &amp; reporting support.</div>
-        </div>
-        <span class="tap-hint"></span>
-      </div>
-
     </div>
   </div>
+
+  <div class="wrap">
+    <div id="ttc-slider" class="owl-carousel owl-theme"></div>
+  </div>
+
 </section>
+
+<script>
+(function(){
+
+/* ── SERVICE DATA FOR RAHUL JAIN (COMPLIANCE & ROC SERVICES) ── */
+var S = [
+{n:"Private Limited Company Registration", sf:"Startups & founders", el:"Minimum 2 directors required", p:14999, m:25000, t:"7–10 Working Days", cta:"Start Company",
+ link:"https://thetaxcompany.in/servicedetail/private-limited-company-registration",
+ inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate download and delivery"],
+ exc:["Government fees or taxes payment","Legal disputes or litigation help","Department notice handling","Future compliance or renewals","Third party verification services"],
+ doc:["PAN card of applicant","Aadhaar card","Address proof","Email & mobile number","Photograph"]},
+
+{n:"Limited Liability Partnership Registration", sf:"Partners & SMEs", el:"Minimum 2 partners required", p:9999, m:20000, t:"7–10 Working Days", cta:"Register LLP",
+ link:"https://thetaxcompany.in/servicedetail/limited-liability-partnership-registration",
+ inc:["Application preparation and review","Government portal filing support","Document verification assistance","Status tracking till completion","Certificate delivery"],
+ exc:["Government fees","Legal disputes","Notice handling","Future compliance","Third party verification"],
+ doc:["PAN card","Aadhaar card","Address proof","Email & mobile","Photograph"]},
+
+{n:"Company Annual Compliance", sf:"Private companies", el:"ROC compliance required", p:9999, m:20000, t:"Yearly", cta:"Stay Compliant",
+ link:"https://thetaxcompany.in/servicedetail/company-annual-compliance",
+ inc:["ROC filings","Compliance tracking","Document prep","Submission","Status updates"],
+ exc:["Govt penalties","Litigation","Notice handling","Future advisory","Third party audit"],
+ doc:["PAN","Incorporation docs","Financials","Board resolutions","Bank details"]},
+
+{n:"LLP Annual Compliance", sf:"LLP entities", el:"Annual filing mandatory", p:6999, m:15000, t:"Yearly", cta:"File LLP Compliance",
+ link:"https://thetaxcompany.in/servicedetail/llp-annual-compliance",
+ inc:["Form 11 filing","Form 8 filing","Compliance tracking","Document prep","Status updates"],
+ exc:["Govt penalties","Litigation","Notice handling","Future advisory","Third party audit"],
+ doc:["LLP PAN","Incorporation docs","Financials","Partner details","Bank statements"]},
+
+{n:"ROC Filing Services", sf:"Registered companies", el:"MCA filing required", p:3999, m:10000, t:"5–7 Working Days", cta:"File ROC",
+ link:"https://thetaxcompany.in/servicedetail/roc-filing-services",
+ inc:["Form preparation","MCA filing","Verification","Tracking","Acknowledgment"],
+ exc:["Govt fees","Litigation","Notice handling","Future compliance","Third party verification"],
+ doc:["Company PAN","MCA login","Financials","Director details","Resolutions"]},
+
+{n:"GST Compliance Management", sf:"GST businesses", el:"Ongoing compliance", p:7999, m:15000, t:"Monthly", cta:"Manage GST",
+ link:"https://thetaxcompany.in/servicedetail/gst-compliance-management",
+ inc:["Return filing","Compliance tracking","Reconciliation","Advisory support","Regular updates"],
+ exc:["Govt penalties","Litigation","Notice handling","Audit","Third party verification"],
+ doc:["GST data","Invoices","Purchase data","Bank statements","Login credentials"]},
+
+{n:"Income Tax Notice Reply", sf:"Businesses", el:"Notice received", p:4999, m:10000, t:"3–5 Working Days", cta:"Resolve Notice",
+ link:"https://thetaxcompany.in/servicedetail/income-tax-notice-reply",
+ inc:["Drafting reply","Portal submission","Documentation","Follow-up","Status tracking"],
+ exc:["Litigation","Court representation","Future compliance","Audit","Third party verification"],
+ doc:["PAN","Notice copy","Financial records","Bank statements","Supporting proofs"]},
+
+{n:"Accounting & Bookkeeping", sf:"Businesses & startups", el:"Ongoing transactions", p:6999, m:20000, t:"Monthly", cta:"Manage Books",
+ link:"https://thetaxcompany.in/servicedetail/accounting-bookkeeping",
+ inc:["Transaction recording","Ledger maintenance","Financial reports","Reconciliation","Compliance readiness"],
+ exc:["Audit","Litigation","Notice handling","Tax filing","Third party verification"],
+ doc:["Invoices","Bank statements","Expense records","Sales data","GST data"]},
+
+{n:"Business Income Tax Filing", sf:"Business owners", el:"Business income declared", p:2999, m:8000, t:"2–3 Working Days", cta:"File Business Tax",
+ link:"https://thetaxcompany.in/servicedetail/business-income-tax-filing",
+ inc:["Tax computation","Return preparation","Portal filing","Verification","Acknowledgment delivery"],
+ exc:["Govt fees","Litigation","Hearings","Future planning","Third party services"],
+ doc:["PAN","Aadhaar","Financial statements","Bank statements","Income proofs"]},
+
+{n:"TDS Return Filing", sf:"Employers & businesses", el:"TDS deducted", p:2999, m:6000, t:"Quarterly", cta:"File TDS",
+ link:"https://thetaxcompany.in/servicedetail/tds-return-filing",
+ inc:["Return preparation","Portal filing","Verification","Tracking","Compliance support"],
+ exc:["Govt penalties","Litigation","Notice handling","Future compliance","Third party audit"],
+ doc:["TAN","Challan details","Deduction data","Employee/vendor details","Bank records"]}
+];
+/* ── HELPERS ── */
+function fmt(n){ return '₹'+n.toLocaleString('en-IN'); }
+function pct(s){ return Math.round((s.m-s.p)/s.m*100); }
+
+function listRows(arr, type){
+  var icon  = type==='inc'?'✔':type==='exc'?'✖':'📄';
+  var ibg   = type==='inc'?'rgba(0,255,120,0.10)':type==='exc'?'rgba(255,0,0,0.10)':'rgba(120,120,255,0.10)';
+  var icol  = type==='inc'?'#00ff88':type==='exc'?'#ff4d4d':'#7a7aff';
+  var tcol  = type==='inc'?'#d6ffe6':type==='exc'?'#ffd6d6':'#d6d6ff';
+  return arr.map(function(item){
+    return '<li style="display:flex;align-items:flex-start;gap:5px;margin-bottom:5px;font-size:10px;line-height:1.5;color:'+tcol+';font-family:\'Montserrat\',sans-serif;">'+
+      '<span style="width:12px;height:12px;min-width:12px;border-radius:50%;background:'+ibg+';color:'+icol+';display:flex;align-items:center;justify-content:center;font-size:7px;margin-top:1px;">'+icon+'</span>'+
+      '<span>'+item+'</span></li>';
+  }).join('');
+}
+
+function buildCard(s, idx){
+  var uid = 'ttc'+idx;
+  var disc = pct(s);
+  return '<div style="width:100%;display:flex;">'+
+    '<div class="ttc-card-wrap" style="background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;overflow:hidden;"'+
+      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(255,255,255,0.14)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.6),0 0 20px rgba(79,255,176,0.04)\';"'+
+      ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(255,255,255,0.08)\';this.style.boxShadow=\'none\';">'+
+
+    /* top shimmer line */
+    '<div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);border-radius:999px;"></div>'+
+
+    /* price block */
+    '<div style="margin-bottom:7px;">'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">Starting from</span>'+
+      '<div style="display:flex;align-items:flex-end;gap:5px;flex-wrap:wrap;margin-bottom:2px;">'+
+        '<span style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1;font-family:\'Montserrat\',sans-serif;">'+fmt(s.p)+'</span>'+
+        '<span style="font-size:10px;color:rgba(255,255,255,0.6);text-decoration:line-through;font-weight:400;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+fmt(s.m)+'</span>'+
+        '<span class="discount-badge" style="display:inline-flex;align-items:center;background:rgba(79,255,176,0.12);border:1px solid rgba(79,255,176,0.25);color:#4fffb0;font-size:9px;font-weight:600;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;box-shadow:0 0 8px rgba(79,255,176,0.15);">'+disc+'% OFF</span>'+
+      '</div>'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
+    '</div>'+
+
+    /* suitability */
+    '<div style="margin-bottom:3px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Suitable for:</strong> '+s.sf+'</div>'+
+'<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;">'+
+  '<strong style="color:#fff;">Eligible for:</strong> '+
+  '<span style="color:rgba(255,255,255,0.6);font-style:italic;">'+s.el+'</span>'+
+'</div>'+
+
+    /* turnaround */
+    '<div style="margin-bottom:5px;font-size:9px;color:#4fffb0;font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
+
+    /* divider */
+    '<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent);margin:2px 0 7px;"></div>'+
+
+    /* title */
+    '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
+
+    /* tab switcher - FIXED: added min-width and proper spacing to prevent overlapping */
+    '<div style="display:flex;gap:4px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:3px;margin-bottom:7px;">'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 6px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 6px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Not Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 6px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;text-align:center;">Documents</button>'+
+    '</div>'+
+
+    /* tab body */
+    '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent;">'+
+      '<ul id="'+uid+'-inc" style="list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.inc,'inc')+'</ul>'+
+      '<ul id="'+uid+'-exc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.exc,'exc')+'</ul>'+
+      '<ul id="'+uid+'-doc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.doc,'doc')+'</ul>'+
+    '</div>'+
+
+    /* cta */
+'<div style="margin-top:8px;">'+
+  '<a href="'+s.link+'" style="display:block;width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;"'+
+    ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
+    ' onmouseleave="this.style.background=\'#fff\';this.style.transform=\'translateY(0)\';">'+
+    s.cta+' &rarr;'+
+  '</a>'+
+'</div>'+
+
+  '</div></div>';
+}
+
+/* ── INJECT CARDS ── */
+var slider = document.getElementById('ttc-slider');
+if(slider){
+  slider.innerHTML = S.map(function(s,i){ return buildCard(s,i); }).join('');
+}
+
+/* ── INIT OWL + AUTOPLAY + EDGE DISABLE ── */
+$(function(){
+
+  var owl = $('#ttc-slider').owlCarousel({
+    loop       : false,
+    margin     : 20,
+    nav        : true,
+    dots       : true,
+    autoHeight : false,
+    navText    : ['&#8592;','&#8594;'],
+    autoplay   : true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive : {
+      0    : { items: 1 },
+      600  : { items: 2 },
+      1000 : { items: 5 }
+    }
+  });
+
+  // Disable prev/next at edges
+  owl.on('changed.owl.carousel', function(event) {
+    var carousel = event.relatedTarget;
+    var current = carousel.current();
+    var total = carousel.items().length;
+    var visible = carousel.settings.items;
+    
+    if (current === 0) {
+      $('.owl-prev').addClass('disabled');
+    } else {
+      $('.owl-prev').removeClass('disabled');
+    }
+    
+    if (current + visible >= total) {
+      $('.owl-next').addClass('disabled');
+    } else {
+      $('.owl-next').removeClass('disabled');
+    }
+  });
+
+  /* tab switching */
+  $(document).on('click', '.ttc-btn', function(){
+    var uid = $(this).data('uid');
+    var tab = $(this).data('tab');
+
+    $('.ttc-btn[data-uid="'+uid+'"]').each(function(){
+      var isActive = $(this).data('tab') === tab;
+      $(this).css({
+        background   : isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
+        color        : isActive ? '#fff' : '#888',
+        borderColor  : isActive ? 'rgba(255,255,255,0.18)' : 'transparent'
+      });
+    });
+
+    $('#'+uid+'-inc, #'+uid+'-exc, #'+uid+'-doc').hide();
+    $('#'+uid+'-'+tab).show();
+  });
+
+});
+
+})();
+</script>
 
 <div class="wrap"><hr></div>
 
