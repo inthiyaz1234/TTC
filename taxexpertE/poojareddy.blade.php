@@ -1,4 +1,3 @@
-
 @extends('front')
 @section('content')
 <meta charset="UTF-8">
@@ -7,6 +6,16 @@
 <meta name="description" content="CA Pooja Reddy - SME Tax Specialist with 2+ years experience in GST filing, bookkeeping, compliance, and ITR services for small businesses across India.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+<!-- jQuery (required by Owl Carousel) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:auto;overflow-x:hidden}
@@ -87,8 +96,9 @@ body{font-family:'Montserrat',sans-serif;background:#000;color:#fff;-webkit-font
 @keyframes particleFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(-24px)}}
 @keyframes particleFloat3{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 
-.wrap{max-width:1280px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
-@media(max-width:768px){.wrap{padding:0 16px}}
+/* ── CHANGE 1: Spacing — Desktop 15px, Mobile 8px ── */
+.wrap{max-width:1280px;margin:0 auto;padding:0 15px;position:relative;z-index:2}
+@media(max-width:768px){.wrap{padding:0 8px}}
 
 hr{border:none;border-top:1px solid var(--border);margin:0}
 
@@ -102,7 +112,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 @keyframes pulseRing{0%{transform:scale(1);opacity:0.6}100%{transform:scale(2.2);opacity:0}}
 
-/* ─── BUTTONS - BLACK & WHITE ONLY ─── */
+/* ─── BUTTONS ─── */
 .btn{
   display:inline-flex;align-items:center;gap:8px;
   padding:11px 24px;border-radius:var(--r-sm);
@@ -122,30 +132,22 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 }
 .btn:hover::after{transform:translateX(100%)}
 
-/* Primary: white bg → hover: black bg with white border */
 .btn-primary{
-  background:#fff;
-  color:#000;
-  border:1.5px solid #fff;
+  background:#fff;color:#000;border:1.5px solid #fff;
 }
 .btn-primary:hover{
-  background:#000 !important;
-  color:#fff !important;
+  background:#000 !important;color:#fff !important;
   border-color:rgba(255,255,255,0.5) !important;
   transform:translateY(-2px);
   box-shadow:0 8px 28px rgba(255,255,255,0.12),0 0 0 1px rgba(255,255,255,0.15) !important;
 }
 .btn-primary:active{transform:scale(0.96) translateY(0)}
 
-/* Secondary: dark glass → hover: white bg with black text */
 .btn-secondary{
-  background:rgba(255,255,255,0.05);
-  color:#fff;
-  border:1.5px solid rgba(255,255,255,0.28);
+  background:rgba(255,255,255,0.05);color:#fff;border:1.5px solid rgba(255,255,255,0.28);
 }
 .btn-secondary:hover{
-  background:#fff !important;
-  color:#000 !important;
+  background:#fff !important;color:#000 !important;
   border-color:#fff !important;
   transform:translateY(-2px);
   box-shadow:0 8px 24px rgba(255,255,255,0.15) !important;
@@ -154,20 +156,33 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .btn-arrow{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .3s var(--ease)}
 .btn:hover .btn-arrow{transform:translateX(3px)}
 
-/* Request Callback Button - White background with black text on hover */
 .btn-callback{
-  background:transparent;
-  color:#fff;
-  border:1.5px solid rgba(255,255,255,0.5);
+  background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.5);
 }
 .btn-callback:hover{
-  background:#fff !important;
-  color:#000 !important;
-  border-color:#fff !important;
-  transform:translateY(-2px);
+  background:#fff !important;color:#000 !important;
+  border-color:#fff !important;transform:translateY(-2px);
   box-shadow:0 8px 24px rgba(255,255,255,0.15) !important;
 }
 .btn-callback:active{transform:scale(0.96)}
+
+/* ── CTA HIRE BUTTON — always shows inverted style, no hover change ── */
+.btn-cta-hire{
+  background:#000 !important;
+  color:#fff !important;
+  border:1.5px solid rgba(255,255,255,0.5) !important;
+  box-shadow:0 8px 28px rgba(255,255,255,0.08),0 0 0 1px rgba(255,255,255,0.12) !important;
+}
+.btn-cta-hire:hover{
+  background:#000 !important;
+  color:#fff !important;
+  border-color:rgba(255,255,255,0.5) !important;
+  transform:none !important;
+  box-shadow:0 8px 28px rgba(255,255,255,0.08),0 0 0 1px rgba(255,255,255,0.12) !important;
+}
+.btn-cta-hire:active{transform:scale(0.96) !important}
+.btn-cta-hire::after{display:none !important}
+.btn-cta-hire .btn-arrow{transform:translateX(0) !important}
 
 .card{
   background:var(--card);border:1px solid var(--border);
@@ -197,37 +212,23 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:center;width:100%}
 .hero-content{display:flex;flex-direction:column;justify-content:center;max-width:580px}
 
-/* ─── HERO GLASS CARD ─── */
 .hero-glass-card{
   background:rgba(255,255,255,0.04);
-  backdrop-filter:blur(28px);
-  -webkit-backdrop-filter:blur(28px);
+  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
   border:1px solid rgba(255,255,255,0.12);
-  border-radius:26px;
-  padding:22px 24px 20px;
-  position:relative;
-  overflow:hidden;
+  border-radius:26px;padding:22px 24px 20px;
+  position:relative;overflow:hidden;
   transition:border-color .4s var(--ease),box-shadow .4s var(--ease);
-  /* top highlight line */
 }
 .hero-glass-card::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:1px;
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);
-  pointer-events:none;
-  z-index:1;
+  pointer-events:none;z-index:1;
 }
-/* inner corner gloss */
 .hero-glass-card::after{
-  content:'';
-  position:absolute;
-  inset:0;
+  content:'';position:absolute;inset:0;
   background:linear-gradient(135deg,rgba(255,255,255,0.055) 0%,transparent 50%);
-  pointer-events:none;
-  border-radius:inherit;
-  z-index:0;
+  pointer-events:none;border-radius:inherit;z-index:0;
 }
 .hero-glass-card > *{position:relative;z-index:1}
 .hero-glass-card:hover{
@@ -235,108 +236,52 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   box-shadow:0 24px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.05);
 }
 
-/* ─── HERO NAME ─── */
 .hero-name{
   font-size:clamp(42px,5vw,52px);line-height:1.02;font-weight:900;letter-spacing:-.03em;
   background:linear-gradient(135deg,#fff 30%,#999 55%,#fff 70%,#666 90%);
   background-size:300% auto;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-  margin-bottom:12px;
-  opacity:0;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:12px;opacity:0;
   animation:heroReveal .6s var(--ease) .18s forwards,shimmerName 7s linear 1s infinite;
-  will-change:background-position;
 }
 @keyframes shimmerName{0%{background-position:0% center}100%{background-position:300% center}}
 
-/* ─── HERO PILLS GRID ─── */
 .hero-pills-grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin-bottom:11px;
-  opacity:0;
-  transform:translateY(12px);
+  display:flex;flex-wrap:wrap;gap:7px;margin-bottom:11px;
+  opacity:0;transform:translateY(12px);
   animation:heroReveal .6s var(--ease) .30s forwards;
 }
-
-/* Individual pill */
 .hero-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  background:rgba(255,255,255,0.07);
-  border:1px solid rgba(255,255,255,0.14);
-  border-radius:100px;
-  padding:7px 14px;
-  font-size:11px;
-  font-weight:600;
-  color:rgba(255,255,255,0.88);
-  letter-spacing:0.01em;
-  font-family:'Montserrat',sans-serif;
-  position:relative;
-  overflow:hidden;
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);
+  border-radius:100px;padding:7px 14px;font-size:11px;font-weight:600;
+  color:rgba(255,255,255,0.88);letter-spacing:0.01em;
+  font-family:'Montserrat',sans-serif;position:relative;overflow:hidden;
   transition:background .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;
   cursor:default;
 }
-/* Gloss highlight inside pill */
 .hero-pill::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:50%;
+  content:'';position:absolute;top:0;left:0;right:0;height:50%;
   background:linear-gradient(180deg,rgba(255,255,255,0.1),transparent);
-  border-radius:100px 100px 0 0;
-  pointer-events:none;
+  border-radius:100px 100px 0 0;pointer-events:none;
 }
-.hero-pill:hover{
-  background:rgba(255,255,255,0.13);
-  border-color:rgba(255,255,255,0.3);
-  transform:translateY(-1px);
-  box-shadow:0 4px 14px rgba(0,0,0,0.4);
-}
-.hero-pill svg{
-  width:11px;height:11px;
-  stroke:rgba(255,255,255,0.6);
-  fill:none;
-  stroke-width:2;
-  flex-shrink:0;
-}
-/* Pill dot accent */
-.hero-pill-dot{
-  width:5px;height:5px;border-radius:50%;
-  background:rgba(255,255,255,0.4);
-  flex-shrink:0;
-  animation:pulse 2s ease-in-out infinite;
-}
+.hero-pill:hover{background:rgba(255,255,255,0.13);border-color:rgba(255,255,255,0.3);transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.4)}
+.hero-pill svg{width:11px;height:11px;stroke:rgba(255,255,255,0.6);fill:none;stroke-width:2;flex-shrink:0}
+.hero-pill-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
 
-/* Bio pill - wider card style */
 .hero-bio-pill{
-  background:rgba(255,255,255,0.035);
-  border:1px solid rgba(255,255,255,0.09);
-  border-radius:16px;
-  padding:10px 14px;
-  font-size:11px;
-  font-weight:500;
-  color:#6e6e6e;
-  line-height:1.65;
-  margin-bottom:14px;
-  font-family:'Montserrat',sans-serif;
-  opacity:0;
-  transform:translateY(10px);
+  background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);
+  border-radius:16px;padding:10px 14px;font-size:11px;font-weight:500;
+  color:#6e6e6e;line-height:1.65;margin-bottom:14px;
+  font-family:'Montserrat',sans-serif;opacity:0;transform:translateY(10px);
   animation:heroReveal .6s var(--ease) .38s forwards;
-  position:relative;
-  overflow:hidden;
+  position:relative;overflow:hidden;
 }
 .hero-bio-pill::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:1px;
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
 }
 
-/* Badge + buttons animation */
 .hero-badge-wrap{opacity:0;transform:translateY(16px);animation:heroReveal .6s var(--ease) .1s forwards;margin-bottom:10px}
 .hero-btns{opacity:0;transform:translateY(10px);animation:heroReveal .6s var(--ease) .46s forwards}
 .hero-photo-wrap{opacity:0;transform:translateY(18px);animation:heroReveal .8s var(--ease) .22s forwards}
@@ -344,29 +289,24 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 .hero-photo-wrap{display:flex;justify-content:center;align-items:center;position:relative}
 
-/* ─── HERO PHOTO CARD ─── */
 .hero-photo-card{
   width:280px;height:360px;border-radius:22px;overflow:hidden;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateX(0) translateY(0);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
-  will-change: transform;
-  cursor: default;
-  box-shadow: 0 20px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+  transform:perspective(1000px) rotateX(0deg) rotateY(0deg) translateX(0) translateY(0);
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1),box-shadow 0.4s ease;
+  will-change:transform;cursor:default;
+  box-shadow:0 20px 40px -8px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.05);
 }
 .hero-photo-card::before{
   content:'';position:absolute;inset:0;border-radius:inherit;
   background:linear-gradient(120deg,rgba(255,255,255,0.1),transparent 40%);
-  opacity:0.6;pointer-events:none;z-index:2;
-  transition:opacity .3s ease;
+  opacity:0.6;pointer-events:none;z-index:2;transition:opacity .3s ease;
 }
 .hero-photo-card::after{
   content:'';position:absolute;inset:0;border-radius:inherit;
   background:linear-gradient(105deg,rgba(255,255,255,0) 40%,rgba(255,255,255,0.07) 50%,rgba(255,255,255,0) 60%);
-  background-size:200% 200%;
-  pointer-events:none;z-index:3;
+  background-size:200% 200%;pointer-events:none;z-index:3;
   animation:glossSweep 6s ease-in-out infinite;
 }
 @keyframes glossSweep{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
@@ -376,45 +316,31 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .hero-trust{
   position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  background:rgba(20,20,20,0.9);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:100px;padding:6px 16px;
-  font-size:10px;font-weight:600;color:#aaa;
+  background:rgba(20,20,20,0.9);border:1px solid rgba(255,255,255,0.15);
+  border-radius:100px;padding:6px 16px;font-size:10px;font-weight:600;color:#aaa;
   white-space:nowrap;display:flex;align-items:center;gap:6px;z-index:10;
   transition:transform .25s var(--ease),box-shadow .25s var(--ease);
 }
-.hero-trust:hover{
-  transform:translateX(-50%) translateY(-2px);
-  box-shadow:0 6px 20px rgba(255,255,255,0.06);
-}
+.hero-trust:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 6px 20px rgba(255,255,255,0.06)}
 .trust-check{
   width:14px;height:14px;background:#fff;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  position:relative;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;
 }
 .trust-check::before{
   content:'';position:absolute;inset:-4px;border-radius:50%;
-  border:1px solid rgba(255,255,255,0.3);
-  animation:trustPulse 2.5s ease-out infinite;
+  border:1px solid rgba(255,255,255,0.3);animation:trustPulse 2.5s ease-out infinite;
 }
 @keyframes trustPulse{0%{transform:scale(1);opacity:0.6}100%{transform:scale(2);opacity:0}}
 
 .hero-metric{
-  position:absolute;
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:16px;padding:10px 14px;
-  display:flex;flex-direction:column;gap:2px;
+  position:absolute;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);
+  border-radius:16px;padding:10px 14px;display:flex;flex-direction:column;gap:2px;
   box-shadow:0 8px 32px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.08);
   z-index:5;will-change:transform;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
-  cursor:default;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);cursor:default;
 }
-.hero-metric:hover{
-  transform:translateY(-3px) !important;
-  box-shadow:0 14px 40px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.1);
-}
+.hero-metric:hover{transform:translateY(-3px) !important;box-shadow:0 14px 40px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.1)}
 .hero-metric-val{font-size:16px;font-weight:900;color:#fff;letter-spacing:-.02em}
 .hero-metric-lbl{font-size:9px;color:#666;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
 .metric-1{top:-20px;right:-20px;animation:metricFloat1 8s ease-in-out infinite}
@@ -422,7 +348,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 @keyframes metricFloat1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes metricFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 
-/* Info strip */
 .info-strip{display:none;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--r-md);padding:12px}
 .info-strip-row{display:flex;gap:0}
 .info-cell{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 4px;border-right:1px solid var(--border)}
@@ -432,7 +357,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .info-cell-label{font-size:8px;color:var(--sub);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:2px}
 .info-cell-value{font-size:10px;color:#fff;font-weight:600;line-height:1.2}
 
-/* ─── TABLET HERO ─── */
 @media(min-width:769px) and (max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:24px}
   .hero-photo-wrap{order:-1}
@@ -445,52 +369,29 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .hero-metric{display:flex}
 }
 
-/* ─── MOBILE HERO ─── */
 @media(max-width:768px){
-  .hero{height:auto;min-height:auto;max-height:none;padding:20px 0}
+  .hero{height:auto;min-height:auto;max-height:none;padding:8px 0}
   .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}
-
   .hero .badge,.info-strip,.hero-trust{display:none !important}
-  
-  /* Show metrics on mobile */
   .hero-metric{display:flex !important}
   .metric-1{top:-10px;right:-5px;padding:6px 10px;transform:scale(0.85);transform-origin:top right}
-  /* Updated: Move metric-2 to bottom-left of image */
   .metric-2{bottom:-10px;left:-5px;padding:6px 10px;transform:scale(0.85);transform-origin:bottom left}
   .hero-metric-val{font-size:13px}
   .hero-metric-lbl{font-size:8px}
-
   .hero-content{max-width:100%;justify-content:center;padding-right:4px}
-
-  /* Glass card mobile */
-  .hero-glass-card{
-    padding:12px 12px 10px;
-    border-radius:18px;
-  }
-
+  .hero-glass-card{padding:12px 12px 10px;border-radius:18px}
   .hero-name{
     font-size:22px;line-height:1.05;margin-bottom:8px;
-    background:linear-gradient(135deg,#fff 60%,#aaa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    background:linear-gradient(135deg,#fff 60%,#aaa);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
     animation:heroReveal .6s var(--ease) .18s forwards;
   }
-
-  /* Pills - mobile compact */
-  .hero-pills-grid{
-    gap:5px;
-    margin-bottom:8px;
-  }
-  .hero-pill{
-    font-size:9px;
-    padding:5px 9px;
-    gap:4px;
-  }
+  .hero-pills-grid{gap:5px;margin-bottom:8px}
+  .hero-pill{font-size:9px;padding:5px 9px;gap:4px}
   .hero-pill svg{width:9px;height:9px}
   .hero-pill.pill-desktop-only{display:none}
   .hero-pill-dot{width:4px;height:4px}
-
-  /* Bio pill hidden on mobile */
   .hero-bio-pill{display:none}
-
   .hero-photo-wrap{display:flex;justify-content:center;align-items:center;position:relative}
   .hero-photo-card{
     width:100%;max-width:140px;height:180px;border-radius:18px;
@@ -498,98 +399,168 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
     box-shadow:0 10px 30px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.08);
     overflow:hidden;
-    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateX(0) translateY(0);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    will-change: transform;
+    transform:perspective(1000px) rotateX(0deg) rotateY(0deg) translateX(0) translateY(0);
+    transition:transform 0.2s ease,box-shadow 0.2s ease;
   }
   .hero-photo-card::before{
     content:'';position:absolute;inset:0;border-radius:inherit;
     background:linear-gradient(120deg,rgba(255,255,255,0.25),transparent 30%);
-    opacity:0.25;pointer-events:none;z-index:2
+    opacity:0.25;pointer-events:none;z-index:2;
   }
   .hero-photo-card::after{display:none}
   .hero-photo-wrap::after{
     content:'';position:absolute;width:120px;height:120px;
     background:radial-gradient(circle,rgba(255,255,255,0.12),transparent 70%);
-    filter:blur(20px);z-index:-1;border-radius:50%;pointer-events:none
+    filter:blur(20px);z-index:-1;border-radius:50%;pointer-events:none;
   }
   .hero-avatar{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:contrast(1.08) brightness(1.05)}
   .hero-photo-card:active{transform:scale(0.98)}
-
-  /* ─── MOBILE CTA BUTTONS ─── */
-  .mobile-cta{
-    display:flex !important;
-    gap:6px;
-    margin-top:6px;
-  }
-  .mobile-cta .btn{
-    flex:1;
-    padding:7px 6px;
-    font-size:9.5px;
-    border-radius:10px;
-    justify-content:center;
-    letter-spacing:0;
-  }
+  .mobile-cta{display:flex !important;gap:6px;margin-top:6px}
+  .mobile-cta .btn{flex:1;padding:7px 6px;font-size:9.5px;border-radius:10px;justify-content:center;letter-spacing:0}
 }
 
-/* ─── ABOUT ─── */
-.about-card{padding:24px;border-radius:20px}
-.about-title{font-size:18px;font-weight:800;margin-bottom:12px}
-.about-text{font-size:13px;color:#bbb;line-height:1.7}
+/* ── CHANGE 2: About — Glowing border + all text white ── */
+.about-card{
+  padding:24px;border-radius:20px;
+  border:1px solid rgba(255,255,255,0.22) !important;
+  box-shadow:
+    0 0 18px rgba(255,255,255,0.07),
+    0 0 40px rgba(255,255,255,0.03),
+    inset 0 0 18px rgba(255,255,255,0.02) !important;
+  transition:border-color .35s var(--ease),box-shadow .35s var(--ease) !important;
+}
+.about-card:hover{
+  border-color:rgba(255,255,255,0.4) !important;
+  box-shadow:
+    0 0 28px rgba(255,255,255,0.12),
+    0 0 56px rgba(255,255,255,0.05),
+    0 20px 48px rgba(0,0,0,0.5) !important;
+}
+.about-card::before{display:none}
+.about-title{font-size:18px;font-weight:800;margin-bottom:12px;color:#fff}
+.about-text{font-size:13px;color:#fff !important;line-height:1.7}
 .about-toggle{margin-top:12px;font-size:12px;font-weight:700;color:#6ea8ff;cursor:pointer;transition:opacity .2s ease}
 .about-toggle:hover{opacity:0.7}
 
-.sec{padding:56px 0}
-.sec-sm{padding:40px 0}
-@media(max-width:768px){.sec{padding:32px 0}.sec-sm{padding:24px 0}}
+/* ── FIX 1: Reduced desktop section padding ── */
+.sec{padding:32px 0}
+.sec-sm{padding:24px 0}
+@media(max-width:768px){.sec{padding:10px 0}.sec-sm{padding:1px 0}}
 
 /* ─── SCROLL REVEAL ─── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.visible{opacity:1;transform:translateY(0)}
-
-.reveal-stagger > *{
-  opacity:0;transform:translateY(20px);
-  transition:opacity .55s var(--ease),transform .55s var(--ease);
-}
+.reveal-stagger > *{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
 .reveal-stagger.visible > *:nth-child(1){opacity:1;transform:translateY(0);transition-delay:.05s}
 .reveal-stagger.visible > *:nth-child(2){opacity:1;transform:translateY(0);transition-delay:.12s}
 .reveal-stagger.visible > *:nth-child(3){opacity:1;transform:translateY(0);transition-delay:.19s}
 .reveal-stagger.visible > *:nth-child(4){opacity:1;transform:translateY(0);transition-delay:.26s}
 .reveal-stagger.visible > *:nth-child(5){opacity:1;transform:translateY(0);transition-delay:.33s}
 .reveal-stagger.visible > *:nth-child(6){opacity:1;transform:translateY(0);transition-delay:.4s}
-
 .reveal-section .sec-title{opacity:0;transform:translateY(18px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
 .reveal-section .sec-sub{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease) .08s,transform .55s var(--ease) .08s}
 .reveal-section.visible .sec-title{opacity:1;transform:translateY(0)}
 .reveal-section.visible .sec-sub{opacity:1;transform:translateY(0)}
 
-/* ─── EXPERTISE GRID ─── */
+/* ── CHANGE 3: Expertise Grid — Better card design, Mobile 2-col ── */
 .expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
 @media(max-width:768px){.expertise-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
 
 .exp-card{
-  background:rgba(255,255,255,0.02);border:1px solid var(--border);
-  border-radius:var(--r-md);padding:20px;
-  transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);
+  background:linear-gradient(135deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.015) 100%);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:var(--r-md);padding:22px;
+  transition:border-color .35s var(--ease),transform .35s var(--ease),box-shadow .35s var(--ease);
   position:relative;overflow:hidden;will-change:transform;
 }
 .exp-card::before{
   content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.04),transparent);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.05),transparent);
   transition:left .6s var(--ease);pointer-events:none;
 }
-.exp-card:hover{border-color:rgba(255,255,255,0.22);transform:translateY(-4px) scale(1.01);box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.exp-card:hover{
+  border-color:rgba(255,255,255,0.32);
+  transform:translateY(-5px) scale(1.015);
+  box-shadow:0 20px 48px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,0.06),0 0 28px rgba(255,255,255,0.04);
+}
 .exp-card:hover::before{left:100%}
-.exp-icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;margin-bottom:14px;transition:transform .3s var(--ease)}
-.exp-card:hover .exp-icon{transform:scale(1.1) rotate(3deg)}
-.exp-icon svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.5}
-.exp-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
-.exp-desc{font-size:12px;color:var(--muted);line-height:1.6}
 
+.exp-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04));
+  border:1px solid rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+.exp-card:hover .exp-icon{transform:scale(1.12) rotate(4deg);box-shadow:0 6px 18px rgba(0,0,0,0.4),0 0 12px rgba(255,255,255,0.06)}
+.exp-icon svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.5}
+.exp-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-.01em}
+.exp-desc{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.65}
+
+/* Mobile expertise card refinements */
 @media(max-width:768px){
+  .exp-card{padding:16px 14px;min-height:110px}
   .exp-card .exp-desc{display:none}
-  .exp-card .exp-icon{margin-bottom:8px}
-  .exp-card .exp-title{font-size:12px}
+  .exp-card .exp-icon{
+    width:38px;height:38px;border-radius:10px;
+    margin-bottom:10px;
+  }
+  .exp-card .exp-icon svg{width:17px;height:17px}
+  .exp-card .exp-title{font-size:12px;font-weight:800;line-height:1.3}
+}
+
+/* ── CHANGE 4: Expert Service Plans — Filter chip styles ── */
+.ttc-filter-chip{
+  display:inline-flex;align-items:center;
+  padding:6px 16px;border-radius:999px;font-size:11px;font-weight:600;
+  cursor:pointer;border:1px solid rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55);
+  font-family:'Montserrat',sans-serif;text-transform:capitalize;
+  transition:all 0.22s ease;letter-spacing:0.02em;
+  white-space:nowrap;
+}
+.ttc-filter-chip:hover{
+  border-color:rgba(255,255,255,0.3);
+  color:#fff;background:rgba(255,255,255,0.08);
+}
+.ttc-filter-chip.active{
+  background:#fff;color:#000;border-color:#fff;
+  box-shadow:0 0 14px rgba(255,255,255,0.18);
+}
+#ttc-filter-wrap{margin-bottom:28px}
+.ttc-filter-quote{
+  font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);
+  margin-bottom:14px;letter-spacing:0.01em;font-family:'Montserrat',sans-serif;
+  display:flex;align-items:center;gap:8px;
+}
+.ttc-filter-quote::before{
+  content:'';display:inline-block;width:24px;height:1px;
+  background:rgba(255,255,255,0.2);flex-shrink:0;
+}
+#ttc-filter-chips{display:flex;flex-wrap:wrap;gap:8px}
+#ttc-no-results{
+  display:none;text-align:center;padding:40px 20px;
+  color:rgba(255,255,255,0.35);font-size:13px;font-family:'Montserrat',sans-serif;
+}
+
+/* ── FIX 3: Mobile filter pills — horizontal scroll, no wrap ── */
+@media(max-width:768px){
+  .ttc-filter-chip{font-size:10px;padding:5px 13px;flex-shrink:0}
+  #ttc-filter-chips{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding-bottom:6px;
+    gap:7px;
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 5%,#000 90%,transparent 100%);
+    mask-image:linear-gradient(to right,transparent 0%,#000 5%,#000 90%,transparent 100%);
+  }
+  #ttc-filter-chips::-webkit-scrollbar{display:none}
+  .ttc-filter-quote{font-size:11px}
+  #ttc-filter-wrap{margin-bottom:20px}
 }
 
 /* ─── SERVICES GRID ─── */
@@ -620,81 +591,55 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 /* ─── TAP-CARD SYSTEM ─── */
 .tap-card{transition:transform 0.22s var(--ease),border-color 0.22s var(--ease),background 0.22s var(--ease)}
 .tap-card:active{transform:scale(0.97)}
-.card-front{}
-.card-back{}
 
 @media(max-width:768px){
-  .exp-card.tap-card{
-    position:relative;overflow:hidden;min-height:120px;
-    display:flex;align-items:stretch;padding:0;
-  }
-  .exp-card.tap-card .card-front{
-    width:100%;padding:16px 14px;display:flex;flex-direction:column;
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    transform:translateY(0);opacity:1;
-  }
+  .exp-card.tap-card{position:relative;overflow:hidden;min-height:110px;display:flex;align-items:stretch;padding:0}
+  .exp-card.tap-card .card-front{width:100%;padding:16px 14px;display:flex;flex-direction:column;transition:opacity .3s var(--ease),transform .3s var(--ease);transform:translateY(0);opacity:1}
   .exp-card.tap-card .card-back{
-    position:absolute;inset:0;padding:14px 12px;
-    opacity:0;transform:translateY(10px);
+    position:absolute;inset:0;padding:14px 12px;opacity:0;transform:translateY(10px);
     transition:opacity .3s var(--ease),transform .3s var(--ease);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     pointer-events:none;
   }
-  .service-main-card.tap-card{
-    position:relative;overflow:hidden;min-height:96px;
-    display:flex;align-items:stretch;padding:0;
-  }
-  .service-main-card.tap-card .card-front{
-    width:100%;padding:14px 10px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    transform:translateY(0);opacity:1;
-  }
+  .service-main-card.tap-card{position:relative;overflow:hidden;min-height:96px;display:flex;align-items:stretch;padding:0}
+  .service-main-card.tap-card .card-front{width:100%;padding:14px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .3s var(--ease),transform .3s var(--ease);transform:translateY(0);opacity:1}
   .service-main-card.tap-card .card-back{
-    position:absolute;inset:0;padding:12px 10px;
-    opacity:0;transform:translateY(10px);
+    position:absolute;inset:0;padding:12px 10px;opacity:0;transform:translateY(10px);
     transition:opacity .3s var(--ease),transform .3s var(--ease);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    pointer-events:none;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);pointer-events:none;
   }
+
+  /* ── CHANGE 5: Who I Serve — static on mobile (no tap expand) ── */
   .ind-card.tap-card{
-    position:relative;overflow:hidden;min-height:100px;padding:0;
+    position:relative;overflow:hidden;min-height:auto;padding:14px;
+    display:block !important;
+    cursor:default !important;
   }
   .ind-card.tap-card .card-front{
-    padding:14px;text-align:center;
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
-    transform:translateY(0);opacity:1;
+    opacity:1 !important;transform:none !important;pointer-events:auto !important;
+    padding:0;display:flex;flex-direction:column;
+    transition:none !important;
   }
-  .ind-card.tap-card .card-back{
-    position:absolute;inset:0;
-    opacity:0;transform:translateY(10px);
-    transition:all .28s var(--ease);
-    display:flex;flex-direction:column;
-    justify-content:center;align-items:center;
-    text-align:center;padding:12px;
-    background:rgba(255,255,255,0.04);
-    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    pointer-events:none;
+  .ind-card.tap-card.active .card-front{
+    opacity:1 !important;transform:none !important;pointer-events:auto !important;
   }
-  .ind-card.tap-card.active .card-front{opacity:0;transform:translateY(-6px);pointer-events:none}
-  .ind-card.tap-card.active .card-back{opacity:1;transform:translateY(0);pointer-events:auto}
+  .ind-card.tap-card .card-back{display:none !important}
+  .ind-card .tap-hint{display:none !important}
 
   .tap-card.active .card-front{opacity:0;transform:translateY(-6px);pointer-events:none}
   .tap-card.active .card-back{opacity:1;transform:translateY(0);pointer-events:auto}
+  /* But override for ind-card specifically */
+  .ind-card.tap-card.active .card-front{opacity:1 !important;transform:none !important;pointer-events:auto !important}
+
   .tap-card.active{border-color:rgba(255,255,255,0.3) !important;background:rgba(255,255,255,0.05) !important}
+  /* Reset active state for industry cards */
+  .ind-card.tap-card.active{border-color:rgba(255,255,255,0.12) !important;background:rgba(255,255,255,0.02) !important}
+
   .card-back-title{font-size:11px;font-weight:800;color:#fff;margin-bottom:5px;letter-spacing:.01em}
   .card-back-desc{font-size:10px;color:var(--muted);line-height:1.5}
-  .tap-card .tap-hint{
-    position:absolute;bottom:7px;right:8px;
-    width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2);
-    transition:opacity .2s ease;pointer-events:none;
-  }
+  .tap-card .tap-hint{position:absolute;bottom:7px;right:8px;width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2);transition:opacity .2s ease;pointer-events:none}
   .tap-card.active .tap-hint{opacity:0}
 }
 @media(min-width:769px){
@@ -729,8 +674,16 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .process-grid::before{display:none}
 }
 
-/* ─── INDUSTRY ─── */
+/* ── CHANGE 5: Who I Serve — Mobile 2-col layout ── */
 .industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+@media(max-width:768px){
+  .industry-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  /* Show ind-desc on mobile since no tap expand */
+  .ind-card .ind-desc{display:block !important;font-size:10px;line-height:1.55;margin-top:4px}
+  .ind-card .ind-title{font-size:13px}
+  .ind-card .ind-icon-wrap svg{width:22px;height:22px}
+}
+
 .ind-card{
   background:rgba(255,255,255,0.02);border:1px solid var(--border);
   border-radius:var(--r-md);padding:24px;
@@ -749,25 +702,16 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .ind-icon-wrap svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.5}
 .ind-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
 .ind-desc{font-size:12px;color:var(--muted);line-height:1.6}
-@media(max-width:768px){
-  .industry-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .ind-card.tap-card .ind-icon-wrap{justify-content:center}
-}
 
 /* ─── CITIES ─── */
-.cities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.cities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2px}
 .city-card{
   border-radius:var(--r-md);padding:20px;border:1px solid var(--border);
   transition:transform .35s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease);
   cursor:default;position:relative;overflow:hidden;min-height:140px;
-  display:flex;flex-direction:column;align-items:center;justify-content:space-between;
-  will-change:transform;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;will-change:transform;
 }
-.city-card::before{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.03),transparent);
-  transition:left .6s var(--ease);pointer-events:none;
-}
+.city-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.03),transparent);transition:left .6s var(--ease);pointer-events:none}
 .city-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,0.2);box-shadow:0 20px 50px rgba(0,0,0,.6)}
 .city-card:hover::before{left:100%}
 .city-illustration{height:72px;width:100%;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
@@ -784,11 +728,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);
   position:relative;overflow:hidden;will-change:transform;
 }
-.val-card::before{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.035),transparent);
-  transition:left .6s var(--ease);pointer-events:none;
-}
+.val-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.035),transparent);transition:left .6s var(--ease);pointer-events:none}
 .val-card:hover{border-color:rgba(255,255,255,0.22);transform:translateY(-4px) scale(1.01);box-shadow:0 16px 40px rgba(0,0,0,.5)}
 .val-card:hover::before{left:100%}
 .val-icon{width:40px;height:40px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;transition:transform .3s var(--ease)}
@@ -803,8 +743,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .feat-item{
   background:rgba(255,255,255,0.02);border:1px solid var(--border);
   border-radius:var(--r-md);padding:18px;text-align:center;
-  transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);
-  will-change:transform;
+  transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);will-change:transform;
 }
 .feat-item:hover{border-color:rgba(255,255,255,0.22);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.4)}
 .feat-icon{display:flex;align-items:center;justify-content:center;margin-bottom:8px;transition:transform .3s var(--ease)}
@@ -821,42 +760,26 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   background:linear-gradient(135deg,#fff 40%,#777 70%,#fff 90%);
   background-size:200% auto;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  line-height:1.1;
-  animation:shimmerName 8s linear infinite;
+  line-height:1.1;animation:shimmerName 8s linear infinite;
 }
 .cta p{font-size:14px;color:var(--muted);max-width:480px;margin:0 auto 28px;line-height:1.7}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-@media(max-width:768px){.cta{padding:40px 0}.cta h2{font-size:26px}}
+@media(max-width:768px){.cta{padding:15px 0}.cta h2{font-size:26px}}
 
 /* ─── FAQ ─── */
 .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
-.faq-q{
-  display:flex;justify-content:space-between;align-items:center;
-  cursor:pointer;font-size:14px;font-weight:600;color:#fff;gap:16px;
-  transition:color .2s ease;
-}
+.faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:14px;font-weight:600;color:#fff;gap:16px;transition:color .2s ease}
 .faq-q:hover{color:rgba(255,255,255,0.8)}
-.faq-toggle{
-  width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.08);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;
-  transition:background .2s ease,transform .3s var(--ease);
-}
+.faq-toggle{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;transition:background .2s ease,transform .3s var(--ease)}
 .faq-q:hover .faq-toggle{background:rgba(255,255,255,0.14)}
 .faq-a{display:none;font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px;padding-right:30px}
 .faq-a.open{display:block;animation:fadeUp .35s var(--ease) forwards}
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
-/* ─── FOOTER LINKS ─── */
-.footer-link{
-  padding:7px 16px;background:rgba(255,255,255,0.03);
-  border:1px solid var(--border);border-radius:100px;
-  font-size:11px;font-weight:500;color:var(--muted);text-decoration:none;
-  transition:border-color .25s var(--ease),color .25s var(--ease),transform .25s var(--ease);
-  display:inline-block;
-}
+.footer-link{padding:7px 16px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:100px;font-size:11px;font-weight:500;color:var(--muted);text-decoration:none;transition:border-color .25s var(--ease),color .25s var(--ease),transform .25s var(--ease);display:inline-block}
 .footer-link:hover{border-color:#fff;color:#fff;transform:translateY(-2px)}
 
-/* ─── CONTACT ─── */
+/* ── CHANGE 7: Contact — keep only email & phone ── */
 .contact-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:32px}
 .contact-info{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .contact-item{
@@ -868,28 +791,19 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .contact-item:hover{border-color:rgba(255,255,255,0.2);transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.4)}
 .contact-icon{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease)}
 .contact-item:hover .contact-icon{transform:scale(1.1)}
-.contact-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:1.5}
+.contact-icon svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.5}
 .contact-lbl{font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:2px}
 .contact-val{font-size:13px;color:#fff;font-weight:600}
-
 @media(max-width:768px){
   .contact-lbl,.contact-val{display:none}
-  .contact-item{
-    align-items:center;justify-content:center;
-    text-align:center;padding:18px;
-  }
+  .contact-item{align-items:center;justify-content:center;text-align:center;padding:18px}
 }
 
-/* ─── FOOTER ─── */
 .footer{padding:36px 0 24px}
 .footer-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .footer-copy{font-size:11px;color:#333;margin-top:24px;border-top:1px solid var(--border);padding-top:20px}
+@media(max-width:768px){.footer{display:none}}
 
-@media(max-width:768px){
-  .footer{display:none}
-}
-
-/* ─── UTILITIES ─── */
 .toast{
   position:fixed;bottom:24px;right:24px;
   background:rgba(15,15,15,.97);border:1px solid rgba(255,255,255,.25);
@@ -923,11 +837,9 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   <div class="wrap">
     <div class="hero-grid">
 
-      <!-- LEFT: Content inside glass card -->
       <div class="hero-content">
         <div class="hero-glass-card">
 
-          <!-- Badge (hidden on mobile via CSS) -->
           <div class="hero-badge-wrap">
             <div class="badge">
               <span class="badge-dot"></span>
@@ -935,44 +847,35 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
             </div>
           </div>
 
-          <!-- Name -->
           <div class="hero-name">Pooja<br>Reddy</div>
 
-          <!-- Pills row: role, experience, language, coverage, clients -->
           <div class="hero-pills-grid">
-            <!-- Role pill -->
             <div class="hero-pill">
               <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               SME Tax Specialist
             </div>
-            <!-- Experience pill -->
             <div class="hero-pill">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               2+ Years Exp.
             </div>
-            <!-- Language pill - hidden on mobile -->
             <div class="hero-pill pill-desktop-only">
               <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               English, Telugu &amp; Kannada
             </div>
-            <!-- Pan India pill - hidden on mobile -->
             <div class="hero-pill pill-desktop-only">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20"/></svg>
               Pan India
             </div>
-            <!-- Clients pill - hidden on mobile -->
             <div class="hero-pill pill-desktop-only">
               <span class="hero-pill-dot"></span>
               200+ Clients Served
             </div>
           </div>
 
-          <!-- Bio pill (hidden on mobile) -->
           <div class="hero-bio-pill">
             Specializes in GST, bookkeeping, and tax compliance for small businesses. Focuses on simplifying financial processes and ensuring accurate filings.
           </div>
 
-          <!-- Buttons -->
           <div class="hero-btns mobile-cta">
             <a href="{{ route('boc.step1', ['source' => 'taxexpert-poojareddy']) }}" class="btn btn-primary">
               Book Consultation
@@ -1017,19 +920,35 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <div class="wrap"><hr></div>
 
 <!-- ─── ABOUT ─── -->
+<section class="sec reveal">
+  <div class="wrap">
+    <div class="card about-card">
+      <div class="about-title">About Me</div>
+      <div class="about-text collapsed" id="aboutText">
+        CA Pooja Reddy is a dedicated SME Tax Specialist with 2+ years of experience in GST, bookkeeping, compliance, and ITR services for small businesses across India.
+      </div>
+      <div class="about-text expanded" id="aboutFull" style="display:none;">
+        CA Pooja Reddy is a dedicated SME Tax Specialist with over 2 years of experience in GST filing, bookkeeping, compliance, and ITR services for small businesses across India. She specializes in simplifying financial processes and ensuring accurate filings. Fluent in English, Telugu, and Kannada, Pooja ensures clear communication and reliable support for small business owners, retailers, and entrepreneurs.
+      </div>
+      <div class="about-toggle" onclick="toggleAbout()">Read More ▼</div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr></div>
+
+<!-- ─── EXPERTISE ─── -->
 <section class="sec reveal-section" id="expertise">
   <div class="wrap">
     <div class="sec-title">Areas of Expertise</div>
     <p class="sec-sub">Specialized tax, GST, and accounting solutions designed for small businesses and retail owners.</p>
+
     <div class="expertise-grid reveal-stagger" style="margin-top:32px">
 
-      <!-- GST Services -->
       <div class="exp-card tap-card">
         <div class="card-front">
           <div class="exp-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M3 6h18M3 10h18M5 14h14M7 18h10"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><path d="M3 6h18M3 10h18M5 14h14M7 18h10"/></svg>
           </div>
           <div class="exp-title">GST Services</div>
           <div class="exp-desc">Goods and Services Tax registration, return filing, and annual compliance for small businesses.</div>
@@ -1041,14 +960,10 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
         <span class="tap-hint"></span>
       </div>
 
-      <!-- Accounting & Bookkeeping -->
       <div class="exp-card tap-card">
         <div class="card-front">
           <div class="exp-icon">
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="4" width="18" height="16"/>
-              <path d="M7 8h10M7 12h10M7 16h6"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
           </div>
           <div class="exp-title">Accounting & Bookkeeping</div>
           <div class="exp-desc">Monthly bookkeeping, financial statement preparation, and bank reconciliation.</div>
@@ -1060,14 +975,10 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
         <span class="tap-hint"></span>
       </div>
 
-      <!-- Income Tax Filing -->
       <div class="exp-card tap-card">
         <div class="card-front">
           <div class="exp-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M6 2h9l5 5v15H6z"/>
-              <path d="M14 2v6h6"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>
           </div>
           <div class="exp-title">Income Tax Filing</div>
           <div class="exp-desc">ITR filing for proprietors, freelancers, and small business owners (ITR-3, ITR-4).</div>
@@ -1079,14 +990,10 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
         <span class="tap-hint"></span>
       </div>
 
-      <!-- Compliance -->
       <div class="exp-card tap-card">
         <div class="card-front">
           <div class="exp-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/>
-              <path d="M9 12l2 2 4-4"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
           </div>
           <div class="exp-title">Compliance</div>
           <div class="exp-desc">TDS returns, payroll compliance, and other statutory filings.</div>
@@ -1098,14 +1005,10 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
         <span class="tap-hint"></span>
       </div>
 
-      <!-- Notice Handling -->
       <div class="exp-card tap-card">
         <div class="card-front">
           <div class="exp-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M4 4h16v16H4z"/>
-              <path d="M4 4l8 7 8-7"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l8 7 8-7"/></svg>
           </div>
           <div class="exp-title">Notice Handling</div>
           <div class="exp-desc">Professional reply drafting and submission for Income Tax notices.</div>
@@ -1123,33 +1026,139 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div class="wrap"><hr></div>
 
-<!-- ─── SERVICES ─── -->
-<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;padding:56px 0;width:100%;box-sizing:border-box;">
+{{-- ==================== TAX SERVICES CAROUSEL ==================== --}}
+<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;width:100%;box-sizing:border-box;">
 
   <style>
-    /* ... (all existing styles unchanged) ... */
-    #tax-services-section { width: 100%; padding: 56px 0; }
-    #tax-services-section .section-header { margin-bottom: 28px; }
-    #tax-services-section .section-title { font-size: 30px; font-weight: 900; letter-spacing: -0.02em; color: #ffffff; margin: 0 0 16px 0; font-family: 'Montserrat', sans-serif; line-height: 1.1; }
-    #tax-services-section .section-subtitle { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 400; line-height: 1.6; margin: 0; max-width: 600px; font-family: 'Montserrat', sans-serif; }
-    .web-only { display: block; }
-    @media (max-width: 768px) { .web-only { display: none; } }
+    #tax-services-section { width:100%;padding:32px 0; }
+    #tax-services-section .section-header { margin-bottom:1px; }
+    #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#ffffff;margin:0 0 1px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
+    #tax-services-section .section-subtitle { font-size:14px;color:rgba(255,255,255,0.75);font-weight:400;line-height:1.6;margin:0;max-width:600px;font-family:'Montserrat',sans-serif; }
+    .web-only { display:block; }
+    @media(max-width:768px){ .web-only{display:none} }
+
     @keyframes ttc-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
-    #tax-services-section .owl-stage { display: flex !important; align-items: stretch !important; }
-    #tax-services-section .owl-item { display: flex !important; height: auto; }
-    #tax-services-section .owl-item > div { display: flex; width: 100%; }
-    #tax-services-section .ttc-card-wrap { height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 6px; }
-    #tax-services-section .owl-nav { display: flex !important; align-items: center; justify-content: center; gap: 6px; margin-top: 20px !important; }
-    #tax-services-section .owl-prev, #tax-services-section .owl-next { width: 23px !important; height: 23px !important; background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #fff !important; font-size: 10px !important; transition: all 0.25s ease !important; line-height: 1 !important; margin: 0 !important; }
-    #tax-services-section .owl-prev:hover, #tax-services-section .owl-next:hover { background: rgba(79,255,176,0.1) !important; border-color: rgba(79,255,176,0.25) !important; box-shadow: 0 0 8px rgba(79,255,176,0.1) !important; }
-    #tax-services-section .owl-prev.disabled, #tax-services-section .owl-next.disabled { opacity: 0.3; pointer-events: none; }
-    #tax-services-section .owl-dots { display: flex !important; justify-content: center !important; gap: 4px !important; margin-top: 10px !important; }
-    #tax-services-section .owl-dot span { width: 3px !important; height: 3px !important; background: rgba(255,255,255,0.15) !important; border-radius: 999px !important; transition: all 0.3s ease !important; margin: 0 !important; }
-    #tax-services-section .owl-dot.active span { background: #4fffb0 !important; width: 11px !important; box-shadow: 0 0 4px rgba(79,255,176,0.4) !important; }
-    #tax-services-section .ttc-tab-body::-webkit-scrollbar { width: 2px; }
-    #tax-services-section .ttc-tab-body::-webkit-scrollbar-track { background: transparent; }
-    #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 99px; }
-    #tax-services-section .discount-badge { background: rgba(79,255,176,0.12) !important; color: #4fffb0 !important; border: 1px solid rgba(79,255,176,0.25) !important; box-shadow: 0 0 8px rgba(79,255,176,0.15) !important; font-weight: 600 !important; }
+
+    #tax-services-section .owl-stage { display:flex !important;align-items:stretch !important; }
+    #tax-services-section .owl-item { display:flex !important;height:auto; }
+    #tax-services-section .owl-item > div { display:flex;width:100%; }
+    #tax-services-section .ttc-card-wrap { height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:6px; }
+
+    #tax-services-section .owl-nav { display:flex !important;align-items:center;justify-content:center;gap:6px;margin-top:20px !important; }
+    #tax-services-section .owl-prev,#tax-services-section .owl-next { width:23px !important;height:23px !important;background:rgba(255,255,255,0.05) !important;border:1px solid rgba(255,255,255,0.1) !important;border-radius:50% !important;display:flex !important;align-items:center !important;justify-content:center !important;color:#fff !important;font-size:10px !important;transition:all 0.25s ease !important;line-height:1 !important;margin:0 !important; }
+    #tax-services-section .owl-prev:hover,#tax-services-section .owl-next:hover { background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.25) !important; }
+    #tax-services-section .owl-prev.disabled,#tax-services-section .owl-next.disabled { opacity:0.3;pointer-events:none; }
+
+    #tax-services-section .owl-dots { display:flex !important;justify-content:center !important;gap:4px !important;margin-top:10px !important; }
+    #tax-services-section .owl-dot span { width:3px !important;height:3px !important;background:rgba(255,255,255,0.15) !important;border-radius:999px !important;transition:all 0.3s ease !important;margin:0 !important; }
+    #tax-services-section .owl-dot.active span { background:#fff !important;width:11px !important; }
+
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar { width:2px; }
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar-track { background:transparent; }
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08);border-radius:99px; }
+
+    /* ── Tab pill container ── */
+    .ttc-tab-pills {
+      display:flex;
+      gap:3px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:999px;
+      padding:3px;
+      margin-bottom:7px;
+      overflow:hidden;
+      box-sizing:border-box;
+      width:100%;
+    }
+    .ttc-tab-pills button {
+      flex:1;
+      min-width:0;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      box-sizing:border-box;
+    }
+
+    /* ── Mobile: full-width card fix ── */
+@media(max-width:768px){
+
+  #tax-services-section { padding:20px 0; }
+
+  /* 🔥 KEY CHANGE: give breathing space to slider */
+  #ttc-slider .owl-stage-outer{
+    overflow: visible !important;
+  }
+
+  /* 🔥 Center alignment */
+  #ttc-slider .owl-stage{
+    display:flex !important;
+    align-items:stretch;
+  }
+
+  /* 🔥 THIS CONTROLS CARD WIDTH */
+  #ttc-slider .owl-item{
+    display:flex;
+    justify-content:center; /* center card */
+  }
+
+  /* 🔥 THIS IS THE MAIN CHANGE */
+  #ttc-slider .owl-item > div{
+    width:75vw !important;   /* 75% of screen */
+    max-width:75vw !important;
+  }
+
+  /* Card should respect parent */
+  #ttc-slider .ttc-card-wrap{
+    width:100% !important;
+  }
+
+}
+
+    /* ── Filter UI styles ── */
+    #ttc-filter-wrap { margin-bottom:28px; }
+    .ttc-filter-quote {
+      font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);
+      margin-bottom:14px;letter-spacing:0.01em;font-family:'Montserrat',sans-serif;
+      display:flex;align-items:center;gap:10px;
+    }
+    .ttc-filter-quote::before {
+      content:'';display:inline-block;width:28px;height:1px;
+      background:rgba(255,255,255,0.2);flex-shrink:0;
+    }
+    #ttc-filter-chips { display:flex;flex-wrap:wrap;gap:8px; }
+    .ttc-filter-chip {
+      display:inline-flex;align-items:center;
+      padding:6px 16px;border-radius:999px;font-size:11px;font-weight:600;
+      cursor:pointer;border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.5);
+      font-family:'Montserrat',sans-serif;text-transform:capitalize;
+      transition:all 0.2s ease;letter-spacing:0.02em;white-space:nowrap;
+    }
+    .ttc-filter-chip:hover { border-color:rgba(255,255,255,0.3);color:#fff;background:rgba(255,255,255,0.08); }
+    .ttc-filter-chip.active { background:#fff;color:#000;border-color:#fff;box-shadow:0 0 14px rgba(255,255,255,0.15); }
+    #ttc-no-results {
+      display:none;text-align:center;padding:48px 20px;
+      color:rgba(255,255,255,0.3);font-size:13px;
+      font-family:'Montserrat',sans-serif;letter-spacing:0.02em;
+    }
+
+    /* Mobile filter pills — horizontal scroll */
+    @media(max-width:768px){
+      .ttc-filter-chip{font-size:10px;padding:5px 13px;flex-shrink:0}
+      #ttc-filter-chips{
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+        padding-bottom:6px;
+        gap:7px;
+        -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 6%,#000 90%,transparent 100%);
+        mask-image:linear-gradient(to right,transparent 0%,#000 6%,#000 90%,transparent 100%);
+      }
+      #ttc-filter-chips::-webkit-scrollbar{display:none}
+      .ttc-filter-quote{font-size:11px}
+      #ttc-filter-wrap{margin-bottom:20px}
+    }
   </style>
 
   <div class="wrap">
@@ -1160,6 +1169,13 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
         Transparent pricing, zero surprises.
       </div>
     </div>
+
+    <div id="ttc-filter-wrap">
+      <div class="ttc-filter-quote">Find the right service — filter by your business need</div>
+      <div id="ttc-filter-chips"></div>
+    </div>
+
+    <div id="ttc-no-results">No services match the selected filters. Try a different combination.</div>
   </div>
 
   <div class="wrap">
@@ -1171,113 +1187,124 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <script>
 (function(){
 
-/* ── SERVICE DATA (CA POOJA REDDY – SME TAX SPECIALIST) ── */
+var FILTER_OPTS = ['itr filing','gst','startups','business','compliance','incometax','audit','nri tax','tax planning'];
+var activeFilters = [];
+
 var S = [
-  {n:"GST Registration", sf:"Small businesses, freelancers, shop owners", el:"Turnover up to ₹5 crore, not required to audit", p:1499, m:3000, t:"3–7 Working Days", cta:"Register Now", link:"https://thetaxcompany.in/servicedetail/gst-registration",
-   inc:["Application filing on GST portal","Document verification","ARN tracking","Certificate download support","Basic compliance advisory"],
-   exc:["Government fees","Notice handling","Litigation support","Future return filings","Third‑party verification"],
-   doc:["PAN card of business/proprietor","Aadhaar card","Business address proof","Bank statement/cancelled cheque","Photograph"]},
-  {n:"GST Return Filing (Monthly/Quarterly)", sf:"GST registered small businesses", el:"Active GSTIN, monthly/quarterly filing required", p:2499, m:5000, t:"Monthly", cta:"File Returns", link:"https://thetaxcompany.in/servicedetail/gst-return-filing",
-   inc:["Data reconciliation","Return preparation & filing","Portal submission","Acknowledgment","Email support"],
-   exc:["Penalties/interest","Notice reply","Audit","Annual return filing","Third‑party software"],
-   doc:["GST login credentials","Sales & purchase invoices","Bank statements","Previous return data","E‑way bill details"]},
-  {n:"GST Annual Return Filing (GSTR-9)", sf:"GST businesses with annual turnover > ₹2 crore or voluntary", el:"Active GST registration", p:4999, m:8000, t:"5–7 Working Days", cta:"File Annual Return", link:"https://thetaxcompany.in/servicedetail/gst-annual-return-filing",
-   inc:["Reconciliation with books","GSTR-9 preparation","Portal filing","Acknowledgment","Support for queries"],
-   exc:["Penalties","Audit by department","Notice reply","Future compliance","Third‑party tools"],
-   doc:["Monthly/quarterly returns data","Financial statements","GST login","Audited accounts","Invoice summary"]},
-  {n:"Accounting & Bookkeeping (Monthly)", sf:"Small businesses, retailers, freelancers", el:"Ongoing transactions, need accurate books", p:6999, m:20000, t:"Monthly", cta:"Start Bookkeeping", link:"https://thetaxcompany.in/servicedetail/accounting-bookkeeping",
-   inc:["Transaction recording","Bank reconciliation","Profit & Loss statement","Balance sheet","Monthly report"],
-   exc:["Audit","Tax filing","Notice handling","Software cost","Third‑party verification"],
-   doc:["Bank statements","Sales & purchase invoices","Expense bills","Previous month's closing balances","GST data"]},
-  {n:"ITR‑4 (Presumptive Business Income)", sf:"Small business owners, self‑employed individuals", el:"Business income below audit threshold", p:1499, m:4000, t:"1–2 Working Days", cta:"File ITR‑4", link:"https://thetaxcompany.in/servicedetail/itr-4-presumptive-filing",
-   inc:["Computation of presumptive income","ITR‑4 preparation","E‑filing","E‑verification assistance","Acknowledgment"],
-   exc:["Audit report","Notice reply","Refund follow‑up","Future year filing","Government fees"],
-   doc:["PAN card","Aadhaar card","Bank statement","Business turnover details","Investment proofs"]},
-  {n:"ITR‑3 (Business/Professional Income)", sf:"Small businesses, proprietors, freelancers", el:"Business income, profession, or freelance income", p:2499, m:6000, t:"2–3 Working Days", cta:"File ITR‑3", link:"http://thetaxcompany.in/servicedetail/itr-3-return-filing",
-   inc:["Tax computation","ITR‑3 preparation","E‑filing","Verification support","Acknowledgment"],
-   exc:["Audit report","Bookkeeping","Notice reply","Refund claim","Government fees"],
-   doc:["PAN & Aadhaar","Profit & Loss account","Balance sheet","Bank statements","TDS certificates"]},
-  {n:"TDS Return Filing (Quarterly)", sf:"Employers and small businesses with employees", el:"TDS deduction on salaries/contractors", p:2999, m:6000, t:"Quarterly", cta:"File TDS Return", link:"https://thetaxcompany.in/servicedetail/tds-return-filing",
-   inc:["Return preparation (24Q/26Q)","E‑filing","Correction support","Acknowledgment","Basic advisory"],
-   exc:["Late fees/penalties","Notice reply","TDS payment","Third‑party software","Audit"],
-   doc:["TAN details","Deduction data","Challan details","PAN of deductees","Previous return data"]},
-  {n:"Income Tax Notice Reply", sf:"Small business owners, retailers", el:"Receipt of Income Tax notice u/s 139(9), 143(1), 142(1) etc.", p:2999, m:8000, t:"3–5 Working Days", cta:"Reply to Notice", link:"https://thetaxcompany.in/servicedetail/income-tax-notice-reply",
-   inc:["Analysis of notice","Drafting reply","E‑filing submission","Follow‑up","Status tracking"],
-   exc:["Litigation","Court appearance","Penalty payment","Future compliance","Third‑party verification"],
-   doc:["Copy of notice","PAN card","Relevant financial records","Previous ITR","Supporting documents"]}
+{n:"GST Registration", sf:"Small businesses, freelancers, shop owners", el:"Turnover up to ₹5 crore, not required to audit", p:1499, m:3000, t:"3–7 Working Days", cta:"Register Now",
+ link:"https://thetaxcompany.in/servicedetail/gst-registration",
+ cats:['gst','business','compliance'],
+ inc:["Application filing on GST portal","Document verification","ARN tracking","Certificate download support","Basic compliance advisory"],
+ exc:["Government fees","Notice handling","Litigation support","Future return filings","Third‑party verification"],
+ doc:["PAN card of business/proprietor","Aadhaar card","Business address proof","Bank statement/cancelled cheque","Photograph"]},
+
+{n:"GST Return Filing (Monthly/Quarterly)", sf:"GST registered small businesses", el:"Active GSTIN, monthly/quarterly filing required", p:2499, m:5000, t:"Monthly", cta:"File Returns",
+ link:"https://thetaxcompany.in/servicedetail/gst-return-filing",
+ cats:['gst','compliance','business'],
+ inc:["Data reconciliation","Return preparation & filing","Portal submission","Acknowledgment","Email support"],
+ exc:["Penalties/interest","Notice reply","Audit","Annual return filing","Third‑party software"],
+ doc:["GST login credentials","Sales & purchase invoices","Bank statements","Previous return data","E‑way bill details"]},
+
+{n:"GST Annual Return Filing (GSTR-9)", sf:"GST businesses with annual turnover > ₹2 crore or voluntary", el:"Active GST registration", p:4999, m:8000, t:"5–7 Working Days", cta:"File Annual Return",
+ link:"https://thetaxcompany.in/servicedetail/gst-annual-return-filing",
+ cats:['gst','compliance','business'],
+ inc:["Reconciliation with books","GSTR-9 preparation","Portal filing","Acknowledgment","Support for queries"],
+ exc:["Penalties","Audit by department","Notice reply","Future compliance","Third‑party tools"],
+ doc:["Monthly/quarterly returns data","Financial statements","GST login","Audited accounts","Invoice summary"]},
+
+{n:"Accounting & Bookkeeping (Monthly)", sf:"Small businesses, retailers, freelancers", el:"Ongoing transactions, need accurate books", p:6999, m:20000, t:"Monthly", cta:"Start Bookkeeping",
+ link:"https://thetaxcompany.in/servicedetail/accounting-bookkeeping",
+ cats:['business','compliance'],
+ inc:["Transaction recording","Bank reconciliation","Profit & Loss statement","Balance sheet","Monthly report"],
+ exc:["Audit","Tax filing","Notice handling","Software cost","Third‑party verification"],
+ doc:["Bank statements","Sales & purchase invoices","Expense bills","Previous month's closing balances","GST data"]},
+
+{n:"ITR‑4 (Presumptive Business Income)", sf:"Small business owners, self‑employed individuals", el:"Business income below audit threshold", p:1499, m:4000, t:"1–2 Working Days", cta:"File ITR‑4",
+ link:"https://thetaxcompany.in/servicedetail/itr-4-presumptive-filing",
+ cats:['itr filing','incometax','business'],
+ inc:["Computation of presumptive income","ITR‑4 preparation","E‑filing","E‑verification assistance","Acknowledgment"],
+ exc:["Audit report","Notice reply","Refund follow‑up","Future year filing","Government fees"],
+ doc:["PAN card","Aadhaar card","Bank statement","Business turnover details","Investment proofs"]},
+
+{n:"ITR‑3 (Business/Professional Income)", sf:"Small businesses, proprietors, freelancers", el:"Business income, profession, or freelance income", p:2499, m:6000, t:"2–3 Working Days", cta:"File ITR‑3",
+ link:"http://thetaxcompany.in/servicedetail/itr-3-return-filing",
+ cats:['itr filing','incometax','business'],
+ inc:["Tax computation","ITR‑3 preparation","E‑filing","Verification support","Acknowledgment"],
+ exc:["Audit report","Bookkeeping","Notice reply","Refund claim","Government fees"],
+ doc:["PAN & Aadhaar","Profit & Loss account","Balance sheet","Bank statements","TDS certificates"]},
+
+{n:"TDS Return Filing (Quarterly)", sf:"Employers and small businesses with employees", el:"TDS deduction on salaries/contractors", p:2999, m:6000, t:"Quarterly", cta:"File TDS Return",
+ link:"https://thetaxcompany.in/servicedetail/tds-return-filing",
+ cats:['compliance','business','incometax'],
+ inc:["Return preparation (24Q/26Q)","E‑filing","Correction support","Acknowledgment","Basic advisory"],
+ exc:["Late fees/penalties","Notice reply","TDS payment","Third‑party software","Audit"],
+ doc:["TAN details","Deduction data","Challan details","PAN of deductees","Previous return data"]},
+
+{n:"Income Tax Notice Reply", sf:"Small business owners, retailers", el:"Receipt of Income Tax notice u/s 139(9), 143(1), 142(1) etc.", p:2999, m:8000, t:"3–5 Working Days", cta:"Reply to Notice",
+ link:"https://thetaxcompany.in/servicedetail/income-tax-notice-reply",
+ cats:['compliance','incometax'],
+ inc:["Analysis of notice","Drafting reply","E‑filing submission","Follow‑up","Status tracking"],
+ exc:["Litigation","Court appearance","Penalty payment","Future compliance","Third‑party verification"],
+ doc:["Copy of notice","PAN card","Relevant financial records","Previous ITR","Supporting documents"]}
 ];
 
-/* ── HELPERS (unchanged) ── */
 function fmt(n){ return '₹'+n.toLocaleString('en-IN'); }
 function pct(s){ return Math.round((s.m-s.p)/s.m*100); }
 
-function listRows(arr, type){
+function listRows(arr,type){
   var icon  = type==='inc'?'✔':type==='exc'?'✖':'📄';
   var ibg   = type==='inc'?'rgba(0,255,120,0.10)':type==='exc'?'rgba(255,0,0,0.10)':'rgba(120,120,255,0.10)';
   var icol  = type==='inc'?'#00ff88':type==='exc'?'#ff4d4d':'#7a7aff';
   var tcol  = type==='inc'?'#d6ffe6':type==='exc'?'#ffd6d6':'#d6d6ff';
   return arr.map(function(item){
     return '<li style="display:flex;align-items:flex-start;gap:5px;margin-bottom:5px;font-size:10px;line-height:1.5;color:'+tcol+';font-family:\'Montserrat\',sans-serif;">'+
-      '<span style="width:12px;height:12px;min-width:12px;border-radius:50%;background:'+ibg+';color:'+icol+';display:flex;align-items:center;justify-content:center;font-size:7px;margin-top:1px;">'+icon+'</span>'+
+      '<span style="width:12px;height:12px;min-width:12px;border-radius:50%;background:'+ibg+';color:'+icol+';display:flex;align-items:center;justify-content:center;font-size:7px;margin-top:1px;flex-shrink:0;">'+icon+'</span>'+
       '<span>'+item+'</span></li>';
   }).join('');
 }
 
-function buildCard(s, idx){
+function buildCard(s,idx){
   var uid = 'ttc'+idx;
   var disc = pct(s);
-  return '<div style="width:100%;display:flex;">'+
-    '<div class="ttc-card-wrap" style="background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;overflow:hidden;"'+
-      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(255,255,255,0.14)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.6),0 0 20px rgba(79,255,176,0.04)\';"'+
+  return '<div style="width:100%;display:flex;box-sizing:border-box;">'+
+    '<div class="ttc-card-wrap" style="background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;"'+
+      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(255,255,255,0.16)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.6)\';"'+
       ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(255,255,255,0.08)\';this.style.boxShadow=\'none\';">'+
 
-    /* top shimmer line */
     '<div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);border-radius:999px;"></div>'+
 
-    /* price block */
     '<div style="margin-bottom:7px;">'+
       '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">Starting from</span>'+
       '<div style="display:flex;align-items:flex-end;gap:5px;flex-wrap:wrap;margin-bottom:2px;">'+
         '<span style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1;font-family:\'Montserrat\',sans-serif;">'+fmt(s.p)+'</span>'+
-        '<span style="font-size:10px;color:rgba(255,255,255,0.6);text-decoration:line-through;font-weight:400;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+fmt(s.m)+'</span>'+
-        '<span class="discount-badge" style="display:inline-flex;align-items:center;background:rgba(79,255,176,0.12);border:1px solid rgba(79,255,176,0.25);color:#4fffb0;font-size:9px;font-weight:600;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;box-shadow:0 0 8px rgba(79,255,176,0.15);">'+disc+'% OFF</span>'+
+        '<span style="font-size:10px;color:rgba(255,255,255,0.5);text-decoration:line-through;font-weight:400;margin-bottom:2px;">'+fmt(s.m)+'</span>'+
+        '<span style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);font-size:9px;font-weight:700;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+disc+'% OFF</span>'+
       '</div>'+
-      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.5);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
     '</div>'+
 
-    /* suitability */
     '<div style="margin-bottom:3px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Suitable for:</strong> '+s.sf+'</div>'+
-'<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;">'+
-  '<strong style="color:#fff;">Eligible for:</strong> '+
-  '<span style="color:rgba(255,255,255,0.6);font-style:italic;">'+s.el+'</span>'+
-'</div>'+
+    '<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Eligible for:</strong> <span style="color:rgba(255,255,255,0.55);font-style:italic;">'+s.el+'</span></div>'+
+    '<div style="margin-bottom:5px;font-size:9px;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
 
-    /* turnaround */
-    '<div style="margin-bottom:5px;font-size:9px;color:#4fffb0;font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
-
-    /* divider */
     '<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent);margin:2px 0 7px;"></div>'+
 
-    /* title */
     '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
 
-    /* tab switcher */
-    '<div style="display:flex;gap:3px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:3px;margin-bottom:7px;">'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Included</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Not Included</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Documents</button>'+
+    '<div class="ttc-tab-pills">'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Excluded</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Docs</button>'+
     '</div>'+
 
-    /* tab body */
     '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent;">'+
       '<ul id="'+uid+'-inc" style="list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.inc,'inc')+'</ul>'+
       '<ul id="'+uid+'-exc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.exc,'exc')+'</ul>'+
       '<ul id="'+uid+'-doc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.doc,'doc')+'</ul>'+
     '</div>'+
 
-    /* cta */
-    '<div style="margin-top:8px;">'+
-      '<a href="'+s.link+'" style="display:block;width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;"'+
+    '<div style="margin-top:8px;width:100%;box-sizing:border-box;">'+
+      '<a href="'+s.link+'" style="display:block;width:100%;max-width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 8px;font-size:11px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"'+
         ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
         ' onmouseleave="this.style.background=\'#fff\';this.style.transform=\'translateY(0)\';">'+
         s.cta+' &rarr;'+
@@ -1287,70 +1314,94 @@ function buildCard(s, idx){
   '</div></div>';
 }
 
-/* ── INJECT CARDS ── */
-var slider = document.getElementById('ttc-slider');
-if(slider){
-  slider.innerHTML = S.map(function(s,i){ return buildCard(s,i); }).join('');
+function getFilteredServices(){
+  if(activeFilters.length===0) return S;
+  return S.filter(function(s){
+    return activeFilters.some(function(f){ return s.cats.indexOf(f)!==-1; });
+  });
 }
 
-/* ── INIT OWL + AUTOPLAY + EDGE DISABLE (unchanged) ── */
-$(function(){
+function renderFilterChips(){
+  var wrap = document.getElementById('ttc-filter-chips');
+  if(!wrap) return;
+  wrap.innerHTML = FILTER_OPTS.map(function(f){
+    var isActive = activeFilters.indexOf(f)!==-1;
+    return '<button class="ttc-filter-chip'+(isActive?' active':'')+'" data-filter="'+f+'" onclick="ttcToggleFilter(\''+f+'\')">'+f+'</button>';
+  }).join('');
+}
 
-  var owl = $('#ttc-slider').owlCarousel({
-    loop       : false,
-    margin     : 20,
-    nav        : true,
-    dots       : true,
-    autoHeight : false,
-    navText    : ['&#8592;','&#8594;'],
-    autoplay   : true,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true,
-    responsive : {
-      0    : { items: 1 },
-      600  : { items: 2 },
-      1000 : { items: 5 }
+var owlInitialized = false;
+
+function initOrRebuildOwl(data){
+  var $slider = $('#ttc-slider');
+  var noResults = document.getElementById('ttc-no-results');
+
+  if(data.length===0){
+    if(owlInitialized){
+      $slider.trigger('destroy.owl.carousel');
+      $slider.removeClass('owl-loaded owl-drag');
+      owlInitialized = false;
+    }
+    $slider.html('');
+    if(noResults) noResults.style.display='block';
+    return;
+  }
+
+  if(noResults) noResults.style.display='none';
+
+  if(owlInitialized){
+    $slider.trigger('destroy.owl.carousel');
+    $slider.removeClass('owl-loaded owl-drag');
+    owlInitialized = false;
+  }
+
+  $slider.html(data.map(function(s,i){ return buildCard(s,i); }).join(''));
+
+  $slider.owlCarousel({
+    loop:false,nav:true,dots:true,autoHeight:false,
+    navText:['&#8592;','&#8594;'],
+    autoplay:true,autoplayTimeout:3000,autoplayHoverPause:true,
+    /* ── Mobile: margin 0 so card fills full width; desktop keeps margin 20 ── */
+    responsive:{
+      0:{items:1,margin:0},
+      600:{items:2,margin:16},
+      1000:{items:5,margin:20}
     }
   });
+  owlInitialized = true;
 
-  // Disable prev/next at edges
-  owl.on('changed.owl.carousel', function(event) {
+  $slider.on('changed.owl.carousel',function(event){
     var carousel = event.relatedTarget;
-    var current = carousel.current();
-    var total = carousel.items().length;
-    var visible = carousel.settings.items;
-    
-    if (current === 0) {
-      $('.owl-prev').addClass('disabled');
-    } else {
-      $('.owl-prev').removeClass('disabled');
-    }
-    
-    if (current + visible >= total) {
-      $('.owl-next').addClass('disabled');
-    } else {
-      $('.owl-next').removeClass('disabled');
-    }
+    var current  = carousel.current();
+    var total    = carousel.items().length;
+    var visible  = carousel.settings.items;
+    $('.owl-prev').toggleClass('disabled', current===0);
+    $('.owl-next').toggleClass('disabled', current+visible>=total);
   });
+}
 
-  /* tab switching */
-  $(document).on('click', '.ttc-btn', function(){
-    var uid = $(this).data('uid');
-    var tab = $(this).data('tab');
+window.ttcToggleFilter = function(f){
+  var idx = activeFilters.indexOf(f);
+  if(idx===-1) activeFilters.push(f);
+  else activeFilters.splice(idx,1);
+  renderFilterChips();
+  initOrRebuildOwl(getFilteredServices());
+};
 
-    $('.ttc-btn[data-uid="'+uid+'"]').each(function(){
-      var isActive = $(this).data('tab') === tab;
-      $(this).css({
-        background   : isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
-        color        : isActive ? '#fff' : '#888',
-        borderColor  : isActive ? 'rgba(255,255,255,0.18)' : 'transparent'
-      });
-    });
-
-    $('#'+uid+'-inc, #'+uid+'-exc, #'+uid+'-doc').hide();
-    $('#'+uid+'-'+tab).show();
+$(document).on('click','.ttc-btn',function(){
+  var uid = $(this).data('uid');
+  var tab = $(this).data('tab');
+  $('.ttc-btn[data-uid="'+uid+'"]').each(function(){
+    var isActive = $(this).data('tab')===tab;
+    $(this).css({background:isActive?'rgba(255,255,255,0.08)':'transparent',color:isActive?'#fff':'#888',borderColor:isActive?'rgba(255,255,255,0.18)':'transparent'});
   });
+  $('#'+uid+'-inc,#'+uid+'-exc,#'+uid+'-doc').hide();
+  $('#'+uid+'-'+tab).show();
+});
 
+$(function(){
+  renderFilterChips();
+  initOrRebuildOwl(S);
 });
 
 })();
@@ -1363,84 +1414,67 @@ $(function(){
   <div class="wrap">
     <div class="sec-title">Who I Serve</div>
     <p class="sec-sub">Specialized tax and accounting solutions tailored for small businesses and entrepreneurs.</p>
+
     <div class="industry-grid reveal-stagger">
 
-      <div class="ind-card tap-card">
-        <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
-          <div class="ind-title">Small Businesses</div>
-          <div class="ind-desc">Helping small business owners manage GST, bookkeeping, and compliance efficiently.</div>
+      <div class="ind-card">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+          </svg>
         </div>
-        <div class="card-back">
-          <div class="card-back-title">Small Businesses</div>
-          <div class="card-back-desc">Complete GST, accounting &amp; compliance support for small businesses.</div>
-        </div>
-        <span class="tap-hint"></span>
+        <div class="ind-title">Small Businesses</div>
+        <div class="ind-desc">Helping small business owners manage GST, bookkeeping, and compliance efficiently.</div>
       </div>
 
-      <div class="ind-card tap-card">
-        <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
-          <div class="ind-title">Retail Businesses</div>
-          <div class="ind-desc">GST filing, billing, and bookkeeping support for shop owners and traders.</div>
+      <div class="ind-card">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+            <path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>
+          </svg>
         </div>
-        <div class="card-back">
-          <div class="card-back-title">Retail Businesses</div>
-          <div class="card-back-desc">Tax and accounting solutions for retail shops and traders.</div>
-        </div>
-        <span class="tap-hint"></span>
+        <div class="ind-title">Retail Businesses</div>
+        <div class="ind-desc">GST filing, billing, and bookkeeping support for shop owners and traders.</div>
       </div>
 
-      <div class="ind-card tap-card">
-        <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><circle cx="12" cy="7" r="4"/><path d="M4 21c2-4 6-6 8-6s6 2 8 6"/></svg></div>
-          <div class="ind-title">Entrepreneurs</div>
-          <div class="ind-desc">Supporting new business owners with tax setup, compliance, and financial clarity.</div>
+      <div class="ind-card">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+            <circle cx="12" cy="7" r="4"/><path d="M4 21c2-4 6-6 8-6s6 2 8 6"/>
+          </svg>
         </div>
-        <div class="card-back">
-          <div class="card-back-title">Entrepreneurs</div>
-          <div class="card-back-desc">End-to-end support for new business owners and founders.</div>
-        </div>
-        <span class="tap-hint"></span>
+        <div class="ind-title">Entrepreneurs</div>
+        <div class="ind-desc">Supporting new business owners with tax setup, compliance, and financial clarity.</div>
       </div>
 
-      <div class="ind-card tap-card">
-        <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><path d="M12 12c2.5 0 4-2 4-4s-1.5-4-4-4-4 2-4 4 1.5 4 4 4z"/><path d="M6 20c0-3 3-5 6-5s6 2 6 5"/></svg></div>
-          <div class="ind-title">Freelancers</div>
-          <div class="ind-desc">Helping freelancers manage taxes, GST, and income reporting smoothly.</div>
+      <div class="ind-card">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+            <path d="M12 12c2.5 0 4-2 4-4s-1.5-4-4-4-4 2-4 4 1.5 4 4 4z"/><path d="M6 20c0-3 3-5 6-5s6 2 6 5"/>
+          </svg>
         </div>
-        <div class="card-back">
-          <div class="card-back-title">Freelancers</div>
-          <div class="card-back-desc">Simple tax and GST solutions for independent professionals.</div>
-        </div>
-        <span class="tap-hint"></span>
+        <div class="ind-title">Freelancers</div>
+        <div class="ind-desc">Helping freelancers manage taxes, GST, and income reporting smoothly.</div>
       </div>
 
-      <div class="ind-card tap-card">
-        <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><path d="M6 6h12v12H6z"/><path d="M9 6v12"/></svg></div>
-          <div class="ind-title">Local Businesses</div>
-          <div class="ind-desc">GST and accounting support for local shops and service providers.</div>
+      <div class="ind-card">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+            <path d="M6 6h12v12H6z"/><path d="M9 6v12"/>
+          </svg>
         </div>
-        <div class="card-back">
-          <div class="card-back-title">Local Businesses</div>
-          <div class="card-back-desc">Complete compliance support for neighborhood businesses.</div>
-        </div>
-        <span class="tap-hint"></span>
+        <div class="ind-title">Local Businesses</div>
+        <div class="ind-desc">GST and accounting support for local shops and service providers.</div>
       </div>
 
-      <div class="ind-card tap-card">
-        <div class="card-front">
-          <div class="ind-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5"><path d="M3 17l6-6 4 4 7-7"/></svg></div>
-          <div class="ind-title">Growing SMEs</div>
-          <div class="ind-desc">Businesses scaling operations needing structured accounting and tax systems.</div>
+      <div class="ind-card">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+            <path d="M3 17l6-6 4 4 7-7"/>
+          </svg>
         </div>
-        <div class="card-back">
-          <div class="card-back-title">Growing SMEs</div>
-          <div class="card-back-desc">Structured finance and compliance for growing businesses.</div>
-        </div>
-        <span class="tap-hint"></span>
+        <div class="ind-title">Growing SMEs</div>
+        <div class="ind-desc">Businesses scaling operations needing structured accounting and tax systems.</div>
       </div>
 
     </div>
@@ -1455,7 +1489,7 @@ $(function(){
     <div class="sec-title">Cities Served</div>
     <p class="sec-sub">Serving clients across major Indian cities and remote locations nationwide.</p>
     <div class="cities-grid reveal-stagger">
-      
+
       <div class="city-card" style="background:rgba(79,125,243,0.06);border-color:rgba(79,125,243,0.15)">
         <div class="city-illustration">
           <svg viewBox="0 0 120 72" fill="none">
@@ -1474,10 +1508,7 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(79,125,243,0.5)" stroke-width="1"/>
           </svg>
         </div>
-        <div>
-          <div class="city-name">Bengaluru</div>
-          <div class="city-tag">Tech Capital</div>
-        </div>
+        <div><div class="city-name">Bengaluru</div><div class="city-tag">Tech Capital</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.15)">
@@ -1494,29 +1525,21 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
           </svg>
         </div>
-        <div>
-          <div class="city-name">Hyderabad</div>
-          <div class="city-tag">City of Pearls</div>
-        </div>
+        <div><div class="city-name">Hyderabad</div><div class="city-tag">City of Pearls</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.15)">
         <div class="city-illustration">
           <svg viewBox="0 0 120 72" fill="none">
             <path d="M 0 65 Q 15 60 30 65 T 60 65 T 90 65 T 120 65" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="2"/>
-            <path d="M 0 70 Q 15 65 30 70 T 60 70 T 90 70 T 120 70" fill="none" stroke="rgba(16,185,129,0.3)" stroke-width="2"/>
             <line x1="30" y1="65" x2="50" y2="20" stroke="rgba(16,185,129,0.8)" stroke-width="2"/>
             <line x1="50" y1="20" x2="80" y2="65" stroke="rgba(16,185,129,0.8)" stroke-width="2"/>
             <line x1="50" y1="20" x2="90" y2="40" stroke="rgba(16,185,129,0.8)" stroke-width="2"/>
             <path d="M 50 20 L 80 65 Q 65 50 50 20" fill="rgba(16,185,129,0.2)" stroke="rgba(16,185,129,0.6)" stroke-width="1"/>
             <path d="M 50 20 L 90 40 Q 70 30 50 20" fill="rgba(16,185,129,0.3)" stroke="rgba(16,185,129,0.6)" stroke-width="1"/>
-            <circle cx="95" cy="25" r="8" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
           </svg>
         </div>
-        <div>
-          <div class="city-name">Kochi</div>
-          <div class="city-tag">Financial Hub</div>
-        </div>
+        <div><div class="city-name">Kochi</div><div class="city-tag">Financial Hub</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(59,130,246,0.06);border-color:rgba(59,130,246,0.15)">
@@ -1531,10 +1554,7 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
           </svg>
         </div>
-        <div>
-          <div class="city-name">Mumbai</div>
-          <div class="city-tag">Financial Capital</div>
-        </div>
+        <div><div class="city-name">Mumbai</div><div class="city-tag">Financial Capital</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.15)">
@@ -1546,22 +1566,16 @@ $(function(){
             <rect x="47" y="10" width="26" height="5" fill="rgba(139,92,246,0.4)" stroke="rgba(139,92,246,0.9)" stroke-width="1"/>
             <path d="M 52 10 Q 60 5 68 10 Z" fill="rgba(139,92,246,0.5)"/>
             <path d="M 48 60 L 48 38 A 12 12 0 0 1 72 38 L 72 60 Z" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.9)" stroke-width="1"/>
-            <rect x="58" y="55" width="4" height="5" fill="rgba(139,92,246,0.6)"/>
-            <path d="M 58 55 Q 60 50 62 55 Z" fill="rgba(139,92,246,0.9)"/>
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
           </svg>
         </div>
-        <div>
-          <div class="city-name">Delhi NCR</div>
-          <div class="city-tag">National Capital</div>
-        </div>
+        <div><div class="city-name">Delhi NCR</div><div class="city-tag">National Capital</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.12)">
         <div class="city-illustration">
           <svg viewBox="0 0 120 72" fill="none">
             <path d="M 10 36 C 30 10, 60 60, 110 36" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2"/>
-            <path d="M 10 50 C 40 70, 80 10, 110 50" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
             <circle cx="60" cy="36" r="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
             <circle cx="60" cy="36" r="3" fill="rgba(255,255,255,0.8)"/>
             <line x1="60" y1="36" x2="25" y2="22" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
@@ -1573,16 +1587,10 @@ $(function(){
             <line x1="60" y1="36" x2="35" y2="55" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
             <circle cx="35" cy="55" r="5" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
             <circle cx="35" cy="55" r="2" fill="rgba(255,255,255,0.7)"/>
-            <line x1="60" y1="36" x2="85" y2="52" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-            <circle cx="85" cy="52" r="3" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-            <circle cx="85" cy="52" r="1" fill="rgba(255,255,255,0.5)"/>
             <circle cx="60" cy="36" r="24" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
           </svg>
         </div>
-        <div>
-          <div class="city-name">Pan India</div>
-          <div class="city-tag">Remote • All States</div>
-        </div>
+        <div><div class="city-name">Pan India</div><div class="city-tag">Remote • All States</div></div>
       </div>
 
     </div>
@@ -1605,9 +1613,7 @@ $(function(){
       <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/><path d="M9 12l2 2 4-4"/></svg></div><div class="feat-text">Verified SME Tax Expert</div><div class="feat-sub">Qualified &amp; certified professional</div></div>
       <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M7 8h10M7 12h6"/></svg></div><div class="feat-text">Trilingual Support</div><div class="feat-sub">English, Telugu &amp; Kannada</div></div>
       <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20"/></svg></div><div class="feat-text">Pan India Service</div><div class="feat-sub">All 28 states &amp; 8 UTs covered</div></div>
-      <div class="feat-item"><div class="feat-icon">
-        <svg viewBox="0 0 24 24"><path d="M6 3h12M6 7h10M6 11h8M10 11c-2 0-4 1-4 3s2 3 4 3 4 1 4 3-2 3-4 3"/></svg>
-      </div><div class="feat-text">Transparent Fees</div><div class="feat-sub">Clear pricing, no hidden charges</div></div>
+      <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M6 3h12M6 7h10M6 11h8M10 11c-2 0-4 1-4 3s2 3 4 3 4 1 4 3-2 3-4 3"/></svg></div><div class="feat-text">Transparent Fees</div><div class="feat-sub">Clear pricing, no hidden charges</div></div>
       <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/></svg></div><div class="feat-text">Digital Process</div><div class="feat-sub">100% online — no office visit needed</div></div>
       <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg></div><div class="feat-text">Zero Penalties</div><div class="feat-sub">Accurate &amp; timely compliance guaranteed</div></div>
     </div>
@@ -1616,56 +1622,166 @@ $(function(){
 
 <div class="wrap"><hr></div>
 
-<!-- ─── CTA ─── -->
-<section class="cta reveal">
-  <div class="wrap">
-    <h2>Simplify Your Business<br>Finances Today</h2>
-    <p>Whether you're a small business owner, retailer, or entrepreneur — Pooja Reddy helps you manage GST, bookkeeping, and tax compliance with ease and accuracy.</p>
-    <div class="cta-btns">
-      <a href="{{ route('boc.step1', ['source' => 'taxexpert-poojareddy-cta']) }}" class="btn btn-primary">Book Consultation<svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="#contact" class="btn btn-callback">Request Callback</a>
+<!-- ── CTA — btn-cta-hire class applied for permanent inverted style ── -->
+
+
+<section id="dark-minimal-cta" style="background-color: #000000; padding: 80px 0; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; overflow: hidden;">
+  
+  <style>
+    /* Strict Black & White Premium Dark Theme */
+    #dark-minimal-cta .expert-cta-container {
+      max-width: 720px; 
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    #dark-minimal-cta .expert-cta-heading {
+      font-size: clamp(32px, 4.5vw, 44px);
+      font-weight: 800;
+      color: #ffffff; /* Crisp white heading */
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 16px 0; 
+    }
+
+    /* Minimalist underline highlight adapted for dark mode */
+    #dark-minimal-cta .highlight {
+      position: relative;
+      display: inline-block;
+    }
+    
+    #dark-minimal-cta .highlight::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: 2px;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.4); /* Soft white underline */
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+    }
+
+    #dark-minimal-cta.is-visible .highlight::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    #dark-minimal-cta .expert-cta-subtext {
+      font-size: 17px;
+      color: #a1a1aa; /* Light readable grey against black */
+      max-width: 520px;
+      margin: 0 auto 32px auto; 
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    #dark-minimal-cta .expert-cta-subtext strong {
+      color: #ffffff; /* Bright white for the name */
+      font-weight: 700;
+    }
+
+    /* High-contrast solid button */
+    #dark-minimal-cta .expert-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #ffffff; /* Solid white background */
+      color: #000000; /* Black text */
+      padding: 14px 36px;
+      border-radius: 4px; 
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      border: 1px solid #ffffff;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover state: inverts to black background with white text */
+    #dark-minimal-cta .expert-cta-btn:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    #dark-minimal-cta .expert-cta-btn svg {
+      transition: transform 0.3s ease;
+    }
+
+    #dark-minimal-cta .expert-cta-btn:hover svg {
+      transform: translateX(6px);
+    }
+
+    /* Reveal animations */
+    #dark-minimal-cta .reveal-elem {
+      opacity: 0;
+      transform: translateY(20px); 
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    #dark-minimal-cta .delay-1 { transition-delay: 0.1s; }
+    #dark-minimal-cta .delay-2 { transition-delay: 0.2s; }
+    #dark-minimal-cta .delay-3 { transition-delay: 0.3s; }
+
+    #dark-minimal-cta.is-visible .reveal-elem {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <div class="expert-cta-container">
+    
+    <h2 class="expert-cta-heading reveal-elem delay-1">
+      Simplify Your Business<br><span class="highlight">Finances Today</span>
+    </h2>
+
+    <p class="expert-cta-subtext reveal-elem delay-2">
+      Whether you're a small business owner, retailer, or entrepreneur — Tax expert <strong>Pooja Reddy</strong> helps you manage GST, bookkeeping, and tax compliance with ease and accuracy.
+    </p>
+
+    <div class="reveal-elem delay-3" style="display: flex; justify-content: center;">
+      <a href="{{ route('boc.step1', ['source' => 'taxexpert-poojareddy-cta']) }}" class="expert-cta-btn">
+        Hire Our Tax Expert
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
     </div>
+
   </div>
+
+  <script>
+    (function() {
+      const ctaSection = document.getElementById('dark-minimal-cta');
+      if (!ctaSection) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(ctaSection);
+    })();
+  </script>
 </section>
 
 <div class="wrap"><hr></div>
 
-<!-- ─── CONTACT ─── -->
-<section class="sec reveal-section" id="contact">
-  <div class="wrap">
-    <div class="sec-title">Get In Touch</div>
-    <p class="sec-sub">Reach out for a free consultation. Typically responds within a few hours.</p>
-    <div class="contact-grid">
-      <div class="contact-info reveal-stagger">
-        <div class="contact-item" onclick="window.location.href='mailto:alerts@thetaxcompany.in'">
-          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div class="contact-lbl">Email</div><div class="contact-val">alerts@thetaxcompany.in</div></div>
-        </div>
-        <div class="contact-item" onclick="window.location.href='tel:+917032811111'">
-          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.1A16 16 0 0 0 14 15.08l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div><div class="contact-lbl">WhatsApp / Phone</div><div class="contact-val">+91 70328 11111</div></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
-          <div><div class="contact-lbl">Coverage</div><div class="contact-val">Pan India — Remote</div></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-          <div><div class="contact-lbl">Response Time</div><div class="contact-val">Within 2–4 hours</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ── Contact ── -->
 
-<div class="wrap"><hr></div>
 
 <!-- ─── FAQ ─── -->
 <section class="sec reveal-section">
   <div class="wrap">
     <div class="sec-title">Frequently Asked Questions</div>
     <p class="sec-sub">Common questions about GST, accounting, and tax services with Pooja Reddy.</p>
-    <div class="card reveal" style="margin-top:28px">
+    <div class="card reveal" style="margin-top:18px">
       <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What documents are required for GST filing or ITR?</span><span class="faq-toggle">+</span></div><div class="faq-a">You typically need invoices, purchase records, bank statements, and basic business details. Pooja Reddy provides a simple checklist and helps you organize everything for accurate filing.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>Do you provide bookkeeping and accounting services?</span><span class="faq-toggle">+</span></div><div class="faq-a">Yes. Pooja Reddy offers complete bookkeeping and accounting support, helping small businesses maintain clean records, track expenses, and stay financially organized.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>How often do I need to file GST returns?</span><span class="faq-toggle">+</span></div><div class="faq-a">GST returns are usually filed monthly or quarterly depending on your business type and turnover. Pooja ensures timely filing so you never miss deadlines or face penalties.</div></div>
@@ -1678,314 +1794,146 @@ $(function(){
 
 <script>
 /* ─── PROGRESS BAR ─── */
-let targetProgress = 0, currentProgress = 0;
-const progressBar = document.getElementById('progressBar');
-
-function updateProgress() {
-  const s = document.documentElement;
-  targetProgress = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
-}
-
-function lerpProgress() {
-  currentProgress += (targetProgress - currentProgress) * 0.12;
-  progressBar.style.width = currentProgress + '%';
-  const isScrolling = Math.abs(targetProgress - currentProgress) > 0.05;
-  progressBar.style.height = isScrolling ? '3px' : '2px';
-  requestAnimationFrame(lerpProgress);
-}
-
-window.addEventListener('scroll', updateProgress, { passive: true });
+var targetProgress=0,currentProgress=0;
+var progressBar=document.getElementById('progressBar');
+function updateProgress(){var s=document.documentElement;targetProgress=(s.scrollTop/(s.scrollHeight-s.clientHeight))*100}
+function lerpProgress(){currentProgress+=(targetProgress-currentProgress)*0.12;progressBar.style.width=currentProgress+'%';var isScrolling=Math.abs(targetProgress-currentProgress)>0.05;progressBar.style.height=isScrolling?'3px':'2px';requestAnimationFrame(lerpProgress)}
+window.addEventListener('scroll',updateProgress,{passive:true});
 lerpProgress();
 
 /* ─── CURSOR GLOW ─── */
-const cg = document.getElementById('cursorGlow');
-let mouseX = 0, mouseY = 0, cgX = 0, cgY = 0;
-const isMobile = window.innerWidth <= 768;
-
-if (!isMobile) {
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX; mouseY = e.clientY;
-    const el = document.elementFromPoint(e.clientX, e.clientY);
-    const interactive = el && (
-      el.closest('.btn') || el.closest('.card') ||
-      el.closest('.exp-card') || el.closest('.service-main-card') ||
-      el.closest('.ind-card') || el.closest('.city-card') ||
-      el.closest('.val-card') || el.closest('.feat-item') ||
-      el.closest('.contact-item') || el.closest('.hero-photo-card') ||
-      el.closest('.hero-glass-card') || el.closest('.hero-pill')
-    );
-    cg.classList.toggle('over-interactive', !!interactive);
-  }, { passive: true });
-
-  function animateCursor() {
-    cgX += (mouseX - cgX) * 0.1;
-    cgY += (mouseY - cgY) * 0.1;
-    cg.style.left = cgX + 'px';
-    cg.style.top  = cgY + 'px';
-    requestAnimationFrame(animateCursor);
-  }
+var cg=document.getElementById('cursorGlow');
+var mouseX=0,mouseY=0,cgX=0,cgY=0;
+var isMobile=window.innerWidth<=768;
+if(!isMobile){
+  document.addEventListener('mousemove',function(e){
+    mouseX=e.clientX;mouseY=e.clientY;
+    var el=document.elementFromPoint(e.clientX,e.clientY);
+    var interactive=el&&(el.closest('.btn')||el.closest('.card')||el.closest('.exp-card')||el.closest('.service-main-card')||el.closest('.ind-card')||el.closest('.city-card')||el.closest('.val-card')||el.closest('.feat-item')||el.closest('.contact-item')||el.closest('.hero-photo-card')||el.closest('.hero-glass-card')||el.closest('.hero-pill'));
+    cg.classList.toggle('over-interactive',!!interactive);
+  },{passive:true});
+  function animateCursor(){cgX+=(mouseX-cgX)*0.1;cgY+=(mouseY-cgY)*0.1;cg.style.left=cgX+'px';cg.style.top=cgY+'px';requestAnimationFrame(animateCursor)}
   animateCursor();
 }
 
 /* ─── HERO PARALLAX ─── */
-const heroSection = document.getElementById('heroSection');
-function updateHeroParallax() {
-  const scrollY = window.scrollY;
-  const heroH   = heroSection.offsetHeight;
-  if (scrollY < heroH * 1.5) {
-    const progress = Math.min(scrollY / heroH, 1);
-    heroSection.style.opacity  = 1 - progress * 0.6;
-    heroSection.style.transform = `translateY(${scrollY * 0.12}px)`;
+var heroSection=document.getElementById('heroSection');
+function updateHeroParallax(){var scrollY=window.scrollY;var heroH=heroSection.offsetHeight;if(scrollY<heroH*1.5){var progress=Math.min(scrollY/heroH,1);heroSection.style.opacity=1-progress*0.6;heroSection.style.transform='translateY('+scrollY*0.12+'px)'}}
+window.addEventListener('scroll',updateHeroParallax,{passive:true});
+
+/* ─── HERO PHOTO CARD 3D ─── */
+(function(){
+  if(window.innerWidth<=768) return;
+  var card=document.getElementById('heroPhotoCard');
+  if(!card) return;
+  var targetRotX=0,targetRotY=0,targetTransX=0,targetTransY=0;
+  var currentRotX=0,currentRotY=0,currentTransX=0,currentTransY=0;
+  var currentShadowX=0,currentShadowY=0,targetShadowX=0,targetShadowY=0;
+  var magneticRadius=200,magneticStrength=0.08,maxRotate=8,shadowFactor=0.15;
+  var mx=0,my=0,isOverCard=false;
+  function resetCard(){targetRotX=targetRotY=targetTransX=targetTransY=targetShadowX=targetShadowY=0}
+  window.addEventListener('scroll',function(){resetCard()},{passive:true});
+  window.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY},{passive:true});
+  card.addEventListener('mouseenter',function(){isOverCard=true});
+  card.addEventListener('mouseleave',function(){isOverCard=false;resetCard()});
+  function updateCard(){
+    var rect=card.getBoundingClientRect();
+    var cx=rect.left+rect.width/2,cy=rect.top+rect.height/2;
+    var dx=mx-cx,dy=my-cy,dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<magneticRadius){targetTransX=dx*magneticStrength;targetTransY=dy*magneticStrength;targetShadowX=-dx*shadowFactor;targetShadowY=-dy*shadowFactor}
+    else{targetTransX=0;targetTransY=0;targetShadowX=0;targetShadowY=0}
+    if(isOverCard){var rx=(mx-rect.left)/rect.width,ry=(my-rect.top)/rect.height;targetRotY=(rx-0.5)*2*maxRotate;targetRotX=(ry-0.5)*-2*maxRotate}
+    else{targetRotX=0;targetRotY=0}
+    var e2=0.12;
+    currentRotX+=(targetRotX-currentRotX)*e2;currentRotY+=(targetRotY-currentRotY)*e2;
+    currentTransX+=(targetTransX-currentTransX)*e2;currentTransY+=(targetTransY-currentTransY)*e2;
+    currentShadowX+=(targetShadowX-currentShadowX)*e2;currentShadowY+=(targetShadowY-currentShadowY)*e2;
+    var clamp=function(v,m){return Math.min(m,Math.max(-m,v))};
+    card.style.transform='perspective(1000px) rotateX('+clamp(currentRotX,maxRotate)+'deg) rotateY('+clamp(currentRotY,maxRotate)+'deg) translateX('+currentTransX+'px) translateY('+currentTransY+'px)';
+    card.style.boxShadow=currentShadowX+'px '+currentShadowY+'px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05)';
+    requestAnimationFrame(updateCard);
   }
-}
-window.addEventListener('scroll', updateHeroParallax, { passive: true });
-
-/* ─── MAGNETIC + DEPTH SYSTEM FOR HERO PHOTO CARD ─── */
-(function() {
-  if (window.innerWidth <= 768) return;
-
-  const card = document.getElementById('heroPhotoCard');
-  if (!card) return;
-
-  let targetRotX = 0, targetRotY = 0;
-  let targetTransX = 0, targetTransY = 0;
-  let targetShadowX = 0, targetShadowY = 0;
-  let currentRotX = 0, currentRotY = 0;
-  let currentTransX = 0, currentTransY = 0;
-  let currentShadowX = 0, currentShadowY = 0;
-
-  const magneticRadius = 200;
-  const magneticStrength = 0.08;
-  const maxRotate = 8;
-  const shadowFactor = 0.15;
-
-  let mouseX = 0, mouseY = 0;
-  let isOverCard = false;
-  let rafId = null;
-
-  function resetCard() {
-    targetRotX = targetRotY = 0;
-    targetTransX = targetTransY = 0;
-    targetShadowX = targetShadowY = 0;
-  }
-
-  let scrollDebounce;
-  function onScrollReset() {
-    if (scrollDebounce) clearTimeout(scrollDebounce);
-    scrollDebounce = setTimeout(() => { resetCard(); }, 100);
-  }
-  window.addEventListener('scroll', onScrollReset, { passive: true });
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX; mouseY = e.clientY;
-  }, { passive: true });
-
-  card.addEventListener('mouseenter', () => { isOverCard = true; });
-  card.addEventListener('mouseleave', () => { isOverCard = false; resetCard(); });
-
-  function updateCard() {
-    const rect = card.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const dx = mouseX - centerX;
-    const dy = mouseY - centerY;
-    const distance = Math.sqrt(dx*dx + dy*dy);
-
-    if (distance < magneticRadius) {
-      targetTransX = dx * magneticStrength;
-      targetTransY = dy * magneticStrength;
-      targetShadowX = -dx * shadowFactor;
-      targetShadowY = -dy * shadowFactor;
-    } else {
-      targetTransX = 0; targetTransY = 0;
-      targetShadowX = 0; targetShadowY = 0;
-    }
-
-    if (isOverCard) {
-      const relX = (mouseX - rect.left) / rect.width;
-      const relY = (mouseY - rect.top) / rect.height;
-      targetRotY = (relX - 0.5) * 2 * maxRotate;
-      targetRotX = (relY - 0.5) * -2 * maxRotate;
-    } else {
-      targetRotX = 0; targetRotY = 0;
-    }
-
-    const ease = 0.12;
-    currentRotX += (targetRotX - currentRotX) * ease;
-    currentRotY += (targetRotY - currentRotY) * ease;
-    currentTransX += (targetTransX - currentTransX) * ease;
-    currentTransY += (targetTransY - currentTransY) * ease;
-    currentShadowX += (targetShadowX - currentShadowX) * ease;
-    currentShadowY += (targetShadowY - currentShadowY) * ease;
-
-    const clamp = (val, max) => Math.min(max, Math.max(-max, val));
-    const rotX = clamp(currentRotX, maxRotate);
-    const rotY = clamp(currentRotY, maxRotate);
-
-    card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateX(${currentTransX}px) translateY(${currentTransY}px)`;
-    const shadowStr = `${currentShadowX}px ${currentShadowY}px 40px rgba(0,0,0,0.4)`;
-    card.style.boxShadow = `${shadowStr}, 0 0 0 1px rgba(255,255,255,0.05)`;
-
-    rafId = requestAnimationFrame(updateCard);
-  }
-
-  rafId = requestAnimationFrame(updateCard);
-  window.addEventListener('beforeunload', () => { if (rafId) cancelAnimationFrame(rafId); });
-  window.addEventListener('resize', () => resetCard());
+  requestAnimationFrame(updateCard);
 })();
 
 /* ─── METRIC FLOAT ─── */
-if (!isMobile) {
-  const metrics = document.querySelectorAll('.hero-metric');
-  document.addEventListener('mousemove', e => {
-    const px = (e.clientX / window.innerWidth - 0.5);
-    const py = (e.clientY / window.innerHeight - 0.5);
-    metrics.forEach((m, i) => {
-      const factor = i === 0 ? 8 : -6;
-      m.style.transform = `translate(${px * factor}px, ${py * factor}px)`;
-    });
-  }, { passive: true });
-}
-
-/* ─── MAGNETIC BUTTONS (DISABLED FOR CTA BUTTONS TO FIX MOVING ISSUE) ─── */
-if (!isMobile) {
-  document.querySelectorAll('.magnetic-btn').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const rect = btn.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = (e.clientX - cx) * 0.25;
-      const dy = (e.clientY - cy) * 0.25;
-      btn.style.transform = `translate(${dx}px, ${dy}px)`;
-    });
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = '';
-      btn.style.transition = 'transform .4s cubic-bezier(0.22,1,0.36,1)';
-      setTimeout(() => btn.style.transition = '', 400);
-    });
-  });
+if(!isMobile){
+  var metrics=document.querySelectorAll('.hero-metric');
+  document.addEventListener('mousemove',function(e){
+    var px=(e.clientX/window.innerWidth-0.5),py=(e.clientY/window.innerHeight-0.5);
+    metrics.forEach(function(m,i){var f=i===0?8:-6;m.style.transform='translate('+px*f+'px,'+py*f+'px)'});
+  },{passive:true});
 }
 
 /* ─── SCROLL REVEAL ─── */
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revealObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.reveal, .reveal-section, .reveal-stagger').forEach(el => revealObs.observe(el));
+var revealObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}});
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-section,.reveal-stagger').forEach(function(el){revealObs.observe(el)});
 
 /* ─── KPI COUNTERS ─── */
-function animateCount(el, target, duration) {
-  const start = performance.now();
-  function step(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - (1 - progress) * (1 - progress);
-    el.textContent = Math.floor(eased * target);
-    if (progress < 1) requestAnimationFrame(step);
-    else el.textContent = target;
-  }
+function animateCount(el,target,duration){
+  var start=performance.now();
+  function step(now){var elapsed=now-start;var progress=Math.min(elapsed/duration,1);var eased=1-(1-progress)*(1-progress);el.textContent=Math.floor(eased*target);if(progress<1)requestAnimationFrame(step);else el.textContent=target}
   requestAnimationFrame(step);
 }
-
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.querySelectorAll('.kpi-hero').forEach(el => {
-      const target = parseInt(el.dataset.target);
-      animateCount(el, target, 1400);
-    });
-  }, 600);
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    document.querySelectorAll('.kpi-hero').forEach(function(el){animateCount(el,parseInt(el.dataset.target),1400)});
+  },600);
 });
 
 /* ─── FAQ ─── */
-function toggleFAQ(el) {
-  const ans = el.nextElementSibling;
-  const tog = el.querySelector('.faq-toggle');
-  const open = ans.classList.contains('open');
-  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
-  document.querySelectorAll('.faq-toggle').forEach(t => { t.textContent = '+'; t.style.transform = ''; });
-  if (!open) {
-    ans.classList.add('open');
-    tog.textContent = '−';
-    tog.style.transform = 'rotate(180deg)';
-  }
+function toggleFAQ(el){
+  var ans=el.nextElementSibling,tog=el.querySelector('.faq-toggle'),open=ans.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(function(a){a.classList.remove('open')});
+  document.querySelectorAll('.faq-toggle').forEach(function(t){t.textContent='+';t.style.transform=''});
+  if(!open){ans.classList.add('open');tog.textContent='−';tog.style.transform='rotate(180deg)'}
 }
 
-/* ─── TOAST + COPY ─── */
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
-}
-function copyText(txt, msg) {
-  navigator.clipboard.writeText(txt)
-    .then(() => showToast(msg || 'Copied!'))
-    .catch(() => showToast('Copied: ' + txt));
-}
+/* ─── TOAST ─── */
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},3000)}
 
 /* ─── ABOUT TOGGLE ─── */
-function toggleAbout() {
-  const short = document.getElementById('aboutText');
-  const full  = document.getElementById('aboutFull');
-  const btn   = document.querySelector('.about-toggle');
-  if (full.style.display === 'none') {
-    full.style.display = 'block'; short.style.display = 'none'; btn.innerHTML = 'Read Less ▲';
-  } else {
-    full.style.display = 'none'; short.style.display = 'block'; btn.innerHTML = 'Read More ▼';
-  }
+function toggleAbout(){
+  var short=document.getElementById('aboutText'),full=document.getElementById('aboutFull'),btn=document.querySelector('.about-toggle');
+  if(full.style.display==='none'){full.style.display='block';short.style.display='none';btn.innerHTML='Read Less ▲'}
+  else{full.style.display='none';short.style.display='block';btn.innerHTML='Read More ▼'}
 }
 
-/* ─── TAP-TO-REVEAL (MOBILE ONLY) ─── */
-(function () {
-  let activeCard = null;
-  let tapListenersAttached = false;
-  let scrollObservers = [];
+/* ─── TAP-TO-REVEAL (MOBILE — expertise & service cards only, NOT industry) ─── */
+(function(){
+  var activeCard=null;
+  var tapListenersAttached=false;
 
-  function attachTapListeners() {
-    if (tapListenersAttached) return;
-    tapListenersAttached = true;
-    document.querySelectorAll('.tap-card').forEach(card => {
-      card.addEventListener('click', handleTap);
+  function attachTapListeners(){
+    if(tapListenersAttached) return;
+    tapListenersAttached=true;
+    document.querySelectorAll('.tap-card').forEach(function(card){
+      if(card.closest('.industry-grid')) return;
+      card.addEventListener('click',handleTap);
     });
   }
 
-  function closeAll() {
-    document.querySelectorAll('.tap-card.active').forEach(c => c.classList.remove('active'));
-    activeCard = null;
+  function closeAll(){
+    document.querySelectorAll('.tap-card.active').forEach(function(c){
+      if(!c.closest('.industry-grid')) c.classList.remove('active');
+    });
+    activeCard=null;
   }
 
-  function handleTap() {
-    if (window.innerWidth > 768) return;
-    const card = this;
-    if (activeCard === card) { card.classList.remove('active'); activeCard = null; return; }
-    if (activeCard) activeCard.classList.remove('active');
+  function handleTap(){
+    if(window.innerWidth>768) return;
+    var card=this;
+    if(activeCard===card){card.classList.remove('active');activeCard=null;return}
+    if(activeCard) activeCard.classList.remove('active');
     card.classList.add('active');
-    activeCard = card;
+    activeCard=card;
   }
 
-  function attachScrollObservers() {
-    if (scrollObservers.length) return;
-    document.querySelectorAll('.expertise-grid, .services-clean, .industry-grid').forEach(section => {
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(entry => { if (!entry.isIntersecting) closeAll(); });
-      }, { threshold: 0.15 });
-      obs.observe(section);
-      scrollObservers.push(obs);
-    });
-  }
-
-  function init() {
-    if (window.innerWidth <= 768) { attachTapListeners(); attachScrollObservers(); }
-  }
-
+  function init(){if(window.innerWidth<=768){attachTapListeners()}}
   init();
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) closeAll(); else init();
-  });
+  window.addEventListener('resize',function(){if(window.innerWidth>768) closeAll();else init()});
 }());
 </script>
 @endsection
