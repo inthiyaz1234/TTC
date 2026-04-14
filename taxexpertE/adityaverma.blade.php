@@ -1099,29 +1099,29 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div class="wrap"><hr></div>
 
-<!-- ─── ABOUT ─── (White) -->
-<section class="sec reveal bg-white" style="background:#fff;">
+<!-- ─── ABOUT ─── (Black) -->
+<section class="sec reveal" style="background:#000;">
   <div class="wrap">
     <div class="card about-card">
-      <div class="about-title" style="color:#000;">About Me</div>
-      <div class="about-text collapsed" id="aboutText" style="color:#000 !important;">
+      <div class="about-title">About Me</div>
+      <div class="about-text collapsed" id="aboutText">
         Tax expert Aditya Verma is a dedicated Corporate Tax Advisor with 2+ years of experience in corporate taxation, compliance, and financial advisory for growing companies.
       </div>
-      <div class="about-text expanded" id="aboutFull" style="display:none; color:#000 !important;">
+      <div class="about-text expanded" id="aboutFull" style="display:none;">
         Tax expert Aditya Verma is a dedicated Corporate Tax Advisor with over 2 years of experience focused on corporate taxation, compliance, and financial advisory for growing companies. He specializes in helping startups and mid-size businesses navigate complex tax regulations with structured and compliant solutions. Fluent in English and Hindi, Aditya ensures clear communication and reliable support for business growth.
       </div>
-      <div class="about-toggle" onclick="toggleAbout()" style="color:#000;">Read More ▼</div>
+      <div class="about-toggle" onclick="toggleAbout()">Read More ▼</div>
     </div>
   </div>
 </section>
 
-<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
+<div class="wrap"><hr style="border-color:rgba(255,255,255,0.1);"></div>
 
-<!-- ─── EXPERTISE ─── (Black) -->
-<section class="sec reveal-section" id="expertise" style="background:#000;">
+<!-- ─── EXPERTISE ─── (White) -->
+<section class="sec reveal-section bg-white" style="background:#fff;">
   <div class="wrap">
-    <div class="sec-title">Areas of Expertise</div>
-    <p class="sec-sub">Comprehensive corporate tax and compliance expertise tailored for startups and growing businesses.</p>
+    <div class="sec-title" style="color:#000;">Areas of Expertise</div>
+    <p class="sec-sub" style="color:#333;">Comprehensive corporate tax and compliance expertise tailored for startups and growing businesses.</p>
 
     <div class="expertise-grid reveal-stagger" style="margin-top:32px">
 
@@ -1189,16 +1189,16 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   </div>
 </section>
 
-<div class="wrap"><hr></div>
+<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
 
 {{-- ==================== TAX SERVICES CAROUSEL ==================== --}}
-<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#fff;width:100%;box-sizing:border-box;">
+<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000;width:100%;box-sizing:border-box;">
 
   <style>
     #tax-services-section { width:100%;padding:32px 0; }
     #tax-services-section .section-header { margin-bottom:1px; }
-    #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#000;margin:0 0 1px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
-    #tax-services-section .section-subtitle { font-size:14px;color:rgba(0,0,0,0.75);font-weight:400;line-height:1.6;margin:0;max-width:600px;font-family:'Montserrat',sans-serif; }
+    #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#fff;margin:0 0 1px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
+    #tax-services-section .section-subtitle { font-size:14px;color:rgba(255,255,255,0.75);font-weight:400;line-height:1.6;margin:0;max-width:600px;font-family:'Montserrat',sans-serif; }
     .web-only { display:block; }
     @media(max-width:768px){ .web-only{display:none} }
 
@@ -1210,23 +1210,23 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     #tax-services-section .ttc-card-wrap { height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:6px; }
 
     #tax-services-section .owl-nav { display:flex !important;align-items:center;justify-content:center;gap:6px;margin-top:20px !important; }
-    #tax-services-section .owl-prev,#tax-services-section .owl-next { width:23px !important;height:23px !important;background:rgba(0,0,0,0.05) !important;border:1px solid rgba(0,0,0,0.1) !important;border-radius:50% !important;display:flex !important;align-items:center !important;justify-content:center !important;color:#000 !important;font-size:10px !important;transition:all 0.25s ease !important;line-height:1 !important;margin:0 !important; }
-    #tax-services-section .owl-prev:hover,#tax-services-section .owl-next:hover { background:rgba(0,0,0,0.1) !important;border-color:rgba(0,0,0,0.25) !important; }
+    #tax-services-section .owl-prev,#tax-services-section .owl-next { width:23px !important;height:23px !important;background:rgba(255,255,255,0.05) !important;border:1px solid rgba(255,255,255,0.1) !important;border-radius:50% !important;display:flex !important;align-items:center !important;justify-content:center !important;color:#fff !important;font-size:10px !important;transition:all 0.25s ease !important;line-height:1 !important;margin:0 !important; }
+    #tax-services-section .owl-prev:hover,#tax-services-section .owl-next:hover { background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.25) !important; }
     #tax-services-section .owl-prev.disabled,#tax-services-section .owl-next.disabled { opacity:0.3;pointer-events:none; }
 
     #tax-services-section .owl-dots { display:flex !important;justify-content:center !important;gap:4px !important;margin-top:10px !important; }
-    #tax-services-section .owl-dot span { width:3px !important;height:3px !important;background:rgba(0,0,0,0.15) !important;border-radius:999px !important;transition:all 0.3s ease !important;margin:0 !important; }
-    #tax-services-section .owl-dot.active span { background:#000 !important;width:11px !important; }
+    #tax-services-section .owl-dot span { width:3px !important;height:3px !important;background:rgba(255,255,255,0.15) !important;border-radius:999px !important;transition:all 0.3s ease !important;margin:0 !important; }
+    #tax-services-section .owl-dot.active span { background:#fff !important;width:11px !important; }
 
     #tax-services-section .ttc-tab-body::-webkit-scrollbar { width:2px; }
     #tax-services-section .ttc-tab-body::-webkit-scrollbar-track { background:transparent; }
-    #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb { background:rgba(0,0,0,0.08);border-radius:99px; }
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08);border-radius:99px; }
 
     .ttc-tab-pills {
       display:flex;
       gap:3px;
-      background:rgba(0,0,0,0.04);
-      border:1px solid rgba(0,0,0,0.08);
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
       border-radius:999px;
       padding:3px;
       margin-bottom:7px;
@@ -1274,28 +1274,28 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
     #ttc-filter-wrap { margin-bottom:28px; }
     .ttc-filter-quote {
-      font-size:13px;font-style:italic;color:rgba(0,0,0,0.4);
+      font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);
       margin-bottom:14px;letter-spacing:0.01em;font-family:'Montserrat',sans-serif;
       display:flex;align-items:center;gap:10px;
     }
     .ttc-filter-quote::before {
       content:'';display:inline-block;width:28px;height:1px;
-      background:rgba(0,0,0,0.2);flex-shrink:0;
+      background:rgba(255,255,255,0.2);flex-shrink:0;
     }
     #ttc-filter-chips { display:flex;flex-wrap:wrap;gap:8px; }
     .ttc-filter-chip {
       display:inline-flex;align-items:center;
       padding:6px 16px;border-radius:999px;font-size:11px;font-weight:600;
-      cursor:pointer;border:1px solid rgba(0,0,0,0.14);
-      background:rgba(0,0,0,0.04);color:rgba(0,0,0,0.5);
+      cursor:pointer;border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.5);
       font-family:'Montserrat',sans-serif;text-transform:capitalize;
       transition:all 0.2s ease;letter-spacing:0.02em;white-space:nowrap;
     }
-    .ttc-filter-chip:hover { border-color:rgba(0,0,0,0.3);color:#000;background:rgba(0,0,0,0.08); }
-    .ttc-filter-chip.active { background:#000;color:#fff;border-color:#000;box-shadow:0 0 14px rgba(0,0,0,0.15); }
+    .ttc-filter-chip:hover { border-color:rgba(255,255,255,0.3);color:#fff;background:rgba(255,255,255,0.08); }
+    .ttc-filter-chip.active { background:#fff;color:#000;border-color:#fff;box-shadow:0 0 14px rgba(255,255,255,0.15); }
     #ttc-no-results {
       display:none;text-align:center;padding:48px 20px;
-      color:rgba(0,0,0,0.3);font-size:13px;
+      color:rgba(255,255,255,0.3);font-size:13px;
       font-family:'Montserrat',sans-serif;letter-spacing:0.02em;
     }
 
@@ -1452,8 +1452,8 @@ function pct(s){ return Math.round((s.m-s.p)/s.m*100); }
 function listRows(arr,type){
   var icon  = type==='inc'?'✔':type==='exc'?'✖':'📄';
   var ibg   = type==='inc'?'rgba(0,255,120,0.10)':type==='exc'?'rgba(255,0,0,0.10)':'rgba(120,120,255,0.10)';
-  var icol  = type==='inc'?'#00aa44':type==='exc'?'#cc3333':'#4444cc';
-  var tcol  = type==='inc'?'#004422':type==='exc'?'#442222':'#222244';
+  var icol  = type==='inc'?'#00ff88':type==='exc'?'#ff4d4d':'#7a7aff';
+  var tcol  = type==='inc'?'#d6ffe6':type==='exc'?'#ffd6d6':'#d6d6ff';
   return arr.map(function(item){
     return '<li style="display:flex;align-items:flex-start;gap:5px;margin-bottom:5px;font-size:10px;line-height:1.5;color:'+tcol+';font-family:\'Montserrat\',sans-serif;">'+
       '<span style="width:12px;height:12px;min-width:12px;border-radius:50%;background:'+ibg+';color:'+icol+';display:flex;align-items:center;justify-content:center;font-size:7px;margin-top:1px;flex-shrink:0;">'+icon+'</span>'+
@@ -1465,46 +1465,46 @@ function buildCard(s,idx){
   var uid = 'ttc'+idx;
   var disc = pct(s);
   return '<div style="width:100%;display:flex;box-sizing:border-box;">'+
-    '<div class="ttc-card-wrap" style="background:#f5f5f5;border:1px solid rgba(0,0,0,0.1);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;"'+
-      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(0,0,0,0.2)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.1)\';"'+
-      ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(0,0,0,0.1)\';this.style.boxShadow=\'none\';">'+
+    '<div class="ttc-card-wrap" style="background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;"'+
+      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(255,255,255,0.16)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.6)\';"'+
+      ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(255,255,255,0.08)\';this.style.boxShadow=\'none\';">'+
 
-    '<div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,0.1),transparent);border-radius:999px;"></div>'+
+    '<div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);border-radius:999px;"></div>'+
 
     '<div style="margin-bottom:7px;">'+
-      '<span style="font-size:9px;color:rgba(0,0,0,0.6);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">Starting from</span>'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">Starting from</span>'+
       '<div style="display:flex;align-items:flex-end;gap:5px;flex-wrap:wrap;margin-bottom:2px;">'+
-        '<span style="font-size:20px;font-weight:800;color:#000;letter-spacing:-0.02em;line-height:1;font-family:\'Montserrat\',sans-serif;">'+fmt(s.p)+'</span>'+
-        '<span style="font-size:10px;color:rgba(0,0,0,0.5);text-decoration:line-through;font-weight:400;margin-bottom:2px;">'+fmt(s.m)+'</span>'+
-        '<span style="display:inline-flex;align-items:center;background:rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.15);color:rgba(0,0,0,0.8);font-size:9px;font-weight:700;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+disc+'% OFF</span>'+
+        '<span style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1;font-family:\'Montserrat\',sans-serif;">'+fmt(s.p)+'</span>'+
+        '<span style="font-size:10px;color:rgba(255,255,255,0.5);text-decoration:line-through;font-weight:400;margin-bottom:2px;">'+fmt(s.m)+'</span>'+
+        '<span style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);font-size:9px;font-weight:700;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+disc+'% OFF</span>'+
       '</div>'+
-      '<span style="font-size:9px;color:rgba(0,0,0,0.5);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
+      '<span style="font-size:9px;color:rgba(255,255,255,0.5);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
     '</div>'+
 
-    '<div style="margin-bottom:3px;font-size:10px;color:rgba(0,0,0,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#000;">Suitable for:</strong> '+s.sf+'</div>'+
-    '<div style="margin-bottom:4px;font-size:10px;color:rgba(0,0,0,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#000;">Eligible for:</strong> <span style="color:rgba(0,0,0,0.55);font-style:italic;">'+s.el+'</span></div>'+
-    '<div style="margin-bottom:5px;font-size:9px;color:rgba(0,0,0,0.6);font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
+    '<div style="margin-bottom:3px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Suitable for:</strong> '+s.sf+'</div>'+
+    '<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Eligible for:</strong> <span style="color:rgba(255,255,255,0.55);font-style:italic;">'+s.el+'</span></div>'+
+    '<div style="margin-bottom:5px;font-size:9px;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
 
-    '<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,0.07),transparent);margin:2px 0 7px;"></div>'+
+    '<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent);margin:2px 0 7px;"></div>'+
 
-    '<div style="font-size:13px;font-weight:700;color:#000;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
+    '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
 
     '<div class="ttc-tab-pills">'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#000;background:rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Included</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#666;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Excluded</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#666;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Docs</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Excluded</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Docs</button>'+
     '</div>'+
 
-    '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(0,0,0,0.08) transparent;">'+
+    '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent;">'+
       '<ul id="'+uid+'-inc" style="list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.inc,'inc')+'</ul>'+
       '<ul id="'+uid+'-exc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.exc,'exc')+'</ul>'+
       '<ul id="'+uid+'-doc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.doc,'doc')+'</ul>'+
     '</div>'+
 
     '<div style="margin-top:8px;width:100%;box-sizing:border-box;">'+
-      '<a href="'+s.link+'" style="display:block;width:100%;max-width:100%;background:#000;color:#fff;border:none;border-radius:999px;padding:7px 8px;font-size:11px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"'+
-        ' onmouseenter="this.style.background=\'#222\';this.style.transform=\'translateY(-1px)\';"'+
-        ' onmouseleave="this.style.background=\'#000\';this.style.transform=\'translateY(0)\';">'+
+      '<a href="'+s.link+'" style="display:block;width:100%;max-width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 8px;font-size:11px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"'+
+        ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
+        ' onmouseleave="this.style.background=\'#fff\';this.style.transform=\'translateY(0)\';">'+
         s.cta+' &rarr;'+
       '</a>'+
     '</div>'+
@@ -1590,7 +1590,7 @@ $(document).on('click','.ttc-btn',function(){
   var tab = $(this).data('tab');
   $('.ttc-btn[data-uid="'+uid+'"]').each(function(){
     var isActive = $(this).data('tab')===tab;
-    $(this).css({background:isActive?'rgba(0,0,0,0.08)':'transparent',color:isActive?'#000':'#666',borderColor:isActive?'rgba(0,0,0,0.18)':'transparent'});
+    $(this).css({background:isActive?'rgba(255,255,255,0.08)':'transparent',color:isActive?'#fff':'#888',borderColor:isActive?'rgba(255,255,255,0.18)':'transparent'});
   });
   $('#'+uid+'-inc,#'+uid+'-exc,#'+uid+'-doc').hide();
   $('#'+uid+'-'+tab).show();
@@ -1604,19 +1604,19 @@ $(function(){
 })();
 </script>
 
-<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
+<div class="wrap"><hr style="border-color:rgba(255,255,255,0.1);"></div>
 
-<!-- ─── WHO I SERVE ─── (Black) -->
-<section class="sec reveal-section" style="background:#000;">
+<!-- ─── WHO I SERVE ─── (White) -->
+<section class="sec reveal-section bg-white" style="background:#fff;">
   <div class="wrap">
-    <div class="sec-title">Who I Serve</div>
-    <p class="sec-sub">Specialized corporate tax and compliance support for businesses at every stage of growth.</p>
+    <div class="sec-title" style="color:#000;">Who I Serve</div>
+    <p class="sec-sub" style="color:#333;">Specialized corporate tax and compliance support for businesses at every stage of growth.</p>
 
     <div class="industry-grid reveal-stagger">
 
       <div class="ind-card">
         <div class="ind-icon-wrap">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#000" fill="none" stroke-width="1.5">
             <path d="M4 4h16v16H4z"/>
             <path d="M8 8h8M8 12h6M8 16h4"/>
           </svg>
@@ -1627,7 +1627,7 @@ $(function(){
 
       <div class="ind-card">
         <div class="ind-icon-wrap">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#000" fill="none" stroke-width="1.5">
             <rect x="3" y="3" width="18" height="18" rx="2"/>
             <path d="M9 21V9h6v12"/>
           </svg>
@@ -1638,7 +1638,7 @@ $(function(){
 
       <div class="ind-card">
         <div class="ind-icon-wrap">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#000" fill="none" stroke-width="1.5">
             <path d="M12 2v4M4 4l3 3M20 4l-3 3"/>
             <circle cx="12" cy="12" r="4"/>
             <path d="M2 20h20"/>
@@ -1650,7 +1650,7 @@ $(function(){
 
       <div class="ind-card">
         <div class="ind-icon-wrap">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#000" fill="none" stroke-width="1.5">
             <path d="M3 21h18"/>
             <path d="M5 21V7l8-4v18"/>
             <path d="M19 21V11l-6-4"/>
@@ -1664,13 +1664,13 @@ $(function(){
   </div>
 </section>
 
-<div class="wrap"><hr></div>
+<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
 
-<!-- ─── CITIES ─── (White) -->
-<section class="sec reveal-section bg-white" style="background:#fff;">
+<!-- ─── CITIES ─── (Black) -->
+<section class="sec reveal-section" style="background:#000;">
   <div class="wrap">
-    <div class="sec-title" style="color:#000;">Cities Served</div>
-    <p class="sec-sub" style="color:#333;">Serving clients across major Indian cities and remote locations nationwide.</p>
+    <div class="sec-title">Cities Served</div>
+    <p class="sec-sub">Serving clients across major Indian cities and remote locations nationwide.</p>
     <div class="cities-grid reveal-stagger">
 
       <div class="city-card" style="background:rgba(79,125,243,0.06);border-color:rgba(79,125,243,0.15)">
@@ -1691,7 +1691,7 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(79,125,243,0.5)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name" style="color:#000;">Bengaluru</div><div class="city-tag" style="color:#555;">Tech Capital</div></div>
+        <div><div class="city-name">Bengaluru</div><div class="city-tag">Tech Capital</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.15)">
@@ -1708,7 +1708,7 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name" style="color:#000;">Hyderabad</div><div class="city-tag" style="color:#555;">City of Pearls</div></div>
+        <div><div class="city-name">Hyderabad</div><div class="city-tag">City of Pearls</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.15)">
@@ -1722,7 +1722,7 @@ $(function(){
             <path d="M 50 20 L 90 40 Q 70 30 50 20" fill="rgba(16,185,129,0.3)" stroke="rgba(16,185,129,0.6)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name" style="color:#000;">Kochi</div><div class="city-tag" style="color:#555;">Financial Hub</div></div>
+        <div><div class="city-name">Kochi</div><div class="city-tag">Financial Hub</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(59,130,246,0.06);border-color:rgba(59,130,246,0.15)">
@@ -1737,7 +1737,7 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name" style="color:#000;">Mumbai</div><div class="city-tag" style="color:#555;">Financial Capital</div></div>
+        <div><div class="city-name">Mumbai</div><div class="city-tag">Financial Capital</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.15)">
@@ -1752,41 +1752,41 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name" style="color:#000;">Delhi NCR</div><div class="city-tag" style="color:#555;">National Capital</div></div>
+        <div><div class="city-name">Delhi NCR</div><div class="city-tag">National Capital</div></div>
       </div>
 
-      <div class="city-card" style="background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.1)">
+      <div class="city-card" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.12)">
         <div class="city-illustration">
           <svg viewBox="0 0 120 72" fill="none">
-            <path d="M 10 36 C 30 10, 60 60, 110 36" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="2" stroke-dasharray="4 2"/>
-            <circle cx="60" cy="36" r="8" fill="rgba(0,0,0,0.05)" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
-            <circle cx="60" cy="36" r="3" fill="rgba(0,0,0,0.6)"/>
-            <line x1="60" y1="36" x2="25" y2="22" stroke="rgba(0,0,0,0.2)" stroke-width="1.5"/>
-            <circle cx="25" cy="22" r="4" fill="rgba(0,0,0,0.05)" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
-            <circle cx="25" cy="22" r="1.5" fill="rgba(0,0,0,0.6)"/>
-            <line x1="60" y1="36" x2="95" y2="20" stroke="rgba(0,0,0,0.2)" stroke-width="1.5"/>
-            <circle cx="95" cy="20" r="4" fill="rgba(0,0,0,0.05)" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
-            <circle cx="95" cy="20" r="1.5" fill="rgba(0,0,0,0.6)"/>
-            <line x1="60" y1="36" x2="35" y2="55" stroke="rgba(0,0,0,0.2)" stroke-width="1.5"/>
-            <circle cx="35" cy="55" r="5" fill="rgba(0,0,0,0.05)" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
-            <circle cx="35" cy="55" r="2" fill="rgba(0,0,0,0.6)"/>
-            <circle cx="60" cy="36" r="24" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+            <path d="M 10 36 C 30 10, 60 60, 110 36" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2"/>
+            <circle cx="60" cy="36" r="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+            <circle cx="60" cy="36" r="3" fill="rgba(255,255,255,0.8)"/>
+            <line x1="60" y1="36" x2="25" y2="22" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <circle cx="25" cy="22" r="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+            <circle cx="25" cy="22" r="1.5" fill="rgba(255,255,255,0.6)"/>
+            <line x1="60" y1="36" x2="95" y2="20" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <circle cx="95" cy="20" r="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+            <circle cx="95" cy="20" r="1.5" fill="rgba(255,255,255,0.6)"/>
+            <line x1="60" y1="36" x2="35" y2="55" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <circle cx="35" cy="55" r="5" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+            <circle cx="35" cy="55" r="2" fill="rgba(255,255,255,0.7)"/>
+            <circle cx="60" cy="36" r="24" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name" style="color:#000;">Pan India</div><div class="city-tag" style="color:#555;">Remote • All States</div></div>
+        <div><div class="city-name">Pan India</div><div class="city-tag">Remote • All States</div></div>
       </div>
 
     </div>
   </div>
 </section>
 
-<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
+<div class="wrap"><hr></div>
 
-<!-- ─── WHY CHOOSE ─── (Black) -->
-<section class="sec reveal-section" style="background:#000;">
+<!-- ─── WHY CHOOSE ─── (White) -->
+<section class="sec reveal-section bg-white" style="background:#fff;">
   <div class="wrap">
-    <div class="sec-title">Why Choose Me</div>
-    <p class="sec-sub">Experience structured and compliant business growth with a dedicated corporate tax advisor.</p>
+    <div class="sec-title" style="color:#000;">Why Choose Me</div>
+    <p class="sec-sub" style="color:#333;">Experience structured and compliant business growth with a dedicated corporate tax advisor.</p>
     <div class="values-grid reveal-stagger">
       <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div class="val-title">Structured Growth</div><div class="val-desc">Structured and compliant business growth solutions. No regulatory surprises, just reliable support.</div></div>
       <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z"/></svg></div><div class="val-title">Fast Turnaround</div><div class="val-desc">Efficient processes mean faster compliance. Most filings completed within 24–48 hours.</div></div>
@@ -1803,7 +1803,7 @@ $(function(){
   </div>
 </section>
 
-<div class="wrap"><hr></div>
+<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
 
 <!-- ── CTA (Black) ── -->
 <section class="cta reveal" style="background:#000;">
