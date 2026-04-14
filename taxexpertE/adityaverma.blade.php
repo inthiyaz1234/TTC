@@ -424,8 +424,9 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .about-toggle{margin-top:12px;font-size:12px;font-weight:700;color:#6ea8ff;cursor:pointer;transition:opacity .2s ease}
 .about-toggle:hover{opacity:0.7}
 
-.sec{padding:56px 0}
-.sec-sm{padding:40px 0}
+/* ── FIX 1: Reduced desktop section padding ── */
+.sec{padding:32px 0}
+.sec-sm{padding:24px 0}
 @media(max-width:768px){.sec{padding:2px 0}.sec-sm{padding:1px 0}}
 
 /* ─── SCROLL REVEAL ─── */
@@ -525,10 +526,24 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   display:none;text-align:center;padding:40px 20px;
   color:rgba(255,255,255,0.35);font-size:13px;font-family:'Montserrat',sans-serif;
 }
+
+/* ── FIX 3: Mobile filter pills — horizontal scroll, no wrap ── */
 @media(max-width:768px){
-  .ttc-filter-chip{font-size:10px;padding:5px 12px}
-  #ttc-filter-chips{gap:6px}
+  .ttc-filter-chip{font-size:10px;padding:5px 13px;flex-shrink:0}
+  #ttc-filter-chips{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding-bottom:6px;
+    gap:7px;
+    /* Fade edges to hint scrollability */
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 5%,#000 90%,transparent 100%);
+    mask-image:linear-gradient(to right,transparent 0%,#000 5%,#000 90%,transparent 100%);
+  }
+  #ttc-filter-chips::-webkit-scrollbar{display:none}
   .ttc-filter-quote{font-size:11px}
+  #ttc-filter-wrap{margin-bottom:20px}
 }
 
 /* ─── SERVICES GRID ─── */
@@ -980,10 +995,11 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <div class="wrap"><hr></div>
 
 {{-- ==================== TAX SERVICES CAROUSEL ==================== --}}
-<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;padding:56px 0;width:100%;box-sizing:border-box;">
+<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;width:100%;box-sizing:border-box;">
 
   <style>
-    #tax-services-section { width:100%;padding:28px 0; }
+    /* ── FIX 1: Reduced desktop padding for tax services section ── */
+    #tax-services-section { width:100%;padding:32px 0; }
     #tax-services-section .section-header { margin-bottom:1px; }
     #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#ffffff;margin:0 0 1px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
     #tax-services-section .section-subtitle { font-size:14px;color:rgba(255,255,255,0.75);font-weight:400;line-height:1.6;margin:0;max-width:600px;font-family:'Montserrat',sans-serif; }
@@ -1009,6 +1025,19 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     #tax-services-section .ttc-tab-body::-webkit-scrollbar { width:2px; }
     #tax-services-section .ttc-tab-body::-webkit-scrollbar-track { background:transparent; }
     #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08);border-radius:99px; }
+
+    /* ── FIX 2: Tab pill container — overflow hidden so "Docs" button never bleeds ── */
+    .ttc-tab-pills {
+      display:flex;
+      gap:3px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:999px;
+      padding:3px;
+      margin-bottom:7px;
+      overflow:hidden; /* prevents any child from bleeding outside the rounded border */
+      box-sizing:border-box;
+    }
 
     /* ── CHANGE 4: Filter UI styles (inside section for specificity) ── */
     #ttc-filter-wrap { margin-bottom:28px; }
@@ -1037,11 +1066,24 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       color:rgba(255,255,255,0.3);font-size:13px;
       font-family:'Montserrat',sans-serif;letter-spacing:0.02em;
     }
+
+    /* ── FIX 3: Mobile filter pills — horizontal scroll inside section ── */
     @media(max-width:768px){
-      .ttc-filter-chip{font-size:10px;padding:5px 12px}
-      #ttc-filter-chips{gap:6px}
+      .ttc-filter-chip{font-size:10px;padding:5px 13px;flex-shrink:0}
+      #ttc-filter-chips{
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+        padding-bottom:6px;
+        gap:7px;
+        -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 6%,#000 90%,transparent 100%);
+        mask-image:linear-gradient(to right,transparent 0%,#000 6%,#000 90%,transparent 100%);
+      }
+      #ttc-filter-chips::-webkit-scrollbar{display:none}
       .ttc-filter-quote{font-size:11px}
       #ttc-filter-wrap{margin-bottom:20px}
+      #tax-services-section{padding:20px 0}
     }
   </style>
 
@@ -1221,10 +1263,11 @@ function buildCard(s,idx){
 
     '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
 
-    '<div style="display:flex;gap:3px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:3px;margin-bottom:7px;">'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Included</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Not Included</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;">Documents</button>'+
+    /* ── FIX 2: Tab pill row — use .ttc-tab-pills class (overflow:hidden keeps Docs inside border) ── */
+    '<div class="ttc-tab-pills">'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;min-width:0;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;min-width:0;">Excluded</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;min-width:0;">Docs</button>'+
     '</div>'+
 
     '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent;">'+
@@ -1233,7 +1276,6 @@ function buildCard(s,idx){
       '<ul id="'+uid+'-doc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.doc,'doc')+'</ul>'+
     '</div>'+
 
-    /* ── CHANGE 4: CTA button — overflow fix with box-sizing & overflow:hidden ── */
     '<div style="margin-top:8px;width:100%;box-sizing:border-box;">'+
       '<a href="'+s.link+'" style="display:block;width:100%;max-width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 8px;font-size:11px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"'+
         ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
