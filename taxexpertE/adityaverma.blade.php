@@ -427,7 +427,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 /* ── FIX 1: Reduced desktop section padding ── */
 .sec{padding:32px 0}
 .sec-sm{padding:24px 0}
-@media(max-width:768px){.sec{padding:2px 0}.sec-sm{padding:1px 0}}
+@media(max-width:768px){.sec{padding:10px 0}.sec-sm{padding:1px 0}}
 
 /* ─── SCROLL REVEAL ─── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
