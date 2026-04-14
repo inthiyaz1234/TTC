@@ -166,6 +166,24 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 }
 .btn-callback:active{transform:scale(0.96)}
 
+/* ── CTA HIRE BUTTON — always shows inverted style, no hover change ── */
+.btn-cta-hire{
+  background:#000 !important;
+  color:#fff !important;
+  border:1.5px solid rgba(255,255,255,0.5) !important;
+  box-shadow:0 8px 28px rgba(255,255,255,0.08),0 0 0 1px rgba(255,255,255,0.12) !important;
+}
+.btn-cta-hire:hover{
+  background:#000 !important;
+  color:#fff !important;
+  border-color:rgba(255,255,255,0.5) !important;
+  transform:none !important;
+  box-shadow:0 8px 28px rgba(255,255,255,0.08),0 0 0 1px rgba(255,255,255,0.12) !important;
+}
+.btn-cta-hire:active{transform:scale(0.96) !important}
+.btn-cta-hire::after{display:none !important}
+.btn-cta-hire .btn-arrow{transform:translateX(0) !important}
+
 .card{
   background:var(--card);border:1px solid var(--border);
   border-radius:var(--r-lg);padding:28px;
@@ -537,7 +555,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     scrollbar-width:none;
     padding-bottom:6px;
     gap:7px;
-    /* Fade edges to hint scrollability */
     -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 5%,#000 90%,transparent 100%);
     mask-image:linear-gradient(to right,transparent 0%,#000 5%,#000 90%,transparent 100%);
   }
@@ -774,7 +791,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .contact-item:hover{border-color:rgba(255,255,255,0.2);transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.4)}
 .contact-icon{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease)}
 .contact-item:hover .contact-icon{transform:scale(1.1)}
-.contact-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:1.5}
+.contact-icon svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.5}
 .contact-lbl{font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:2px}
 .contact-val{font-size:13px;color:#fff;font-weight:600}
 @media(max-width:768px){
@@ -998,7 +1015,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;width:100%;box-sizing:border-box;">
 
   <style>
-    /* ── FIX 1: Reduced desktop padding for tax services section ── */
     #tax-services-section { width:100%;padding:32px 0; }
     #tax-services-section .section-header { margin-bottom:1px; }
     #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#ffffff;margin:0 0 1px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
@@ -1026,7 +1042,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     #tax-services-section .ttc-tab-body::-webkit-scrollbar-track { background:transparent; }
     #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08);border-radius:99px; }
 
-    /* ── FIX 2: Tab pill container — overflow hidden so "Docs" button never bleeds ── */
+    /* ── Tab pill container ── */
     .ttc-tab-pills {
       display:flex;
       gap:3px;
@@ -1035,11 +1051,42 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       border-radius:999px;
       padding:3px;
       margin-bottom:7px;
-      overflow:hidden; /* prevents any child from bleeding outside the rounded border */
+      overflow:hidden;
+      box-sizing:border-box;
+      width:100%;
+    }
+    .ttc-tab-pills button {
+      flex:1;
+      min-width:0;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
       box-sizing:border-box;
     }
 
-    /* ── CHANGE 4: Filter UI styles (inside section for specificity) ── */
+    /* ── Mobile: full-width card fix ── */
+    @media(max-width:768px){
+      #tax-services-section { padding:20px 0; }
+      #ttc-slider .owl-item { padding:0 !important; }
+      #ttc-slider .owl-item > div,
+      #ttc-slider .ttc-card-wrap {
+        width:100% !important;
+        min-width:0 !important;
+        box-sizing:border-box !important;
+      }
+      /* Ensure tab buttons fit perfectly on narrow screens */
+      .ttc-tab-pills {
+        gap:2px;
+        padding:2px;
+      }
+      .ttc-tab-pills button {
+        font-size:9px !important;
+        padding:4px 3px !important;
+        letter-spacing:0 !important;
+      }
+    }
+
+    /* ── Filter UI styles ── */
     #ttc-filter-wrap { margin-bottom:28px; }
     .ttc-filter-quote {
       font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);
@@ -1067,7 +1114,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       font-family:'Montserrat',sans-serif;letter-spacing:0.02em;
     }
 
-    /* ── FIX 3: Mobile filter pills — horizontal scroll inside section ── */
+    /* Mobile filter pills — horizontal scroll */
     @media(max-width:768px){
       .ttc-filter-chip{font-size:10px;padding:5px 13px;flex-shrink:0}
       #ttc-filter-chips{
@@ -1083,7 +1130,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       #ttc-filter-chips::-webkit-scrollbar{display:none}
       .ttc-filter-quote{font-size:11px}
       #ttc-filter-wrap{margin-bottom:20px}
-      #tax-services-section{padding:20px 0}
     }
   </style>
 
@@ -1096,7 +1142,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       </div>
     </div>
 
-    <!-- ── CHANGE 4: Filter UI ── -->
     <div id="ttc-filter-wrap">
       <div class="ttc-filter-quote">Find the right service — filter by your business need</div>
       <div id="ttc-filter-chips"></div>
@@ -1114,11 +1159,9 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <script>
 (function(){
 
-/* ── CHANGE 4: Filter state ── */
 var FILTER_OPTS = ['itr filing','gst','startups','business','compliance','incometax','audit','nri tax','tax planning'];
 var activeFilters = [];
 
-/* ── SERVICE DATA with categories ── */
 var S = [
   {n:"Private Limited Company Registration", sf:"Startups & founders", el:"Minimum 2 directors required", p:14999, m:25000, t:"7–10 Working Days", cta:"Start Company",
    link:"https://thetaxcompany.in/servicedetail/private-limited-company-registration",
@@ -1219,7 +1262,6 @@ var S = [
    doc:["Business idea","Founder details","Market data","Financial inputs","Strategy notes"]}
 ];
 
-/* ── HELPERS ── */
 function fmt(n){ return '₹'+n.toLocaleString('en-IN'); }
 function pct(s){ return Math.round((s.m-s.p)/s.m*100); }
 
@@ -1238,7 +1280,7 @@ function listRows(arr,type){
 function buildCard(s,idx){
   var uid = 'ttc'+idx;
   var disc = pct(s);
-  return '<div style="width:100%;display:flex;">'+
+  return '<div style="width:100%;display:flex;box-sizing:border-box;">'+
     '<div class="ttc-card-wrap" style="background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;"'+
       ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(255,255,255,0.16)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.6)\';"'+
       ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(255,255,255,0.08)\';this.style.boxShadow=\'none\';">'+
@@ -1263,11 +1305,10 @@ function buildCard(s,idx){
 
     '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
 
-    /* ── FIX 2: Tab pill row — use .ttc-tab-pills class (overflow:hidden keeps Docs inside border) ── */
     '<div class="ttc-tab-pills">'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;min-width:0;">Included</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;min-width:0;">Excluded</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;min-width:0;">Docs</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Excluded</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Docs</button>'+
     '</div>'+
 
     '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent;">'+
@@ -1287,7 +1328,6 @@ function buildCard(s,idx){
   '</div></div>';
 }
 
-/* ── CHANGE 4: Filter logic — rebuild carousel on filter change ── */
 function getFilteredServices(){
   if(activeFilters.length===0) return S;
   return S.filter(function(s){
@@ -1332,10 +1372,15 @@ function initOrRebuildOwl(data){
   $slider.html(data.map(function(s,i){ return buildCard(s,i); }).join(''));
 
   $slider.owlCarousel({
-    loop:false,margin:20,nav:true,dots:true,autoHeight:false,
+    loop:false,nav:true,dots:true,autoHeight:false,
     navText:['&#8592;','&#8594;'],
     autoplay:true,autoplayTimeout:3000,autoplayHoverPause:true,
-    responsive:{0:{items:1},600:{items:2},1000:{items:5}}
+    /* ── Mobile: margin 0 so card fills full width; desktop keeps margin 20 ── */
+    responsive:{
+      0:{items:1,margin:0},
+      600:{items:2,margin:16},
+      1000:{items:5,margin:20}
+    }
   });
   owlInitialized = true;
 
@@ -1357,7 +1402,6 @@ window.ttcToggleFilter = function(f){
   initOrRebuildOwl(getFilteredServices());
 };
 
-/* tab switching */
 $(document).on('click','.ttc-btn',function(){
   var uid = $(this).data('uid');
   var tab = $(this).data('tab');
@@ -1369,7 +1413,6 @@ $(document).on('click','.ttc-btn',function(){
   $('#'+uid+'-'+tab).show();
 });
 
-/* ── INIT on DOM ready ── */
 $(function(){
   renderFilterChips();
   initOrRebuildOwl(S);
@@ -1386,7 +1429,6 @@ $(function(){
     <div class="sec-title">Who I Serve</div>
     <p class="sec-sub">Specialized corporate tax and compliance support for businesses at every stage of growth.</p>
 
-    <!-- ── CHANGE 5: Remove tap-card class from industry cards (mobile static) ── -->
     <div class="industry-grid reveal-stagger">
 
       <div class="ind-card">
@@ -1580,13 +1622,13 @@ $(function(){
 
 <div class="wrap"><hr></div>
 
-<!-- ── CHANGE 6: CTA — "Hire Our Tax Expert", remove Request Callback ── -->
+<!-- ── CTA — btn-cta-hire class applied for permanent inverted style ── -->
 <section class="cta reveal">
   <div class="wrap">
     <h2>Ready to grow<br>your business?</h2>
     <p>Whether you're a startup, mid-size company, or growing business — Tax expert Aditya Verma is here to help.</p>
     <div class="cta-btns">
-      <a href="{{ route('boc.step1', ['source' => 'taxexpert-adityaverma-cta']) }}" class="btn btn-primary">
+      <a href="{{ route('boc.step1', ['source' => 'taxexpert-adityaverma-cta']) }}" class="btn btn-primary btn-cta-hire">
         Hire Our Tax Expert
         <svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -1596,7 +1638,7 @@ $(function(){
 
 <div class="wrap"><hr></div>
 
-<!-- ── CHANGE 7: Contact — only Email and Phone ── -->
+<!-- ── Contact ── -->
 <section class="sec reveal-section" id="contact">
   <div class="wrap">
     <div class="sec-title">Get In Touch</div>
@@ -1754,7 +1796,6 @@ function toggleAbout(){
     if(tapListenersAttached) return;
     tapListenersAttached=true;
     document.querySelectorAll('.tap-card').forEach(function(card){
-      /* ── CHANGE 5: Skip industry cards — they are static ── */
       if(card.closest('.industry-grid')) return;
       card.addEventListener('click',handleTap);
     });
