@@ -1,3 +1,4 @@
+
 @extends('front')
 @section('content')
 <meta charset="UTF-8">
@@ -1065,26 +1066,39 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     }
 
     /* ── Mobile: full-width card fix ── */
-    @media(max-width:768px){
-      #tax-services-section { padding:20px 0; }
-      #ttc-slider .owl-item { padding:0 !important; }
-      #ttc-slider .owl-item > div,
-      #ttc-slider .ttc-card-wrap {
-        width:100% !important;
-        min-width:0 !important;
-        box-sizing:border-box !important;
-      }
-      /* Ensure tab buttons fit perfectly on narrow screens */
-      .ttc-tab-pills {
-        gap:2px;
-        padding:2px;
-      }
-      .ttc-tab-pills button {
-        font-size:9px !important;
-        padding:4px 3px !important;
-        letter-spacing:0 !important;
-      }
-    }
+@media(max-width:768px){
+
+  #tax-services-section { padding:20px 0; }
+
+  /* 🔥 KEY CHANGE: give breathing space to slider */
+  #ttc-slider .owl-stage-outer{
+    overflow: visible !important;
+  }
+
+  /* 🔥 Center alignment */
+  #ttc-slider .owl-stage{
+    display:flex !important;
+    align-items:stretch;
+  }
+
+  /* 🔥 THIS CONTROLS CARD WIDTH */
+  #ttc-slider .owl-item{
+    display:flex;
+    justify-content:center; /* center card */
+  }
+
+  /* 🔥 THIS IS THE MAIN CHANGE */
+  #ttc-slider .owl-item > div{
+    width:75vw !important;   /* 75% of screen */
+    max-width:75vw !important;
+  }
+
+  /* Card should respect parent */
+  #ttc-slider .ttc-card-wrap{
+    width:100% !important;
+  }
+
+}
 
     /* ── Filter UI styles ── */
     #ttc-filter-wrap { margin-bottom:28px; }
@@ -1639,27 +1653,7 @@ $(function(){
 <div class="wrap"><hr></div>
 
 <!-- ── Contact ── -->
-<section class="sec reveal-section" id="contact">
-  <div class="wrap">
-    <div class="sec-title">Get In Touch</div>
-    <p class="sec-sub">Reach out for a free consultation. Typically responds within a few hours.</p>
-    <div class="contact-grid">
-      <div class="contact-info reveal-stagger">
 
-        <div class="contact-item" onclick="window.location.href='mailto:alerts@thetaxcompany.in'">
-          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div class="contact-lbl">Email</div><div class="contact-val">alerts@thetaxcompany.in</div></div>
-        </div>
-
-        <div class="contact-item" onclick="window.location.href='tel:+917032891111'">
-          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.1A16 16 0 0 0 14 15.08l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div><div class="contact-lbl">WhatsApp / Phone</div><div class="contact-val">+91 70328 11111</div></div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
 
 <div class="wrap"><hr></div>
 
