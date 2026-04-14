@@ -1,4 +1,3 @@
-
 @extends('front')
 @section('content')
 <meta charset="UTF-8">
@@ -31,6 +30,209 @@ body{font-family:'Montserrat',sans-serif;background:#000;color:#fff;-webkit-font
   --space-xs:8px;--space-sm:16px;--space-md:28px;--space-lg:56px;--space-xl:80px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Alternate section background classes */
+.bg-white {
+  background: #fff;
+  color: #000;
+}
+.bg-white .sec-title,
+.bg-white .sec-sub,
+.bg-white .about-title,
+.bg-white .about-text,
+.bg-white .exp-title,
+.bg-white .exp-desc,
+.bg-white .ind-title,
+.bg-white .ind-desc,
+.bg-white .city-name,
+.bg-white .city-tag,
+.bg-white .val-title,
+.bg-white .val-desc,
+.bg-white .feat-text,
+.bg-white .feat-sub,
+.bg-white .faq-q,
+.bg-white .faq-a,
+.bg-white .step-title,
+.bg-white .step-desc,
+.bg-white .service-title,
+.bg-white .card-back-title,
+.bg-white .card-back-desc {
+  color: #000;
+}
+.bg-white .sec-sub,
+.bg-white .exp-desc,
+.bg-white .ind-desc,
+.bg-white .city-tag,
+.bg-white .val-desc,
+.bg-white .feat-sub,
+.bg-white .faq-a,
+.bg-white .step-desc {
+  color: #333;
+}
+.bg-white .card,
+.bg-white .exp-card,
+.bg-white .ind-card,
+.bg-white .city-card,
+.bg-white .val-card,
+.bg-white .feat-item,
+.bg-white .service-main-card,
+.bg-white .process-step,
+.bg-white .hero-glass-card {
+  background: rgba(0,0,0,0.02);
+  border-color: rgba(0,0,0,0.1);
+}
+.bg-white .card:hover,
+.bg-white .exp-card:hover,
+.bg-white .ind-card:hover,
+.bg-white .city-card:hover,
+.bg-white .val-card:hover,
+.bg-white .feat-item:hover {
+  border-color: rgba(0,0,0,0.3);
+  box-shadow: 0 20px 48px rgba(0,0,0,.1);
+}
+.bg-white .exp-icon,
+.bg-white .val-icon,
+.bg-white .feat-icon,
+.bg-white .service-icon,
+.bg-white .step-num {
+  background: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.1);
+}
+.bg-white .exp-icon svg,
+.bg-white .val-icon svg,
+.bg-white .feat-icon svg,
+.bg-white .service-icon svg,
+.bg-white .step-icon svg {
+  stroke: #000;
+}
+.bg-white .step-num {
+  background: #000;
+  color: #fff;
+  box-shadow: 0 0 0 4px #fff, 0 0 0 5px rgba(0,0,0,0.1);
+}
+.bg-white .btn-secondary {
+  background: rgba(0,0,0,0.05);
+  color: #000;
+  border-color: rgba(0,0,0,0.2);
+}
+.bg-white .btn-secondary:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.bg-white .hero-pill,
+.bg-white .hero-bio-pill,
+.bg-white .badge {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.1);
+  color: #333;
+}
+.bg-white .hero-name {
+  background: linear-gradient(135deg,#000 30%,#555 55%,#000 70%,#888 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bg-white .hero-glass-card::before,
+.bg-white .hero-glass-card::after {
+  opacity: 0.3;
+}
+.bg-white .about-card {
+  border-color: rgba(0,0,0,0.2) !important;
+  box-shadow: 0 0 18px rgba(0,0,0,0.05) !important;
+}
+.bg-white .ttc-card-wrap {
+  background: #f5f5f5 !important;
+  border-color: rgba(0,0,0,0.1) !important;
+}
+.bg-white .ttc-card-wrap .ttc-tab-pills button {
+  color: #333;
+  background: rgba(0,0,0,0.05);
+}
+.bg-white .ttc-filter-chip {
+  background: rgba(0,0,0,0.03);
+  border-color: rgba(0,0,0,0.1);
+  color: #333;
+}
+.bg-white .ttc-filter-chip.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.bg-white .ttc-filter-quote {
+  color: #555;
+}
+.bg-white .ttc-filter-quote::before {
+  background: rgba(0,0,0,0.2);
+}
+.bg-white hr {
+  border-color: rgba(0,0,0,0.1);
+}
+.bg-white .faq-item {
+  border-color: rgba(0,0,0,0.1);
+}
+.bg-white .faq-toggle {
+  background: rgba(0,0,0,0.05);
+  color: #000;
+}
+.bg-white .contact-item {
+  background: rgba(0,0,0,0.02);
+  border-color: rgba(0,0,0,0.1);
+}
+.bg-white .contact-icon {
+  background: rgba(0,0,0,0.05);
+}
+.bg-white .contact-icon svg {
+  stroke: #000;
+}
+.bg-white .footer-link {
+  background: rgba(0,0,0,0.03);
+  border-color: rgba(0,0,0,0.1);
+  color: #333;
+}
+.bg-white .footer-link:hover {
+  border-color: #000;
+  color: #000;
+}
+.bg-white .footer-copy {
+  color: #999;
+  border-color: rgba(0,0,0,0.1);
+}
+.bg-white .btn-cta-hire {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #000 !important;
+}
+.bg-white .btn-primary {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.bg-white .btn-primary:hover {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #000 !important;
+}
+.bg-white .hero-trust {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(0,0,0,0.1);
+  color: #000;
+}
+.bg-white .trust-check {
+  background: #000;
+}
+.bg-white .trust-check svg {
+  stroke: #fff;
+}
+.bg-white .hero-metric {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(0,0,0,0.1);
+}
+.bg-white .hero-metric-val {
+  color: #000;
+}
+.bg-white .hero-metric-lbl {
+  color: #555;
 }
 
 .progress-bar{
@@ -97,7 +299,6 @@ body{font-family:'Montserrat',sans-serif;background:#000;color:#fff;-webkit-font
 @keyframes particleFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(-24px)}}
 @keyframes particleFloat3{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 
-/* ── CHANGE 1: Spacing — Desktop 15px, Mobile 8px ── */
 .wrap{max-width:1280px;margin:0 auto;padding:0 15px;position:relative;z-index:2}
 @media(max-width:768px){.wrap{padding:0 8px}}
 
@@ -113,7 +314,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 @keyframes pulseRing{0%{transform:scale(1);opacity:0.6}100%{transform:scale(2.2);opacity:0}}
 
-/* ─── BUTTONS ─── */
 .btn{
   display:inline-flex;align-items:center;gap:8px;
   padding:11px 24px;border-radius:var(--r-sm);
@@ -167,7 +367,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 }
 .btn-callback:active{transform:scale(0.96)}
 
-/* ── CTA HIRE BUTTON — always shows inverted style, no hover change ── */
 .btn-cta-hire{
   background:#000 !important;
   color:#fff !important;
@@ -208,7 +407,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .sec-sub{font-size:14px;color:var(--muted);margin-top:18px;line-height:1.7}
 @media(max-width:768px){.sec-title{font-size:22px}.sec-title::after{width:28px}}
 
-/* ─── HERO ─── */
 .hero{height:38vh;min-height:380px;max-height:460px;display:flex;align-items:center;padding:40px 0 0;position:relative;background:transparent}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:center;width:100%}
 .hero-content{display:flex;flex-direction:column;justify-content:center;max-width:580px}
@@ -420,7 +618,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .mobile-cta .btn{flex:1;padding:7px 6px;font-size:9.5px;border-radius:10px;justify-content:center;letter-spacing:0}
 }
 
-/* ── CHANGE 2: About — Glowing border + all text white ── */
 .about-card{
   padding:24px;border-radius:20px;
   border:1px solid rgba(255,255,255,0.22) !important;
@@ -443,12 +640,10 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .about-toggle{margin-top:12px;font-size:12px;font-weight:700;color:#6ea8ff;cursor:pointer;transition:opacity .2s ease}
 .about-toggle:hover{opacity:0.7}
 
-/* ── FIX 1: Reduced desktop section padding ── */
 .sec{padding:32px 0}
 .sec-sm{padding:24px 0}
 @media(max-width:768px){.sec{padding:10px 0}.sec-sm{padding:1px 0}}
 
-/* ─── SCROLL REVEAL ─── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-stagger > *{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
@@ -463,7 +658,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .reveal-section.visible .sec-title{opacity:1;transform:translateY(0)}
 .reveal-section.visible .sec-sub{opacity:1;transform:translateY(0)}
 
-/* ── CHANGE 3: Expertise Grid — Better card design, Mobile 2-col ── */
 .expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
 @media(max-width:768px){.expertise-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
 
@@ -500,7 +694,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .exp-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-.01em}
 .exp-desc{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.65}
 
-/* Mobile expertise card refinements */
 @media(max-width:768px){
   .exp-card{padding:16px 14px;min-height:110px}
   .exp-card .exp-desc{display:none}
@@ -512,7 +705,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .exp-card .exp-title{font-size:12px;font-weight:800;line-height:1.3}
 }
 
-/* ── CHANGE 4: Expert Service Plans — Filter chip styles ── */
 .ttc-filter-chip{
   display:inline-flex;align-items:center;
   padding:6px 16px;border-radius:999px;font-size:11px;font-weight:600;
@@ -546,7 +738,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   color:rgba(255,255,255,0.35);font-size:13px;font-family:'Montserrat',sans-serif;
 }
 
-/* ── FIX 3: Mobile filter pills — horizontal scroll, no wrap ── */
 @media(max-width:768px){
   .ttc-filter-chip{font-size:10px;padding:5px 13px;flex-shrink:0}
   #ttc-filter-chips{
@@ -564,7 +755,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   #ttc-filter-wrap{margin-bottom:20px}
 }
 
-/* ─── SERVICES GRID ─── */
 .services-clean{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
 .service-main-card{
   background:rgba(255,255,255,0.03);border:1px solid var(--border);
@@ -589,7 +779,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .service-title{font-size:12px}
 }
 
-/* ─── TAP-CARD SYSTEM ─── */
 .tap-card{transition:transform 0.22s var(--ease),border-color 0.22s var(--ease),background 0.22s var(--ease)}
 .tap-card:active{transform:scale(0.97)}
 
@@ -612,7 +801,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);pointer-events:none;
   }
 
-  /* ── CHANGE 5: Who I Serve — static on mobile (no tap expand) ── */
   .ind-card.tap-card{
     position:relative;overflow:hidden;min-height:auto;padding:14px;
     display:block !important;
@@ -631,11 +819,11 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
   .tap-card.active .card-front{opacity:0;transform:translateY(-6px);pointer-events:none}
   .tap-card.active .card-back{opacity:1;transform:translateY(0);pointer-events:auto}
-  /* But override for ind-card specifically */
+  
   .ind-card.tap-card.active .card-front{opacity:1 !important;transform:none !important;pointer-events:auto !important}
 
   .tap-card.active{border-color:rgba(255,255,255,0.3) !important;background:rgba(255,255,255,0.05) !important}
-  /* Reset active state for industry cards */
+  
   .ind-card.tap-card.active{border-color:rgba(255,255,255,0.12) !important;background:rgba(255,255,255,0.02) !important}
 
   .card-back-title{font-size:11px;font-weight:800;color:#fff;margin-bottom:5px;letter-spacing:.01em}
@@ -649,7 +837,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .card-front{display:contents}
 }
 
-/* ─── PROCESS ─── */
 .process-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:36px;position:relative}
 .process-grid::before{content:'';position:absolute;top:24px;left:5%;width:90%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),transparent)}
 .process-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px;position:relative;z-index:1}
@@ -675,11 +862,9 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .process-grid::before{display:none}
 }
 
-/* ── CHANGE 5: Who I Serve — Mobile 2-col layout ── */
 .industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
 @media(max-width:768px){
   .industry-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  /* Show ind-desc on mobile since no tap expand */
   .ind-card .ind-desc{display:block !important;font-size:10px;line-height:1.55;margin-top:4px}
   .ind-card .ind-title{font-size:13px}
   .ind-card .ind-icon-wrap svg{width:22px;height:22px}
@@ -704,7 +889,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .ind-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
 .ind-desc{font-size:12px;color:var(--muted);line-height:1.6}
 
-/* ─── CITIES ─── */
 .cities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2px}
 .city-card{
   border-radius:var(--r-md);padding:20px;border:1px solid var(--border);
@@ -721,7 +905,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .city-tag{font-size:10px;color:var(--muted);text-align:center;margin-top:3px;font-weight:500}
 @media(max-width:768px){.cities-grid{grid-template-columns:repeat(2,1fr);gap:10px}.city-card{min-height:110px}}
 
-/* ─── VALUES ─── */
 .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
 .val-card{
   background:rgba(255,255,255,0.02);border:1px solid var(--border);
@@ -739,7 +922,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .val-desc{font-size:12px;color:var(--muted);line-height:1.7}
 @media(max-width:768px){.values-grid{display:none}}
 
-/* ─── FEATURES ─── */
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
 .feat-item{
   background:rgba(255,255,255,0.02);border:1px solid var(--border);
@@ -754,7 +936,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .feat-sub{font-size:11px;color:var(--muted)}
 @media(max-width:768px){.features-grid{grid-template-columns:repeat(2,1fr)}}
 
-/* ─── CTA ─── */
 .cta{text-align:center;padding:72px 0}
 .cta h2{
   font-size:42px;font-weight:900;letter-spacing:-.025em;margin-bottom:12px;
@@ -767,7 +948,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 @media(max-width:768px){.cta{padding:15px 0}.cta h2{font-size:26px}}
 
-/* ─── FAQ ─── */
 .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
 .faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:14px;font-weight:600;color:#fff;gap:16px;transition:color .2s ease}
 .faq-q:hover{color:rgba(255,255,255,0.8)}
@@ -780,7 +960,6 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .footer-link{padding:7px 16px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:100px;font-size:11px;font-weight:500;color:var(--muted);text-decoration:none;transition:border-color .25s var(--ease),color .25s var(--ease),transform .25s var(--ease);display:inline-block}
 .footer-link:hover{border-color:#fff;color:#fff;transform:translateY(-2px)}
 
-/* ── CHANGE 7: Contact — keep only email & phone ── */
 .contact-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:32px}
 .contact-info{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .contact-item{
@@ -833,7 +1012,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div style="background:#000;min-height:100vh;position:relative;z-index:2">
 
-<!-- ─── HERO ─── -->
+<!-- ─── HERO ─── (Black) -->
 <section class="hero" id="heroSection">
   <div class="wrap">
     <div class="hero-grid">
@@ -920,26 +1099,26 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div class="wrap"><hr></div>
 
-<!-- ─── ABOUT ─── -->
-<section class="sec reveal">
+<!-- ─── ABOUT ─── (White) -->
+<section class="sec reveal bg-white" style="background:#fff;">
   <div class="wrap">
     <div class="card about-card">
-      <div class="about-title">About Me</div>
-      <div class="about-text collapsed" id="aboutText">
+      <div class="about-title" style="color:#000;">About Me</div>
+      <div class="about-text collapsed" id="aboutText" style="color:#000 !important;">
         Tax expert Aditya Verma is a dedicated Corporate Tax Advisor with 2+ years of experience in corporate taxation, compliance, and financial advisory for growing companies.
       </div>
-      <div class="about-text expanded" id="aboutFull" style="display:none;">
+      <div class="about-text expanded" id="aboutFull" style="display:none; color:#000 !important;">
         Tax expert Aditya Verma is a dedicated Corporate Tax Advisor with over 2 years of experience focused on corporate taxation, compliance, and financial advisory for growing companies. He specializes in helping startups and mid-size businesses navigate complex tax regulations with structured and compliant solutions. Fluent in English and Hindi, Aditya ensures clear communication and reliable support for business growth.
       </div>
-      <div class="about-toggle" onclick="toggleAbout()">Read More ▼</div>
+      <div class="about-toggle" onclick="toggleAbout()" style="color:#000;">Read More ▼</div>
     </div>
   </div>
 </section>
 
-<div class="wrap"><hr></div>
+<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
 
-<!-- ─── EXPERTISE ─── -->
-<section class="sec reveal-section" id="expertise">
+<!-- ─── EXPERTISE ─── (Black) -->
+<section class="sec reveal-section" id="expertise" style="background:#000;">
   <div class="wrap">
     <div class="sec-title">Areas of Expertise</div>
     <p class="sec-sub">Comprehensive corporate tax and compliance expertise tailored for startups and growing businesses.</p>
@@ -1013,13 +1192,13 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <div class="wrap"><hr></div>
 
 {{-- ==================== TAX SERVICES CAROUSEL ==================== --}}
-<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;width:100%;box-sizing:border-box;">
+<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#fff;width:100%;box-sizing:border-box;">
 
   <style>
     #tax-services-section { width:100%;padding:32px 0; }
     #tax-services-section .section-header { margin-bottom:1px; }
-    #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#ffffff;margin:0 0 1px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
-    #tax-services-section .section-subtitle { font-size:14px;color:rgba(255,255,255,0.75);font-weight:400;line-height:1.6;margin:0;max-width:600px;font-family:'Montserrat',sans-serif; }
+    #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#000;margin:0 0 1px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
+    #tax-services-section .section-subtitle { font-size:14px;color:rgba(0,0,0,0.75);font-weight:400;line-height:1.6;margin:0;max-width:600px;font-family:'Montserrat',sans-serif; }
     .web-only { display:block; }
     @media(max-width:768px){ .web-only{display:none} }
 
@@ -1031,24 +1210,23 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     #tax-services-section .ttc-card-wrap { height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:6px; }
 
     #tax-services-section .owl-nav { display:flex !important;align-items:center;justify-content:center;gap:6px;margin-top:20px !important; }
-    #tax-services-section .owl-prev,#tax-services-section .owl-next { width:23px !important;height:23px !important;background:rgba(255,255,255,0.05) !important;border:1px solid rgba(255,255,255,0.1) !important;border-radius:50% !important;display:flex !important;align-items:center !important;justify-content:center !important;color:#fff !important;font-size:10px !important;transition:all 0.25s ease !important;line-height:1 !important;margin:0 !important; }
-    #tax-services-section .owl-prev:hover,#tax-services-section .owl-next:hover { background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.25) !important; }
+    #tax-services-section .owl-prev,#tax-services-section .owl-next { width:23px !important;height:23px !important;background:rgba(0,0,0,0.05) !important;border:1px solid rgba(0,0,0,0.1) !important;border-radius:50% !important;display:flex !important;align-items:center !important;justify-content:center !important;color:#000 !important;font-size:10px !important;transition:all 0.25s ease !important;line-height:1 !important;margin:0 !important; }
+    #tax-services-section .owl-prev:hover,#tax-services-section .owl-next:hover { background:rgba(0,0,0,0.1) !important;border-color:rgba(0,0,0,0.25) !important; }
     #tax-services-section .owl-prev.disabled,#tax-services-section .owl-next.disabled { opacity:0.3;pointer-events:none; }
 
     #tax-services-section .owl-dots { display:flex !important;justify-content:center !important;gap:4px !important;margin-top:10px !important; }
-    #tax-services-section .owl-dot span { width:3px !important;height:3px !important;background:rgba(255,255,255,0.15) !important;border-radius:999px !important;transition:all 0.3s ease !important;margin:0 !important; }
-    #tax-services-section .owl-dot.active span { background:#fff !important;width:11px !important; }
+    #tax-services-section .owl-dot span { width:3px !important;height:3px !important;background:rgba(0,0,0,0.15) !important;border-radius:999px !important;transition:all 0.3s ease !important;margin:0 !important; }
+    #tax-services-section .owl-dot.active span { background:#000 !important;width:11px !important; }
 
     #tax-services-section .ttc-tab-body::-webkit-scrollbar { width:2px; }
     #tax-services-section .ttc-tab-body::-webkit-scrollbar-track { background:transparent; }
-    #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08);border-radius:99px; }
+    #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb { background:rgba(0,0,0,0.08);border-radius:99px; }
 
-    /* ── Tab pill container ── */
     .ttc-tab-pills {
       display:flex;
       gap:3px;
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(0,0,0,0.04);
+      border:1px solid rgba(0,0,0,0.08);
       border-radius:999px;
       padding:3px;
       margin-bottom:7px;
@@ -1065,70 +1243,62 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       box-sizing:border-box;
     }
 
-    /* ── Mobile: full-width card fix ── */
 @media(max-width:768px){
 
   #tax-services-section { padding:20px 0; }
 
-  /* 🔥 KEY CHANGE: give breathing space to slider */
   #ttc-slider .owl-stage-outer{
     overflow: visible !important;
   }
 
-  /* 🔥 Center alignment */
   #ttc-slider .owl-stage{
     display:flex !important;
     align-items:stretch;
   }
 
-  /* 🔥 THIS CONTROLS CARD WIDTH */
   #ttc-slider .owl-item{
     display:flex;
-    justify-content:center; /* center card */
+    justify-content:center;
   }
 
-  /* 🔥 THIS IS THE MAIN CHANGE */
   #ttc-slider .owl-item > div{
-    width:75vw !important;   /* 75% of screen */
+    width:75vw !important;
     max-width:75vw !important;
   }
 
-  /* Card should respect parent */
   #ttc-slider .ttc-card-wrap{
     width:100% !important;
   }
 
 }
 
-    /* ── Filter UI styles ── */
     #ttc-filter-wrap { margin-bottom:28px; }
     .ttc-filter-quote {
-      font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);
+      font-size:13px;font-style:italic;color:rgba(0,0,0,0.4);
       margin-bottom:14px;letter-spacing:0.01em;font-family:'Montserrat',sans-serif;
       display:flex;align-items:center;gap:10px;
     }
     .ttc-filter-quote::before {
       content:'';display:inline-block;width:28px;height:1px;
-      background:rgba(255,255,255,0.2);flex-shrink:0;
+      background:rgba(0,0,0,0.2);flex-shrink:0;
     }
     #ttc-filter-chips { display:flex;flex-wrap:wrap;gap:8px; }
     .ttc-filter-chip {
       display:inline-flex;align-items:center;
       padding:6px 16px;border-radius:999px;font-size:11px;font-weight:600;
-      cursor:pointer;border:1px solid rgba(255,255,255,0.14);
-      background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.5);
+      cursor:pointer;border:1px solid rgba(0,0,0,0.14);
+      background:rgba(0,0,0,0.04);color:rgba(0,0,0,0.5);
       font-family:'Montserrat',sans-serif;text-transform:capitalize;
       transition:all 0.2s ease;letter-spacing:0.02em;white-space:nowrap;
     }
-    .ttc-filter-chip:hover { border-color:rgba(255,255,255,0.3);color:#fff;background:rgba(255,255,255,0.08); }
-    .ttc-filter-chip.active { background:#fff;color:#000;border-color:#fff;box-shadow:0 0 14px rgba(255,255,255,0.15); }
+    .ttc-filter-chip:hover { border-color:rgba(0,0,0,0.3);color:#000;background:rgba(0,0,0,0.08); }
+    .ttc-filter-chip.active { background:#000;color:#fff;border-color:#000;box-shadow:0 0 14px rgba(0,0,0,0.15); }
     #ttc-no-results {
       display:none;text-align:center;padding:48px 20px;
-      color:rgba(255,255,255,0.3);font-size:13px;
+      color:rgba(0,0,0,0.3);font-size:13px;
       font-family:'Montserrat',sans-serif;letter-spacing:0.02em;
     }
 
-    /* Mobile filter pills — horizontal scroll */
     @media(max-width:768px){
       .ttc-filter-chip{font-size:10px;padding:5px 13px;flex-shrink:0}
       #ttc-filter-chips{
@@ -1282,8 +1452,8 @@ function pct(s){ return Math.round((s.m-s.p)/s.m*100); }
 function listRows(arr,type){
   var icon  = type==='inc'?'✔':type==='exc'?'✖':'📄';
   var ibg   = type==='inc'?'rgba(0,255,120,0.10)':type==='exc'?'rgba(255,0,0,0.10)':'rgba(120,120,255,0.10)';
-  var icol  = type==='inc'?'#00ff88':type==='exc'?'#ff4d4d':'#7a7aff';
-  var tcol  = type==='inc'?'#d6ffe6':type==='exc'?'#ffd6d6':'#d6d6ff';
+  var icol  = type==='inc'?'#00aa44':type==='exc'?'#cc3333':'#4444cc';
+  var tcol  = type==='inc'?'#004422':type==='exc'?'#442222':'#222244';
   return arr.map(function(item){
     return '<li style="display:flex;align-items:flex-start;gap:5px;margin-bottom:5px;font-size:10px;line-height:1.5;color:'+tcol+';font-family:\'Montserrat\',sans-serif;">'+
       '<span style="width:12px;height:12px;min-width:12px;border-radius:50%;background:'+ibg+';color:'+icol+';display:flex;align-items:center;justify-content:center;font-size:7px;margin-top:1px;flex-shrink:0;">'+icon+'</span>'+
@@ -1295,46 +1465,46 @@ function buildCard(s,idx){
   var uid = 'ttc'+idx;
   var disc = pct(s);
   return '<div style="width:100%;display:flex;box-sizing:border-box;">'+
-    '<div class="ttc-card-wrap" style="background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;"'+
-      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(255,255,255,0.16)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.6)\';"'+
-      ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(255,255,255,0.08)\';this.style.boxShadow=\'none\';">'+
+    '<div class="ttc-card-wrap" style="background:#f5f5f5;border:1px solid rgba(0,0,0,0.1);border-radius:10px;padding:12px;display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;font-family:\'Montserrat\',sans-serif;transition:transform 0.35s cubic-bezier(.23,1,.32,1),box-shadow 0.35s ease,border-color 0.3s ease;cursor:default;position:relative;"'+
+      ' onmouseenter="this.style.transform=\'translateY(-3px)\';this.style.borderColor=\'rgba(0,0,0,0.2)\';this.style.boxShadow=\'0 10px 30px rgba(0,0,0,0.1)\';"'+
+      ' onmouseleave="this.style.transform=\'translateY(0)\';this.style.borderColor=\'rgba(0,0,0,0.1)\';this.style.boxShadow=\'none\';">'+
 
-    '<div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);border-radius:999px;"></div>'+
+    '<div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,0.1),transparent);border-radius:999px;"></div>'+
 
     '<div style="margin-bottom:7px;">'+
-      '<span style="font-size:9px;color:rgba(255,255,255,0.6);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">Starting from</span>'+
+      '<span style="font-size:9px;color:rgba(0,0,0,0.6);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">Starting from</span>'+
       '<div style="display:flex;align-items:flex-end;gap:5px;flex-wrap:wrap;margin-bottom:2px;">'+
-        '<span style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1;font-family:\'Montserrat\',sans-serif;">'+fmt(s.p)+'</span>'+
-        '<span style="font-size:10px;color:rgba(255,255,255,0.5);text-decoration:line-through;font-weight:400;margin-bottom:2px;">'+fmt(s.m)+'</span>'+
-        '<span style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);font-size:9px;font-weight:700;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+disc+'% OFF</span>'+
+        '<span style="font-size:20px;font-weight:800;color:#000;letter-spacing:-0.02em;line-height:1;font-family:\'Montserrat\',sans-serif;">'+fmt(s.p)+'</span>'+
+        '<span style="font-size:10px;color:rgba(0,0,0,0.5);text-decoration:line-through;font-weight:400;margin-bottom:2px;">'+fmt(s.m)+'</span>'+
+        '<span style="display:inline-flex;align-items:center;background:rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.15);color:rgba(0,0,0,0.8);font-size:9px;font-weight:700;letter-spacing:0.04em;padding:1px 7px;border-radius:999px;margin-bottom:2px;font-family:\'Montserrat\',sans-serif;">'+disc+'% OFF</span>'+
       '</div>'+
-      '<span style="font-size:9px;color:rgba(255,255,255,0.5);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
+      '<span style="font-size:9px;color:rgba(0,0,0,0.5);font-family:\'Montserrat\',sans-serif;">+ GST applicable</span>'+
     '</div>'+
 
-    '<div style="margin-bottom:3px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Suitable for:</strong> '+s.sf+'</div>'+
-    '<div style="margin-bottom:4px;font-size:10px;color:rgba(255,255,255,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#fff;">Eligible for:</strong> <span style="color:rgba(255,255,255,0.55);font-style:italic;">'+s.el+'</span></div>'+
-    '<div style="margin-bottom:5px;font-size:9px;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
+    '<div style="margin-bottom:3px;font-size:10px;color:rgba(0,0,0,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#000;">Suitable for:</strong> '+s.sf+'</div>'+
+    '<div style="margin-bottom:4px;font-size:10px;color:rgba(0,0,0,0.75);font-family:\'Montserrat\',sans-serif;"><strong style="color:#000;">Eligible for:</strong> <span style="color:rgba(0,0,0,0.55);font-style:italic;">'+s.el+'</span></div>'+
+    '<div style="margin-bottom:5px;font-size:9px;color:rgba(0,0,0,0.6);font-weight:600;letter-spacing:0.04em;font-family:\'Montserrat\',sans-serif;">&#9201; '+s.t+'</div>'+
 
-    '<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent);margin:2px 0 7px;"></div>'+
+    '<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,0.07),transparent);margin:2px 0 7px;"></div>'+
 
-    '<div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
+    '<div style="font-size:13px;font-weight:700;color:#000;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.3;font-family:\'Montserrat\',sans-serif;">'+s.n+'</div>'+
 
     '<div class="ttc-tab-pills">'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Included</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Excluded</button>'+
-      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#888;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Docs</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="inc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#000;background:rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.18);border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Included</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="exc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#666;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Excluded</button>'+
+      '<button class="ttc-btn" data-uid="'+uid+'" data-tab="doc" style="flex:1;min-width:0;font-size:10px;font-weight:500;color:#666;background:transparent;border:1px solid transparent;border-radius:999px;padding:4px 5px;cursor:pointer;transition:all 0.25s;font-family:\'Montserrat\',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;">Docs</button>'+
     '</div>'+
 
-    '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent;">'+
+    '<div class="ttc-tab-body" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:100px;max-height:100px;scrollbar-width:thin;scrollbar-color:rgba(0,0,0,0.08) transparent;">'+
       '<ul id="'+uid+'-inc" style="list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.inc,'inc')+'</ul>'+
       '<ul id="'+uid+'-exc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.exc,'exc')+'</ul>'+
       '<ul id="'+uid+'-doc" style="display:none;list-style:none;padding:0 2px 0 0;margin:0;">'+listRows(s.doc,'doc')+'</ul>'+
     '</div>'+
 
     '<div style="margin-top:8px;width:100%;box-sizing:border-box;">'+
-      '<a href="'+s.link+'" style="display:block;width:100%;max-width:100%;background:#fff;color:#000;border:none;border-radius:999px;padding:7px 8px;font-size:11px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"'+
-        ' onmouseenter="this.style.background=\'#e8e8e8\';this.style.transform=\'translateY(-1px)\';"'+
-        ' onmouseleave="this.style.background=\'#fff\';this.style.transform=\'translateY(0)\';">'+
+      '<a href="'+s.link+'" style="display:block;width:100%;max-width:100%;background:#000;color:#fff;border:none;border-radius:999px;padding:7px 8px;font-size:11px;font-weight:700;text-align:center;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.25s ease,transform 0.2s ease;box-sizing:border-box;font-family:\'Montserrat\',sans-serif;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"'+
+        ' onmouseenter="this.style.background=\'#222\';this.style.transform=\'translateY(-1px)\';"'+
+        ' onmouseleave="this.style.background=\'#000\';this.style.transform=\'translateY(0)\';">'+
         s.cta+' &rarr;'+
       '</a>'+
     '</div>'+
@@ -1389,7 +1559,6 @@ function initOrRebuildOwl(data){
     loop:false,nav:true,dots:true,autoHeight:false,
     navText:['&#8592;','&#8594;'],
     autoplay:true,autoplayTimeout:3000,autoplayHoverPause:true,
-    /* ── Mobile: margin 0 so card fills full width; desktop keeps margin 20 ── */
     responsive:{
       0:{items:1,margin:0},
       600:{items:2,margin:16},
@@ -1421,7 +1590,7 @@ $(document).on('click','.ttc-btn',function(){
   var tab = $(this).data('tab');
   $('.ttc-btn[data-uid="'+uid+'"]').each(function(){
     var isActive = $(this).data('tab')===tab;
-    $(this).css({background:isActive?'rgba(255,255,255,0.08)':'transparent',color:isActive?'#fff':'#888',borderColor:isActive?'rgba(255,255,255,0.18)':'transparent'});
+    $(this).css({background:isActive?'rgba(0,0,0,0.08)':'transparent',color:isActive?'#000':'#666',borderColor:isActive?'rgba(0,0,0,0.18)':'transparent'});
   });
   $('#'+uid+'-inc,#'+uid+'-exc,#'+uid+'-doc').hide();
   $('#'+uid+'-'+tab).show();
@@ -1435,10 +1604,10 @@ $(function(){
 })();
 </script>
 
-<div class="wrap"><hr></div>
+<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
 
-<!-- ─── WHO I SERVE ─── -->
-<section class="sec reveal-section">
+<!-- ─── WHO I SERVE ─── (Black) -->
+<section class="sec reveal-section" style="background:#000;">
   <div class="wrap">
     <div class="sec-title">Who I Serve</div>
     <p class="sec-sub">Specialized corporate tax and compliance support for businesses at every stage of growth.</p>
@@ -1497,11 +1666,11 @@ $(function(){
 
 <div class="wrap"><hr></div>
 
-<!-- ─── CITIES ─── -->
-<section class="sec reveal-section">
+<!-- ─── CITIES ─── (White) -->
+<section class="sec reveal-section bg-white" style="background:#fff;">
   <div class="wrap">
-    <div class="sec-title">Cities Served</div>
-    <p class="sec-sub">Serving clients across major Indian cities and remote locations nationwide.</p>
+    <div class="sec-title" style="color:#000;">Cities Served</div>
+    <p class="sec-sub" style="color:#333;">Serving clients across major Indian cities and remote locations nationwide.</p>
     <div class="cities-grid reveal-stagger">
 
       <div class="city-card" style="background:rgba(79,125,243,0.06);border-color:rgba(79,125,243,0.15)">
@@ -1522,7 +1691,7 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(79,125,243,0.5)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name">Bengaluru</div><div class="city-tag">Tech Capital</div></div>
+        <div><div class="city-name" style="color:#000;">Bengaluru</div><div class="city-tag" style="color:#555;">Tech Capital</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.15)">
@@ -1539,7 +1708,7 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name">Hyderabad</div><div class="city-tag">City of Pearls</div></div>
+        <div><div class="city-name" style="color:#000;">Hyderabad</div><div class="city-tag" style="color:#555;">City of Pearls</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.15)">
@@ -1553,7 +1722,7 @@ $(function(){
             <path d="M 50 20 L 90 40 Q 70 30 50 20" fill="rgba(16,185,129,0.3)" stroke="rgba(16,185,129,0.6)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name">Kochi</div><div class="city-tag">Financial Hub</div></div>
+        <div><div class="city-name" style="color:#000;">Kochi</div><div class="city-tag" style="color:#555;">Financial Hub</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(59,130,246,0.06);border-color:rgba(59,130,246,0.15)">
@@ -1568,7 +1737,7 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name">Mumbai</div><div class="city-tag">Financial Capital</div></div>
+        <div><div class="city-name" style="color:#000;">Mumbai</div><div class="city-tag" style="color:#555;">Financial Capital</div></div>
       </div>
 
       <div class="city-card" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.15)">
@@ -1583,38 +1752,38 @@ $(function(){
             <line x1="0" y1="65" x2="120" y2="65" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name">Delhi NCR</div><div class="city-tag">National Capital</div></div>
+        <div><div class="city-name" style="color:#000;">Delhi NCR</div><div class="city-tag" style="color:#555;">National Capital</div></div>
       </div>
 
-      <div class="city-card" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.12)">
+      <div class="city-card" style="background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.1)">
         <div class="city-illustration">
           <svg viewBox="0 0 120 72" fill="none">
-            <path d="M 10 36 C 30 10, 60 60, 110 36" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 2"/>
-            <circle cx="60" cy="36" r="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-            <circle cx="60" cy="36" r="3" fill="rgba(255,255,255,0.8)"/>
-            <line x1="60" y1="36" x2="25" y2="22" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-            <circle cx="25" cy="22" r="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-            <circle cx="25" cy="22" r="1.5" fill="rgba(255,255,255,0.6)"/>
-            <line x1="60" y1="36" x2="95" y2="20" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-            <circle cx="95" cy="20" r="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-            <circle cx="95" cy="20" r="1.5" fill="rgba(255,255,255,0.6)"/>
-            <line x1="60" y1="36" x2="35" y2="55" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-            <circle cx="35" cy="55" r="5" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-            <circle cx="35" cy="55" r="2" fill="rgba(255,255,255,0.7)"/>
-            <circle cx="60" cy="36" r="24" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <path d="M 10 36 C 30 10, 60 60, 110 36" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="2" stroke-dasharray="4 2"/>
+            <circle cx="60" cy="36" r="8" fill="rgba(0,0,0,0.05)" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
+            <circle cx="60" cy="36" r="3" fill="rgba(0,0,0,0.6)"/>
+            <line x1="60" y1="36" x2="25" y2="22" stroke="rgba(0,0,0,0.2)" stroke-width="1.5"/>
+            <circle cx="25" cy="22" r="4" fill="rgba(0,0,0,0.05)" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
+            <circle cx="25" cy="22" r="1.5" fill="rgba(0,0,0,0.6)"/>
+            <line x1="60" y1="36" x2="95" y2="20" stroke="rgba(0,0,0,0.2)" stroke-width="1.5"/>
+            <circle cx="95" cy="20" r="4" fill="rgba(0,0,0,0.05)" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
+            <circle cx="95" cy="20" r="1.5" fill="rgba(0,0,0,0.6)"/>
+            <line x1="60" y1="36" x2="35" y2="55" stroke="rgba(0,0,0,0.2)" stroke-width="1.5"/>
+            <circle cx="35" cy="55" r="5" fill="rgba(0,0,0,0.05)" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
+            <circle cx="35" cy="55" r="2" fill="rgba(0,0,0,0.6)"/>
+            <circle cx="60" cy="36" r="24" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
           </svg>
         </div>
-        <div><div class="city-name">Pan India</div><div class="city-tag">Remote • All States</div></div>
+        <div><div class="city-name" style="color:#000;">Pan India</div><div class="city-tag" style="color:#555;">Remote • All States</div></div>
       </div>
 
     </div>
   </div>
 </section>
 
-<div class="wrap"><hr></div>
+<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
 
-<!-- ─── WHY CHOOSE ─── -->
-<section class="sec reveal-section">
+<!-- ─── WHY CHOOSE ─── (Black) -->
+<section class="sec reveal-section" style="background:#000;">
   <div class="wrap">
     <div class="sec-title">Why Choose Me</div>
     <p class="sec-sub">Experience structured and compliant business growth with a dedicated corporate tax advisor.</p>
@@ -1636,8 +1805,8 @@ $(function(){
 
 <div class="wrap"><hr></div>
 
-<!-- ── CTA — btn-cta-hire class applied for permanent inverted style ── -->
-<section class="cta reveal">
+<!-- ── CTA (Black) ── -->
+<section class="cta reveal" style="background:#000;">
   <div class="wrap">
     <h2>Ready to grow<br>your business?</h2>
     <p>Whether you're a startup, mid-size company, or growing business — Tax expert Aditya Verma is here to help.</p>
@@ -1652,22 +1821,17 @@ $(function(){
 
 <div class="wrap"><hr></div>
 
-<!-- ── Contact ── -->
-
-
-<div class="wrap"><hr></div>
-
-<!-- ─── FAQ ─── -->
-<section class="sec reveal-section">
+<!-- ─── FAQ ─── (White) -->
+<section class="sec reveal-section bg-white" style="background:#fff;">
   <div class="wrap">
-    <div class="sec-title">Frequently Asked Questions</div>
-    <p class="sec-sub">Common questions about working with Tax expert Aditya Verma.</p>
-    <div class="card reveal" style="margin-top:18px">
-      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What documents do I need for corporate tax filing?</span><span class="faq-toggle">+</span></div><div class="faq-a">For companies: audited financial statements, tax audit report, GST returns, TDS returns, and board meeting minutes. Aditya will send you a detailed checklist specific to your business.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>How long does corporate tax filing take?</span><span class="faq-toggle">+</span></div><div class="faq-a">Most corporate tax filings are completed within 5–7 business days of receiving all required documents. For complex cases, it may take up to 10 business days.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>Do you serve clients outside my city?</span><span class="faq-toggle">+</span></div><div class="faq-a">Absolutely. CA Aditya Verma provides 100% remote services across all 28 states and 8 Union Territories of India. Everything is handled digitally — documents via WhatsApp/email, consultations via call/video.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What ROC compliance services do you offer?</span><span class="faq-toggle">+</span></div><div class="faq-a">Aditya handles annual ROC filings, MCA compliance, director KYC, DIN activation, company annual returns, and other regulatory submissions.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What are your fees for corporate tax filing?</span><span class="faq-toggle">+</span></div><div class="faq-a">Fees are transparent and fixed based on the company size, turnover, and complexity. Contact Aditya for an exact quote based on your specific requirements — no hidden charges ever.</div></div>
+    <div class="sec-title" style="color:#000;">Frequently Asked Questions</div>
+    <p class="sec-sub" style="color:#333;">Common questions about working with Tax expert Aditya Verma.</p>
+    <div class="card reveal" style="margin-top:18px; background:rgba(0,0,0,0.02); border-color:rgba(0,0,0,0.1);">
+      <div class="faq-item" style="border-color:rgba(0,0,0,0.1);"><div class="faq-q" onclick="toggleFAQ(this)" style="color:#000;"><span>What documents do I need for corporate tax filing?</span><span class="faq-toggle" style="background:rgba(0,0,0,0.05); color:#000;">+</span></div><div class="faq-a" style="color:#333;">For companies: audited financial statements, tax audit report, GST returns, TDS returns, and board meeting minutes. Aditya will send you a detailed checklist specific to your business.</div></div>
+      <div class="faq-item" style="border-color:rgba(0,0,0,0.1);"><div class="faq-q" onclick="toggleFAQ(this)" style="color:#000;"><span>How long does corporate tax filing take?</span><span class="faq-toggle" style="background:rgba(0,0,0,0.05); color:#000;">+</span></div><div class="faq-a" style="color:#333;">Most corporate tax filings are completed within 5–7 business days of receiving all required documents. For complex cases, it may take up to 10 business days.</div></div>
+      <div class="faq-item" style="border-color:rgba(0,0,0,0.1);"><div class="faq-q" onclick="toggleFAQ(this)" style="color:#000;"><span>Do you serve clients outside my city?</span><span class="faq-toggle" style="background:rgba(0,0,0,0.05); color:#000;">+</span></div><div class="faq-a" style="color:#333;">Absolutely. CA Aditya Verma provides 100% remote services across all 28 states and 8 Union Territories of India. Everything is handled digitally — documents via WhatsApp/email, consultations via call/video.</div></div>
+      <div class="faq-item" style="border-color:rgba(0,0,0,0.1);"><div class="faq-q" onclick="toggleFAQ(this)" style="color:#000;"><span>What ROC compliance services do you offer?</span><span class="faq-toggle" style="background:rgba(0,0,0,0.05); color:#000;">+</span></div><div class="faq-a" style="color:#333;">Aditya handles annual ROC filings, MCA compliance, director KYC, DIN activation, company annual returns, and other regulatory submissions.</div></div>
+      <div class="faq-item" style="border-color:rgba(0,0,0,0.1);"><div class="faq-q" onclick="toggleFAQ(this)" style="color:#000;"><span>What are your fees for corporate tax filing?</span><span class="faq-toggle" style="background:rgba(0,0,0,0.05); color:#000;">+</span></div><div class="faq-a" style="color:#333;">Fees are transparent and fixed based on the company size, turnover, and complexity. Contact Aditya for an exact quote based on your specific requirements — no hidden charges ever.</div></div>
     </div>
   </div>
 </section>
@@ -1781,7 +1945,7 @@ function toggleAbout(){
   else{full.style.display='none';short.style.display='block';btn.innerHTML='Read More ▼'}
 }
 
-/* ─── TAP-TO-REVEAL (MOBILE — expertise & service cards only, NOT industry) ─── */
+/* ─── TAP-TO-REVEAL (MOBILE) ─── */
 (function(){
   var activeCard=null;
   var tapListenersAttached=false;
