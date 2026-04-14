@@ -1,3 +1,4 @@
+
 @extends('front')
 @section('content')
 <meta charset="UTF-8">
@@ -30,209 +31,6 @@ body{font-family:'Montserrat',sans-serif;background:#000;color:#fff;-webkit-font
   --space-xs:8px;--space-sm:16px;--space-md:28px;--space-lg:56px;--space-xl:80px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* Alternate section background classes */
-.bg-white {
-  background: #fff;
-  color: #000;
-}
-.bg-white .sec-title,
-.bg-white .sec-sub,
-.bg-white .about-title,
-.bg-white .about-text,
-.bg-white .exp-title,
-.bg-white .exp-desc,
-.bg-white .ind-title,
-.bg-white .ind-desc,
-.bg-white .city-name,
-.bg-white .city-tag,
-.bg-white .val-title,
-.bg-white .val-desc,
-.bg-white .feat-text,
-.bg-white .feat-sub,
-.bg-white .faq-q,
-.bg-white .faq-a,
-.bg-white .step-title,
-.bg-white .step-desc,
-.bg-white .service-title,
-.bg-white .card-back-title,
-.bg-white .card-back-desc {
-  color: #000;
-}
-.bg-white .sec-sub,
-.bg-white .exp-desc,
-.bg-white .ind-desc,
-.bg-white .city-tag,
-.bg-white .val-desc,
-.bg-white .feat-sub,
-.bg-white .faq-a,
-.bg-white .step-desc {
-  color: #333;
-}
-.bg-white .card,
-.bg-white .exp-card,
-.bg-white .ind-card,
-.bg-white .city-card,
-.bg-white .val-card,
-.bg-white .feat-item,
-.bg-white .service-main-card,
-.bg-white .process-step,
-.bg-white .hero-glass-card {
-  background: rgba(0,0,0,0.02);
-  border-color: rgba(0,0,0,0.1);
-}
-.bg-white .card:hover,
-.bg-white .exp-card:hover,
-.bg-white .ind-card:hover,
-.bg-white .city-card:hover,
-.bg-white .val-card:hover,
-.bg-white .feat-item:hover {
-  border-color: rgba(0,0,0,0.3);
-  box-shadow: 0 20px 48px rgba(0,0,0,.1);
-}
-.bg-white .exp-icon,
-.bg-white .val-icon,
-.bg-white .feat-icon,
-.bg-white .service-icon,
-.bg-white .step-num {
-  background: rgba(0,0,0,0.05);
-  border-color: rgba(0,0,0,0.1);
-}
-.bg-white .exp-icon svg,
-.bg-white .val-icon svg,
-.bg-white .feat-icon svg,
-.bg-white .service-icon svg,
-.bg-white .step-icon svg {
-  stroke: #000;
-}
-.bg-white .step-num {
-  background: #000;
-  color: #fff;
-  box-shadow: 0 0 0 4px #fff, 0 0 0 5px rgba(0,0,0,0.1);
-}
-.bg-white .btn-secondary {
-  background: rgba(0,0,0,0.05);
-  color: #000;
-  border-color: rgba(0,0,0,0.2);
-}
-.bg-white .btn-secondary:hover {
-  background: #000;
-  color: #fff;
-  border-color: #000;
-}
-.bg-white .hero-pill,
-.bg-white .hero-bio-pill,
-.bg-white .badge {
-  background: rgba(0,0,0,0.04);
-  border-color: rgba(0,0,0,0.1);
-  color: #333;
-}
-.bg-white .hero-name {
-  background: linear-gradient(135deg,#000 30%,#555 55%,#000 70%,#888 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.bg-white .hero-glass-card::before,
-.bg-white .hero-glass-card::after {
-  opacity: 0.3;
-}
-.bg-white .about-card {
-  border-color: rgba(0,0,0,0.2) !important;
-  box-shadow: 0 0 18px rgba(0,0,0,0.05) !important;
-}
-.bg-white .ttc-card-wrap {
-  background: #f5f5f5 !important;
-  border-color: rgba(0,0,0,0.1) !important;
-}
-.bg-white .ttc-card-wrap .ttc-tab-pills button {
-  color: #333;
-  background: rgba(0,0,0,0.05);
-}
-.bg-white .ttc-filter-chip {
-  background: rgba(0,0,0,0.03);
-  border-color: rgba(0,0,0,0.1);
-  color: #333;
-}
-.bg-white .ttc-filter-chip.active {
-  background: #000;
-  color: #fff;
-  border-color: #000;
-}
-.bg-white .ttc-filter-quote {
-  color: #555;
-}
-.bg-white .ttc-filter-quote::before {
-  background: rgba(0,0,0,0.2);
-}
-.bg-white hr {
-  border-color: rgba(0,0,0,0.1);
-}
-.bg-white .faq-item {
-  border-color: rgba(0,0,0,0.1);
-}
-.bg-white .faq-toggle {
-  background: rgba(0,0,0,0.05);
-  color: #000;
-}
-.bg-white .contact-item {
-  background: rgba(0,0,0,0.02);
-  border-color: rgba(0,0,0,0.1);
-}
-.bg-white .contact-icon {
-  background: rgba(0,0,0,0.05);
-}
-.bg-white .contact-icon svg {
-  stroke: #000;
-}
-.bg-white .footer-link {
-  background: rgba(0,0,0,0.03);
-  border-color: rgba(0,0,0,0.1);
-  color: #333;
-}
-.bg-white .footer-link:hover {
-  border-color: #000;
-  color: #000;
-}
-.bg-white .footer-copy {
-  color: #999;
-  border-color: rgba(0,0,0,0.1);
-}
-.bg-white .btn-cta-hire {
-  background: #000 !important;
-  color: #fff !important;
-  border-color: #000 !important;
-}
-.bg-white .btn-primary {
-  background: #000;
-  color: #fff;
-  border-color: #000;
-}
-.bg-white .btn-primary:hover {
-  background: #fff !important;
-  color: #000 !important;
-  border-color: #000 !important;
-}
-.bg-white .hero-trust {
-  background: rgba(255,255,255,0.9);
-  border-color: rgba(0,0,0,0.1);
-  color: #000;
-}
-.bg-white .trust-check {
-  background: #000;
-}
-.bg-white .trust-check svg {
-  stroke: #fff;
-}
-.bg-white .hero-metric {
-  background: rgba(255,255,255,0.9);
-  border-color: rgba(0,0,0,0.1);
-}
-.bg-white .hero-metric-val {
-  color: #000;
-}
-.bg-white .hero-metric-lbl {
-  color: #555;
 }
 
 .progress-bar{
@@ -299,6 +97,7 @@ body{font-family:'Montserrat',sans-serif;background:#000;color:#fff;-webkit-font
 @keyframes particleFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(-24px)}}
 @keyframes particleFloat3{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 
+/* ── CHANGE 1: Spacing — Desktop 15px, Mobile 8px ── */
 .wrap{max-width:1280px;margin:0 auto;padding:0 15px;position:relative;z-index:2}
 @media(max-width:768px){.wrap{padding:0 8px}}
 
@@ -314,6 +113,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 @keyframes pulseRing{0%{transform:scale(1);opacity:0.6}100%{transform:scale(2.2);opacity:0}}
 
+/* ─── BUTTONS ─── */
 .btn{
   display:inline-flex;align-items:center;gap:8px;
   padding:11px 24px;border-radius:var(--r-sm);
@@ -367,6 +167,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 }
 .btn-callback:active{transform:scale(0.96)}
 
+/* ── CTA HIRE BUTTON — always shows inverted style, no hover change ── */
 .btn-cta-hire{
   background:#000 !important;
   color:#fff !important;
@@ -407,6 +208,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .sec-sub{font-size:14px;color:var(--muted);margin-top:18px;line-height:1.7}
 @media(max-width:768px){.sec-title{font-size:22px}.sec-title::after{width:28px}}
 
+/* ─── HERO ─── */
 .hero{height:38vh;min-height:380px;max-height:460px;display:flex;align-items:center;padding:40px 0 0;position:relative;background:transparent}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:center;width:100%}
 .hero-content{display:flex;flex-direction:column;justify-content:center;max-width:580px}
@@ -618,6 +420,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .mobile-cta .btn{flex:1;padding:7px 6px;font-size:9.5px;border-radius:10px;justify-content:center;letter-spacing:0}
 }
 
+/* ── CHANGE 2: About — Glowing border + all text white ── */
 .about-card{
   padding:24px;border-radius:20px;
   border:1px solid rgba(255,255,255,0.22) !important;
@@ -640,10 +443,12 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .about-toggle{margin-top:12px;font-size:12px;font-weight:700;color:#6ea8ff;cursor:pointer;transition:opacity .2s ease}
 .about-toggle:hover{opacity:0.7}
 
+/* ── FIX 1: Reduced desktop section padding ── */
 .sec{padding:32px 0}
 .sec-sm{padding:24px 0}
 @media(max-width:768px){.sec{padding:10px 0}.sec-sm{padding:1px 0}}
 
+/* ─── SCROLL REVEAL ─── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-stagger > *{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
@@ -658,6 +463,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .reveal-section.visible .sec-title{opacity:1;transform:translateY(0)}
 .reveal-section.visible .sec-sub{opacity:1;transform:translateY(0)}
 
+/* ── CHANGE 3: Expertise Grid — Better card design, Mobile 2-col ── */
 .expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
 @media(max-width:768px){.expertise-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
 
@@ -694,6 +500,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .exp-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-.01em}
 .exp-desc{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.65}
 
+/* Mobile expertise card refinements */
 @media(max-width:768px){
   .exp-card{padding:16px 14px;min-height:110px}
   .exp-card .exp-desc{display:none}
@@ -705,6 +512,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .exp-card .exp-title{font-size:12px;font-weight:800;line-height:1.3}
 }
 
+/* ── CHANGE 4: Expert Service Plans — Filter chip styles ── */
 .ttc-filter-chip{
   display:inline-flex;align-items:center;
   padding:6px 16px;border-radius:999px;font-size:11px;font-weight:600;
@@ -738,6 +546,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   color:rgba(255,255,255,0.35);font-size:13px;font-family:'Montserrat',sans-serif;
 }
 
+/* ── FIX 3: Mobile filter pills — horizontal scroll, no wrap ── */
 @media(max-width:768px){
   .ttc-filter-chip{font-size:10px;padding:5px 13px;flex-shrink:0}
   #ttc-filter-chips{
@@ -755,6 +564,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   #ttc-filter-wrap{margin-bottom:20px}
 }
 
+/* ─── SERVICES GRID ─── */
 .services-clean{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
 .service-main-card{
   background:rgba(255,255,255,0.03);border:1px solid var(--border);
@@ -779,6 +589,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .service-title{font-size:12px}
 }
 
+/* ─── TAP-CARD SYSTEM ─── */
 .tap-card{transition:transform 0.22s var(--ease),border-color 0.22s var(--ease),background 0.22s var(--ease)}
 .tap-card:active{transform:scale(0.97)}
 
@@ -801,6 +612,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);pointer-events:none;
   }
 
+  /* ── CHANGE 5: Who I Serve — static on mobile (no tap expand) ── */
   .ind-card.tap-card{
     position:relative;overflow:hidden;min-height:auto;padding:14px;
     display:block !important;
@@ -819,11 +631,11 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
   .tap-card.active .card-front{opacity:0;transform:translateY(-6px);pointer-events:none}
   .tap-card.active .card-back{opacity:1;transform:translateY(0);pointer-events:auto}
-  
+  /* But override for ind-card specifically */
   .ind-card.tap-card.active .card-front{opacity:1 !important;transform:none !important;pointer-events:auto !important}
 
   .tap-card.active{border-color:rgba(255,255,255,0.3) !important;background:rgba(255,255,255,0.05) !important}
-  
+  /* Reset active state for industry cards */
   .ind-card.tap-card.active{border-color:rgba(255,255,255,0.12) !important;background:rgba(255,255,255,0.02) !important}
 
   .card-back-title{font-size:11px;font-weight:800;color:#fff;margin-bottom:5px;letter-spacing:.01em}
@@ -837,6 +649,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .card-front{display:contents}
 }
 
+/* ─── PROCESS ─── */
 .process-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:36px;position:relative}
 .process-grid::before{content:'';position:absolute;top:24px;left:5%;width:90%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),transparent)}
 .process-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px;position:relative;z-index:1}
@@ -862,9 +675,11 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   .process-grid::before{display:none}
 }
 
+/* ── CHANGE 5: Who I Serve — Mobile 2-col layout ── */
 .industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
 @media(max-width:768px){
   .industry-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  /* Show ind-desc on mobile since no tap expand */
   .ind-card .ind-desc{display:block !important;font-size:10px;line-height:1.55;margin-top:4px}
   .ind-card .ind-title{font-size:13px}
   .ind-card .ind-icon-wrap svg{width:22px;height:22px}
@@ -889,6 +704,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .ind-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
 .ind-desc{font-size:12px;color:var(--muted);line-height:1.6}
 
+/* ─── CITIES ─── */
 .cities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2px}
 .city-card{
   border-radius:var(--r-md);padding:20px;border:1px solid var(--border);
@@ -905,6 +721,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .city-tag{font-size:10px;color:var(--muted);text-align:center;margin-top:3px;font-weight:500}
 @media(max-width:768px){.cities-grid{grid-template-columns:repeat(2,1fr);gap:10px}.city-card{min-height:110px}}
 
+/* ─── VALUES ─── */
 .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
 .val-card{
   background:rgba(255,255,255,0.02);border:1px solid var(--border);
@@ -922,6 +739,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .val-desc{font-size:12px;color:var(--muted);line-height:1.7}
 @media(max-width:768px){.values-grid{display:none}}
 
+/* ─── FEATURES ─── */
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
 .feat-item{
   background:rgba(255,255,255,0.02);border:1px solid var(--border);
@@ -936,6 +754,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .feat-sub{font-size:11px;color:var(--muted)}
 @media(max-width:768px){.features-grid{grid-template-columns:repeat(2,1fr)}}
 
+/* ─── CTA ─── */
 .cta{text-align:center;padding:72px 0}
 .cta h2{
   font-size:42px;font-weight:900;letter-spacing:-.025em;margin-bottom:12px;
@@ -948,6 +767,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 @media(max-width:768px){.cta{padding:15px 0}.cta h2{font-size:26px}}
 
+/* ─── FAQ ─── */
 .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
 .faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:14px;font-weight:600;color:#fff;gap:16px;transition:color .2s ease}
 .faq-q:hover{color:rgba(255,255,255,0.8)}
@@ -960,6 +780,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .footer-link{padding:7px 16px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:100px;font-size:11px;font-weight:500;color:var(--muted);text-decoration:none;transition:border-color .25s var(--ease),color .25s var(--ease),transform .25s var(--ease);display:inline-block}
 .footer-link:hover{border-color:#fff;color:#fff;transform:translateY(-2px)}
 
+/* ── CHANGE 7: Contact — keep only email & phone ── */
 .contact-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:32px}
 .contact-info{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .contact-item{
@@ -1012,7 +833,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div style="background:#000;min-height:100vh;position:relative;z-index:2">
 
-<!-- ─── HERO ─── (Black) -->
+<!-- ─── HERO ─── -->
 <section class="hero" id="heroSection">
   <div class="wrap">
     <div class="hero-grid">
@@ -1099,8 +920,8 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 <div class="wrap"><hr></div>
 
-<!-- ─── ABOUT ─── (Black) -->
-<section class="sec reveal" style="background:#000;">
+<!-- ─── ABOUT ─── -->
+<section class="sec reveal">
   <div class="wrap">
     <div class="card about-card">
       <div class="about-title">About Me</div>
@@ -1115,13 +936,13 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   </div>
 </section>
 
-<div class="wrap"><hr style="border-color:rgba(255,255,255,0.1);"></div>
+<div class="wrap"><hr></div>
 
-<!-- ─── EXPERTISE ─── (White) -->
-<section class="sec reveal-section bg-white" style="background:#fff;">
+<!-- ─── EXPERTISE ─── -->
+<section class="sec reveal-section" id="expertise">
   <div class="wrap">
-    <div class="sec-title" style="color:#000;">Areas of Expertise</div>
-    <p class="sec-sub" style="color:#333;">Comprehensive corporate tax and compliance expertise tailored for startups and growing businesses.</p>
+    <div class="sec-title">Areas of Expertise</div>
+    <p class="sec-sub">Comprehensive corporate tax and compliance expertise tailored for startups and growing businesses.</p>
 
     <div class="expertise-grid reveal-stagger" style="margin-top:32px">
 
@@ -1189,15 +1010,15 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
   </div>
 </section>
 
-<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
+<div class="wrap"><hr></div>
 
 {{-- ==================== TAX SERVICES CAROUSEL ==================== --}}
-<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000;width:100%;box-sizing:border-box;">
+<section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;width:100%;box-sizing:border-box;">
 
   <style>
     #tax-services-section { width:100%;padding:32px 0; }
     #tax-services-section .section-header { margin-bottom:1px; }
-    #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#fff;margin:0 0 1px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
+    #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#ffffff;margin:0 0 1px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
     #tax-services-section .section-subtitle { font-size:14px;color:rgba(255,255,255,0.75);font-weight:400;line-height:1.6;margin:0;max-width:600px;font-family:'Montserrat',sans-serif; }
     .web-only { display:block; }
     @media(max-width:768px){ .web-only{display:none} }
@@ -1222,6 +1043,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
     #tax-services-section .ttc-tab-body::-webkit-scrollbar-track { background:transparent; }
     #tax-services-section .ttc-tab-body::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08);border-radius:99px; }
 
+    /* ── Tab pill container ── */
     .ttc-tab-pills {
       display:flex;
       gap:3px;
@@ -1243,35 +1065,42 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       box-sizing:border-box;
     }
 
+    /* ── Mobile: full-width card fix ── */
 @media(max-width:768px){
 
   #tax-services-section { padding:20px 0; }
 
+  /* 🔥 KEY CHANGE: give breathing space to slider */
   #ttc-slider .owl-stage-outer{
     overflow: visible !important;
   }
 
+  /* 🔥 Center alignment */
   #ttc-slider .owl-stage{
     display:flex !important;
     align-items:stretch;
   }
 
+  /* 🔥 THIS CONTROLS CARD WIDTH */
   #ttc-slider .owl-item{
     display:flex;
-    justify-content:center;
+    justify-content:center; /* center card */
   }
 
+  /* 🔥 THIS IS THE MAIN CHANGE */
   #ttc-slider .owl-item > div{
-    width:75vw !important;
+    width:75vw !important;   /* 75% of screen */
     max-width:75vw !important;
   }
 
+  /* Card should respect parent */
   #ttc-slider .ttc-card-wrap{
     width:100% !important;
   }
 
 }
 
+    /* ── Filter UI styles ── */
     #ttc-filter-wrap { margin-bottom:28px; }
     .ttc-filter-quote {
       font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);
@@ -1299,6 +1128,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
       font-family:'Montserrat',sans-serif;letter-spacing:0.02em;
     }
 
+    /* Mobile filter pills — horizontal scroll */
     @media(max-width:768px){
       .ttc-filter-chip{font-size:10px;padding:5px 13px;flex-shrink:0}
       #ttc-filter-chips{
@@ -1559,6 +1389,7 @@ function initOrRebuildOwl(data){
     loop:false,nav:true,dots:true,autoHeight:false,
     navText:['&#8592;','&#8594;'],
     autoplay:true,autoplayTimeout:3000,autoplayHoverPause:true,
+    /* ── Mobile: margin 0 so card fills full width; desktop keeps margin 20 ── */
     responsive:{
       0:{items:1,margin:0},
       600:{items:2,margin:16},
@@ -1604,19 +1435,19 @@ $(function(){
 })();
 </script>
 
-<div class="wrap"><hr style="border-color:rgba(255,255,255,0.1);"></div>
+<div class="wrap"><hr></div>
 
-<!-- ─── WHO I SERVE ─── (White) -->
-<section class="sec reveal-section bg-white" style="background:#fff;">
+<!-- ─── WHO I SERVE ─── -->
+<section class="sec reveal-section">
   <div class="wrap">
-    <div class="sec-title" style="color:#000;">Who I Serve</div>
-    <p class="sec-sub" style="color:#333;">Specialized corporate tax and compliance support for businesses at every stage of growth.</p>
+    <div class="sec-title">Who I Serve</div>
+    <p class="sec-sub">Specialized corporate tax and compliance support for businesses at every stage of growth.</p>
 
     <div class="industry-grid reveal-stagger">
 
       <div class="ind-card">
         <div class="ind-icon-wrap">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#000" fill="none" stroke-width="1.5">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
             <path d="M4 4h16v16H4z"/>
             <path d="M8 8h8M8 12h6M8 16h4"/>
           </svg>
@@ -1627,7 +1458,7 @@ $(function(){
 
       <div class="ind-card">
         <div class="ind-icon-wrap">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#000" fill="none" stroke-width="1.5">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
             <rect x="3" y="3" width="18" height="18" rx="2"/>
             <path d="M9 21V9h6v12"/>
           </svg>
@@ -1638,7 +1469,7 @@ $(function(){
 
       <div class="ind-card">
         <div class="ind-icon-wrap">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#000" fill="none" stroke-width="1.5">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
             <path d="M12 2v4M4 4l3 3M20 4l-3 3"/>
             <circle cx="12" cy="12" r="4"/>
             <path d="M2 20h20"/>
@@ -1650,7 +1481,7 @@ $(function(){
 
       <div class="ind-card">
         <div class="ind-icon-wrap">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#000" fill="none" stroke-width="1.5">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="#fff" fill="none" stroke-width="1.5">
             <path d="M3 21h18"/>
             <path d="M5 21V7l8-4v18"/>
             <path d="M19 21V11l-6-4"/>
@@ -1664,10 +1495,10 @@ $(function(){
   </div>
 </section>
 
-<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
+<div class="wrap"><hr></div>
 
-<!-- ─── CITIES ─── (Black) -->
-<section class="sec reveal-section" style="background:#000;">
+<!-- ─── CITIES ─── -->
+<section class="sec reveal-section">
   <div class="wrap">
     <div class="sec-title">Cities Served</div>
     <p class="sec-sub">Serving clients across major Indian cities and remote locations nationwide.</p>
@@ -1782,11 +1613,11 @@ $(function(){
 
 <div class="wrap"><hr></div>
 
-<!-- ─── WHY CHOOSE ─── (White) -->
-<section class="sec reveal-section bg-white" style="background:#fff;">
+<!-- ─── WHY CHOOSE ─── -->
+<section class="sec reveal-section">
   <div class="wrap">
-    <div class="sec-title" style="color:#000;">Why Choose Me</div>
-    <p class="sec-sub" style="color:#333;">Experience structured and compliant business growth with a dedicated corporate tax advisor.</p>
+    <div class="sec-title">Why Choose Me</div>
+    <p class="sec-sub">Experience structured and compliant business growth with a dedicated corporate tax advisor.</p>
     <div class="values-grid reveal-stagger">
       <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div class="val-title">Structured Growth</div><div class="val-desc">Structured and compliant business growth solutions. No regulatory surprises, just reliable support.</div></div>
       <div class="val-card"><div class="val-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z"/></svg></div><div class="val-title">Fast Turnaround</div><div class="val-desc">Efficient processes mean faster compliance. Most filings completed within 24–48 hours.</div></div>
@@ -1803,35 +1634,50 @@ $(function(){
   </div>
 </section>
 
-<div class="wrap"><hr style="border-color:rgba(0,0,0,0.1);"></div>
+<div class="wrap"><hr></div>
 
-<!-- ── CTA (Black) ── -->
-<section class="cta reveal" style="background:#000;">
-  <div class="wrap">
-    <h2>Ready to grow<br>your business?</h2>
-    <p>Whether you're a startup, mid-size company, or growing business — Tax expert Aditya Verma is here to help.</p>
-    <div class="cta-btns">
-      <a href="{{ route('boc.step1', ['source' => 'taxexpert-adityaverma-cta']) }}" class="btn btn-primary btn-cta-hire">
+<!-- ── CTA — btn-cta-hire class applied for permanent inverted style ── -->
+
+<section class="cta reveal" style="background:#000; padding: 80px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);">
+  <div class="wrap" style="max-width: 1280px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="font-size: 42px; font-weight: 900; letter-spacing: -0.025em; margin-bottom: 16px; color: #fff; line-height: 1.1;">
+      Ready to grow<br>your business?
+    </h2>
+    <p style="font-size: 16px; color: #ccc; max-width: 560px; margin: 0 auto 32px; line-height: 1.6; font-weight: 400;">
+      Whether you're a startup, mid-size company, or growing business — Tax expert Aditya Verma is here to help.
+    </p>
+    <div class="cta-btns" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="{{ route('boc.step1', ['source' => 'taxexpert-adityaverma-cta']) }}" 
+         class="btn btn-primary btn-cta-hire"
+         style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #000; padding: 14px 32px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; border: 2px solid #fff; transition: all 0.3s ease; cursor: pointer; letter-spacing: 0.5px;"
+         onmouseenter="this.style.background='#000'; this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.8)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'"
+         onmouseleave="this.style.background='#fff'; this.style.color='#000'; this.style.borderColor='#fff'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
         Hire Our Tax Expert
-        <svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg class="btn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s ease;">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
       </a>
     </div>
   </div>
 </section>
+<div class="wrap"><hr></div>
+
+<!-- ── Contact ── -->
+
 
 <div class="wrap"><hr></div>
 
-<!-- ─── FAQ ─── (White) -->
-<section class="sec reveal-section bg-white" style="background:#fff;">
+<!-- ─── FAQ ─── -->
+<section class="sec reveal-section">
   <div class="wrap">
-    <div class="sec-title" style="color:#000;">Frequently Asked Questions</div>
-    <p class="sec-sub" style="color:#333;">Common questions about working with Tax expert Aditya Verma.</p>
-    <div class="card reveal" style="margin-top:18px; background:rgba(0,0,0,0.02); border-color:rgba(0,0,0,0.1);">
-      <div class="faq-item" style="border-color:rgba(0,0,0,0.1);"><div class="faq-q" onclick="toggleFAQ(this)" style="color:#000;"><span>What documents do I need for corporate tax filing?</span><span class="faq-toggle" style="background:rgba(0,0,0,0.05); color:#000;">+</span></div><div class="faq-a" style="color:#333;">For companies: audited financial statements, tax audit report, GST returns, TDS returns, and board meeting minutes. Aditya will send you a detailed checklist specific to your business.</div></div>
-      <div class="faq-item" style="border-color:rgba(0,0,0,0.1);"><div class="faq-q" onclick="toggleFAQ(this)" style="color:#000;"><span>How long does corporate tax filing take?</span><span class="faq-toggle" style="background:rgba(0,0,0,0.05); color:#000;">+</span></div><div class="faq-a" style="color:#333;">Most corporate tax filings are completed within 5–7 business days of receiving all required documents. For complex cases, it may take up to 10 business days.</div></div>
-      <div class="faq-item" style="border-color:rgba(0,0,0,0.1);"><div class="faq-q" onclick="toggleFAQ(this)" style="color:#000;"><span>Do you serve clients outside my city?</span><span class="faq-toggle" style="background:rgba(0,0,0,0.05); color:#000;">+</span></div><div class="faq-a" style="color:#333;">Absolutely. CA Aditya Verma provides 100% remote services across all 28 states and 8 Union Territories of India. Everything is handled digitally — documents via WhatsApp/email, consultations via call/video.</div></div>
-      <div class="faq-item" style="border-color:rgba(0,0,0,0.1);"><div class="faq-q" onclick="toggleFAQ(this)" style="color:#000;"><span>What ROC compliance services do you offer?</span><span class="faq-toggle" style="background:rgba(0,0,0,0.05); color:#000;">+</span></div><div class="faq-a" style="color:#333;">Aditya handles annual ROC filings, MCA compliance, director KYC, DIN activation, company annual returns, and other regulatory submissions.</div></div>
-      <div class="faq-item" style="border-color:rgba(0,0,0,0.1);"><div class="faq-q" onclick="toggleFAQ(this)" style="color:#000;"><span>What are your fees for corporate tax filing?</span><span class="faq-toggle" style="background:rgba(0,0,0,0.05); color:#000;">+</span></div><div class="faq-a" style="color:#333;">Fees are transparent and fixed based on the company size, turnover, and complexity. Contact Aditya for an exact quote based on your specific requirements — no hidden charges ever.</div></div>
+    <div class="sec-title">Frequently Asked Questions</div>
+    <p class="sec-sub">Common questions about working with Tax expert Aditya Verma.</p>
+    <div class="card reveal" style="margin-top:18px">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What documents do I need for corporate tax filing?</span><span class="faq-toggle">+</span></div><div class="faq-a">For companies: audited financial statements, tax audit report, GST returns, TDS returns, and board meeting minutes. Aditya will send you a detailed checklist specific to your business.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>How long does corporate tax filing take?</span><span class="faq-toggle">+</span></div><div class="faq-a">Most corporate tax filings are completed within 5–7 business days of receiving all required documents. For complex cases, it may take up to 10 business days.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>Do you serve clients outside my city?</span><span class="faq-toggle">+</span></div><div class="faq-a">Absolutely. CA Aditya Verma provides 100% remote services across all 28 states and 8 Union Territories of India. Everything is handled digitally — documents via WhatsApp/email, consultations via call/video.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What ROC compliance services do you offer?</span><span class="faq-toggle">+</span></div><div class="faq-a">Aditya handles annual ROC filings, MCA compliance, director KYC, DIN activation, company annual returns, and other regulatory submissions.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What are your fees for corporate tax filing?</span><span class="faq-toggle">+</span></div><div class="faq-a">Fees are transparent and fixed based on the company size, turnover, and complexity. Contact Aditya for an exact quote based on your specific requirements — no hidden charges ever.</div></div>
     </div>
   </div>
 </section>
@@ -1945,7 +1791,7 @@ function toggleAbout(){
   else{full.style.display='none';short.style.display='block';btn.innerHTML='Read More ▼'}
 }
 
-/* ─── TAP-TO-REVEAL (MOBILE) ─── */
+/* ─── TAP-TO-REVEAL (MOBILE — expertise & service cards only, NOT industry) ─── */
 (function(){
   var activeCard=null;
   var tapListenersAttached=false;
