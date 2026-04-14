@@ -1638,34 +1638,157 @@ $(function(){
 
 <!-- ── CTA — btn-cta-hire class applied for permanent inverted style ── -->
 
-<section class="cta reveal" style="background:#000; padding: 80px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);">
-  <div class="wrap" style="max-width: 1280px; margin: 0 auto; padding: 0 20px;">
-    <h2 style="font-size: 42px; font-weight: 900; letter-spacing: -0.025em; margin-bottom: 16px; color: #fff; line-height: 1.1;">
-      Ready to grow<br>your business?
+
+<section id="dark-minimal-cta" style="background-color: #000000; padding: 80px 0; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; overflow: hidden;">
+  
+  <style>
+    /* Strict Black & White Premium Dark Theme */
+    #dark-minimal-cta .expert-cta-container {
+      max-width: 720px; 
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    #dark-minimal-cta .expert-cta-heading {
+      font-size: clamp(32px, 4.5vw, 44px);
+      font-weight: 800;
+      color: #ffffff; /* Crisp white heading */
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 16px 0; 
+    }
+
+    /* Minimalist underline highlight adapted for dark mode */
+    #dark-minimal-cta .highlight {
+      position: relative;
+      display: inline-block;
+    }
+    
+    #dark-minimal-cta .highlight::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: 2px;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.4); /* Soft white underline */
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+    }
+
+    #dark-minimal-cta.is-visible .highlight::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    #dark-minimal-cta .expert-cta-subtext {
+      font-size: 17px;
+      color: #a1a1aa; /* Light readable grey against black */
+      max-width: 520px;
+      margin: 0 auto 32px auto; 
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    #dark-minimal-cta .expert-cta-subtext strong {
+      color: #ffffff; /* Bright white for the name */
+      font-weight: 700;
+    }
+
+    /* High-contrast solid button */
+    #dark-minimal-cta .expert-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #ffffff; /* Solid white background */
+      color: #000000; /* Black text */
+      padding: 14px 36px;
+      border-radius: 4px; 
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      border: 1px solid #ffffff;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover state: inverts to black background with white text */
+    #dark-minimal-cta .expert-cta-btn:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    #dark-minimal-cta .expert-cta-btn svg {
+      transition: transform 0.3s ease;
+    }
+
+    #dark-minimal-cta .expert-cta-btn:hover svg {
+      transform: translateX(6px);
+    }
+
+    /* Reveal animations */
+    #dark-minimal-cta .reveal-elem {
+      opacity: 0;
+      transform: translateY(20px); 
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    #dark-minimal-cta .delay-1 { transition-delay: 0.1s; }
+    #dark-minimal-cta .delay-2 { transition-delay: 0.2s; }
+    #dark-minimal-cta .delay-3 { transition-delay: 0.3s; }
+
+    #dark-minimal-cta.is-visible .reveal-elem {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <div class="expert-cta-container">
+    
+    <h2 class="expert-cta-heading reveal-elem delay-1">
+      Ready to grow<br><span class="highlight">your business?</span>
     </h2>
-    <p style="font-size: 16px; color: #ccc; max-width: 560px; margin: 0 auto 32px; line-height: 1.6; font-weight: 400;">
-      Whether you're a startup, mid-size company, or growing business — Tax expert Aditya Verma is here to help.
+
+    <p class="expert-cta-subtext reveal-elem delay-2">
+      Whether you're a startup, mid-size company, or growing business — Tax expert <strong>Aditya Verma</strong> is here to help.
     </p>
-    <div class="cta-btns" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-      <a href="{{ route('boc.step1', ['source' => 'taxexpert-adityaverma-cta']) }}" 
-         class="btn btn-primary btn-cta-hire"
-         style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #000; padding: 14px 32px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; border: 2px solid #fff; transition: all 0.3s ease; cursor: pointer; letter-spacing: 0.5px;"
-         onmouseenter="this.style.background='#000'; this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.8)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'"
-         onmouseleave="this.style.background='#fff'; this.style.color='#000'; this.style.borderColor='#fff'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+
+    <div class="reveal-elem delay-3" style="display: flex; justify-content: center;">
+      <a href="{{ route('boc.step1', ['source' => 'taxexpert-adityaverma-cta']) }}" class="expert-cta-btn">
         Hire Our Tax Expert
-        <svg class="btn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s ease;">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </a>
     </div>
+
   </div>
+
+  <script>
+    (function() {
+      const ctaSection = document.getElementById('dark-minimal-cta');
+      if (!ctaSection) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(ctaSection);
+    })();
+  </script>
 </section>
+
 <div class="wrap"><hr></div>
 
 <!-- ── Contact ── -->
 
-
-<div class="wrap"><hr></div>
 
 <!-- ─── FAQ ─── -->
 <section class="sec reveal-section">
