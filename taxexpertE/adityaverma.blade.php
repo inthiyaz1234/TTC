@@ -426,7 +426,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 
 .sec{padding:56px 0}
 .sec-sm{padding:40px 0}
-@media(max-width:768px){.sec{padding:24px 0}.sec-sm{padding:16px 0}}
+@media(max-width:768px){.sec{padding:2px 0}.sec-sm{padding:1px 0}}
 
 /* ─── SCROLL REVEAL ─── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -672,7 +672,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .ind-desc{font-size:12px;color:var(--muted);line-height:1.6}
 
 /* ─── CITIES ─── */
-.cities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.cities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2px}
 .city-card{
   border-radius:var(--r-md);padding:20px;border:1px solid var(--border);
   transition:transform .35s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease);
@@ -732,7 +732,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 }
 .cta p{font-size:14px;color:var(--muted);max-width:480px;margin:0 auto 28px;line-height:1.7}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-@media(max-width:768px){.cta{padding:40px 0}.cta h2{font-size:26px}}
+@media(max-width:768px){.cta{padding:15px 0}.cta h2{font-size:26px}}
 
 /* ─── FAQ ─── */
 .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
@@ -983,9 +983,9 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 <section id="tax-services-section" style="font-family:'Montserrat',sans-serif;background:#000000;padding:56px 0;width:100%;box-sizing:border-box;">
 
   <style>
-    #tax-services-section { width:100%;padding:56px 0; }
-    #tax-services-section .section-header { margin-bottom:20px; }
-    #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#ffffff;margin:0 0 16px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
+    #tax-services-section { width:100%;padding:28px 0; }
+    #tax-services-section .section-header { margin-bottom:1px; }
+    #tax-services-section .section-title { font-size:30px;font-weight:900;letter-spacing:-0.02em;color:#ffffff;margin:0 0 1px 0;font-family:'Montserrat',sans-serif;line-height:1.1; }
     #tax-services-section .section-subtitle { font-size:14px;color:rgba(255,255,255,0.75);font-weight:400;line-height:1.6;margin:0;max-width:600px;font-family:'Montserrat',sans-serif; }
     .web-only { display:block; }
     @media(max-width:768px){ .web-only{display:none} }
@@ -1584,7 +1584,7 @@ $(function(){
   <div class="wrap">
     <div class="sec-title">Frequently Asked Questions</div>
     <p class="sec-sub">Common questions about working with Tax expert Aditya Verma.</p>
-    <div class="card reveal" style="margin-top:28px">
+    <div class="card reveal" style="margin-top:18px">
       <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>What documents do I need for corporate tax filing?</span><span class="faq-toggle">+</span></div><div class="faq-a">For companies: audited financial statements, tax audit report, GST returns, TDS returns, and board meeting minutes. Aditya will send you a detailed checklist specific to your business.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>How long does corporate tax filing take?</span><span class="faq-toggle">+</span></div><div class="faq-a">Most corporate tax filings are completed within 5–7 business days of receiving all required documents. For complex cases, it may take up to 10 business days.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)"><span>Do you serve clients outside my city?</span><span class="faq-toggle">+</span></div><div class="faq-a">Absolutely. CA Aditya Verma provides 100% remote services across all 28 states and 8 Union Territories of India. Everything is handled digitally — documents via WhatsApp/email, consultations via call/video.</div></div>
