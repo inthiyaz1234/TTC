@@ -38,6 +38,8 @@
   --rsm:    9px;
   --rxs:    6px;
   --sh:     0 1px 3px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.05);
+  /* ── NAV HEIGHT used for sticky sidebar calc ── */
+  --nav-h:  59px;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font);color:var(--ink);background:var(--white);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -78,77 +80,60 @@ img,svg{display:block}
 .ph-mi{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--ink-5);font-weight:500}
 .ph-mi svg{width:13px;height:13px;stroke:var(--ink-5);fill:none;stroke-width:1.8;stroke-linecap:round}
 
-/* ── MOBILE CTA CHIP (hidden on desktop) ── */
-.mob-cta-chip-row{display:none}
-@media(max-width:900px){
-  .mob-cta-chip-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:14px;
-  }
-  .mob-cta-chip-row a{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    background:var(--surf);
-    border:1px solid var(--bd);
-    border-radius:50px;
-    padding:4px 12px;
-    font-size:10.5px;
-    font-weight:700;
-    letter-spacing:.09em;
-    text-transform:uppercase;
-    color:var(--ink-5);
-    text-decoration:none;
-    transition:border-color .15s,color .15s;
-  }
-  .mob-cta-chip-row a:hover{
-    border-color:#bbb;
-    color:var(--ink);
-  }
-  .mob-cta-chip-row a svg{
-    width:12px;
-    height:12px;
-    stroke:currentColor;
-    fill:none;
-    stroke-width:1.8;
-    stroke-linecap:round;
-  }
+/* ══════════════════════════════════════════
+   3-COL LAYOUT — FUNCTION 1: STICKY SIDEBARS
+   Only the main-col scrolls with the page.
+   Left & right cols are viewport-height sticky.
+══════════════════════════════════════════ */
+.doc-wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 28px;
+  display:grid;
+  grid-template-columns:190px 1fr 200px;
+  gap:0;
+  align-items:start;
 }
 
-.doc-wrap{max-width:var(--max);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:200px 1fr 210px;gap:0;align-items:start}
-
-/* ── FUNCTION 1: Sticky sidebars with proper height & scroll ── */
+/* ── LEFT SIDEBAR ── sticky, full viewport height, self-scrollable */
 .left-col{
   position:sticky;
-  top:66px;
-  height:max-content;
-  /* Clamp to viewport so it never overflows */
-  max-height:calc(100vh - 80px);
+  top:var(--nav-h);
+  height:calc(100vh - var(--nav-h));
   overflow-y:auto;
+  overflow-x:hidden;
   scrollbar-width:none;
-  padding:20px 16px 20px 0;
+  -ms-overflow-style:none;
+  padding:20px 14px 20px 0;
   border-right:1px solid var(--bd2);
 }
 .left-col::-webkit-scrollbar{display:none}
 
+/* ── RIGHT SIDEBAR ── same treatment */
+.right-col{
+  position:sticky;
+  top:var(--nav-h);
+  height:calc(100vh - var(--nav-h));
+  overflow-y:auto;
+  overflow-x:hidden;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  padding:20px 0 20px 14px;
+  border-left:1px solid var(--bd2);
+}
+.right-col::-webkit-scrollbar{display:none}
+
 .toc-lbl{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-6);margin-bottom:9px;padding-left:2px;display:block}
 .toc-nav{display:flex;flex-direction:column;gap:1px}
-
-/* ── FUNCTION 2: Enhanced active state for TOC item ── */
-.tl{display:flex;align-items:center;gap:7px;padding:6px 7px 6px 9px;border-radius:var(--rxs);font-size:11px;font-weight:500;color:var(--ink-5);border-left:2px solid transparent;transition:all .14s}
+.tl{display:flex;align-items:center;gap:7px;padding:6px 8px 6px 10px;border-radius:var(--rxs);font-size:11.5px;font-weight:500;color:var(--ink-5);border-left:2px solid transparent;transition:all .14s}
 .tl:hover{color:var(--ink);background:var(--surf)}
-.tl.active{
-  color:var(--ink);
-  font-weight:700;
-  background:#EDEDED;
-  border-left-color:var(--ink);
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);
-}
+
+/* ── FUNCTION 2: Active TOC highlight ── */
+.tl.active{color:var(--ink);font-weight:700;background:var(--surf);border-left-color:var(--ink)}
+
 .tl .tn{font-size:9px;font-weight:800;color:var(--ink-7);min-width:16px;text-align:right;transition:color .14s;flex-shrink:0}
-.tl.active .tn{color:var(--ink-3)}
-.toc-div{height:1px;background:var(--bd);margin:6px 0 6px 9px}
+.tl.active .tn{color:var(--ink)}
+.toc-div{height:1px;background:var(--bd);margin:6px 0 6px 10px}
 .toc-cta-box{margin-top:14px;background:var(--ink);border-radius:10px;padding:13px 12px;text-align:center}
 .toc-cta-box p{font-size:11px;color:#ffffff;margin-bottom:8px;line-height:1.5}
 .toc-cta-btn{display:block;width:100%;background:#fff;color:var(--ink);border-radius:6px;padding:8px 10px;font-family:var(--font);font-size:11px;font-weight:700;transition:opacity .18s;cursor:pointer;border:none}
@@ -165,26 +150,13 @@ img,svg{display:block}
 .panel p+p{margin-top:10px}
 .panel strong{color:var(--ink);font-weight:700}
 
-/* ── FUNCTION 1: Right sidebar sticky with proper height ── */
-.right-col{
-  position:sticky;
-  top:66px;
-  height:max-content;
-  max-height:calc(100vh - 80px);
-  overflow-y:auto;
-  scrollbar-width:none;
-  padding:20px 0 20px 16px;
-  border-left:1px solid var(--bd2);
-}
-.right-col::-webkit-scrollbar{display:none}
-
 .r-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r);padding:14px;font-size:12.5px;margin-bottom:12px}
 .r-card h5{font-size:11.5px;font-weight:700;color:var(--ink);margin-bottom:10px}
-.r-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd2);font-size:11px}
+.r-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd2);font-size:11.5px}
 .r-row:last-child{border-bottom:none}
 .r-row span:first-child{color:var(--ink-4)}
 .r-row span:last-child{font-weight:600;color:var(--ink-2)}
-.r-link{display:flex;align-items:center;gap:7px;padding:8px 0;font-size:11.5px;color:var(--ink-3);border-bottom:1px solid var(--bd2);transition:color .15s}
+.r-link{display:flex;align-items:center;gap:7px;padding:8px 0;font-size:12px;color:var(--ink-3);border-bottom:1px solid var(--bd2);transition:color .15s}
 .r-link:last-child{border-bottom:none}
 .r-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round}
 .r-link:hover{color:var(--ink)}
@@ -351,9 +323,39 @@ footer b{color:rgba(255,255,255,.55)}
 
 .mob-nav{display:none}
 
+/* ══════════════════════════════════════════
+   FUNCTION 2 — MOBILE CTA CHIPS
+   Styled identically to .ph-chip
+   "Knowledge Center · Tax Filing Guide"
+══════════════════════════════════════════ */
+.mob-cta-chips{
+  display:none; /* hidden on desktop */
+  flex-wrap:wrap;
+  gap:8px;
+  padding:10px 16px 6px;
+}
+.mc-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--surf);
+  border:1px solid var(--bd);
+  border-radius:50px;
+  padding:4px 12px;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--ink-5);
+  text-decoration:none;
+  transition:border-color .15s,color .15s;
+}
+.mc-chip:hover{border-color:#bbb;color:var(--ink)}
+.mc-chip svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1120px){
-  .doc-wrap{grid-template-columns:180px 1fr 190px}
+  .doc-wrap{grid-template-columns:172px 1fr 182px}
   .main-col{padding:22px 24px 64px}
 }
 @media(max-width:900px){
@@ -379,6 +381,10 @@ footer b{color:rgba(255,255,255,.55)}
   .bslide{grid-template-columns:1fr}
   .guide-grid{grid-template-columns:1fr;gap:8px}
   footer{padding:24px 16px}
+
+  /* Show mobile CTA chips on mobile */
+  .mob-cta-chips{display:flex}
+
   .mob-nav{display:flex;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:500;background:rgba(14,14,14,.94);backdrop-filter:blur(16px);border-radius:50px;overflow:hidden;max-width:calc(100vw - 32px)}
   .mob-tgl{display:flex;align-items:center;gap:7px;padding:10px 16px;color:#fff;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap}
   .mob-tgl svg{width:13px;height:13px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round;flex-shrink:0}
@@ -398,56 +404,39 @@ footer b{color:rgba(255,255,255,.55)}
   .step-card{padding:13px 9px 15px}
   .ph h1{font-size:19px}
 }
-.doc-wrap{
-    display:grid !important;
-    grid-template-columns:200px 1fr 210px !important;
-}
 
-.left-col{
-    display:block !important;
-}
-
-/* Hide mobile TOC on desktop */
+/* ══════════════════════════════════════════
+   DESKTOP FORCE OVERRIDES
+   Keep sidebars visible and apply correct
+   column widths on all desktop breakpoints.
+══════════════════════════════════════════ */
 @media (min-width: 901px){
   .mob-nav,
-  .mob-panel{
-      display:none !important;
+  .mob-panel,
+  .mob-cta-chips{
+    display:none !important;
   }
-}
 
-/* ================= MOBILE FIX FOR BLOG LAYOUT ================= */
+  .doc-wrap{
+    display:grid !important;
+    grid-template-columns:190px 1fr 200px !important;
+  }
 
-@media (max-width: 900px){
+  .left-col{
+    display:block !important;
+    position:sticky !important;
+    top:var(--nav-h) !important;
+    height:calc(100vh - var(--nav-h)) !important;
+    overflow-y:auto !important;
+  }
 
-    /* Hide sidebars */
-    .left-col,
-    .right-col{
-        display:none !important;
-    }
-
-    /* Make layout single column */
-    .doc-wrap{
-        grid-template-columns:1fr !important;
-        display:block !important;
-        padding:0 !important;
-    }
-
-    /* Main content full width */
-    .main-col{
-        width:100% !important;
-        padding:0 16px 60px !important;
-    }
-
-    /* Hide mobile TOC panel initially */
-    .mob-panel{
-        display:none;
-    }
-
-    /* Show when JS toggles */
-    .mob-panel.open{
-        display:block;
-    }
-
+  .right-col{
+    display:block !important;
+    position:sticky !important;
+    top:var(--nav-h) !important;
+    height:calc(100vh - var(--nav-h)) !important;
+    overflow-y:auto !important;
+  }
 }
 </style>
 
@@ -527,17 +516,6 @@ footer b{color:rgba(255,255,255,.55)}
       <span class="ph-mi"><svg viewBox="0 0 20 20"><use href="#I-clock"/></svg>12 min read</span>
       <span class="ph-mi"><svg viewBox="0 0 20 20"><use href="#I-shield"/></svg>CA Verified</span>
     </div>
-    {{-- MOBILE CTA CHIPS – visible only below 900px, styled like the ph-chip above --}}
-    <div class="mob-cta-chip-row">
-      <a href="{{ route('boc.step1', ['source' => 'tax-filing-guide']) }}">
-        <svg viewBox="0 0 20 20"><use href="#I-cal"/></svg>
-        Book Our Consultation
-      </a>
-      <a href="{{ route('callback.page', ['source' => 'tax-filing-guide']) }}">
-        <svg viewBox="0 0 20 20"><use href="#I-phone"/></svg>
-        Request a Callback
-      </a>
-    </div>
   </div>
 </div>
 
@@ -564,6 +542,18 @@ footer b{color:rgba(255,255,255,.55)}
   <a class="mob-link" href="#mistakes"   onclick="closeMob(this,'Common Mistakes')">    <span class="mn">11</span>Common Mistakes</a>
   <a class="mob-link" href="#why-us"     onclick="closeMob(this,'Why The Tax Company')"><span class="mn">12</span>Why Tax Company</a>
   <a class="mob-link" href="#faq"        onclick="closeMob(this,'FAQ')">                <span class="mn">—</span>FAQ</a>
+</div>
+
+{{-- ══ FUNCTION 2 — Mobile CTA chips, styled like ph-chip ══ --}}
+<div class="mob-cta-chips">
+  <a href="{{ route('boc.step1', ['source' => 'tax-filing-guide']) }}" class="mc-chip">
+    <svg viewBox="0 0 20 20"><use href="#I-cal"/></svg>
+    Book Our Consultation
+  </a>
+  <a href="{{ route('callback.page', ['source' => 'tax-filing-guide']) }}" class="mc-chip">
+    <svg viewBox="0 0 20 20"><use href="#I-phone"/></svg>
+    Request a Callback
+  </a>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -1159,12 +1149,16 @@ footer b{color:rgba(255,255,255,.55)}
       <a href="#" class="r-link"><svg viewBox="0 0 20 20"><use href="#I-share"/></svg>Share this guide</a>
       <a href="#process" class="r-link"><svg viewBox="0 0 20 20"><use href="#I-filing"/></svg>File Your ITR Today</a>
     </div>
-    <div class="r-card">
-      <h5>Get Expert Help</h5>
-      <a href="{{ route('boc.step1', ['source' => 'tax-filing-guide']) }}" class="r-cta">Book Our Consultation</a>
-      <a href="{{ route('callback.page', ['source' => 'tax-filing-guide']) }}" class="r-cta-g">Request a Callback</a>
-    </div>
-    <div class="r-card" style="margin-top:2px">
+    {{-- White Button Group --}}
+    <a href="{{ route('boc.step1', ['source' => 'tax-filing-guide']) }}" 
+       class="h-btn-white">
+       Book Our Consultation
+    </a>
+    <a href="{{ route('callback.page', ['source' => 'tax-filing-guide']) }}" 
+       class="h-btn-white">
+       Request a Callback
+    </a>
+    <div class="r-card" style="margin-top:14px">
       <h5>Quick Facts</h5>
       <div class="r-row"><span>Basic exemption (New)</span><span>₹3,00,000</span></div>
       <div class="r-row"><span>Basic exemption (Old)</span><span>₹2,50,000</span></div>
@@ -1192,7 +1186,7 @@ footer b{color:rgba(255,255,255,.55)}
 </footer>
 
 <script>
-/* ── PROGRESS BAR ── */
+/* ── PROGRESS BAR — tracks page scroll ── */
 window.addEventListener('scroll',()=>{
   const st=document.documentElement.scrollTop;
   const sh=document.documentElement.scrollHeight-document.documentElement.clientHeight;
@@ -1242,30 +1236,51 @@ function goSlide(n){
 function slideStep(d){goSlide(si+d)}
 sTimer=setInterval(()=>goSlide((si+1)%sT),4600);
 
-/* ── SCROLL-LINKED TOC (Function 2) ── */
+/* ══════════════════════════════════════════
+   FUNCTION 2 — SCROLL-LINKED TOC HIGHLIGHT
+   Uses IntersectionObserver on page scroll.
+   Works correctly since main-col scrolls
+   with the page (not independently).
+══════════════════════════════════════════ */
 (function(){
-  const secs=document.querySelectorAll('.sec[id]');
-  const tls=document.querySelectorAll('.tl');
-  const mls=document.querySelectorAll('.mob-link');
-  let cur='';
-  const map={};
-  tls.forEach(a=>{const s=a.getAttribute('data-s');if(s)map[s]=a});
-  function setActive(id){
-    if(id===cur)return; cur=id;
-    tls.forEach(a=>a.classList.remove('active'));
-    if(map[id])map[id].classList.add('active');
-    mls.forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+id));
-    const ce=document.getElementById('mobCur');
-    if(ce&&map[id])ce.textContent=map[id].textContent.trim();
-    /* Scroll active TOC item into view within the sidebar */
-    if(map[id]){
-      map[id].scrollIntoView({block:'nearest',behavior:'smooth'});
+  const secs = document.querySelectorAll('.sec[id]');
+  const tls  = document.querySelectorAll('.tl');
+  const mls  = document.querySelectorAll('.mob-link');
+  let cur = '';
+  const map = {};
+
+  tls.forEach(a => {
+    const s = a.getAttribute('data-s');
+    if (s) map[s] = a;
+  });
+
+  function setActive(id) {
+    if (id === cur) return;
+    cur = id;
+
+    /* Left TOC: remove all, add active to current */
+    tls.forEach(a => a.classList.remove('active'));
+    if (map[id]) map[id].classList.add('active');
+
+    /* Scroll the active item into view within the sticky sidebar */
+    if (map[id]) {
+      map[id].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
+
+    /* Mobile bottom nav */
+    mls.forEach(a => a.classList.toggle('act', a.getAttribute('href') === '#' + id));
+    const ce = document.getElementById('mobCur');
+    if (ce && map[id]) ce.textContent = map[id].textContent.trim();
   }
-  const obs=new IntersectionObserver(es=>{
-    es.forEach(e=>{if(e.isIntersecting)setActive(e.target.id)});
-  },{rootMargin:'-15% 0px -72% 0px'});
-  secs.forEach(s=>obs.observe(s));
+
+  /* rootMargin: fire when section enters the top 30% of viewport */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) setActive(e.target.id);
+    });
+  }, { rootMargin: '-10% 0px -75% 0px' });
+
+  secs.forEach(s => obs.observe(s));
 })();
 
 /* ── MOBILE NAV ── */
