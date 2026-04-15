@@ -78,17 +78,77 @@ img,svg{display:block}
 .ph-mi{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--ink-5);font-weight:500}
 .ph-mi svg{width:13px;height:13px;stroke:var(--ink-5);fill:none;stroke-width:1.8;stroke-linecap:round}
 
-.doc-wrap{max-width:var(--max);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:220px 1fr 230px;gap:0;align-items:start}
+/* ── MOBILE CTA CHIP (hidden on desktop) ── */
+.mob-cta-chip-row{display:none}
+@media(max-width:900px){
+  .mob-cta-chip-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:14px;
+  }
+  .mob-cta-chip-row a{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--surf);
+    border:1px solid var(--bd);
+    border-radius:50px;
+    padding:4px 12px;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink-5);
+    text-decoration:none;
+    transition:border-color .15s,color .15s;
+  }
+  .mob-cta-chip-row a:hover{
+    border-color:#bbb;
+    color:var(--ink);
+  }
+  .mob-cta-chip-row a svg{
+    width:12px;
+    height:12px;
+    stroke:currentColor;
+    fill:none;
+    stroke-width:1.8;
+    stroke-linecap:round;
+  }
+}
 
-.left-col{position:sticky;top:66px;height:max-content;padding:24px 20px 24px 0;border-right:1px solid var(--bd2)}
+.doc-wrap{max-width:var(--max);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:200px 1fr 210px;gap:0;align-items:start}
+
+/* ── FUNCTION 1: Sticky sidebars with proper height & scroll ── */
+.left-col{
+  position:sticky;
+  top:66px;
+  height:max-content;
+  /* Clamp to viewport so it never overflows */
+  max-height:calc(100vh - 80px);
+  overflow-y:auto;
+  scrollbar-width:none;
+  padding:20px 16px 20px 0;
+  border-right:1px solid var(--bd2);
+}
+.left-col::-webkit-scrollbar{display:none}
+
 .toc-lbl{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-6);margin-bottom:9px;padding-left:2px;display:block}
 .toc-nav{display:flex;flex-direction:column;gap:1px}
-.tl{display:flex;align-items:center;gap:7px;padding:6px 8px 6px 10px;border-radius:var(--rxs);font-size:11.5px;font-weight:500;color:var(--ink-5);border-left:2px solid transparent;transition:all .14s}
+
+/* ── FUNCTION 2: Enhanced active state for TOC item ── */
+.tl{display:flex;align-items:center;gap:7px;padding:6px 7px 6px 9px;border-radius:var(--rxs);font-size:11px;font-weight:500;color:var(--ink-5);border-left:2px solid transparent;transition:all .14s}
 .tl:hover{color:var(--ink);background:var(--surf)}
-.tl.active{color:var(--ink);font-weight:700;background:var(--surf);border-left-color:var(--ink)}
+.tl.active{
+  color:var(--ink);
+  font-weight:700;
+  background:#EDEDED;
+  border-left-color:var(--ink);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);
+}
 .tl .tn{font-size:9px;font-weight:800;color:var(--ink-7);min-width:16px;text-align:right;transition:color .14s;flex-shrink:0}
-.tl.active .tn{color:var(--ink)}
-.toc-div{height:1px;background:var(--bd);margin:6px 0 6px 10px}
+.tl.active .tn{color:var(--ink-3)}
+.toc-div{height:1px;background:var(--bd);margin:6px 0 6px 9px}
 .toc-cta-box{margin-top:14px;background:var(--ink);border-radius:10px;padding:13px 12px;text-align:center}
 .toc-cta-box p{font-size:11px;color:#ffffff;margin-bottom:8px;line-height:1.5}
 .toc-cta-btn{display:block;width:100%;background:#fff;color:var(--ink);border-radius:6px;padding:8px 10px;font-family:var(--font);font-size:11px;font-weight:700;transition:opacity .18s;cursor:pointer;border:none}
@@ -105,14 +165,26 @@ img,svg{display:block}
 .panel p+p{margin-top:10px}
 .panel strong{color:var(--ink);font-weight:700}
 
-.right-col{position:sticky;top:66px;height:max-content;padding:24px 0 24px 20px;border-left:1px solid var(--bd2)}
+/* ── FUNCTION 1: Right sidebar sticky with proper height ── */
+.right-col{
+  position:sticky;
+  top:66px;
+  height:max-content;
+  max-height:calc(100vh - 80px);
+  overflow-y:auto;
+  scrollbar-width:none;
+  padding:20px 0 20px 16px;
+  border-left:1px solid var(--bd2);
+}
+.right-col::-webkit-scrollbar{display:none}
+
 .r-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r);padding:14px;font-size:12.5px;margin-bottom:12px}
 .r-card h5{font-size:11.5px;font-weight:700;color:var(--ink);margin-bottom:10px}
-.r-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd2);font-size:11.5px}
+.r-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd2);font-size:11px}
 .r-row:last-child{border-bottom:none}
 .r-row span:first-child{color:var(--ink-4)}
 .r-row span:last-child{font-weight:600;color:var(--ink-2)}
-.r-link{display:flex;align-items:center;gap:7px;padding:8px 0;font-size:12px;color:var(--ink-3);border-bottom:1px solid var(--bd2);transition:color .15s}
+.r-link{display:flex;align-items:center;gap:7px;padding:8px 0;font-size:11.5px;color:var(--ink-3);border-bottom:1px solid var(--bd2);transition:color .15s}
 .r-link:last-child{border-bottom:none}
 .r-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round}
 .r-link:hover{color:var(--ink)}
@@ -281,7 +353,7 @@ footer b{color:rgba(255,255,255,.55)}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1120px){
-  .doc-wrap{grid-template-columns:196px 1fr 210px}
+  .doc-wrap{grid-template-columns:180px 1fr 190px}
   .main-col{padding:22px 24px 64px}
 }
 @media(max-width:900px){
@@ -328,7 +400,7 @@ footer b{color:rgba(255,255,255,.55)}
 }
 .doc-wrap{
     display:grid !important;
-    grid-template-columns:220px 1fr 230px !important;
+    grid-template-columns:200px 1fr 210px !important;
 }
 
 .left-col{
@@ -455,6 +527,17 @@ footer b{color:rgba(255,255,255,.55)}
       <span class="ph-mi"><svg viewBox="0 0 20 20"><use href="#I-clock"/></svg>12 min read</span>
       <span class="ph-mi"><svg viewBox="0 0 20 20"><use href="#I-shield"/></svg>CA Verified</span>
     </div>
+    {{-- MOBILE CTA CHIPS – visible only below 900px, styled like the ph-chip above --}}
+    <div class="mob-cta-chip-row">
+      <a href="{{ route('boc.step1', ['source' => 'tax-filing-guide']) }}">
+        <svg viewBox="0 0 20 20"><use href="#I-cal"/></svg>
+        Book Our Consultation
+      </a>
+      <a href="{{ route('callback.page', ['source' => 'tax-filing-guide']) }}">
+        <svg viewBox="0 0 20 20"><use href="#I-phone"/></svg>
+        Request a Callback
+      </a>
+    </div>
   </div>
 </div>
 
@@ -481,17 +564,6 @@ footer b{color:rgba(255,255,255,.55)}
   <a class="mob-link" href="#mistakes"   onclick="closeMob(this,'Common Mistakes')">    <span class="mn">11</span>Common Mistakes</a>
   <a class="mob-link" href="#why-us"     onclick="closeMob(this,'Why The Tax Company')"><span class="mn">12</span>Why Tax Company</a>
   <a class="mob-link" href="#faq"        onclick="closeMob(this,'FAQ')">                <span class="mn">—</span>FAQ</a>
-</div>
-{{-- White Button Group --}}
-<a href="{{ route('boc.step1', ['source' => 'tax-filing-guide']) }}" 
-   class="h-btn-white">
-   Book Our Consultation
-</a>
-
-<a href="{{ route('callback.page', ['source' => 'tax-filing-guide']) }}" 
-   class="h-btn-white">
-   Request a Callback
-</a>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -1087,17 +1159,12 @@ footer b{color:rgba(255,255,255,.55)}
       <a href="#" class="r-link"><svg viewBox="0 0 20 20"><use href="#I-share"/></svg>Share this guide</a>
       <a href="#process" class="r-link"><svg viewBox="0 0 20 20"><use href="#I-filing"/></svg>File Your ITR Today</a>
     </div>
-    {{-- White Button Group --}}
-<a href="{{ route('boc.step1', ['source' => 'tax-filing-guide']) }}" 
-   class="h-btn-white">
-   Book Our Consultation
-</a>
-
-<a href="{{ route('callback.page', ['source' => 'tax-filing-guide']) }}" 
-   class="h-btn-white">
-   Request a Callback
-</a>
-    <div class="r-card" style="margin-top:14px">
+    <div class="r-card">
+      <h5>Get Expert Help</h5>
+      <a href="{{ route('boc.step1', ['source' => 'tax-filing-guide']) }}" class="r-cta">Book Our Consultation</a>
+      <a href="{{ route('callback.page', ['source' => 'tax-filing-guide']) }}" class="r-cta-g">Request a Callback</a>
+    </div>
+    <div class="r-card" style="margin-top:2px">
       <h5>Quick Facts</h5>
       <div class="r-row"><span>Basic exemption (New)</span><span>₹3,00,000</span></div>
       <div class="r-row"><span>Basic exemption (Old)</span><span>₹2,50,000</span></div>
@@ -1175,7 +1242,7 @@ function goSlide(n){
 function slideStep(d){goSlide(si+d)}
 sTimer=setInterval(()=>goSlide((si+1)%sT),4600);
 
-/* ── SCROLL-LINKED TOC ── */
+/* ── SCROLL-LINKED TOC (Function 2) ── */
 (function(){
   const secs=document.querySelectorAll('.sec[id]');
   const tls=document.querySelectorAll('.tl');
@@ -1190,6 +1257,10 @@ sTimer=setInterval(()=>goSlide((si+1)%sT),4600);
     mls.forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+id));
     const ce=document.getElementById('mobCur');
     if(ce&&map[id])ce.textContent=map[id].textContent.trim();
+    /* Scroll active TOC item into view within the sidebar */
+    if(map[id]){
+      map[id].scrollIntoView({block:'nearest',behavior:'smooth'});
+    }
   }
   const obs=new IntersectionObserver(es=>{
     es.forEach(e=>{if(e.isIntersecting)setActive(e.target.id)});
