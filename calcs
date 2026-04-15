@@ -1,0 +1,1139 @@
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Tax Calculator – The Tax Company</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body { font-family: 'Montserrat', sans-serif; background: #0a0a0f; color: #fff; overflow: hidden; }
+
+/* ===== KYTS DESIGN TOKENS ===== */
+:root {
+  --kys-glass: rgba(255,255,255,0.03);
+  --kys-glass-border: rgba(255,255,255,0.06);
+  --kys-glow: 0 0 0 1px rgba(255,255,255,0.05), 0 0 30px rgba(255,255,255,0.03);
+  --kys-glow-hover: 0 0 0 1px rgba(255,255,255,0.1), 0 0 40px rgba(255,255,255,0.05);
+  --kys-radius: 20px;
+  --kys-transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  --green-glow: 0 0 0 1px rgba(34,197,94,0.2), 0 0 30px rgba(34,197,94,0.1);
+}
+
+/* ===== AMBIENT BACKGROUND ===== */
+.ambient-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+}
+.ambient-orb {
+  position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.12;
+}
+.orb-1 { width: 400px; height: 400px; background: radial-gradient(circle, #fff 0%, transparent 70%); top: -100px; right: -80px; }
+.orb-2 { width: 300px; height: 300px; background: radial-gradient(circle, #22c55e 0%, transparent 70%); bottom: -50px; left: -80px; opacity: 0.06; }
+.particles { position: absolute; inset: 0; overflow: hidden; }
+.particle { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.4); border-radius: 50%; animation: particleDrift linear infinite; }
+
+/* ===== WRAPPER ===== */
+.kys-wrapper { position: fixed; inset: 0; display: flex; flex-direction: column; z-index: 1; }
+
+/* ===== HEADER ===== */
+.kys-header {
+  display: none; align-items: center; justify-content: space-between;
+  padding: 12px 20px; background: rgba(10,10,15,0.8); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--kys-glass-border); flex-shrink: 0;
+}
+.kys-header.show { display: flex; }
+.header-brand { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; opacity: 0.9; }
+.header-brand-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: blink 2s ease infinite; }
+.header-steps { display: flex; align-items: center; gap: 6px; }
+.step-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); transition: all 0.3s ease; }
+.step-dot.active { background: #fff; transform: scale(1.3); }
+.step-dot.done { background: #22c55e; }
+.header-back { background: none; border: none; color: rgba(255,255,255,0.5); cursor: pointer; font-size: 18px; padding: 4px; transition: color 0.2s; }
+.header-back:hover { color: #fff; }
+
+/* ===== PROGRESS BAR ===== */
+.kys-progress-bar {
+  display: none; height: 2px; background: rgba(255,255,255,0.05); flex-shrink: 0;
+}
+.kys-progress-bar.show { display: block; }
+.kys-progress-fill { height: 100%; background: #fff; transition: width 0.4s ease; }
+
+/* ===== CONTENT ===== */
+.kys-content {
+  flex: 1; overflow-y: auto; position: relative; display: flex; align-items: flex-start;
+  justify-content: center; padding: 20px 16px 40px;
+}
+.kys-content::-webkit-scrollbar { width: 4px; }
+.kys-content::-webkit-scrollbar-track { background: transparent; }
+.kys-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+/* ===== SCREEN ===== */
+.kys-screen { display: none; width: 100%; max-width: 560px; }
+.kys-screen.active { display: block; animation: kysScreenIn 0.5s ease forwards; }
+@keyframes kysScreenIn { 0% { opacity: 0; transform: translateY(16px); } 100% { opacity: 1; transform: translateY(0); } }
+
+/* ===== WIPE OVERLAY ===== */
+.kys-wipe-overlay {
+  position: fixed; inset: 0; background: #fff;
+  transform: translateX(-100%); z-index: 999; pointer-events: none;
+}
+.kys-wipe-overlay.animating { animation: wipe 0.6s cubic-bezier(0.76,0,0.24,1) forwards; }
+@keyframes wipe {
+  0% { transform: translateX(-100%); }
+  45% { transform: translateX(0); }
+  55% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeSlideUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes kysTaglineFade { 0% { opacity: 0; transform: translateY(-8px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes kysSlideUpFade { 0% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes subtlePulse {
+  0% { box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.02); }
+  50% { box-shadow: 0 12px 28px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.08); }
+  100% { box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.02); }
+}
+@keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+@keyframes countUp { 0% { opacity: 0.5; transform: translateY(4px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes glowPulse { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); } 70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes particleDrift { 0% { transform: translateY(100vh) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-20px) translateX(30px); opacity: 0; } }
+@keyframes logoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+/* ===== CARDS & COMPONENTS ===== */
+.kys-card {
+  background: var(--kys-glass); border: 1px solid var(--kys-glass-border);
+  border-radius: 20px; padding: 20px; backdrop-filter: blur(20px);
+  box-shadow: var(--kys-glow); margin-bottom: 16px;
+}
+.kys-label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 8px; opacity: 0.9; }
+.kys-sublabel { font-size: 11px; opacity: 0.5; font-weight: 500; margin-bottom: 8px; }
+.kys-input {
+  width: 100%; padding: 14px 16px; margin: 6px 0 14px; border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12); background: rgba(0,0,0,0.3);
+  color: #fff; font-family: 'Montserrat', sans-serif; font-size: 15px;
+  font-weight: 600; outline: none; transition: var(--kys-transition);
+  -webkit-appearance: none;
+}
+.kys-input:focus { border-color: rgba(255,255,255,0.35); box-shadow: 0 0 0 3px rgba(255,255,255,0.05); }
+.kys-input option { background: #1a1a24; color: #fff; }
+.kys-input::placeholder { color: rgba(255,255,255,0.3); font-weight: 400; }
+.kys-btn-primary {
+  width: 100%; padding: 15px; border: none; border-radius: 14px;
+  background: #fff; color: #000; font-family: 'Montserrat', sans-serif;
+  font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.2s;
+  position: relative; overflow: hidden;
+}
+.kys-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+.kys-btn-primary:active { transform: scale(0.98); }
+.kys-btn-secondary {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+}
+.kys-btn-secondary:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
+/* ===== INTRO SCREEN ===== */
+.intro-container {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 85vh; text-align: center; padding: 20px;
+}
+.intro-logo-wrap { animation: logoFloat 3s ease infinite; margin-bottom: 20px; }
+.intro-logo-circle {
+  width: 72px; height: 72px; border-radius: 18px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(20px); margin: 0 auto;
+}
+.intro-brand {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+  color: rgba(255,255,255,0.5); margin-bottom: 16px;
+  animation: kysTaglineFade 0.5s ease 0.1s forwards; opacity: 0;
+}
+.intro-title {
+  font-size: clamp(26px, 8vw, 38px); font-weight: 900; line-height: 1.1;
+  margin-bottom: 14px; letter-spacing: -0.5px;
+  animation: fadeSlideUp 0.5s ease 0.2s forwards; opacity: 0;
+}
+.intro-title span { color: rgba(255,255,255,0.4); }
+.intro-tagline {
+  font-size: 14px; color: rgba(255,255,255,0.65); margin-bottom: 32px;
+  line-height: 1.5; max-width: 340px;
+  animation: fadeSlideUp 0.5s ease 0.3s forwards; opacity: 0;
+}
+.btn-cta {
+  width: 100%; max-width: 340px; padding: 16px; border: none; border-radius: 16px;
+  background: #fff; color: #0a0a0f; font-family: 'Montserrat', sans-serif;
+  font-size: 16px; font-weight: 700; cursor: pointer;
+  animation: fadeSlideUp 0.5s ease 0.4s forwards, subtlePulse 2.8s infinite ease-in-out 0.8s;
+  opacity: 0; position: relative; overflow: hidden; transition: transform 0.2s;
+}
+.btn-cta:hover { transform: translateY(-2px); }
+.intro-trust {
+  margin-top: 20px; font-size: 11px; color: rgba(255,255,255,0.35);
+  letter-spacing: 1.2px; text-transform: uppercase;
+  animation: fadeSlideUp 0.5s ease 0.5s forwards; opacity: 0;
+}
+.trust-dots { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.trust-dot-sep { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+
+/* ===== CATEGORY SCREEN ===== */
+.screen-header { text-align: center; margin-bottom: 24px; }
+.screen-header h2 { font-size: 24px; font-weight: 800; margin-bottom: 6px; animation: kysTaglineFade 0.5s ease forwards; }
+.screen-header p { font-size: 13px; color: rgba(255,255,255,0.55); animation: kysTaglineFade 0.5s ease 0.1s forwards; opacity: 0; }
+
+.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (min-width: 480px) { .profile-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.kys-profile-card {
+  aspect-ratio: 1/1; background: var(--kys-glass); border: 1px solid var(--kys-glass-border);
+  border-radius: 20px; backdrop-filter: blur(20px); box-shadow: var(--kys-glow);
+  padding: 20px 12px; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center; cursor: pointer;
+  transition: var(--kys-transition); animation: fadeSlideUp 0.5s ease forwards;
+  opacity: 0; position: relative; overflow: hidden;
+}
+.kys-profile-card:nth-child(1) { animation-delay: 0.1s; }
+.kys-profile-card:nth-child(2) { animation-delay: 0.2s; }
+.kys-profile-card:nth-child(3) { animation-delay: 0.3s; }
+.kys-profile-card:hover { transform: translateY(-4px); box-shadow: var(--kys-glow-hover); border-color: rgba(255,255,255,0.12); }
+.kys-profile-card:active { transform: scale(0.96); }
+.kys-profile-card.selected {
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.08), 0 0 30px rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
+}
+.kys-profile-card.selected::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+  background: #fff; border-radius: 3px 0 0 3px;
+}
+.profile-icon { margin-bottom: 12px; }
+.profile-icon svg { width: 32px; height: 32px; stroke: #fff; stroke-width: 1.5; fill: none; }
+.profile-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.profile-desc { font-size: 10px; color: rgba(255,255,255,0.55); line-height: 1.3; }
+
+/* ===== INDIVIDUAL / INCOME SCREEN ===== */
+.tax-preview-bar {
+  background: var(--kys-glass); border: 1px solid var(--kys-glass-border);
+  border-radius: 20px; padding: 18px 20px; margin-bottom: 16px;
+  backdrop-filter: blur(20px); display: flex; justify-content: space-between; align-items: center;
+}
+.tax-preview-left {}
+.tax-preview-label { font-size: 12px; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.tax-preview-value { font-size: 36px; font-weight: 900; letter-spacing: -1px; }
+.tax-preview-value.animate { animation: countUp 0.3s ease; }
+.tax-preview-optimized { font-size: 14px; font-weight: 600; color: #22c55e; margin-top: 4px; height: 18px; transition: opacity 0.3s; opacity: 0; }
+.tax-preview-optimized.show { opacity: 1; }
+.tax-preview-right { text-align: right; }
+.tax-range { font-size: 11px; opacity: 0.4; }
+.tax-regime-badge {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 10px;
+  font-weight: 600; padding: 4px 10px; border-radius: 20px;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+  text-transform: uppercase; letter-spacing: 0.5px; margin-top: 8px;
+}
+
+/* ===== AI SUMMARY ===== */
+.kys-ai-summary {
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 18px;
+  margin-bottom: 16px; position: relative; overflow: hidden;
+}
+.kys-ai-summary::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1.5px; background: #fff;
+}
+.kys-ai-label {
+  display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.6); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;
+}
+.kys-ai-label .ai-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; animation: blink 1.5s ease infinite; }
+.kys-ai-text { font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.8); }
+
+/* ===== NUDGE CARDS ===== */
+.kys-nudge-card {
+  padding: 14px 16px; border-radius: 14px; margin-bottom: 10px;
+  display: flex; align-items: flex-start; gap: 10px; font-size: 12px;
+  line-height: 1.55; animation: fadeSlideUp 0.35s ease;
+}
+.kys-nudge-card.success { background: rgba(34,197,94,0.07); border: 1px solid rgba(34,197,94,0.15); }
+.kys-nudge-card.warning { background: rgba(255,200,50,0.07); border: 1px solid rgba(255,200,50,0.15); color: rgba(255,200,50,0.9); }
+.kys-nudge-card.info { background: rgba(100,180,255,0.07); border: 1px solid rgba(100,180,255,0.15); color: rgba(100,180,255,0.9); }
+.kys-nudge-card svg { width: 18px; height: 18px; flex-shrink: 0; stroke: currentColor; stroke-width: 1.5; fill: none; margin-top: 1px; }
+.nudge-success-icon { color: #22c55e; }
+
+/* Savings sim */
+.savings-sim {
+  background: rgba(34,197,94,0.04); border: 1px solid rgba(34,197,94,0.12);
+  border-radius: 14px; padding: 16px; margin: 14px 0;
+}
+.savings-sim-title { font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+.savings-sim-text { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+/* Expandable */
+.expand-trigger {
+  display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 4px 0;
+}
+.expand-icon { margin-left: auto; opacity: 0.5; font-size: 12px; transition: transform 0.3s; }
+.expand-icon.open { transform: rotate(180deg); }
+.expandable { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.expandable.open { max-height: 600px; }
+
+/* Regime toggle */
+.regime-row { display: flex; gap: 8px; margin-bottom: 16px; }
+.regime-btn {
+  flex: 1; padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.6); font-family: 'Montserrat', sans-serif;
+  font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.regime-btn.active { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: #fff; }
+
+/* ===== LEAD SCREEN ===== */
+.lead-header { text-align: center; margin-bottom: 20px; }
+.lead-header h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+.lead-header p { font-size: 13px; color: rgba(255,255,255,0.55); }
+.lead-summary-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.lead-summary-row:last-child { border-bottom: none; }
+.lead-summary-label { font-size: 12px; opacity: 0.6; }
+.lead-summary-val { font-size: 14px; font-weight: 700; }
+
+/* ===== RESULT SCREEN ===== */
+.result-hero {
+  text-align: center; padding: 28px 20px 24px;
+  background: var(--kys-glass); border: 1px solid var(--kys-glass-border);
+  border-radius: 20px; margin-bottom: 16px; backdrop-filter: blur(20px);
+  position: relative; overflow: hidden;
+}
+.result-hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1.5px;
+  background: linear-gradient(90deg, transparent, #22c55e, transparent);
+}
+.result-label { font-size: 11px; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.result-amount { font-size: 52px; font-weight: 900; letter-spacing: -2px; margin-bottom: 12px; }
+.result-legal { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 420px; margin: 0 auto; }
+
+.breakdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.breakdown-card {
+  background: var(--kys-glass); border: 1px solid var(--kys-glass-border);
+  border-radius: 16px; padding: 16px 14px; backdrop-filter: blur(20px);
+}
+.breakdown-icon { font-size: 18px; margin-bottom: 6px; }
+.breakdown-label { font-size: 10px; opacity: 0.55; text-transform: uppercase; letter-spacing: 0.5px; }
+.breakdown-value { font-size: 18px; font-weight: 800; margin-top: 4px; }
+.breakdown-card.highlight { border-color: rgba(34,197,94,0.2); background: rgba(34,197,94,0.03); }
+.breakdown-card.highlight .breakdown-value { color: #22c55e; }
+
+.savings-highlight {
+  background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.15);
+  border-radius: 16px; padding: 18px; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px; animation: glowPulse 2s ease;
+}
+.savings-icon { font-size: 24px; }
+.savings-text { flex: 1; }
+.savings-text-title { font-weight: 700; font-size: 14px; color: #22c55e; }
+.savings-text-sub { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 4px; }
+
+.section-title { font-size: 16px; font-weight: 800; margin: 20px 0 12px; }
+
+.service-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 20px; }
+@media (min-width: 480px) { .service-grid { grid-template-columns: 1fr 1fr; } }
+.service-card {
+  background: var(--kys-glass); border: 1px solid var(--kys-glass-border);
+  border-radius: 20px; padding: 20px; backdrop-filter: blur(20px);
+  transition: var(--kys-transition);
+}
+.service-card:hover { transform: translateY(-3px); box-shadow: var(--kys-glow-hover); }
+.service-badge {
+  display: inline-block; font-size: 9px; font-weight: 700; padding: 3px 8px;
+  border-radius: 20px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;
+}
+.service-title { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+.service-desc { font-size: 11px; opacity: 0.6; margin-bottom: 14px; line-height: 1.45; }
+.service-price { font-size: 24px; font-weight: 800; margin-bottom: 2px; }
+.service-timeline { font-size: 11px; opacity: 0.5; margin-bottom: 16px; }
+.service-cta {
+  width: 100%; padding: 12px; background: #fff; color: #0a0a0f;
+  border: none; border-radius: 12px; font-family: 'Montserrat', sans-serif;
+  font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s;
+}
+.service-cta:hover { transform: scale(1.02); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+
+.result-footer {
+  text-align: center; font-size: 11px; color: rgba(255,255,255,0.3);
+  letter-spacing: 0.8px; padding: 20px 0;
+}
+
+/* ===== RIPPLE ===== */
+.ripple-effect {
+  position: absolute; border-radius: 50%; background: rgba(255,255,255,0.1);
+  transform: scale(0); animation: rippleAnim 0.55s ease-out; pointer-events: none;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+  .kys-content { padding: 16px 12px 80px; }
+  .intro-title { font-size: 28px; }
+  .tax-preview-value { font-size: 28px; }
+  .result-amount { font-size: 40px; }
+  .btn-cta { font-size: 15px; }
+}
+</style>
+
+
+<!-- AMBIENT BACKGROUND -->
+<div class="ambient-bg">
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+  <div class="particles" id="particles"></div>
+</div>
+
+<!-- WIPE OVERLAY -->
+<div class="kys-wipe-overlay" id="wipeOverlay"></div>
+
+<div class="kys-wrapper">
+  <!-- HEADER (hidden on intro) -->
+  <div class="kys-header" id="kysHeader">
+    <button class="header-back" onclick="goBack()">←</button>
+    <div class="header-steps">
+      <div class="step-dot" id="dot-0"></div>
+      <div class="step-dot" id="dot-1"></div>
+      <div class="step-dot" id="dot-2"></div>
+      <div class="step-dot" id="dot-3"></div>
+    </div>
+    <div class="header-brand">
+      <div class="header-brand-dot"></div>
+      <span>TTC</span>
+    </div>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="kys-progress-bar" id="kysProgressBar">
+    <div class="kys-progress-fill" id="kysProgressFill" style="width:0%"></div>
+  </div>
+
+  <div class="kys-content">
+
+    <!-- ====== SCREEN 0: INTRO ====== -->
+    <div id="intro-screen" class="kys-screen active">
+      <div class="intro-container">
+        <div class="intro-logo-wrap">
+          <div class="intro-logo-circle">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="intro-brand">The Tax Company</div>
+        <h1 class="intro-title">Smart Tax<br><span>Calculator</span></h1>
+        <p class="intro-tagline">Calculate your income tax, uncover savings & optimize your liability instantly.</p>
+        <button class="btn-cta" id="startBtn" onclick="goToCategory(event)">Start Calculation →</button>
+        <div class="intro-trust">
+          <div class="trust-dots">
+            <span>Secure</span>
+            <div class="trust-dot-sep"></div>
+            <span>Govt Compliant</span>
+            <div class="trust-dot-sep"></div>
+            <span>CA Assisted</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== SCREEN 1: CATEGORY ====== -->
+    <div id="category-screen" class="kys-screen">
+      <div class="screen-header">
+        <h2>Choose Your Profile</h2>
+        <p style="opacity:0">Select your category for personalized tax analysis</p>
+      </div>
+      <div class="profile-grid">
+        <div class="kys-profile-card" onclick="selectCategory('individual', event)">
+          <div class="profile-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="profile-title">Individuals</div>
+          <div class="profile-desc">Salaried, pension, freelancers</div>
+        </div>
+        <div class="kys-profile-card" onclick="selectCategory('business', event)">
+          <div class="profile-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div class="profile-title">Business</div>
+          <div class="profile-desc">Proprietorship, LLP, firm</div>
+        </div>
+        <div class="kys-profile-card" onclick="selectCategory('nri', event)">
+          <div class="profile-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="profile-title">NRI</div>
+          <div class="profile-desc">Foreign income, DTAA</div>
+        </div>
+<div class="kys-profile-card" onclick="window.location.href='{{ route('boc.step1', ['source' => 'categories-businessregistration']) }}'">
+
+  <div class="profile-icon">
+    <!-- Lucide style: Calendar -->
+    <svg viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+      <line x1="16" y1="2" x2="16" y2="6"></line>
+      <line x1="8" y1="2" x2="8" y2="6"></line>
+      <line x1="3" y1="10" x2="21" y2="10"></line>
+    </svg>
+  </div>
+
+  <div class="profile-title">Consultation</div>
+  <div class="profile-desc">Talk to a tax expert</div>
+
+</div>
+        
+      </div>
+    </div>
+
+    <!-- ====== SCREEN 2: INCOME INPUT ====== -->
+    <div id="individual-screen" class="kys-screen">
+
+      <!-- LIVE TAX PREVIEW BAR -->
+      <div class="tax-preview-bar">
+        <div class="tax-preview-left">
+          <div class="tax-preview-label">Estimated Tax Liability</div>
+          <div class="tax-preview-value" id="estimatedTaxDisplay">₹0</div>
+          <div class="tax-preview-optimized" id="optimizedTaxDisplay">↓ Save ₹0</div>
+        </div>
+        <div class="tax-preview-right">
+          <div class="tax-range" id="taxRangeDisplay">FY 2025–26</div>
+          <div class="tax-regime-badge" id="regimeBadge">New Regime</div>
+        </div>
+      </div>
+
+      <!-- PRIMARY INPUT CARD -->
+      <div class="kys-card">
+        <label class="kys-label">Annual Income (₹)</label>
+        <div class="kys-sublabel">Include salary, business income, and other earnings</div>
+        <input type="number" id="salaryInput" class="kys-input" placeholder="e.g. 8,00,000" value="800000" step="10000" oninput="liveUpdate()">
+
+        <label class="kys-label">Tax Regime</label>
+        <div class="regime-row">
+          <button class="regime-btn" id="regimeOld" onclick="setRegime('old')">Old Regime</button>
+          <button class="regime-btn active" id="regimeNew" onclick="setRegime('new')">New Regime</button>
+        </div>
+
+        <label class="kys-label">TDS Deducted by Employer?</label>
+        <select id="tdsSelect" class="kys-input" onchange="liveUpdate()">
+          <option value="yes">Yes – TDS deducted</option>
+          <option value="no">No – No TDS deducted</option>
+        </select>
+      </div>
+
+      <!-- REAL-TIME AI INSIGHT -->
+      <div class="kys-ai-summary" id="insightPanel">
+        <div class="kys-ai-label">
+          <div class="ai-dot"></div>
+          AI Insight
+        </div>
+        <div class="kys-ai-text" id="insightText">Enter your income details above to see personalized tax analysis.</div>
+      </div>
+
+      <!-- UNLOCK TAX SAVINGS (Expandable) -->
+      <div class="kys-card" style="cursor:pointer; margin-bottom:0; border-radius:20px 20px 0 0;">
+        <div class="expand-trigger" onclick="toggleSavings()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span style="font-weight:700; font-size:14px;">🔓 Unlock Tax Savings</span>
+          <div class="expand-icon" id="expandIcon">▼</div>
+        </div>
+      </div>
+      <div class="expandable" id="savingsExpandable" style="margin-bottom:16px;">
+        <div class="kys-card" style="border-radius:0 0 20px 20px; border-top:none; margin-bottom:0;">
+          <label class="kys-label">80C Investments (₹)</label>
+          <div class="kys-sublabel">EPF, PPF, ELSS, LIC (max ₹1,50,000)</div>
+          <input type="number" id="deduction80c" class="kys-input" placeholder="e.g. 1,50,000" value="0" step="10000" oninput="liveUpdate()">
+          <label class="kys-label">80D Health Insurance (₹)</label>
+          <div class="kys-sublabel">Self & family premium (max ₹25,000)</div>
+          <input type="number" id="deduction80d" class="kys-input" placeholder="e.g. 25,000" value="0" step="5000" oninput="liveUpdate()">
+          <label class="kys-label">HRA / Other Exemptions (₹)</label>
+          <div class="kys-sublabel">House rent allowance, LTA etc.</div>
+          <input type="number" id="deductionHra" class="kys-input" placeholder="e.g. 50,000" value="0" step="5000" oninput="liveUpdate()">
+        </div>
+      </div>
+
+      <!-- RECOMMENDATION FEED -->
+      <div id="recommendationFeed"></div>
+
+      <!-- SAVINGS SIMULATOR -->
+      <div class="savings-sim" id="savingsSimulator" style="display:none;">
+        <div class="savings-sim-title">💡 What if you optimize?</div>
+        <div class="savings-sim-text" id="simulatorText"></div>
+      </div>
+
+      <button class="kys-btn-primary" onclick="goToLead(event)" style="margin-top:8px;">Continue to Summary →</button>
+    </div>
+
+    <!-- ====== SCREEN 3: LEAD CAPTURE ====== -->
+    <div id="lead-screen" class="kys-screen">
+      <div class="lead-header">
+        <h2>Almost There</h2>
+        <p>Your tax summary is ready. Enter details to view.</p>
+      </div>
+
+      <div class="kys-card">
+        <div class="lead-summary-row">
+          <span class="lead-summary-label">Estimated Tax</span>
+          <span class="lead-summary-val" id="leadTaxDisplay">₹0</span>
+        </div>
+        <div class="lead-summary-row">
+          <span class="lead-summary-label">Potential Savings</span>
+          <span class="lead-summary-val" style="color:#22c55e;" id="leadSavingsDisplay">₹0</span>
+        </div>
+        <div class="lead-summary-row">
+          <span class="lead-summary-label">Tax Regime</span>
+          <span class="lead-summary-val" id="leadRegimeDisplay">New Regime</span>
+        </div>
+      </div>
+
+      <div class="kys-card">
+        <label class="kys-label">Full Name</label>
+        <input id="leadName" class="kys-input" placeholder="Enter your name" style="margin-bottom:0;">
+        <label class="kys-label" style="margin-top:8px;">Phone Number</label>
+        <input id="leadPhone" class="kys-input" placeholder="+91 9XXXXXXXXX" type="tel" style="margin-bottom:0;">
+        <label class="kys-label" style="margin-top:8px;">Email</label>
+        <input id="leadEmail" class="kys-input" placeholder="your@email.com" type="email">
+        <button class="kys-btn-primary" onclick="submitLead(event)">View Full Tax Report →</button>
+      </div>
+      <div style="text-align:center; font-size:11px; color:rgba(255,255,255,0.3); margin-top:12px;">🔒 Your data is encrypted and never shared</div>
+    </div>
+
+    <!-- ====== SCREEN 4: RESULT DASHBOARD ====== -->
+    <div id="result-screen" class="kys-screen">
+      <div id="resultContent"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// =====================
+// TAX ENGINE
+// =====================
+const taxEngine = {
+  calculate(data) {
+    const salary = parseFloat(data.salary) || 0;
+    const regime = data.regime || 'new';
+    const ded80c = Math.min(parseFloat(data.deductions?.['80c']) || 0, 150000);
+    const ded80d = Math.min(parseFloat(data.deductions?.['80d']) || 0, 25000);
+    const hra    = parseFloat(data.deductions?.['hra']) || 0;
+
+    let stdDed, taxable, tax;
+
+    if (regime === 'new') {
+      // New regime: Standard deduction ₹75,000 for salaried
+      stdDed = Math.min(75000, salary);
+      taxable = Math.max(salary - stdDed, 0);
+      tax = this._computeNewRegime(taxable);
+      // Rebate 87A: if income ≤ 7L, rebate up to ₹25,000
+      if (taxable <= 700000) tax = Math.max(tax - 25000, 0);
+    } else {
+      // Old regime: standard deduction ₹50,000, 80C, 80D, HRA
+      stdDed = Math.min(50000, salary);
+      const totalDed = stdDed + ded80c + ded80d + hra;
+      taxable = Math.max(salary - totalDed, 0);
+      tax = this._computeOldRegime(taxable);
+      // Rebate 87A: if income ≤ 5L, rebate up to ₹12,500
+      if (taxable <= 500000) tax = Math.max(tax - 12500, 0);
+    }
+
+    const cess     = Math.round(tax * 0.04);
+    const totalTax = tax + cess;
+
+    // Potential saving if switch to optimal or use deductions
+    let potentialSaving = 0;
+    if (regime === 'old') {
+      const remainingDed = (150000 - ded80c) + (25000 - ded80d);
+      if (remainingDed > 0) {
+        const newTaxableHypo = Math.max(taxable - remainingDed, 0);
+        const newTaxHypo = this._computeOldRegime(newTaxableHypo);
+        const newTaxHypoWithCess = newTaxHypo + Math.round(newTaxHypo * 0.04);
+        potentialSaving = Math.max(totalTax - newTaxHypoWithCess, 0);
+      }
+    } else {
+      // Compare with old regime w/ full deductions
+      const hypoOldTaxable = Math.max(salary - 50000 - 150000 - 25000, 0);
+      const hypoOldTax = this._computeOldRegime(hypoOldTaxable);
+      const hypoOldTotal = hypoOldTax + Math.round(hypoOldTax * 0.04);
+      potentialSaving = Math.max(totalTax - hypoOldTotal, 0);
+      if (potentialSaving < 0) potentialSaving = 0;
+    }
+
+    return {
+      grossIncome: salary,
+      stdDeduction: stdDed,
+      deductions: ded80c + ded80d + hra,
+      taxableIncome: taxable,
+      incomeTax: tax,
+      cess,
+      totalTax,
+      potentialSaving,
+      regime,
+      slab: this._getSlab(taxable, regime),
+    };
+  },
+
+  _computeNewRegime(taxable) {
+    // FY 2025-26 New Regime slabs
+    const slabs = [
+      [300000, 0.00],
+      [300000, 0.05],  // 3L-6L: 5%
+      [300000, 0.10],  // 6L-9L: 10%
+      [300000, 0.15],  // 9L-12L: 15%
+      [300000, 0.20],  // 12L-15L: 20%
+      [Infinity, 0.30] // >15L: 30%
+    ];
+    return this._slabCalc(taxable, slabs);
+  },
+
+  _computeOldRegime(taxable) {
+    const slabs = [
+      [250000, 0.00],
+      [250000, 0.05],
+      [500000, 0.20],
+      [Infinity, 0.30]
+    ];
+    return this._slabCalc(taxable, slabs);
+  },
+
+  _slabCalc(income, slabs) {
+    let tax = 0, rem = income;
+    for (const [limit, rate] of slabs) {
+      if (rem <= 0) break;
+      const chunk = Math.min(rem, limit === Infinity ? rem : limit);
+      tax += Math.round(chunk * rate);
+      rem -= chunk;
+    }
+    return tax;
+  },
+
+  _getSlab(taxable, regime) {
+    if (regime === 'new') {
+      if (taxable <= 300000) return '0%';
+      if (taxable <= 600000) return '5%';
+      if (taxable <= 900000) return '10%';
+      if (taxable <= 1200000) return '15%';
+      if (taxable <= 1500000) return '20%';
+      return '30%';
+    } else {
+      if (taxable <= 250000) return '0%';
+      if (taxable <= 500000) return '5%';
+      if (taxable <= 1000000) return '20%';
+      return '30%';
+    }
+  },
+
+  getRecommendedServices(state) {
+    const services = [];
+    const cat = state.category || 'individual';
+    if (cat === 'individual') {
+      services.push({ name: 'ITR-1 Filing', desc: 'For salaried individuals with one house property', price: 1499, timeline: '1–2 business days' });
+      services.push({ name: 'ITR-2 Filing', desc: 'Capital gains, multiple sources, foreign assets', price: 2499, timeline: '2–3 business days' });
+    } else if (cat === 'business') {
+      services.push({ name: 'ITR-3 Filing', desc: 'Business & profession income, proprietorship', price: 3499, timeline: '3–5 business days' });
+      services.push({ name: 'ITR-4 Filing', desc: 'Presumptive taxation under 44AD/44ADA', price: 1999, timeline: '2–3 business days' });
+    } else {
+      services.push({ name: 'NRI ITR-2', desc: 'Foreign income, DTAA relief, repatriation', price: 4999, timeline: '3–5 business days' });
+      services.push({ name: 'NRI Advisory', desc: 'FEMA compliance & tax optimization planning', price: 7999, timeline: '5–7 business days' });
+    }
+    return services;
+  }
+};
+
+// =====================
+// STATE
+// =====================
+let appState = {
+  category: 'individual',
+  salary: 800000,
+  regime: 'new',
+  tds: 'yes',
+  deductions: { '80c': 0, '80d': 0, 'hra': 0 },
+  fy: '2025-26',
+  name: '', phone: '', email: '',
+};
+let currentScreen = 'intro';
+const screenOrder = ['intro-screen', 'category-screen', 'individual-screen', 'lead-screen', 'result-screen'];
+let lastResult = null;
+
+// =====================
+// PARTICLES
+// =====================
+(function(){
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 14; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText = `
+      left:${Math.random()*100}%;
+      animation-duration:${8+Math.random()*12}s;
+      animation-delay:${Math.random()*10}s;
+      opacity:${0.2+Math.random()*0.4};
+    `;
+    container.appendChild(p);
+  }
+})();
+
+// =====================
+// SCREEN SYSTEM
+// =====================
+function showScreen(id, direction) {
+  document.querySelectorAll('.kys-screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) { el.classList.add('active'); el.scrollIntoView({behavior:'instant'}); }
+  currentScreen = id;
+
+  const idx = screenOrder.indexOf(id);
+  const header = document.getElementById('kysHeader');
+  const prog = document.getElementById('kysProgressBar');
+
+  if (id === 'intro-screen') {
+    header.classList.remove('show');
+    prog.classList.remove('show');
+  } else {
+    header.classList.add('show');
+    prog.classList.add('show');
+    document.querySelectorAll('.step-dot').forEach((d,i) => {
+      d.classList.remove('active','done');
+      if (i < idx - 1) d.classList.add('done');
+      else if (i === idx - 1) d.classList.add('active');
+    });
+    const pct = Math.round(((idx) / (screenOrder.length - 1)) * 100);
+    document.getElementById('kysProgressFill').style.width = pct + '%';
+  }
+
+  if (id === 'individual-screen') liveUpdate();
+}
+
+function triggerWipe(cb) {
+  const wipe = document.getElementById('wipeOverlay');
+  wipe.classList.add('animating');
+  setTimeout(cb, 300);
+  setTimeout(() => wipe.classList.remove('animating'), 700);
+}
+
+function createRipple(e) {
+  const btn = e.currentTarget || e.target;
+  if (!btn || !btn.getBoundingClientRect) return;
+  const r = document.createElement('span');
+  r.className = 'ripple-effect';
+  const rect = btn.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height) * 1.4;
+  r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;`;
+  btn.appendChild(r);
+  setTimeout(() => r.remove(), 600);
+}
+
+function goBack() {
+  const idx = screenOrder.indexOf(currentScreen);
+  if (idx > 0) triggerWipe(() => showScreen(screenOrder[idx - 1]));
+}
+
+// =====================
+// FLOW
+// =====================
+function goToCategory(e) {
+  createRipple(e);
+  triggerWipe(() => showScreen('category-screen'));
+}
+
+function selectCategory(type, e) {
+  appState.category = type;
+  document.querySelectorAll('.kys-profile-card').forEach(c => c.classList.remove('selected'));
+  e.currentTarget.classList.add('selected');
+  createRipple(e);
+  setTimeout(() => triggerWipe(() => showScreen('individual-screen')), 180);
+}
+
+function setRegime(r) {
+  appState.regime = r;
+  document.getElementById('regimeOld').classList.toggle('active', r === 'old');
+  document.getElementById('regimeNew').classList.toggle('active', r === 'new');
+  document.getElementById('regimeBadge').innerText = r === 'new' ? 'New Regime' : 'Old Regime';
+
+  // Toggle 80C/80D visibility based on regime
+  const expandable = document.getElementById('savingsExpandable');
+  const d80c = document.getElementById('deduction80c');
+  const d80d = document.getElementById('deduction80d');
+  const hra  = document.getElementById('deductionHra');
+  if (r === 'new') {
+    // Deductions not allowed in new regime
+    [d80c, d80d, hra].forEach(el => { el.value = 0; el.disabled = true; el.style.opacity = '0.4'; });
+    appState.deductions = {'80c':0,'80d':0,'hra':0};
+  } else {
+    [d80c, d80d, hra].forEach(el => { el.disabled = false; el.style.opacity = '1'; });
+  }
+  liveUpdate();
+}
+
+function goToLead(e) {
+  if (e) createRipple(e);
+  const r = taxEngine.calculate({
+    salary: appState.salary, regime: appState.regime,
+    deductions: appState.deductions, fy: appState.fy
+  });
+  lastResult = r;
+  document.getElementById('leadTaxDisplay').innerText = '₹' + r.totalTax.toLocaleString('en-IN');
+  document.getElementById('leadSavingsDisplay').innerText = r.potentialSaving > 0 ? '₹' + r.potentialSaving.toLocaleString('en-IN') : 'Optimized';
+  document.getElementById('leadRegimeDisplay').innerText = appState.regime === 'new' ? 'New Regime (Default)' : 'Old Regime';
+  triggerWipe(() => showScreen('lead-screen'));
+}
+
+function submitLead(e) {
+  if (e) createRipple(e);
+  appState.name = document.getElementById('leadName')?.value || 'Taxpayer';
+  appState.phone = document.getElementById('leadPhone')?.value || '';
+  appState.email = document.getElementById('leadEmail')?.value || '';
+  const result = lastResult || taxEngine.calculate({ salary: appState.salary, regime: appState.regime, deductions: appState.deductions });
+  buildResultDashboard(result);
+  triggerWipe(() => showScreen('result-screen'));
+}
+
+// =====================
+// LIVE UPDATE ENGINE
+// =====================
+function liveUpdate() {
+  const salary = parseFloat(document.getElementById('salaryInput')?.value) || 0;
+  const tds = document.getElementById('tdsSelect')?.value || 'yes';
+  const ded80c = parseFloat(document.getElementById('deduction80c')?.value) || 0;
+  const ded80d = parseFloat(document.getElementById('deduction80d')?.value) || 0;
+  const hra   = parseFloat(document.getElementById('deductionHra')?.value) || 0;
+
+  appState.salary = salary;
+  appState.tds = tds;
+  appState.deductions = { '80c': Math.min(ded80c,150000), '80d': Math.min(ded80d,25000), 'hra': hra };
+
+  const result = taxEngine.calculate({
+    salary, regime: appState.regime, deductions: appState.deductions, fy: appState.fy
+  });
+  lastResult = result;
+
+  // Update preview
+  const estTax = result.totalTax;
+  const el = document.getElementById('estimatedTaxDisplay');
+  const prevVal = el.getAttribute('data-val') || '0';
+  if (prevVal !== String(estTax)) {
+    el.classList.remove('animate');
+    void el.offsetWidth;
+    el.classList.add('animate');
+    el.setAttribute('data-val', estTax);
+  }
+  el.innerText = '₹' + estTax.toLocaleString('en-IN');
+
+  const optEl = document.getElementById('optimizedTaxDisplay');
+  if (result.potentialSaving > 0) {
+    optEl.innerText = '↓ Save ₹' + result.potentialSaving.toLocaleString('en-IN');
+    optEl.classList.add('show');
+  } else {
+    optEl.classList.remove('show');
+  }
+  document.getElementById('taxRangeDisplay').innerText = 'FY 2025–26 • ' + result.slab + ' slab';
+
+  updateInsight(result);
+  updateRecommendations(result);
+  updateSimulator(result);
+}
+
+function updateInsight(result) {
+  const text = document.getElementById('insightText');
+  const salary = appState.salary;
+  if (!salary) {
+    text.innerText = 'Enter your income details above to see personalized tax analysis.';
+    return;
+  }
+  if (salary <= (appState.regime === 'new' ? 700000 : 500000)) {
+    text.innerText = 'Good news — your income falls within the tax-free slab after the Section 87A rebate. However, filing an ITR is recommended for financial record-keeping and refund claims.';
+  } else if (result.incomeTax > 0 && appState.regime === 'new' && salary > 700000) {
+    const diff = result.totalTax;
+    text.innerText = `As per the new tax regime for FY 2025–26, your estimated liability is ₹${diff.toLocaleString('en-IN')}. The new regime offers lower rates but no major deductions — compare with old regime if you have significant investments.`;
+  } else if (appState.regime === 'old' && appState.deductions['80c'] < 150000) {
+    text.innerText = `You are leaving tax deductions on the table. Maximizing 80C (₹1,50,000) and 80D (₹25,000) could reduce your taxable income by ₹${(150000 - appState.deductions['80c'] + 25000 - appState.deductions['80d']).toLocaleString('en-IN')}.`;
+  } else {
+    text.innerText = `As per applicable provisions of the Income Tax Act for FY 2025–26, your estimated liability is ₹${result.totalTax.toLocaleString('en-IN')}. You are in the ${result.slab} effective slab.`;
+  }
+}
+
+function updateRecommendations(result) {
+  const feed = document.getElementById('recommendationFeed');
+  let html = '';
+  const sal = appState.salary;
+  const d80c = appState.deductions['80c'];
+  const d80d = appState.deductions['80d'];
+
+  if (sal > 700000 && d80c < 150000 && appState.regime === 'old') {
+    const savings = Math.min(150000 - d80c, sal) * 0.3;
+    html += nudge('success', checkIcon(), `💚 Invest ₹${(150000-d80c).toLocaleString('en-IN')} more in 80C (EPF/PPF/ELSS) to save up to ₹${Math.round(savings).toLocaleString('en-IN')} in tax.`);
+  }
+  if (sal > 500000 && d80d < 25000 && appState.regime === 'old') {
+    html += nudge('info', infoIcon(), `🔵 Health insurance premium up to ₹25,000 is deductible under Section 80D — you have ₹${(25000-d80d).toLocaleString('en-IN')} remaining.`);
+  }
+  if (appState.tds === 'no' && sal > 500000) {
+    html += nudge('warning', warnIcon(), `⚠️ No TDS deducted. You may be required to pay advance tax in quarterly installments to avoid interest under Section 234B/234C.`);
+  }
+  if (appState.regime === 'new' && sal > 900000 && result.potentialSaving > 0) {
+    html += nudge('info', infoIcon(), `💡 Switching to the old regime with full deductions could save you ₹${result.potentialSaving.toLocaleString('en-IN')}. Our CA team can run a detailed comparison.`);
+  }
+  feed.innerHTML = html;
+}
+
+function nudge(type, icon, text) {
+  return `<div class="kys-nudge-card ${type}">${icon}<div>${text}</div></div>`;
+}
+function checkIcon() { return `<svg class="nudge-success-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>`; }
+function infoIcon() { return `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>`; }
+function warnIcon() { return `<svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`; }
+
+function updateSimulator(result) {
+  const sim = document.getElementById('savingsSimulator');
+  if (result.potentialSaving > 0 && appState.salary > 600000) {
+    sim.style.display = 'block';
+    let tip = '';
+    if (appState.regime === 'new') {
+      tip = `Switching to old regime with ₹1,50,000 in 80C + ₹25,000 in 80D could save you ₹${result.potentialSaving.toLocaleString('en-IN')} annually.`;
+    } else {
+      const rem80c = Math.max(150000 - appState.deductions['80c'], 0);
+      if (rem80c > 0) tip = `Invest ₹${rem80c.toLocaleString('en-IN')} more in 80C (PPF/ELSS/LIC) → potential tax saving of ₹${result.potentialSaving.toLocaleString('en-IN')}.`;
+      else tip = `Add health insurance under 80D for additional ₹${result.potentialSaving.toLocaleString('en-IN')} saving.`;
+    }
+    document.getElementById('simulatorText').innerText = tip;
+  } else {
+    sim.style.display = 'none';
+  }
+}
+
+function toggleSavings() {
+  const exp = document.getElementById('savingsExpandable');
+  const icon = document.getElementById('expandIcon');
+  exp.classList.toggle('open');
+  icon.classList.toggle('open');
+}
+
+// =====================
+// RESULT DASHBOARD
+// =====================
+function buildResultDashboard(result) {
+  const container = document.getElementById('resultContent');
+  const name = appState.name || 'Taxpayer';
+  const gross = result.grossIncome;
+  const ded = result.deductions + result.stdDeduction;
+  const taxable = result.taxableIncome;
+  const incomeTax = result.incomeTax;
+  const cess = result.cess;
+  const total = result.totalTax;
+  const savings = result.potentialSaving;
+
+  const tdsMsg = appState.tds === 'no'
+    ? 'Based on your income profile and applicable provisions under the Income Tax Act, filing an Income Tax Return is mandatory. Non-compliance may result in penalties or notices under Section 271F.'
+    : 'Your tax liability has been computed in accordance with the applicable provisions of the Income Tax Act, 1961 for FY 2025–26. Additional optimization may be possible through structured tax planning with our CA team.';
+
+  const services = taxEngine.getRecommendedServices(appState);
+  const servicesHtml = services.map(s => `
+    <div class="service-card">
+      <div class="service-badge">${appState.category === 'nri' ? 'NRI' : 'ITR'}</div>
+      <div class="service-title">${s.name}</div>
+      <div class="service-desc">${s.desc}</div>
+      <div class="service-price">₹${s.price.toLocaleString('en-IN')}</div>
+      <div class="service-timeline">⏱ ${s.timeline}</div>
+      <button class="service-cta" onclick="window.open('https://wa.me/917204058899?text=Hi, I need help filing ${encodeURIComponent(s.name)}', '_blank')">File Now →</button>
+    </div>
+  `).join('');
+
+  container.innerHTML = `
+    <!-- HERO -->
+    <div class="result-hero">
+      <div class="result-label">Total Tax Liability · FY ${appState.fy}</div>
+      <div class="result-amount">₹${total.toLocaleString('en-IN')}</div>
+      <div class="result-legal">As per applicable provisions of the Income Tax Act for FY 2025–26, ${name}'s estimated total tax liability is ₹${total.toLocaleString('en-IN')} under the ${appState.regime === 'new' ? 'new' : 'old'} tax regime.</div>
+    </div>
+
+    <!-- BREAKDOWN GRID -->
+    <div class="breakdown-grid">
+      <div class="breakdown-card">
+        <div class="breakdown-icon">💰</div>
+        <div class="breakdown-label">Gross Income</div>
+        <div class="breakdown-value">₹${gross.toLocaleString('en-IN')}</div>
+      </div>
+      <div class="breakdown-card">
+        <div class="breakdown-icon">📉</div>
+        <div class="breakdown-label">Total Deductions</div>
+        <div class="breakdown-value">₹${ded.toLocaleString('en-IN')}</div>
+      </div>
+      <div class="breakdown-card">
+        <div class="breakdown-icon">📊</div>
+        <div class="breakdown-label">Taxable Income</div>
+        <div class="breakdown-value">₹${taxable.toLocaleString('en-IN')}</div>
+      </div>
+      <div class="breakdown-card">
+        <div class="breakdown-icon">🧾</div>
+        <div class="breakdown-label">Income Tax</div>
+        <div class="breakdown-value">₹${incomeTax.toLocaleString('en-IN')}</div>
+      </div>
+      <div class="breakdown-card">
+        <div class="breakdown-icon">📈</div>
+        <div class="breakdown-label">Health & Ed. Cess</div>
+        <div class="breakdown-value">₹${cess.toLocaleString('en-IN')}</div>
+      </div>
+      <div class="breakdown-card highlight">
+        <div class="breakdown-icon">✅</div>
+        <div class="breakdown-label">Net Tax Payable</div>
+        <div class="breakdown-value">₹${total.toLocaleString('en-IN')}</div>
+      </div>
+    </div>
+
+    <!-- AI INSIGHT -->
+    <div class="kys-ai-summary">
+      <div class="kys-ai-label"><div class="ai-dot"></div> AI Insight</div>
+      <div class="kys-ai-text">${tdsMsg}</div>
+    </div>
+
+    <!-- SAVINGS HIGHLIGHT -->
+    ${savings > 0 ? `
+    <div class="savings-highlight">
+      <div class="savings-icon">💡</div>
+      <div class="savings-text">
+        <div class="savings-text-title">You could save ₹${savings.toLocaleString('en-IN')}</div>
+        <div class="savings-text-sub">By optimizing deductions & regime selection. Our CA team can help maximize your savings.</div>
+      </div>
+    </div>` : ''}
+
+    <!-- SERVICES -->
+    <div class="section-title">Recommended Services</div>
+    <div class="service-grid">${servicesHtml}</div>
+
+    <!-- FOOTER -->
+    <div class="result-footer">
+      <div class="trust-dots" style="justify-content:center;">
+        <span>🔒 Secure</span>
+        <div class="trust-dot-sep"></div>
+        <span>Govt Compliant</span>
+        <div class="trust-dot-sep"></div>
+        <span>CA Assisted</span>
+      </div>
+      <div style="margin-top:12px;">This is an estimate. Actual liability may vary based on complete income details.</div>
+    </div>
+
+    <button class="kys-btn-primary" onclick="restart()" style="margin-bottom:20px;">← Calculate Again</button>
+  `;
+}
+
+function restart() {
+  // Reset state
+  appState = { category: 'individual', salary: 800000, regime: 'new', tds: 'yes', deductions: {'80c':0,'80d':0,'hra':0}, fy: '2025-26', name: '', phone: '', email: '' };
+  triggerWipe(() => showScreen('intro-screen'));
+}
+
+// =====================
+// INIT
+// =====================
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll content area to top
+  document.querySelector('.kys-content').scrollTop = 0;
+  liveUpdate();
+});
+</script>
